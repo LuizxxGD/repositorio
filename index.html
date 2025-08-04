@@ -1,0 +1,2015 @@
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Curso de Desbloqueio de iPhones - iOS Unlocker Pro</title>
+    <meta name="description"
+        content="Aprenda a desbloquear todos os modelos de iPhone com nosso curso completo do zero ao avançado">
+    <link rel="stylesheet" href="css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&amp;display=swap" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap"
+        rel="stylesheet">
+    <style>
+        @keyframes ripple {
+            to {
+                transform: scale(4);
+                opacity: 0;
+            }
+        }
+    </style>
+    <style>
+        .allow-copy_cover {
+            --yellow: #ffbb09;
+            --yellow-light: #ffc93c;
+            --yellow-lighter: #ffd76f;
+            --black: #000000;
+            --black-light: #111111;
+            --black-lighter: #2a2a2a;
+            --border-gray: #e8e8e8;
+            --text: #666;
+            --white: #ffffff;
+            --font-size: 16px;
+            color: var(--text);
+            font-size: var(--font-size);
+            font-family: "Rubik", sans-serif;
+        }
+
+        .allow-copy_cover {
+            box-sizing: border-box;
+            border: 5px dashed var(--yellow-lighter);
+            position: fixed;
+            top: 0;
+            left: 0;
+            overflow: hidden;
+            width: 0px;
+            height: 0px;
+            opacity: 0;
+            z-index: -1;
+            transition: opacity 0.6s;
+            overflow: visible;
+            background-color: rgba(255, 255, 255, 0.5);
+        }
+
+        .allow-copy_cover .allow-copy_detected-text-line {
+            position: absolute;
+            background-color: rgba(255, 255, 255, 0.9);
+            display: inline-block;
+            text-align: center;
+            vertical-align: middle;
+            font-family: Arial, Helvetica, sans-serif;
+            margin-top: -5px;
+            margin-left: -5px;
+        }
+
+        .allow-copy_cover .allow-copy_detected-text-line:after {
+            content: "";
+            position: absolute;
+            height: 150%;
+            width: 150%;
+            background: rgba(255, 255, 255, 0.9);
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: -1;
+        }
+
+        .allow-copy_cover.allow-copy_cover__on-elem {
+            opacity: 1;
+            z-index: 2147483647;
+        }
+
+        .allow-copy_cover .allow-copy_cover-actions {
+            position: absolute;
+            z-index: 1;
+            top: 0;
+            left: 0;
+            padding: 0;
+            margin: -5px;
+            display: inline-flex;
+            gap: 4px;
+            padding: 4px;
+            align-items: center;
+            background-color: var(--yellow-light);
+        }
+
+        .allow-copy_cover .allow-copy_cover-action {
+            box-sizing: border-box;
+            margin: 0 0 0 0;
+
+            padding: 0;
+
+            z-index: 1;
+            cursor: pointer;
+            display: inline-block;
+
+            color: var(--black-lighter);
+        }
+
+        .allow-copy_cover .allow-copy_cover-action svg {
+            fill: currentColor;
+            width: 24px;
+            height: 24px;
+        }
+
+        .allow-copy_cover .allow-copy_cover-action:hover {
+            color: var(--black-light);
+            transform: scale(1.1);
+        }
+
+        .allow-copy_cover.allow-copy__hidden,
+        .allow-copy_cover .allow-copy__hidden {
+            display: none;
+        }
+
+        .allow-copy_cover.allow-copy__not-allowed,
+        .allow-copy_cover .allow-copy__not-allowed {
+            pointer-events: none;
+            cursor: not-allowed;
+        }
+
+        .allow-copy_cover.allow-copy__pending,
+        .allow-copy_cover .allow-copy__pending {
+            pointer-events: none;
+            animation: pulse 0.5s infinite ease-in-out alternate;
+        }
+
+        .allow-copy_cover-action.allow-copy_grab-action {}
+
+        .allow-copy_cover-action.allow-copy_copy-to-clipboard-action {}
+
+        .allow-copy_cover-action.allow-copy_copy-to-clipboard-action {}
+
+        .allow-copy_cover.allow-copy_cover__minimized {
+            width: auto !important;
+            height: auto !important;
+        }
+
+        .allow-copy_cover.allow-copy_cover__minimized .allow-copy_detected-text-line {
+            display: none !important;
+        }
+
+        .allow-copy_cover .allow-copy__beta-testing-label {
+            color: var(--black-lighter);
+            top: 0;
+            right: 0;
+            position: absolute;
+            font-weight: bold;
+            text-transform: uppercase;
+            background-color: var(--yellow-light);
+            margin: -5px -5px 0 0;
+            padding: 9px;
+            display: inline-flex;
+            align-items: center;
+        }
+
+        .allow-copy_cover .allow-copy__settings svg {
+            width: 24px;
+            height: 24px;
+            display: inline-block;
+            cursor: pointer;
+        }
+
+        .allow-copy_cover .allow-copy_beta-icon {
+            cursor: pointer;
+            text-transform: uppercase;
+            font-weight: bold;
+            display: none;
+            display: inline-flex;
+            align-items: center;
+        }
+
+        .allow-copy_cover.allow-copy_cover__minimized .allow-copy__beta-testing-label {
+            display: none;
+        }
+
+        .allow-copy_cover.allow-copy_cover__minimized .allow-copy_beta-icon {
+            display: inline-block;
+        }
+
+        /* .pulse {
+  animation: pulse 1s infinite ease-in-out alternate;
+} */
+
+        .allow-copy_info-alert {
+            --yellow: #ffbb09;
+            --yellow-light: #ffc93c;
+            --yellow-lighter: #ffd76f;
+            --black: #000000;
+            --black-light: #111111;
+            --black-lighter: #2a2a2a;
+            --border-gray: #e8e8e8;
+            --text: #666;
+            --white: #ffffff;
+
+            z-index: 9999;
+            background-color: #fff;
+            border-radius: 4px;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            max-width: calc(100% - 20px);
+            width: 400px;
+            height: 250px;
+            box-sizing: border-box;
+            padding: 20px;
+            max-height: calc(100% - 20px);
+            box-shadow: rgb(0 0 0 / 20%) 0px 11px 15px -7px,
+                rgb(0 0 0 / 14%) 0px 24px 38px 3px, rgb(0 0 0 / 12%) 0px 9px 46px 8px;
+        }
+
+        .allow-copy_info-alert {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .allow-copy_info-alert .allow-copy_info-alert__message {
+            flex: 1 0;
+            padding: 20px 0;
+            font-size: 18px;
+            text-transform: uppercase;
+            line-height: 1.3;
+            font-weight: bold;
+            font-family: SANS-SERIF, "Open Sans", sans-serif, Robota;
+        }
+
+        .allow-copy_info-alert .allow-copy_info-alert__ok-btn {
+            font-weight: 600;
+            font-size: 14px;
+            text-transform: uppercase;
+            background-color: var(--yellow-light);
+            border: 1px solid var(--yellow);
+            border-radius: 0.25em;
+            padding: 0.5em 1em;
+            min-width: 8em;
+            margin: 0em 0em;
+            cursor: pointer;
+            display: inline-block;
+        }
+
+        @keyframes pulse {
+            from {
+                transform: scale(0.9);
+            }
+
+            to {
+                transform: scale(1.1);
+            }
+        }
+    </style>
+    <style>
+        @keyframes ripple {
+            to {
+                transform: scale(4);
+                opacity: 0;
+            }
+        }
+    </style>
+    <style>
+        @keyframes ripple {
+            to {
+                transform: scale(4);
+                opacity: 0;
+            }
+        }
+    </style>
+    <style>
+        @keyframes ripple {
+            to {
+                transform: scale(4);
+                opacity: 0;
+            }
+        }
+    </style>
+    <style>
+        @keyframes ripple {
+            to {
+                transform: scale(4);
+                opacity: 0;
+            }
+        }
+    </style>
+    <style>
+        @keyframes ripple {
+            to {
+                transform: scale(4);
+                opacity: 0;
+            }
+        }
+    </style>
+    <style>
+        @keyframes ripple {
+            to {
+                transform: scale(4);
+                opacity: 0;
+            }
+        }
+    </style>
+    <style>
+        @keyframes ripple {
+            to {
+                transform: scale(4);
+                opacity: 0;
+            }
+        }
+    </style>
+    <style>
+        @keyframes ripple {
+            to {
+                transform: scale(4);
+                opacity: 0;
+            }
+        }
+    </style>
+    <style>
+        @keyframes ripple {
+            to {
+                transform: scale(4);
+                opacity: 0;
+            }
+        }
+    </style>
+    <style>
+        @keyframes ripple {
+            to {
+                transform: scale(4);
+                opacity: 0;
+            }
+        }
+    </style>
+    <style>
+        @keyframes ripple {
+            to {
+                transform: scale(4);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+
+<body style="opacity: 1; transition: opacity 0.5s ease-in-out;" class="127_0_0_1">
+    <!-- Hero Section -->
+    <section class="hero-section" style="position: relative; width: 100%; height: 100vh; overflow: hidden;">
+        <!-- IMAGEM DE FUNDO ESCURECIDA E FIXA -->
+        <div class="hero-background"
+            style="background-image: url(&quot;https://i.postimg.cc/pT3whJ7w/paredeoficial.jpg&quot;); background-size: cover; background-position: center center; background-repeat: no-repeat; width: 100%; height: 100%; position: absolute; top: 0px; left: 0px; filter: brightness(50%); z-index: 1; transform: translateY(877px);">
+        </div>
+
+        <!-- OVERLAY PRETO -->
+        <div style="position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: rgba(0, 0, 0, 0.3);
+                z-index: 2;">
+        </div>
+
+        <!-- ORBs -->
+        <div class="orb orb-1" style="display: none; z-index: 3; transform: translateY(526.2px) rotate(175.4deg);">
+        </div>
+        <div class="orb orb-2" style="z-index: 3; transform: translateY(1052.4px) rotate(175.4deg);"></div>
+
+        <!-- CONTEÚDO PRINCIPAL -->
+        <div class="hero-content" style="
+    position: relative;
+    z-index: 4;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-align: center;
+    padding: 1rem;
+    box-sizing: border-box;
+    width: 100%;
+    overflow-x: hidden;
+">
+            <h1 class="hero-title" style="
+        font-size: clamp(3rem, 10vw, 5rem);
+        margin-bottom: 0.8rem;
+        line-height: 1.1;
+        padding: 0;
+        font-weight: 800;
+        letter-spacing: -0.05em;
+    ">
+                Curso de Desbloqueio de
+                <span class="gradient-text" style="
+            color: orange;
+            display: inline-block;
+            background: linear-gradient(45deg, #ff8c00, #ffcc00);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: none;
+        ">iPhones</span>
+                <span style="
+            display: block;
+            color: #6a0dad;
+            text-shadow: 0 0 10px #6a0dadcc, 0 0 20px #6a0dadaa;
+            font-size: clamp(2rem, 6vw, 3.5rem);
+            margin-top: 0.5rem;
+            font-weight: 700;
+            letter-spacing: -0.03em;
+        ">
+                    Domine todas as versões
+                </span>
+            </h1>
+
+            <img src="https://i.postimg.cc/d0wShtBj/COMUNIDADE-removebg-preview.png" alt="Logo da comunidade" style="
+            max-width: min(100%, 350px);
+            height: auto;
+            display: block;
+            margin: 0.5rem auto;
+            width: 70%;
+        " loading="lazy">
+
+            <p class="hero-subtitle" style="
+        font-size: clamp(0.9rem, 3vw, 1.1rem);
+        max-width: min(95%, 700px);
+        margin: 0.5rem auto 1.5rem;
+        line-height: 1.4;
+        padding: 0 0.5rem;
+    ">
+                Aprenda a desbloquear todos os modelos de iPhone, dominando as técnicas para todas as versões do iOS.
+                Nosso curso completo leva você do zero ao avançado, preparando para qualquer desafio.
+            </p>
+
+           <a href="#comprar-agora" class="cta-button" style="display: inline-block; padding: 0.8rem 1.8rem; background: linear-gradient(45deg, rgb(106, 13, 173), rgb(255, 140, 0)); color: white; border: none; border-radius: 5px; font-size: clamp(0.9rem, 3vw, 1rem); cursor: pointer; transition: transform 0.3s; white-space: nowrap; margin-top: -0.5rem; margin-bottom: 0.5rem; transform: scale(1.05); position: relative; overflow: hidden; text-decoration: none;">
+    Começar Agora
+</a>
+        </div>
+    </section>
+
+
+    <style>
+        .testimonials-section,
+        .modules-section,
+        .bonuses-section,
+        .about-section,
+        .info-section,
+        .footer,
+        .limited-offer-section,
+        .module-card,
+        .bonus-card,
+        .info-card,
+        .testimonial-img {
+            background-image: none !important;
+            background: #000 !important;
+        }
+
+        /* Exceção para o botão de compra */
+        a[href="#comprar-agora"],
+        a[href="#comprar-agora"] * {
+            background: transparent !important;
+        }
+
+        /* Estilos melhorados para o botão */
+        a[href="#comprar-agora"] {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #00C853 0%, #008C3A 100%) !important;
+            color: white !important;
+            border: none;
+            padding: 16px 30px;
+            font-size: clamp(16px, 4vw, 20px);
+            font-weight: 700;
+            border-radius: 50px;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-decoration: none;
+            box-shadow: 0 5px 20px rgba(0, 200, 83, 0.4);
+            width: 90%;
+            max-width: 350px;
+            margin: 20px auto;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        /* Efeitos de hover */
+        a[href="#comprar-agora"]:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0, 200, 83, 0.5);
+        }
+
+        /* Ícone de seta */
+        a[href="#comprar-agora"] svg {
+            margin-left: 8px;
+            transition: transform 0.3s ease;
+        }
+
+        a[href="#comprar-agora"]:hover svg {
+            transform: translateX(4px);
+        }
+
+        /* Efeito de brilho */
+        a[href="#comprar-agora"]::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg,
+                    transparent,
+                    rgba(255, 255, 255, 0.2),
+                    transparent);
+            transition: 0.5s;
+        }
+
+        a[href="#comprar-agora"]:hover::after {
+            left: 100%;
+        }
+    </style>
+
+
+    <!-- Seção de Módulos do Curso -->
+    <section id="modules" class="modules-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Módulos do Curso: Básico ao Avançado</h2>
+                <p class="section-subtitle">Conteúdo estruturado para levar você do iniciante ao profissional</p>
+            </div>
+            <div class="modules-grid">
+                <div class="module-card" data-aos="slide-left"
+                    style="opacity: 0; animation: 1s ease-out 0s 1 normal forwards running slideInLeft;">
+                    <div class="module-number">01</div>
+                    <div class="module-content">
+                        <h3 class="module-title">Módulo 01: Fundamentos do Desbloqueio</h3>
+                        <p class="module-description">
+                            Apresentação do curso e do conteúdo. Conceitos sobre desbloqueios e vai aprender na prática
+                            a como dominar a ferramenta UnlockTool.
+                        </p>
+                    </div>
+                </div>
+                <div class="module-card" data-aos="slide-right"
+                    style="opacity: 0; animation: 1s ease-out 0s 1 normal forwards running slideInRight;">
+                    <div class="module-number">02</div>
+                    <div class="module-content">
+                        <h3 class="module-title">Módulo 02: Método Lucrativo</h3>
+                        <p class="module-description">
+                            Passo a passo para você desbloquear o iPhone muito rápido e lucrar até R$ 700,00 por
+                            aparelho. Compartilho meu método e os melhores servidores.
+                        </p>
+                    </div>
+                </div>
+                <div class="module-card" data-aos="slide-left"
+                    style="opacity: 0; animation: 1s ease-out 0s 1 normal forwards running slideInLeft;">
+                    <div class="module-number">03</div>
+                    <div class="module-content">
+                        <h3 class="module-title">Módulo 03: Ferramentas e Softwares</h3>
+                        <p class="module-description">
+                            Apresentação de ferramentas, softwares e servidores que vamos utilizar para realizar os
+                            desbloqueios com eficiência.
+                        </p>
+                    </div>
+                </div>
+                <div class="module-card" data-aos="slide-right"
+                    style="opacity: 0; animation: 1s ease-out 0s 1 normal forwards running slideInRight;">
+                    <div class="module-number">04</div>
+                    <div class="module-content">
+                        <h3 class="module-title">Módulo 04: Aulas Práticas</h3>
+                        <p class="module-description">
+                            Aulas práticas de desbloqueios usando ferramentas e servidores apresentados no curso, com
+                            todo o suporte necessário.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="testimonials" style="
+  background: #000;
+  min-height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+">
+  <!-- TÍTULO FIXO NO TOPO -->
+  <h2 style="
+    text-align: center;
+    color: white;
+    font-size: 1.5rem;
+    margin: 20px 0;
+    padding: 0 20px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    text-shadow: 2px 2px 5px rgba(0,0,0,0.8);
+    line-height: 1.3;
+    width: 100%;
+  ">O QUE NOSSOS<br>ALUNOS DIZEM</h2>
+
+  <!-- CONTAINER DAS FOTOS ABAIXO DO TÍTULO -->
+  <div style="
+    width: 100%;
+    flex-grow: 1;
+    position: relative;
+    overflow: hidden;
+  ">
+    <!-- CARROSSEL DE FOTOS -->
+    <div class="carousel" style="
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    ">
+      <!-- SLIDE 1 -->
+<div class="slide active" style="position: absolute; width: 100%; height: 100%; opacity: 0; transition: opacity 0.5s;">
+  <img src="dep/depoimento01iphone.jpg" style="
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  ">
+</div>
+
+<!-- SLIDE 2 -->
+<div class="slide" style="position: absolute; width: 100%; height: 100%; opacity: 1; transition: opacity 0.5s;">
+  <img src="dep/depoimento02.jpg" style="
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  ">
+</div>
+
+<!-- SLIDE 3 (NOVO) -->
+<div class="slide" style="position: absolute; width: 100%; height: 100%; opacity: 0; transition: opacity 0.5s;">
+  <img src="dep/WhatsApp Image 2025-08-04 at 14.08.17 (1).jpeg" style="
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  ">
+</div>
+
+<!-- SLIDE 4 (NOVO) -->
+<div class="slide" style="position: absolute; width: 100%; height: 100%; opacity: 0; transition: opacity 0.5s;">
+  <img src="dep/WhatsApp Image 2025-08-04 at 14.08.17.jpeg" style="
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  ">
+</div>
+
+      
+    </div>
+  </div>
+</section>
+<script>
+  // CONTROLE DO CARROSSEL (mesmo código funcional)
+  const slides = document.querySelectorAll('.slide');
+  const prevBtn = document.querySelector('.prev');
+  const nextBtn = document.querySelector('.next');
+  let currentIndex = 0;
+  let interval = setInterval(nextSlide, 3000);
+
+  function showSlide(index) {
+    slides.forEach((slide, i) => {
+      slide.style.opacity = i === index ? '1' : '0';
+    });
+    currentIndex = index;
+  }
+
+  function nextSlide() {
+    currentIndex = (currentIndex + 1) % slides.length;
+    showSlide(currentIndex);
+  }
+
+  function prevSlide() {
+    currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+    showSlide(currentIndex);
+  }
+
+  nextBtn.addEventListener('click', () => {
+    clearInterval(interval);
+    nextSlide();
+    interval = setInterval(nextSlide, 3000);
+  });
+
+  prevBtn.addEventListener('click', () => {
+    clearInterval(interval);
+    prevSlide();
+    interval = setInterval(nextSlide, 3000);
+  });
+
+  let touchStartX = 0;
+  const carousel = document.querySelector('.carousel');
+
+  carousel.addEventListener('touchstart', (e) => {
+    touchStartX = e.touches[0].clientX;
+    clearInterval(interval);
+  }, { passive: true });
+
+  carousel.addEventListener('touchend', (e) => {
+    const touchEndX = e.changedTouches[0].clientX;
+    if (touchStartX - touchEndX > 50) nextSlide();
+    if (touchEndX - touchStartX > 50) prevSlide();
+    interval = setInterval(nextSlide, 3000);
+  }, { passive: true });
+
+  showSlide(0);
+</script>
+
+
+
+
+
+    <!-- Exclusive Bonuses -->
+
+
+    <section class="bonuses-section"
+        style="background: #0a0a0a; padding: 80px 0; position: relative; overflow: hidden;">
+        <!-- Efeito de fundo -->
+        <div
+            style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: radial-gradient(circle at 70% 30%, rgba(255, 69, 0, 0.08) 0%, transparent 40%); z-index: 1;">
+        </div>
+
+        <div class="container"
+            style="max-width: 1200px; margin: 0 auto; padding: 0 20px; position: relative; z-index: 2;">
+            <div class="section-header" style="text-align: center; margin-bottom: 50px;">
+                <h2 class="section-title"
+                    style="font-size: 2.8rem; margin-bottom: 15px; color: white; font-weight: 800; letter-spacing: -0.03em; text-transform: uppercase; position: relative; display: inline-block;">
+                    <span
+                        style="display: inline-block; background: linear-gradient(90deg, #ff8c00, #ff4500); -webkit-background-clip: text; background-clip: text; color: transparent;">Bônus
+                        Exclusivos</span>
+                </h2>
+                <p class="section-subtitle" style="font-size: 1.2rem; color: #ff8c00; font-weight: 600; margin: 0;">
+                    Para quem adquirir o plano premium
+                </p>
+            </div>
+
+            <div class="bonuses-grid"
+                style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px;">
+                <!-- Bypass iOS 17.5 -->
+                <div class="bonus-card"
+                    style="background: rgba(20, 20, 20, 0.8); border-radius: 12px; padding: 30px; border: 1px solid rgba(255, 140, 0, 0.3); box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3); transition: all 0.4s ease; position: relative; overflow: hidden;">
+                    <div class="bonus-icon"
+                        style="width: 60px; height: 60px; background: rgba(255, 140, 0, 0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 20px; border: 1px solid rgba(255, 140, 0, 0.3);">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#ff8c00" stroke-width="2">
+                            <polygon points="13,2 3,14 12,14 11,22 21,10 12,10 13,2"></polygon>
+                        </svg>
+                    </div>
+                    <h3 class="bonus-title"
+                        style="font-size: 1.4rem; margin: 0 0 15px; color: white; font-weight: 700;">Bypass iOS 17.5
+                    </h3>
+                    <p class="bonus-description" style="font-size: 1rem; color: #ccc; line-height: 1.5; margin: 0;">
+                        Método completo para desbloqueio iCloud em dispositivos com iOS 17.5</p>
+                    <div class="bonus-hover"
+                        style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(135deg, rgba(255,140,0,0.05), transparent); opacity: 0; transition: opacity 0.3s ease;">
+                    </div>
+                </div>
+
+                <!-- Bypass iOS 18.5 -->
+                <div class="bonus-card"
+                    style="background: rgba(20, 20, 20, 0.8); border-radius: 12px; padding: 30px; border: 1px solid rgba(106, 13, 173, 0.3); box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3); transition: all 0.4s ease; position: relative; overflow: hidden;">
+                    <div class="bonus-icon"
+                        style="width: 60px; height: 60px; background: rgba(106, 13, 173, 0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 20px; border: 1px solid rgba(106, 13, 173, 0.3);">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#6a0dad" stroke-width="2">
+                            <polygon points="13,2 3,14 12,14 11,22 21,10 12,10 13,2"></polygon>
+                        </svg>
+                    </div>
+                    <h3 class="bonus-title"
+                        style="font-size: 1.4rem; margin: 0 0 15px; color: white; font-weight: 700;">Bypass iOS 18.5
+                    </h3>
+                    <p class="bonus-description" style="font-size: 1rem; color: #ccc; line-height: 1.5; margin: 0;">
+                        Solução avançada para contornar o iCloud na última versão do iOS</p>
+                    <div class="bonus-hover"
+                        style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(135deg, rgba(106,13,173,0.05), transparent); opacity: 0; transition: opacity 0.3s ease;">
+                    </div>
+                </div>
+
+                <!-- Suporte Técnico VIP -->
+                <div class="bonus-card"
+                    style="background: rgba(20, 20, 20, 0.8); border-radius: 12px; padding: 30px; border: 1px solid rgba(255, 140, 0, 0.3); box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3); transition: all 0.4s ease; position: relative; overflow: hidden;">
+                    <div class="bonus-icon"
+                        style="width: 60px; height: 60px; background: rgba(255, 140, 0, 0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 20px; border: 1px solid rgba(255, 140, 0, 0.3);">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#ff8c00" stroke-width="2">
+                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                            <circle cx="9" cy="7" r="4"></circle>
+                            <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                            <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                        </svg>
+                    </div>
+                    <h3 class="bonus-title"
+                        style="font-size: 1.4rem; margin: 0 0 15px; color: white; font-weight: 700;">Suporte Técnico VIP
+                    </h3>
+                    <p class="bonus-description" style="font-size: 1rem; color: #ccc; line-height: 1.5; margin: 0;">
+                        Assistência remota especializada para bypass em todas versões</p>
+                    <div class="bonus-hover"
+                        style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(135deg, rgba(255,140,0,0.05), transparent); opacity: 0; transition: opacity 0.3s ease;">
+                    </div>
+                </div>
+
+                <!-- Pacote Completo iOS -->
+                <div class="bonus-card"
+                    style="background: rgba(20, 20, 20, 0.8); border-radius: 12px; padding: 30px; border: 1px solid rgba(106, 13, 173, 0.3); box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3); transition: all 0.4s ease; position: relative; overflow: hidden;">
+                    <div class="bonus-icon"
+                        style="width: 60px; height: 60px; background: rgba(106, 13, 173, 0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 20px; border: 1px solid rgba(106, 13, 173, 0.3);">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#6a0dad" stroke-width="2">
+                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="bonus-title"
+                        style="font-size: 1.4rem; margin: 0 0 15px; color: white; font-weight: 700;">Pacote Completo iOS
+                    </h3>
+                    <p class="bonus-description" style="font-size: 1rem; color: #ccc; line-height: 1.5; margin: 0;">
+                        Ferramentas para bypass desde iOS 14 até 18.5</p>
+                    <div class="bonus-hover"
+                        style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(135deg, rgba(106,13,173,0.05), transparent); opacity: 0; transition: opacity 0.3s ease;">
+                    </div>
+                </div>
+
+                <!-- Atualizações Vitalícias -->
+                <div class="bonus-card"
+                    style="background: rgba(20, 20, 20, 0.8); border-radius: 12px; padding: 30px; border: 1px solid rgba(255, 140, 0, 0.3); box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3); transition: all 0.4s ease; position: relative; overflow: hidden;">
+                    <div class="bonus-icon"
+                        style="width: 60px; height: 60px; background: rgba(255, 140, 0, 0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 20px; border: 1px solid rgba(255, 140, 0, 0.3);">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#ff8c00" stroke-width="2">
+                            <polygon
+                                points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26 12,2">
+                            </polygon>
+                        </svg>
+                    </div>
+                    <h3 class="bonus-title"
+                        style="font-size: 1.4rem; margin: 0 0 15px; color: white; font-weight: 700;">Atualizações
+                        Vitalícias</h3>
+                    <p class="bonus-description" style="font-size: 1rem; color: #ccc; line-height: 1.5; margin: 0;">
+                        Novos métodos de bypass para futuras atualizações do iOS</p>
+                    <div class="bonus-hover"
+                        style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(135deg, rgba(255,140,0,0.05), transparent); opacity: 0; transition: opacity 0.3s ease;">
+                    </div>
+                </div>
+
+                <!-- Compatibilidade Total -->
+                <div class="bonus-card"
+                    style="background: rgba(20, 20, 20, 0.8); border-radius: 12px; padding: 30px; border: 1px solid rgba(106, 13, 173, 0.3); box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3); transition: all 0.4s ease; position: relative; overflow: hidden;">
+                    <div class="bonus-icon"
+                        style="width: 60px; height: 60px; background: rgba(106, 13, 173, 0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 20px; border: 1px solid rgba(106, 13, 173, 0.3);">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#6a0dad" stroke-width="2">
+                            <polyline points="20,6 9,17 4,12"></polyline>
+                        </svg>
+                    </div>
+                    <h3 class="bonus-title"
+                        style="font-size: 1.4rem; margin: 0 0 15px; color: white; font-weight: 700;">Compatibilidade
+                        Total</h3>
+                    <p class="bonus-description" style="font-size: 1rem; color: #ccc; line-height: 1.5; margin: 0;">
+                        Funciona em todos modelos (iPhone 6s ao 15 Pro Max)</p>
+                    <div class="bonus-hover"
+                        style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(135deg, rgba(106,13,173,0.05), transparent); opacity: 0; transition: opacity 0.3s ease;">
+                    </div>
+                </div>
+
+                <!-- Métodos Alternativos -->
+                <div class="bonus-card"
+                    style="background: rgba(20, 20, 20, 0.8); border-radius: 12px; padding: 30px; border: 1px solid rgba(255, 140, 0, 0.3); box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3); transition: all 0.4s ease; position: relative; overflow: hidden;">
+                    <div class="bonus-icon"
+                        style="width: 60px; height: 60px; background: rgba(255, 140, 0, 0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 20px; border: 1px solid rgba(255, 140, 0, 0.3);">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#ff8c00" stroke-width="2">
+                            <polygon points="13,2 3,14 12,14 11,22 21,10 12,10 13,2"></polygon>
+                        </svg>
+                    </div>
+                    <h3 class="bonus-title"
+                        style="font-size: 1.4rem; margin: 0 0 15px; color: white; font-weight: 700;">Métodos
+                        Alternativos</h3>
+                    <p class="bonus-description" style="font-size: 1rem; color: #ccc; line-height: 1.5; margin: 0;">
+                        Técnicas adicionais para quando o bypass padrão falhar</p>
+                    <div class="bonus-hover"
+                        style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(135deg, rgba(255,140,0,0.05), transparent); opacity: 0; transition: opacity 0.3s ease;">
+                    </div>
+                </div>
+
+                <!-- Certificado Profissional -->
+                <div class="bonus-card"
+                    style="background: rgba(20, 20, 20, 0.8); border-radius: 12px; padding: 30px; border: 1px solid rgba(106, 13, 173, 0.3); box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3); transition: all 0.4s ease; position: relative; overflow: hidden;">
+                    <div class="bonus-icon"
+                        style="width: 60px; height: 60px; background: rgba(106, 13, 173, 0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 20px; border: 1px solid rgba(106, 13, 173, 0.3);">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#6a0dad" stroke-width="2">
+                            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                            <polyline points="22,4 12,14.01 9,11.01"></polyline>
+                        </svg>
+                    </div>
+                    <h3 class="bonus-title"
+                        style="font-size: 1.4rem; margin: 0 0 15px; color: white; font-weight: 700;">Certificado
+                        Profissional</h3>
+                    <p class="bonus-description" style="font-size: 1rem; color: #ccc; line-height: 1.5; margin: 0;">
+                        Comprovação de domínio em técnicas de bypass iOS</p>
+                    <div class="bonus-hover"
+                        style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(135deg, rgba(106,13,173,0.05), transparent); opacity: 0; transition: opacity 0.3s ease;">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <style>
+            .bonus-card:hover {
+                transform: translateY(-10px);
+                box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+                border-color: rgba(255, 140, 0, 0.5);
+            }
+
+            .bonus-card:hover .bonus-hover {
+                opacity: 1;
+            }
+
+            .bonus-icon svg {
+                transition: transform 0.3s ease;
+            }
+
+            .bonus-card:hover .bonus-icon svg {
+                transform: scale(1.1);
+            }
+        </style>
+    </section>
+
+    <!-- What is the Course -->
+    <section class="about-section">
+        <div class="container">
+            <h2 class="section-title">O que é o Curso de Desbloqueio?</h2>
+            <div class="about-content">
+                <p class="about-text">
+                    É o treinamento mais completo e atualizado do Brasil sobre
+                    <span class="highlight">desbloqueio de iPhones</span>. Mesmo que você
+                    <span class="highlight">nunca tenha feito isso antes</span>, você vai aprender
+                    <span class="highlight">passo a passo</span> tudo o que precisa para começar
+                    <span class="highlight">do zero até o nível profissional</span>.
+                </p>
+            </div>
+           <div style="text-align: center;"> <!-- Centraliza horizontalmente -->
+    <a 
+        href="#comprar-agora" 
+        class="cta-button" 
+        style="
+            display: inline-block;
+            padding: 0.8rem 1.8rem;
+            background: linear-gradient(45deg, rgb(106, 13, 173), rgb(255, 140, 0));
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: clamp(0.9rem, 3vw, 1rem);
+            cursor: pointer;
+            transition: transform 0.3s;
+            white-space: nowrap;
+            transform: scale(1.05);
+            position: relative;
+            overflow: hidden;
+            text-decoration: none;
+        "
+    >
+        Começar Agora
+    </a>
+</div>
+        </div>
+    </section>
+
+    <!-- Additional Information -->
+    <!-- Additional Information - Dark Theme -->
+    <section class="info-section"
+        style="background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%); padding: 60px 0;">
+        <div class="container" style="max-width: 1200px; margin: 0 auto; padding: 0 20px;">
+            <div class="info-cards"
+                style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px;">
+                <!-- Card 1 - Comunidade -->
+                <div class="info-card" style="
+                background: rgba(20, 20, 20, 0.8);
+                border-radius: 12px;
+                padding: 30px;
+                border-top: 4px solid #6a0dad;
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+                transition: all 0.4s ease;
+                position: relative;
+                overflow: hidden;
+            ">
+                    <div class="info-icon" style="
+                    width: 50px;
+                    height: 50px;
+                    background: rgba(106, 13, 173, 0.2);
+                    border-radius: 50%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    margin-bottom: 20px;
+                    border: 1px solid rgba(106, 13, 173, 0.5);
+                ">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#8b5cf6" stroke-width="2">
+                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                            <circle cx="9" cy="7" r="4"></circle>
+                            <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                            <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                        </svg>
+                    </div>
+                    <h3 class="info-title" style="
+                    font-size: 1.4rem;
+                    margin: 0 0 15px;
+                    color: #8b5cf6;
+                    font-weight: 700;
+                ">Comunidade de Suporte VIP</h3>
+                    <p class="info-text" style="
+                    font-size: 1rem;
+                    color: #e2e8f0;
+                    line-height: 1.5;
+                    margin: 0;
+                ">Acesso exclusivo ao nosso grupo premium com milhares de especialistas e suporte técnico 24/7 para
+                        resolver qualquer desafio de desbloqueio.</p>
+                </div>
+
+                <!-- Card 2 - Garantia -->
+                <div class="info-card" style="
+                background: rgba(20, 20, 20, 0.8);
+                border-radius: 12px;
+                padding: 30px;
+                border-top: 4px solid #ff8c00;
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+                transition: all 0.4s ease;
+                position: relative;
+                overflow: hidden;
+            ">
+                    <div class="info-icon" style="
+                    width: 50px;
+                    height: 50px;
+                    background: rgba(255, 140, 0, 0.2);
+                    border-radius: 50%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    margin-bottom: 20px;
+                    border: 1px solid rgba(255, 140, 0, 0.5);
+                ">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#ff8c00" stroke-width="2">
+                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="info-title" style="
+                    font-size: 1.4rem;
+                    margin: 0 0 15px;
+                    color: #ff8c00;
+                    font-weight: 700;
+                ">Garantia Incondicional</h3>
+                    <p class="info-text" style="
+                    font-size: 1rem;
+                    color: #e2e8f0;
+                    line-height: 1.5;
+                    margin: 0;
+                " "="">7 dias de garantia total - se não dominar as técnicas de desbloqueio, devolvemos 100% do seu investimento sem burocracia.</p>
+            </div>
+        </div>
+    </div>
+
+    <style>
+        .info-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+        }
+        
+        .info-card:nth-child(1):hover {
+            border-color: #8b5cf6;
+        }
+        
+        .info-card:nth-child(2):hover {
+            border-color: #ff8c00;
+        }
+        
+        .info-icon svg {
+            transition: transform 0.3s ease;
+        }
+        
+        .info-card:hover .info-icon svg {
+            transform: scale(1.2);
+        }
+    </style>
+</section> 
+
+<style>.benefits-section {
+    padding: 4rem 0;
+    background: #f9fafb;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+.benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.benefit-card {
+    padding: 2rem;
+    border-radius: 8px;
+    background: white;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+
+.benefit-card:hover {
+    transform: translateY(-5px);
+}
+
+.benefit-card--community {
+    border-top: 4px solid #8b5cf6;
+}
+
+.benefit-card--guarantee {
+    border-top: 4px solid #f59e0b;
+}
+
+.benefit-icon {
+    margin-bottom: 1rem;
+    color: #4b5563;
+}
+
+.benefit-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #111827;
+    margin-bottom: 0.75rem;
+}
+
+.benefit-description {
+    color: #4b5563;
+    line-height: 1.6;
+}</style>
+    <!-- Container Principal -->
+    <div class=" offer-container">
+                        <!-- Cabeçalho da Oferta -->
+                    <div class="offer-header">
+                        <div class="offer-tag">OFERTA EXCLUSIVA POR TEMPO LIMITADO</div>
+
+                        <!-- Container de Preços -->
+                        <div class="price-container">
+                            <!-- Preço Original -->
+                            <div class="original-price">
+                                <div class="old-price">De: R$ 147,00</div>
+                                <div class="price-label">Preço Original</div>
+                            </div>
+
+                            <!-- Preço Promocional -->
+                            <div class="discount-price">
+                                <div class="current-price">R$ 19,90</div>
+                                <div class="discount-badge">ECONOMIZE 86%</div>
+                                <div class="stock-alert">Últimas vagas disponíveis!</div>
+                            </div>
+
+                            <!-- Data Final -->
+                            <div class="expiration-date">
+                                <div class="valid-until">Validade: 04/08/2025</div>
+                                <div class="last-chance">Última Chance!</div>
+                            </div>
+
+                            <!-- Botão CTA Compacto -->
+                            <div class="cta-container" style="display: flex; align-items: center; margin-left: 15px;">
+                                <a href="#comprar-agora" class="cta-button" id="comprar-agora"
+                                    style="padding: 0.6rem 1.2rem; font-size: 0.9rem; white-space: nowrap;">
+                                    <span class="button-text">GARANTIR ACESSO</span>
+                                    <span class="button-icon" style="margin-left: 8px;">
+                                        <svg width="16" height="16" viewBox="0 0 24 24">
+                                            <path d="M5 12H19" stroke="currentColor" stroke-width="2"></path>
+                                            <path d="M12 5L19 12L12 19" stroke="currentColor" stroke-width="2"></path>
+                                        </svg>
+                                    </span>
+                                </a>
+                            </div>
+                        </div>
+
+                        <style>
+                            .price-container {
+                                display: flex;
+                                justify-content: space-between;
+                                align-items: flex-end;
+                                flex-wrap: nowrap;
+                                gap: 10px;
+                            }
+
+                            .cta-button {
+                                background: linear-gradient(135deg, #00C853 0%, #008C3A 100%);
+                                color: white;
+                                border: none;
+                                border-radius: 50px;
+                                font-weight: 700;
+                                text-transform: uppercase;
+                                text-decoration: none;
+                                display: inline-flex;
+                                align-items: center;
+                                transition: all 0.3s ease;
+                            }
+
+                            .cta-button:hover {
+                                transform: translateY(-2px);
+                                box-shadow: 0 4px 8px rgba(0, 200, 83, 0.3);
+                            }
+                        </style>
+                    </div>
+
+                    <!-- Seção de Benefícios -->
+                    <div class="benefits-section">
+                        <h3 class="section-title">O QUE VOCÊ VAI APRENDER:</h3>
+
+                        <div class="benefits-grid">
+                            <!-- Coluna 1 -->
+                            <div class="benefits-column">
+                                <div class="benefit-item">
+                                    <div class="benefit-icon"></div>
+                                    <p><strong>Fundamentos Avançados</strong> de desbloqueio de iPhones</p>
+                                </div>
+                                <div class="benefit-item">
+                                    <div class="benefit-icon"></div>
+                                    <p>Domínio completo da ferramenta <strong>UnlockTool Pro</strong></p>
+                                </div>
+                                <div class="benefit-item">
+                                    <div class="benefit-icon"></div>
+                                    <p>Método <strong>lucrativo</strong> (até R$700 por aparelho)</p>
+                                </div>
+                                <div class="benefit-item">
+                                    <div class="benefit-icon"></div>
+                                    <p>Aulas <strong>práticas</strong> com cenários reais</p>
+                                </div>
+                            </div>
+
+                            <!-- Coluna 2 -->
+                            <div class="benefits-column">
+                                <div class="benefit-item">
+                                    <div class="benefit-icon"></div>
+                                    <p>Acesso aos <strong>melhores servidores</strong> premium</p>
+                                </div>
+                                <div class="benefit-item">
+                                    <div class="benefit-icon"></div>
+                                    <p>Compatível com <strong>todas versões</strong> do iOS</p>
+                                </div>
+                                <div class="benefit-item">
+                                    <div class="benefit-icon"></div>
+                                    <p>Técnicas para <strong>modelos antigos</strong> e novos</p>
+                                </div>
+                                <div class="benefit-item">
+                                    <div class="benefit-icon"></div>
+                                    <p>Solução para <strong>erros comuns</strong></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Seção de Bônus -->
+                    <div class="bonus-section">
+                        <h3 class="section-title">BÔNUS EXCLUSIVOS:</h3>
+
+                        <div class="bonus-grid">
+                            <!-- Coluna 1 -->
+                            <div class="bonus-column">
+                                <div class="bonus-item">
+                                    <div class="bonus-icon"></div>
+                                    <p><strong>Bypass iOS 17.5</strong> - Método completo para desbloqueio iCloud</p>
+                                </div>
+                                <div class="bonus-item">
+                                    <div class="bonus-icon"></div>
+                                    <p><strong>Bypass iOS 18.5</strong> - Solução para a última versão do iOS</p>
+                                </div>
+                                <div class="bonus-item">
+                                    <div class="bonus-icon"></div>
+                                    <p><strong>Suporte Técnico VIP</strong> - Assistência remota especializada</p>
+                                </div>
+                                <div class="bonus-item">
+                                    <div class="bonus-icon"></div>
+                                    <p><strong>Pacote Completo iOS</strong> - Ferramentas para todas versões</p>
+                                </div>
+                            </div>
+
+                            <!-- Coluna 2 -->
+                            <div class="bonus-column">
+                                <div class="bonus-item">
+                                    <div class="bonus-icon"></div>
+                                    <p><strong>Atualizações Vitalícias</strong> - Novos métodos para futuros iOS</p>
+                                </div>
+                                <div class="bonus-item">
+                                    <div class="bonus-icon"></div>
+                                    <p><strong>Compatibilidade Total</strong> - iPhone 6s ao 15 Pro Max</p>
+                                </div>
+                                <div class="bonus-item">
+                                    <div class="bonus-icon"></div>
+                                    <p><strong>Métodos Alternativos</strong> - Para quando o padrão falhar</p>
+                                </div>
+                                <div class="bonus-item">
+                                    <div class="bonus-icon"></div>
+                                    <p><strong>Certificado Profissional</strong> - Comprovação de habilidades</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Botão de Compra -->
+                    <div class="cta-container">
+                        <a href="#comprar-agora" class="cta-button">
+                            <span class="button-text">GARANTIR ACESSO</span>
+                            <span class="button-icon">
+                                <svg viewBox="0 0 24 24">
+                                    <path d="M5 12H19" stroke="currentColor" stroke-width="2"></path>
+                                    <path d="M12 5L19 12L12 19" stroke="currentColor" stroke-width="2"></path>
+                                </svg>
+                            </span>
+                            <span class="hover-effect"></span>
+                            <span class="shine-effect"></span>
+                        </a>
+
+                        <!-- Garantia -->
+                        <div class="guarantee-badge">
+                            <svg viewBox="0 0 24 24">
+                                <path
+                                    d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z">
+                                </path>
+                                <path d="M12 8V12"></path>
+                                <path d="M12 16H12.01"></path>
+                            </svg>
+                            <span>GARANTIA DE 7 DIAS | PAGAMENTO 100% SEGURO</span>
+                        </div>
+                    </div>
+                </div>
+
+                <style>
+                    /* Estilos Base */
+                    :root {
+                        --primary: #FF4500;
+                        --primary-dark: #D32F2F;
+                        --secondary: #00C853;
+                        --secondary-light: #00E676;
+                        --secondary-dark: #008C3A;
+                        --dark: #0A0A0A;
+                        --darker: #111;
+                        --light: #F5F5F5;
+                        --gray: #AAAAAA;
+                        --dark-gray: #777;
+                    }
+
+                    /* Container Principal */
+                    .offer-container {
+                        background: var(--dark);
+                        border-radius: 18px;
+                        padding: 3rem 2.5rem;
+                        box-shadow: 0 15px 40px rgba(255, 69, 0, 0.25);
+                        border: 1px solid var(--primary);
+                        max-width: 850px;
+                        margin: 2.5rem auto;
+                        color: var(--light);
+                        font-family: 'Inter', sans-serif;
+                        position: relative;
+                        overflow: hidden;
+                        background-image: radial-gradient(circle at 75% 30%, rgba(255, 69, 0, 0.08) 0%, transparent 40%);
+                    }
+
+                    /* Efeito de Brilho Dinâmico */
+                    .offer-container::before {
+                        content: '';
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        width: 100%;
+                        height: 100%;
+                        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.05), transparent);
+                        transform: translateX(-100%);
+                        transition: transform 0.8s ease;
+                        z-index: 0;
+                    }
+
+                    .offer-container:hover::before {
+                        transform: translateX(100%);
+                    }
+
+                    /* Cabeçalho da Oferta */
+                    .offer-header {
+                        margin-bottom: 2.8rem;
+                        position: relative;
+                        z-index: 2;
+                    }
+
+                    .offer-tag {
+                        font-size: 0.9rem;
+                        color: var(--primary);
+                        margin-bottom: 1.25rem;
+                        text-transform: uppercase;
+                        letter-spacing: 0.25rem;
+                        font-weight: 700;
+                        text-align: center;
+                    }
+
+                    /* Container de Preços */
+                    .price-container {
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: flex-end;
+                        flex-wrap: wrap;
+                        gap: 1.9rem;
+                        margin-bottom: 0.6rem;
+                    }
+
+                    /* Preço Original */
+                    .original-price {
+                        flex: 1;
+                        min-width: 150px;
+                        text-align: center;
+                    }
+
+                    .old-price {
+                        font-size: 1rem;
+                        color: var(--gray);
+                        text-decoration: line-through;
+                        font-weight: 500;
+                        margin-bottom: 0.3rem;
+                    }
+
+                    .price-label {
+                        font-size: 0.8rem;
+                        color: var(--dark-gray);
+                        font-weight: 500;
+                    }
+
+                    /* Preço Promocional */
+                    .discount-price {
+                        flex: 1;
+                        text-align: center;
+                        min-width: 250px;
+                    }
+
+                    .current-price {
+                        font-size: 4.25rem;
+                        font-weight: 800;
+                        color: #FF1A1A;
+                        line-height: 1;
+                        margin: 0.6rem 0;
+                        letter-spacing: -0.06rem;
+                        background: linear-gradient(90deg, var(--primary), var(--primary-dark));
+                        -webkit-background-clip: text;
+                        -webkit-text-fill-color: transparent;
+                        text-shadow: 0 2px 10px rgba(255, 69, 0, 0.2);
+                    }
+
+                    .discount-badge {
+                        display: inline-block;
+                        font-size: 0.9rem;
+                        color: white;
+                        font-weight: 700;
+                        background: linear-gradient(90deg, var(--primary), var(--primary-dark));
+                        padding: 0.5rem 1.6rem;
+                        border-radius: 30px;
+                        text-transform: uppercase;
+                        letter-spacing: 0.075rem;
+                        box-shadow: 0 4px 15px rgba(255, 69, 0, 0.3);
+                        margin-bottom: 0.6rem;
+                    }
+
+                    .stock-alert {
+                        font-size: 0.875rem;
+                        color: var(--primary);
+                        font-weight: 600;
+                    }
+
+                    /* Data Final */
+                    .expiration-date {
+                        flex: 1;
+                        text-align: center;
+                        min-width: 150px;
+                    }
+
+                    .valid-until {
+                        font-size: 1rem;
+                        color: var(--light);
+                        font-weight: 600;
+                        margin-bottom: 0.3rem;
+                    }
+
+                    .last-chance {
+                        display: inline-block;
+                        font-size: 0.8rem;
+                        color: var(--primary);
+                        font-weight: 600;
+                        padding: 0.3rem 0.9rem;
+                        border: 1px solid var(--primary);
+                        border-radius: 20px;
+                    }
+
+                    /* Seções de Conteúdo */
+                    .benefits-section,
+                    .bonus-section {
+                        background: rgba(15, 15, 15, 0.9);
+                        border-radius: 14px;
+                        padding: 2.2rem;
+                        margin-bottom: 2.2rem;
+                        border: 1px solid rgba(255, 69, 0, 0.3);
+                        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+                        position: relative;
+                        z-index: 2;
+                    }
+
+                    .section-title {
+                        color: var(--primary);
+                        font-size: 1.5rem;
+                        margin: 0 0 1.6rem 0;
+                        text-align: center;
+                        text-transform: uppercase;
+                        letter-spacing: 0.1rem;
+                        font-weight: 700;
+                    }
+
+                    /* Grid de Benefícios/Bônus */
+                    .benefits-grid,
+                    .bonus-grid {
+                        display: grid;
+                        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+                        gap: 1.25rem;
+                    }
+
+                    /* Itens de Benefício/Bônus */
+                    .benefit-item,
+                    .bonus-item {
+                        display: flex;
+                        align-items: flex-start;
+                        margin-bottom: 1.1rem;
+                    }
+
+                    .benefit-icon,
+                    .bonus-icon {
+                        width: 22px;
+                        height: 22px;
+                        background: var(--primary);
+                        border-radius: 50%;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        margin-right: 0.9rem;
+                        flex-shrink: 0;
+                    }
+
+                    .benefit-icon::before,
+                    .bonus-icon::before {
+                        content: '';
+                        width: 10px;
+                        height: 10px;
+                        background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none'%3E%3Cpath d='M20 6L9 17L4 12' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+                        background-repeat: no-repeat;
+                        background-position: center;
+                    }
+
+                    .benefit-item p,
+                    .bonus-item p {
+                        font-size: 1rem;
+                        line-height: 1.5;
+                        margin: 0;
+                    }
+
+                    .benefit-item strong,
+                    .bonus-item strong {
+                        color: var(--primary);
+                    }
+
+                    /* Botão de CTA */
+                    .cta-container {
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        margin: 2.8rem 0 1.9rem;
+                        position: relative;
+                        z-index: 2;
+                    }
+
+                    .cta-button {
+                        /* Layout */
+                        display: inline-flex;
+                        align-items: center;
+                        justify-content: center;
+                        position: relative;
+                        overflow: hidden;
+
+                        /* Dimensões */
+                        width: 100%;
+                        max-width: 400px;
+                        min-height: 60px;
+                        padding: 1.4rem 3.1rem;
+
+                        /* Tipografia */
+                        font-size: 1.25rem;
+                        font-weight: 700;
+                        letter-spacing: 0.1rem;
+                        text-transform: uppercase;
+                        text-decoration: none;
+                        text-align: center;
+
+                        /* Cores e Efeitos */
+                        color: white !important;
+                        background: linear-gradient(135deg, var(--secondary), var(--secondary-dark)) !important;
+                        border: 1px solid rgba(255, 255, 255, 0.1);
+                        border-radius: 50px;
+                        box-shadow: 0 5px 20px rgba(0, 200, 83, 0.4),
+                            inset 0 1px 1px rgba(255, 255, 255, 0.2);
+
+                        /* Transições */
+                        transition: all 0.3s ease;
+                        cursor: pointer;
+                    }
+
+                    .button-text {
+                        position: relative;
+                        z-index: 3;
+                    }
+
+                    .button-icon {
+                        width: 18px;
+                        height: 18px;
+                        margin-left: 0.75rem;
+                        position: relative;
+                        z-index: 3;
+                        transition: transform 0.3s ease;
+                    }
+
+                    .button-icon svg {
+                        width: 100%;
+                        height: 100%;
+                    }
+
+                    .button-icon path {
+                        stroke: currentColor;
+                        stroke-width: 2;
+                        stroke-linecap: round;
+                        stroke-linejoin: round;
+                    }
+
+                    .hover-effect {
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        width: 100%;
+                        height: 100%;
+                        background: linear-gradient(135deg, var(--secondary-light), var(--secondary-dark));
+                        opacity: 0;
+                        transition: opacity 0.3s ease;
+                        z-index: 1;
+                    }
+
+                    .shine-effect {
+                        position: absolute;
+                        top: -50%;
+                        left: -50%;
+                        width: 200%;
+                        height: 200%;
+                        background: linear-gradient(to right,
+                                rgba(255, 255, 255, 0) 0%,
+                                rgba(255, 255, 255, 0.1) 50%,
+                                rgba(255, 255, 255, 0) 100%);
+                        transform: rotate(30deg);
+                        transition: all 0.7s ease;
+                        z-index: 2;
+                    }
+
+                    /* Efeitos de Hover */
+                    .cta-button:hover {
+                        transform: translateY(-3px);
+                        box-shadow: 0 8px 25px rgba(0, 200, 83, 0.5);
+                    }
+
+                    .cta-button:hover .button-icon {
+                        transform: translateX(4px);
+                    }
+
+                    .cta-button:hover .hover-effect {
+                        opacity: 1;
+                    }
+
+                    .cta-button:hover .shine-effect {
+                        left: 100%;
+                    }
+
+                    .cta-button:active {
+                        transform: translateY(1px);
+                        box-shadow: 0 3px 15px rgba(0, 200, 83, 0.4);
+                    }
+
+                    /* Selo de Garantia */
+                    .guarantee-badge {
+                        display: inline-flex;
+                        align-items: center;
+                        justify-content: center;
+                        gap: 0.6rem;
+                        background: rgba(255, 69, 0, 0.1);
+                        border: 1px solid rgba(255, 69, 0, 0.3);
+                        border-radius: 50px;
+                        padding: 0.6rem 1.25rem;
+                        font-size: 0.875rem;
+                        color: var(--light);
+                        font-weight: 600;
+                        text-align: center;
+                        margin-top: 1.25rem;
+                    }
+
+                    .guarantee-badge svg {
+                        width: 18px;
+                        height: 18px;
+                    }
+
+                    .guarantee-badge path {
+                        stroke: var(--primary);
+                        stroke-width: 2;
+                        stroke-linecap: round;
+                        stroke-linejoin: round;
+                    }
+
+                    /* Responsividade */
+                    @media (max-width: 768px) {
+                        .offer-container {
+                            padding: 2rem 1.5rem;
+                        }
+
+                        .price-container {
+                            flex-direction: column;
+                            align-items: center;
+                            gap: 1.5rem;
+                        }
+
+                        .original-price,
+                        .discount-price,
+                        .expiration-date {
+                            min-width: 100%;
+                        }
+
+                        .current-price {
+                            font-size: 3.5rem;
+                        }
+
+                        .benefits-grid,
+                        .bonus-grid {
+                            grid-template-columns: 1fr;
+                        }
+
+                        .cta-button {
+                            padding: 1.1rem 2.5rem;
+                            font-size: 1.1rem;
+                        }
+                    }
+
+                    @media (max-width: 480px) {
+                        .offer-container {
+                            padding: 1.5rem 1rem;
+                            border-radius: 12px;
+                        }
+
+                        .offer-tag {
+                            font-size: 0.8rem;
+                            letter-spacing: 0.15rem;
+                        }
+
+                        .current-price {
+                            font-size: 2.8rem;
+                        }
+
+                        .discount-badge {
+                            font-size: 0.8rem;
+                            padding: 0.4rem 1.2rem;
+                        }
+
+                        .section-title {
+                            font-size: 1.3rem;
+                        }
+
+                        .benefit-item,
+                        .bonus-item {
+                            margin-bottom: 1rem;
+                        }
+
+                        .benefit-item p,
+                        .bonus-item p {
+                            font-size: 0.9rem;
+                        }
+
+                        .cta-button {
+                            min-height: 50px;
+                            padding: 0.9rem 1.8rem;
+                            font-size: 1rem;
+                        }
+
+                        .guarantee-badge {
+                            font-size: 0.75rem;
+                            padding: 0.5rem 1rem;
+                        }
+                    }
+                </style>
+
+                <style>
+                    /* Animação do brilho */
+                    div:hover>div:first-child {
+                        transform: translateX(100%);
+                    }
+
+                    /* Efeitos do botão */
+                    a[href="#comprar-agora"]:hover {
+                        transform: translateY(-3px);
+                        box-shadow: 0 8px 25px rgba(0, 200, 83, 0.5),
+                            inset 0 1px 1px rgba(255, 255, 255, 0.3);
+                    }
+
+                    a[href="#comprar-agora"]:hover span:nth-of-type(2) {
+                        opacity: 1;
+                    }
+
+                    a[href="#comprar-agora"]:hover span:nth-of-type(3) {
+                        left: 100%;
+                    }
+
+                    a[href="#comprar-agora"]:hover svg {
+                        transform: translateX(4px);
+                    }
+
+                    a[href="#comprar-agora"]:active {
+                        transform: translateY(1px);
+                    }
+
+                    /* Responsividade */
+                    @media (max-width: 768px) {
+                        a[href="#comprar-agora"] {
+                            padding: 18px 35px;
+                            font-size: 18px;
+                            min-width: 260px;
+                        }
+                    }
+
+                    @media (max-width: 480px) {
+                        a[href="#comprar-agora"] {
+                            padding: 16px 30px;
+                            font-size: 16px;
+                            min-width: 240px;
+                        }
+                    }
+                </style>
+
+
+
+
+
+                <!-- Footer -->
+                <footer class="footer">
+                    <div class="container">
+                        <div class="footer-content">
+                            <p class="copyright">
+                                Copyright 2025 - <span class="brand">iOS Unlocker Pro ®</span> Todos os direitos
+                                reservados.
+                            </p>
+                            <div class="footer-links">
+                                <a href="#" class="footer-link">Termos de Uso</a>
+                                <a href="#" class="footer-link">Políticas de Privacidade</a>
+                            </div>
+                        </div>
+                        <div class="legal-text">
+                            <p><span class="legal-title">Aviso sobre Plágio:</span> Todo o conteúdo deste curso é
+                                protegido por
+                                direitos autorais. A reprodução não autorizada é crime previsto em lei.</p>
+                            <p><span class="legal-title">Isenção de Responsabilidade:</span> Os resultados podem variar
+                                de pessoa
+                                para pessoa. Este curso é apenas para fins educacionais. O uso das técnicas ensinadas
+                                deve respeitar
+                                as leis locais.</p>
+                            <p><span class="legal-title">Importante:</span> Este curso destina-se apenas ao desbloqueio
+                                de aparelhos
+                                próprios ou com autorização expressa do proprietário. O uso indevido das técnicas é de
+                                responsabilidade exclusiva do usuário.</p>
+                        </div>
+                    </div>
+                </footer>
+
+                <script src="js/script.js"></script>
+                <!-- Code injected by live-server -->
+                <script>
+                    // <![CDATA[  <-- For SVG support
+                    if ('WebSocket' in window) {
+                        (function () {
+                            function refreshCSS() {
+                                var sheets = [].slice.call(document.getElementsByTagName("link"));
+                                var head = document.getElementsByTagName("head")[0];
+                                for (var i = 0; i < sheets.length; ++i) {
+                                    var elem = sheets[i];
+                                    var parent = elem.parentElement || head;
+                                    parent.removeChild(elem);
+                                    var rel = elem.rel;
+                                    if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
+                                        var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
+                                        elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
+                                    }
+                                    parent.appendChild(elem);
+                                }
+                            }
+                            var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
+                            var address = protocol + window.location.host + window.location.pathname + '/ws';
+                            var socket = new WebSocket(address);
+                            socket.onmessage = function (msg) {
+                                if (msg.data == 'reload') window.location.reload();
+                                else if (msg.data == 'refreshcss') refreshCSS();
+                            };
+                            if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
+                                console.log('Live reload enabled.');
+                                sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
+                            }
+                        })();
+                    }
+                    else {
+                        console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
+                    }
+                    // ]]>
+                </script>
+
+
+                <menu-analytics></menu-analytics>
+                <style id="app_ajhbdcgfhlhhmocddefknjjkejcfpbnj_style">
+                    html,
+                    body,
+                    body *,
+                    html body *,
+                    html body.ds *,
+                    html body div *,
+                    html body span *,
+                    html body p *,
+                    html body h1 *,
+                    html body h2 *,
+                    html body h3 *,
+                    html body h4 *,
+                    html body h5 *,
+                    html body h5 *,
+                    html body h5 *,
+                    html body *:not(input):not(textarea):not([contenteditable=""]):not([contenteditable="true"]) {
+                        user-select: text !important;
+                        pointer-events: initial !important;
+                    }
+
+                    html body *:not(input):not(textarea)::selection,
+                    body *:not(input):not(textarea)::selection,
+                    html body div *:not(input):not(textarea)::selection,
+                    html body span *:not(input):not(textarea)::selection,
+                    html body p *:not(input):not(textarea)::selection,
+                    html body h1 *:not(input):not(textarea)::selection,
+                    html body h2 *:not(input):not(textarea)::selection,
+                    html body h3 *:not(input):not(textarea)::selection,
+                    html body h4 *:not(input):not(textarea)::selection,
+                    html body h5 *:not(input):not(textarea)::selection {
+                        background-color: #3297fd !important;
+                        color: #ffffff !important;
+                    }
+
+                    /* linkedin */
+                    /* squize */
+                    .www_linkedin_com .sa-assessment-flow__card.sa-assessment-quiz .sa-assessment-quiz__scroll-content .sa-assessment-quiz__response .sa-question-multichoice__item.sa-question-basic-multichoice__item .sa-question-multichoice__input.sa-question-basic-multichoice__input.ember-checkbox.ember-view {
+                        width: 40px;
+                    }
+
+                    /*linkedin*/
+
+                    /*instagram*/
+                    /*wall*/
+                    .www_instagram_com ._aagw {
+                        display: none;
+                    }
+
+                    /*developer.box.com*/
+                    .bp-doc .pdfViewer .page:not(.bp-is-invisible):before {
+                        display: none;
+                    }
+
+                    /*telegram*/
+                    .web_telegram_org .emoji-animation-container {
+                        display: none;
+                    }
+
+                    /*ladno_ru*/
+                    .ladno_ru [style*="position: absolute; left: 0; right: 0; top: 0; bottom: 0;"] {
+                        display: none !important;
+                    }
+
+                    /*mycomfyshoes.fr */
+                    .mycomfyshoes_fr #fader.fade-out {
+                        display: none !important;
+                    }
+
+                    /*www_mindmeister_com*/
+                    .www_mindmeister_com .kr-view {
+                        z-index: -1 !important;
+                    }
+
+                    /*www_newvision_co_ug*/
+                    .www_newvision_co_ug .v-snack:not(.v-snack--absolute) {
+                        z-index: -1 !important;
+                    }
+
+                    /*derstarih_com*/
+                    .derstarih_com .bs-sks {
+                        z-index: -1;
+                    }
+                </style><allow-copy-helper></allow-copy-helper>
+
+                
+
+
+</body>
+
+</html>
