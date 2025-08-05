@@ -62,6 +62,46 @@ input, textarea, select {
   user-select: none !important;
 }
 
+/* Carrossel de depoimentos - proporção 9:16 */
+.testimonials .carousel {
+  aspect-ratio: 9/16;
+  max-width: 400px;
+  width: 100%;
+  height: auto;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+.testimonials .slide {
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.testimonials .slide img {
+  border-radius: 20px;
+  object-fit: cover;
+}
+
+/* Responsividade para carrossel */
+@media (max-width: 768px) {
+  .testimonials .carousel {
+    max-width: 350px;
+  }
+}
+
+@media (max-width: 480px) {
+  .testimonials .carousel {
+    max-width: 300px;
+  }
+}
+
+@media (max-width: 360px) {
+  .testimonials .carousel {
+    max-width: 280px;
+  }
+}
+
 /* Hero Section */
 .hero-section {
   position: relative;

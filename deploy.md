@@ -2,7 +2,7 @@
 
 **Última atualização:** $(date)
 
-**Versão:** 2.3.0
+**Versão:** 2.4.0
 
 **Arquivos principais:**
 - index.html (página principal)
@@ -15,4 +15,5 @@
 - Carrossel otimizado para mobile
 - Scroll lateral bloqueado
 - Responsividade fixa implementada
-- Cache desabilitado para atualizações imediatas 
+- Cache desabilitado para atualizações imediatas
+- Carrossel em formato 9:16 (quadrado grande) 
