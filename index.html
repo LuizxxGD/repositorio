@@ -1401,23 +1401,7 @@
                         background-image: radial-gradient(circle at 75% 30%, rgba(255, 69, 0, 0.08) 0%, transparent 40%);
                     }
 
-                    /* Efeito de Brilho Dinâmico */
-                    .offer-container::before {
-                        content: '';
-                        position: absolute;
-                        top: 0;
-                        left: 0;
-                        width: 100%;
-                        height: 100%;
-                        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.05), transparent);
-                        transform: translateX(-100%);
-                        transition: transform 0.8s ease;
-                        z-index: 0;
-                    }
-
-                    .offer-container:hover::before {
-                        transform: translateX(100%);
-                    }
+                    /* Efeito de brilho removido para evitar movimento automático */
 
                     /* Cabeçalho da Oferta */
                     .offer-header {
@@ -1836,10 +1820,7 @@
                 </style>
 
                 <style>
-                    /* Animação do brilho */
-                    div:hover>div:first-child {
-                        transform: translateX(100%);
-                    }
+                    /* Animação do brilho removida para evitar movimento automático */
 
                     /* Efeitos do botão */
                     a[href="#comprar-agora"]:hover {
