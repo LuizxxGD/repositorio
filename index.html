@@ -55,8 +55,8 @@
             width: 100%; 
             height: 100%; 
             position: absolute; 
-            top: 0; 
-            left: 0; 
+            top: 0;
+            left: 0;
             filter: brightness(30%) contrast(1.5) saturate(1.2);
         }
         
@@ -131,7 +131,7 @@
         
         /* Otimizações de performance e fluidez */
         * { 
-            box-sizing: border-box; 
+            box-sizing: border-box;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
         }
@@ -156,7 +156,7 @@
             will-change: opacity;
         }
         .slide.active { 
-            opacity: 1; 
+            opacity: 1;
         }
         
         /* Hover effects suaves */
@@ -181,71 +181,7 @@
             backface-visibility: hidden;
         }
         
-        /* Estilos para notificações de compra */
-        .purchase-notification {
-            background: var(--bg-card);
-            border: 1px solid var(--border-glow);
-            border-radius: 12px;
-            padding: 1rem;
-            margin-bottom: 1rem;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-            animation: slideInRight 0.5s ease-out;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .purchase-notification::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 4px;
-            height: 100%;
-            background: var(--accent-gradient);
-        }
-        
-        .notification-header {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            margin-bottom: 0.5rem;
-        }
-        
-        .notification-avatar {
-            width: 32px;
-            height: 32px;
-            border-radius: 50%;
-            background: var(--primary-gradient);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-weight: 700;
-            font-size: 0.9rem;
-        }
-        
-        .notification-content {
-            flex: 1;
-        }
-        
-        .notification-name {
-            color: var(--text-primary);
-            font-weight: 600;
-            font-size: 0.9rem;
-        }
-        
-        .notification-text {
-            color: var(--text-secondary);
-            font-size: 0.8rem;
-            line-height: 1.3;
-        }
-        
-        .notification-time {
-            color: var(--text-muted);
-            font-size: 0.7rem;
-            margin-top: 0.25rem;
-        }
-        
+       
         @keyframes slideInRight {
             from {
                 transform: translateX(100%);
@@ -294,17 +230,7 @@
                 border-radius: 0;
             }
             
-            /* Notificações responsivas */
-            #purchase-notifications {
-                top: 10px;
-                right: 10px;
-                max-width: 280px;
-            }
-            
-            .purchase-notification {
-                padding: 0.8rem;
-                font-size: 0.8rem;
-            }
+           
             
             /* Seção de oferta mobile */
             .offer-section {
@@ -353,16 +279,9 @@
                 font-size: 1.5rem;
             }
             
-            /* Notificações ainda menores */
-            #purchase-notifications {
-                max-width: 250px;
-            }
             
-            .purchase-notification {
-                padding: 0.6rem;
-                font-size: 0.7rem;
-            }
-        }
+            
+            
         
         @media (max-width: 480px) {
             .hero-title {
@@ -378,15 +297,7 @@
                 font-size: 1.5rem;
             }
             
-            /* Notificações ainda menores */
-            #purchase-notifications {
-                max-width: 250px;
-            }
-            
-            .purchase-notification {
-                padding: 0.6rem;
-                font-size: 0.7rem;
-            }
+           
             
             /* Botão CTA ultra responsivo */
             .cta-button {
@@ -424,13 +335,7 @@
                 border-radius: 0;
             }
             
-            /* Notificações mínimas */
-            #purchase-notifications {
-                max-width: 200px;
-                top: 5px;
-                right: 5px;
-            }
-        }
+            
         
         /* CSS para seções principais */
         .modules-section, .bonuses-section, .info-section {
@@ -459,10 +364,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
     
-    <!-- Notificações de Compras -->
-    <div id="purchase-notifications" style="position: fixed; top: 20px; right: 20px; z-index: 10000; max-width: 300px;">
-        <!-- As notificações serão inseridas aqui dinamicamente -->
-    </div>
+    
 </head>
 
 <body>
@@ -489,15 +391,15 @@
             </p>
 
             <a href="#comprar-agora" class="cta-button">
-                Começar Agora
-            </a>
+    Começar Agora
+</a>
         </div>
     </section>
 
     <!-- Seção de Módulos Otimizada -->
     <section class="modules-section">
         <div class="container">
-            <h2 class="section-title">Módulos do Curso: Básico ao Avançado</h2>
+                <h2 class="section-title">Módulos do Curso: Básico ao Avançado</h2>
             <p style="text-align: center; color: #ccc; font-size: 1.2rem; margin-bottom: 3rem;">Conteúdo estruturado para levar você do iniciante ao profissional</p>
             
             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
@@ -505,13 +407,13 @@
                     <div style="font-size: 2rem; color: #ff8c00; margin-bottom: 1rem;">01</div>
                     <h3 style="color: white; font-size: 1.4rem; margin-bottom: 1rem;">Módulo 01: Fundamentos do Desbloqueio</h3>
                     <p style="color: #ccc; line-height: 1.5;">Apresentação do curso e do conteúdo. Conceitos sobre desbloqueios e vai aprender na prática a como dominar a ferramenta UnlockTool.</p>
-                </div>
+            </div>
                 
                 <div style="background: rgba(20, 20, 20, 0.8); border-radius: 12px; padding: 2rem; border: 1px solid rgba(106, 13, 173, 0.3);">
                     <div style="font-size: 2rem; color: #6a0dad; margin-bottom: 1rem;">02</div>
                     <h3 style="color: white; font-size: 1.4rem; margin-bottom: 1rem;">Módulo 02: Método Lucrativo</h3>
                     <p style="color: #ccc; line-height: 1.5;">Passo a passo para você desbloquear o iPhone muito rápido e lucrar até R$ 700,00 por aparelho. Compartilho meu método e os melhores servidores.</p>
-                </div>
+                    </div>
                 
                 <div style="background: rgba(20, 20, 20, 0.8); border-radius: 12px; padding: 2rem; border: 1px solid rgba(255, 140, 0, 0.3);">
                     <div style="font-size: 2rem; color: #ff8c00; margin-bottom: 1rem;">03</div>
@@ -523,9 +425,9 @@
                     <div style="font-size: 2rem; color: #6a0dad; margin-bottom: 1rem;">04</div>
                     <h3 style="color: white; font-size: 1.4rem; margin-bottom: 1rem;">Módulo 04: Aulas Práticas</h3>
                     <p style="color: #ccc; line-height: 1.5;">Aulas práticas de desbloqueios usando ferramentas e servidores apresentados no curso, com todo o suporte necessário.</p>
+                    </div>
                 </div>
-            </div>
-        </div>
+                    </div>
     </section>
 
     <!-- Seção de Depoimentos Stories 9:16 -->
@@ -552,30 +454,30 @@
                     </div>
                     <div class="slide" style="position: absolute; width: 100%; height: 100%; opacity: 0; transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1);">
                         <img src="dep/depoimento02.jpg" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy" alt="Depoimento 2">
-                    </div>
+                </div>
                     <div class="slide" style="position: absolute; width: 100%; height: 100%; opacity: 0; transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1);">
                         <img src="dep/depoimento3.jpeg" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy" alt="Depoimento 3">
-                    </div>
+            </div>
                     <div class="slide" style="position: absolute; width: 100%; height: 100%; opacity: 0; transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1);">
                         <img src="dep/depoimento4.jpeg" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy" alt="Depoimento 4">
-                    </div>
-                </div>
-                
+        </div>
+</div>
+
                 <!-- Controles agressivos para stories -->
                 <div style="position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%); display: flex; gap: 8px; z-index: 10;">
                     <div class="carousel-dot active" style="width: 12px; height: 12px; border-radius: 50%; background: var(--neon-purple); cursor: pointer; transition: all 0.3s ease; box-shadow: var(--neon-glow);"></div>
                     <div class="carousel-dot" style="width: 12px; height: 12px; border-radius: 50%; background: rgba(139, 0, 255, 0.3); cursor: pointer; transition: all 0.3s ease;"></div>
                     <div class="carousel-dot" style="width: 12px; height: 12px; border-radius: 50%; background: rgba(139, 0, 255, 0.3); cursor: pointer; transition: all 0.3s ease;"></div>
                     <div class="carousel-dot" style="width: 12px; height: 12px; border-radius: 50%; background: rgba(139, 0, 255, 0.3); cursor: pointer; transition: all 0.3s ease;"></div>
-                </div>
-            </div>
-            
+</div>
+</div>
+
             <!-- Estatísticas agressivas com nova paleta -->
             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; margin-top: 4rem; max-width: 800px; margin-left: auto; margin-right: auto;">
                 <div style="text-align: center; padding: 1.5rem; background: var(--bg-card); border-radius: 15px; border: 1px solid var(--border-glow); box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);">
                     <div style="font-size: 2.5rem; font-weight: 700; background: var(--neon-orange); -webkit-background-clip: text; background-clip: text; color: transparent; margin-bottom: 0.5rem; text-shadow: var(--orange-glow);">500+</div>
                     <div style="color: var(--text-secondary); font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px;">Alunos Atendidos</div>
-                </div>
+</div>
                 <div style="text-align: center; padding: 1.5rem; background: var(--bg-card); border-radius: 15px; border: 1px solid var(--border-glow); box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);">
                     <div style="font-size: 2.5rem; font-weight: 700; background: var(--neon-red); -webkit-background-clip: text; background-clip: text; color: transparent; margin-bottom: 0.5rem; text-shadow: var(--red-glow);">98%</div>
                     <div style="color: var(--text-secondary); font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px;">Taxa de Sucesso</div>
@@ -584,16 +486,16 @@
                     <div style="font-size: 2.5rem; font-weight: 700; background: var(--neon-purple); -webkit-background-clip: text; background-clip: text; color: transparent; margin-bottom: 0.5rem; text-shadow: var(--neon-glow);">24/7</div>
                     <div style="color: var(--text-secondary); font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px;">Suporte Disponível</div>
                 </div>
-            </div>
-        </div>
-    </section>
+    </div>
+  </div>
+</section>
 
     <!-- Seção de Bônus Otimizada -->
     <section class="bonuses-section">
         <div class="container">
             <h2 class="section-title">
                 <span style="background: linear-gradient(90deg, #ff8c00, #ff4500); -webkit-background-clip: text; background-clip: text; color: transparent;">Bônus Exclusivos</span>
-            </h2>
+                </h2>
             <p style="text-align: center; color: #ff8c00; font-size: 1.2rem; margin-bottom: 3rem;">Para quem adquirir o plano premium</p>
             
             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px;">
@@ -607,7 +509,7 @@
                     <h3 style="font-size: 1.4rem; margin: 0 0 15px; color: white; font-weight: 700;">Bypass iOS 17.5</h3>
                     <p style="font-size: 1rem; color: #ccc; line-height: 1.5; margin: 0;">Método completo para desbloqueio iCloud em dispositivos com iOS 17.5</p>
                 </div>
-                
+
                 <div style="background: rgba(20, 20, 20, 0.8); border-radius: 12px; padding: 30px; border: 1px solid rgba(106, 13, 173, 0.3); transition: transform 0.3s ease;">
                     <div style="width: 60px; height: 60px; background: rgba(106, 13, 173, 0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 20px; border: 1px solid rgba(106, 13, 173, 0.3);">
                         <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#6a0dad" stroke-width="2">
@@ -617,7 +519,7 @@
                     <h3 style="font-size: 1.4rem; margin: 0 0 15px; color: white; font-weight: 700;">Bypass iOS 18.5</h3>
                     <p style="font-size: 1rem; color: #ccc; line-height: 1.5; margin: 0;">Solução avançada para contornar o iCloud na última versão do iOS</p>
                 </div>
-                
+
                 <div style="background: rgba(20, 20, 20, 0.8); border-radius: 12px; padding: 30px; border: 1px solid rgba(255, 140, 0, 0.3); transition: transform 0.3s ease;">
                     <div style="width: 60px; height: 60px; background: rgba(255, 140, 0, 0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 20px; border: 1px solid rgba(255, 140, 0, 0.3);">
                         <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#ff8c00" stroke-width="2">
@@ -630,7 +532,7 @@
                     <h3 style="font-size: 1.4rem; margin: 0 0 15px; color: white; font-weight: 700;">Suporte Técnico VIP</h3>
                     <p style="font-size: 1rem; color: #ccc; line-height: 1.5; margin: 0;">Assistência remota especializada para bypass em todas versões</p>
                 </div>
-                
+
                 <div style="background: rgba(20, 20, 20, 0.8); border-radius: 12px; padding: 30px; border: 1px solid rgba(106, 13, 173, 0.3); transition: transform 0.3s ease;">
                     <div style="width: 60px; height: 60px; background: rgba(106, 13, 173, 0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 20px; border: 1px solid rgba(106, 13, 173, 0.3);">
                         <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#6a0dad" stroke-width="2">
@@ -639,7 +541,7 @@
                     </div>
                     <h3 style="font-size: 1.4rem; margin: 0 0 15px; color: white; font-weight: 700;">Pacote Completo iOS</h3>
                     <p style="font-size: 1rem; color: #ccc; line-height: 1.5; margin: 0;">Ferramentas para bypass desde iOS 14 até 18.5</p>
-                </div>
+                    </div>
                 
                 <div style="background: rgba(20, 20, 20, 0.8); border-radius: 12px; padding: 30px; border: 1px solid rgba(255, 140, 0, 0.3); transition: transform 0.3s ease;">
                     <div style="width: 60px; height: 60px; background: rgba(255, 140, 0, 0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 20px; border: 1px solid rgba(255, 140, 0, 0.3);">
@@ -648,15 +550,15 @@
                     <h3 style="font-size: 1.4rem; margin: 0 0 15px; color: white; font-weight: 700;">Atualizações Vitalícias</h3>
                     <p style="font-size: 1rem; color: #ccc; line-height: 1.5; margin: 0;">Novos métodos de bypass para futuras atualizações do iOS</p>
                 </div>
-                
+
                 <div style="background: rgba(20, 20, 20, 0.8); border-radius: 12px; padding: 30px; border: 1px solid rgba(106, 13, 173, 0.3); transition: transform 0.3s ease;">
                     <div style="width: 60px; height: 60px; background: rgba(106, 13, 173, 0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 20px; border: 1px solid rgba(106, 13, 173, 0.3);">
                         <span style="font-size: 2rem;">✅</span>
                     </div>
                     <h3 style="font-size: 1.4rem; margin: 0 0 15px; color: white; font-weight: 700;">Compatibilidade Total</h3>
                     <p style="font-size: 1rem; color: #ccc; line-height: 1.5; margin: 0;">Funciona em todos modelos (iPhone 6s ao 15 Pro Max)</p>
+                    </div>
                 </div>
-            </div>
         </div>
     </section>
 
@@ -671,15 +573,15 @@
                     <h3 style="font-size: 1.4rem; margin: 0 0 15px; color: #8b5cf6; font-weight: 700;">Comunidade de Suporte VIP</h3>
                     <p style="font-size: 1rem; color: #e2e8f0; line-height: 1.5; margin: 0;">Acesso exclusivo ao nosso grupo premium com milhares de especialistas e suporte técnico 24/7 para resolver qualquer desafio de desbloqueio.</p>
                 </div>
-                
+
                 <div style="background: rgba(20, 20, 20, 0.8); border-radius: 12px; padding: 30px; border-top: 4px solid #ff8c00; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);">
                     <div style="width: 50px; height: 50px; background: rgba(255, 140, 0, 0.2); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 20px; border: 1px solid rgba(255, 140, 0, 0.5);">
                         <span style="font-size: 1.5rem;">🛡️</span>
                     </div>
                     <h3 style="font-size: 1.4rem; margin: 0 0 15px; color: #ff8c00; font-weight: 700;">Garantia Incondicional</h3>
                     <p style="font-size: 1rem; color: #e2e8f0; line-height: 1.5; margin: 0;">7 dias de garantia total - se não dominar as técnicas de desbloqueio, devolvemos 100% do seu investimento sem burocracia.</p>
+                    </div>
                 </div>
-            </div>
         </div>
     </section>
 
@@ -710,7 +612,7 @@
                             <div style="color: var(--text-muted); font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.1rem; margin-bottom: 0.5rem;">Preço Original</div>
                             <div style="color: var(--text-muted); font-size: 2rem; font-weight: 700; text-decoration: line-through;">R$ 147,00</div>
                             <div style="color: var(--text-muted); font-size: 0.8rem; margin-top: 0.5rem;">Por tempo limitado</div>
-                        </div>
+                    </div>
                         
                         <!-- VS -->
                         <div style="text-align: center; font-size: 1.5rem; font-weight: 700; color: var(--text-secondary);">VS</div>
@@ -721,15 +623,15 @@
                             <div style="color: white; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.1rem; margin-bottom: 0.5rem;">Preço Promocional</div>
                             <div style="color: white; font-size: 3.5rem; font-weight: 800; line-height: 1;">R$ 19,90</div>
                             <div style="color: rgba(255, 255, 255, 0.8); font-size: 0.9rem; margin-top: 0.5rem;">Acesso vitalício</div>
-                        </div>
-                    </div>
+                </div>
+            </div>
                     
                     <!-- Botão CTA Ultra Agressivo -->
                     <div style="text-align: center; margin-bottom: 2rem;">
                         <div style="background: var(--neon-red); padding: 0.5rem; border-radius: 50px; margin-bottom: 1rem; display: inline-block; box-shadow: var(--red-glow);">
                             <span style="color: white; font-size: 0.9rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1rem;">🔥 OFERTA LIMITADA - 86% DE DESCONTO</span>
-                        </div>
-                        
+        </div>
+
                         <a href="#comprar-agora" style="display: inline-flex; align-items: center; justify-content: center; background: var(--neon-red); color: white; padding: 1.8rem 4.5rem; border-radius: 50px; font-size: 1.4rem; font-weight: 800; text-transform: uppercase; text-decoration: none; letter-spacing: 0.1rem; box-shadow: var(--red-glow); transition: all 0.3s ease; position: relative; overflow: hidden; min-width: 350px; border: 2px solid rgba(255, 0, 0, 0.5);">
                             <span style="position: relative; z-index: 2;">GARANTIR ACESSO VITALÍCIO + 6 BÔNUS</span>
                             <svg style="width: 28px; height: 28px; margin-left: 1.5rem; position: relative; z-index: 2; transition: transform 0.3s ease;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -771,67 +673,67 @@
                                     <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
                                         <polygon points="13,2 3,14 12,14 11,22 21,10 12,10 13,2"></polygon>
                                     </svg>
-                                </div>
+            </div>
                                 <div>
                                     <div style="color: var(--text-primary); font-weight: 700; font-size: 1rem;">Bypass iOS 18.5</div>
                                     <div style="color: var(--text-secondary); font-size: 0.9rem;">Solução para a última versão do iOS</div>
-                                </div>
-                            </div>
+</div>
+        </div>
                             
                             <!-- Bônus 3 -->
                             <div style="display: flex; align-items: center; gap: 1rem; padding: 1.2rem; background: rgba(255, 255, 255, 0.05); border-radius: 15px; border: 1px solid rgba(255, 255, 255, 0.1);">
                                 <div style="width: 45px; height: 45px; background: var(--gold-gradient); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
                                     <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
-                                        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
-                                        <circle cx="9" cy="7" r="4"></circle>
-                                    </svg>
-                                </div>
+                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                            <circle cx="9" cy="7" r="4"></circle>
+                        </svg>
+                    </div>
                                 <div>
                                     <div style="color: var(--text-primary); font-weight: 700; font-size: 1rem;">Suporte Técnico VIP</div>
                                     <div style="color: var(--text-secondary); font-size: 0.9rem;">Assistência remota especializada</div>
                                 </div>
-                            </div>
-                            
+                </div>
+
                             <!-- Bônus 4 -->
                             <div style="display: flex; align-items: center; gap: 1rem; padding: 1.2rem; background: rgba(255, 255, 255, 0.05); border-radius: 15px; border: 1px solid rgba(255, 255, 255, 0.1);">
                                 <div style="width: 45px; height: 45px; background: var(--purple-gradient); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
                                     <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
-                                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
-                                    </svg>
-                                </div>
+                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                        </svg>
+                    </div>
                                 <div>
                                     <div style="color: var(--text-primary); font-weight: 700; font-size: 1rem;">Pacote Completo iOS</div>
                                     <div style="color: var(--text-secondary); font-size: 0.9rem;">Ferramentas para todas versões</div>
-                                </div>
-                            </div>
-                            
+        </div>
+    </div>
+
                             <!-- Bônus 5 -->
                             <div style="display: flex; align-items: center; gap: 1rem; padding: 1.2rem; background: rgba(255, 255, 255, 0.05); border-radius: 15px; border: 1px solid rgba(255, 255, 255, 0.1);">
                                 <div style="width: 45px; height: 45px; background: var(--accent-gradient); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
                                     <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
                                         <polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26 12,2"></polygon>
                                     </svg>
-                                </div>
+                            </div>
                                 <div>
                                     <div style="color: var(--text-primary); font-weight: 700; font-size: 1rem;">Atualizações Vitalícias</div>
                                     <div style="color: var(--text-secondary); font-size: 0.9rem;">Novos métodos para futuros iOS</div>
-                                </div>
                             </div>
-                            
+                            </div>
+
                             <!-- Bônus 6 -->
                             <div style="display: flex; align-items: center; gap: 1rem; padding: 1.2rem; background: rgba(255, 255, 255, 0.05); border-radius: 15px; border: 1px solid rgba(255, 255, 255, 0.1);">
                                 <div style="width: 45px; height: 45px; background: var(--secondary-gradient); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
                                     <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
                                         <polyline points="20,6 9,17 4,12"></polyline>
-                                    </svg>
-                                </div>
+                                        </svg>
+                            </div>
                                 <div>
                                     <div style="color: var(--text-primary); font-weight: 700; font-size: 1rem;">Compatibilidade Total</div>
                                     <div style="color: var(--text-secondary); font-size: 0.9rem;">iPhone 6s ao 15 Pro Max</div>
-                                </div>
-                            </div>
                         </div>
-                        
+                            </div>
+                    </div>
+
                         <!-- Benefícios Principais -->
                         <h3 style="background: var(--neon-orange); -webkit-background-clip: text; background-clip: text; color: transparent; font-size: 1.5rem; font-weight: 700; text-align: center; margin-bottom: 2rem; text-shadow: var(--orange-glow);">⚡ BENEFÍCIOS PRINCIPAIS</h3>
                         
@@ -847,7 +749,7 @@
                                     <div style="color: var(--text-secondary); font-size: 0.9rem;">Para sempre, sem mensalidades</div>
                                 </div>
                             </div>
-                            
+
                             <div style="display: flex; align-items: center; gap: 1rem; padding: 1.2rem; background: rgba(255, 255, 255, 0.05); border-radius: 15px; border: 1px solid rgba(255, 255, 255, 0.1);">
                                 <div style="width: 45px; height: 45px; background: var(--secondary-gradient); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
                                     <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
@@ -857,9 +759,9 @@
                                 <div>
                                     <div style="color: var(--text-primary); font-weight: 700; font-size: 1rem;">Atualizações Gratuitas</div>
                                     <div style="color: var(--text-secondary); font-size: 0.9rem;">Novos métodos incluídos</div>
-                                </div>
-                            </div>
-                            
+                        </div>
+                    </div>
+
                             <div style="display: flex; align-items: center; gap: 1rem; padding: 1.2rem; background: rgba(255, 255, 255, 0.05); border-radius: 15px; border: 1px solid rgba(255, 255, 255, 0.1);">
                                 <div style="width: 45px; height: 45px; background: var(--gold-gradient); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
                                     <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
@@ -870,10 +772,10 @@
                                     <div style="color: var(--text-primary); font-weight: 700; font-size: 1rem;">Suporte VIP 24/7</div>
                                     <div style="color: var(--text-secondary); font-size: 0.9rem;">Assistência especializada</div>
                                 </div>
+                                </div>
+                                </div>
                             </div>
-                        </div>
-                    </div>
-                    
+
                     <!-- Garantia premium -->
                     <div style="text-align: center; padding: 2rem; background: rgba(255, 255, 255, 0.05); border-radius: 20px; border: 1px solid rgba(255, 255, 255, 0.1);">
                         <div style="display: flex; align-items: center; justify-content: center; gap: 1rem; margin-bottom: 1rem;">
@@ -881,18 +783,18 @@
                                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
                                     <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
                                 </svg>
-                            </div>
+                                </div>
                             <div style="text-align: left;">
                                 <div style="color: var(--text-primary); font-weight: 700; font-size: 1.1rem;">Garantia de 7 Dias</div>
                                 <div style="color: var(--text-secondary); font-size: 0.9rem;">100% do dinheiro de volta se não ficar satisfeito</div>
+                                </div>
+                                </div>
+                        <div style="color: var(--text-muted); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.1rem;">Pagamento 100% Seguro | SSL Criptografado</div>
+                                </div>
                             </div>
                         </div>
-                        <div style="color: var(--text-muted); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.1rem;">Pagamento 100% Seguro | SSL Criptografado</div>
                     </div>
-                </div>
-            </div>
-        </div>
-        
+
         <style>
             @keyframes shine {
                 0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
@@ -907,16 +809,16 @@
         <div class="container">
             <div style="text-align: center; margin-bottom: 1rem;">
                 <p style="margin: 0;">Copyright 2025 - <span style="color: #ff8c00;">iOS Unlocker Pro ®</span> Todos os direitos reservados.</p>
-            </div>
+                        </div>
             <div style="text-align: center; margin-bottom: 1rem;">
                 <a href="#" style="color: #ccc; text-decoration: none; margin: 0 1rem;">Termos de Uso</a>
                 <a href="#" style="color: #ccc; text-decoration: none; margin: 0 1rem;">Políticas de Privacidade</a>
-            </div>
+                    </div>
             <div style="text-align: center; font-size: 0.9rem; color: #999;">
                 <p style="margin: 0.5rem 0;"><strong>Aviso sobre Plágio:</strong> Todo o conteúdo deste curso é protegido por direitos autorais.</p>
                 <p style="margin: 0.5rem 0;"><strong>Isenção de Responsabilidade:</strong> Os resultados podem variar de pessoa para pessoa.</p>
                 <p style="margin: 0.5rem 0;"><strong>Importante:</strong> Este curso destina-se apenas ao desbloqueio de aparelhos próprios.</p>
-            </div>
+                </div>
         </div>
     </footer>
 
@@ -1065,71 +967,6 @@
                 setTimeout(startSlideShow, 3000);
             });
         });
-        
-        // Sistema de notificações de compra
-        const purchaseNotifications = [
-            { name: 'Carlos Silva', text: 'acabou de adquirir o curso completo', time: '2 min atrás' },
-            { name: 'Roberto Santos', text: 'comprou o acesso vitalício', time: '5 min atrás' },
-            { name: 'Marcos Oliveira', text: 'garantiu sua vaga no curso', time: '8 min atrás' },
-            { name: 'Fernando Costa', text: 'adquiriu o pacote premium', time: '12 min atrás' },
-            { name: 'Ricardo Almeida', text: 'comprou o curso de desbloqueio', time: '15 min atrás' },
-            { name: 'André Pereira', text: 'garantiu o acesso vitalício', time: '18 min atrás' },
-            { name: 'Lucas Mendes', text: 'adquiriu o curso completo', time: '22 min atrás' },
-            { name: 'Thiago Rodrigues', text: 'comprou o pacote premium', time: '25 min atrás' },
-            { name: 'Bruno Ferreira', text: 'garantiu sua vaga no curso', time: '28 min atrás' },
-            { name: 'Diego Martins', text: 'adquiriu o acesso vitalício', time: '32 min atrás' }
-        ];
-        
-        function createNotification(notification) {
-            const notificationDiv = document.createElement('div');
-            notificationDiv.className = 'purchase-notification';
-            
-            const initials = notification.name.split(' ').map(n => n[0]).join('');
-            
-            notificationDiv.innerHTML = `
-                <div class="notification-header">
-                    <div class="notification-avatar">${initials}</div>
-                    <div class="notification-content">
-                        <div class="notification-name">${notification.name}</div>
-                        <div class="notification-text">${notification.text}</div>
-                        <div class="notification-time">${notification.time}</div>
-                    </div>
-                </div>
-            `;
-            
-            return notificationDiv;
-        }
-        
-        function showPurchaseNotification() {
-            const container = document.getElementById('purchase-notifications');
-            const randomNotification = purchaseNotifications[Math.floor(Math.random() * purchaseNotifications.length)];
-            const notification = createNotification(randomNotification);
-            
-            container.appendChild(notification);
-            
-            // Remover notificação após 8 segundos
-            setTimeout(() => {
-                notification.style.animation = 'slideOutRight 0.5s ease-out';
-                setTimeout(() => {
-                    if (container.contains(notification)) {
-                        container.removeChild(notification);
-                    }
-                }, 500);
-            }, 8000);
-        }
-        
-        // Mostrar primeira notificação após 3 segundos
-        setTimeout(showPurchaseNotification, 3000);
-        
-        // Mostrar notificações a cada 15-25 segundos
-        setInterval(showPurchaseNotification, Math.random() * 10000 + 15000);
-        
-        // Executar preload quando possível
-        if ('requestIdleCallback' in window) {
-            requestIdleCallback(preloadCriticalResources);
-        } else {
-            setTimeout(preloadCriticalResources, 1000);
-        }
-    </script>
+                </script>
 </body>
 </html>
