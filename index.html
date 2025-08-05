@@ -32,14 +32,19 @@
             --neon-glow: 0 0 20px rgba(139, 0, 255, 0.8);
             --red-glow: 0 0 20px rgba(255, 0, 0, 0.8);
             --orange-glow: 0 0 20px rgba(255, 102, 0, 0.8);
+            --red: #ff2d2d;
+            --purple: #8b00ff;
+            --white: #fff;
+            --black: #111;
+            --gray: #bbb;
         }
 
         /* CSS crítico para renderização inicial */
         body { 
             margin: 0; 
             font-family: 'Inter', sans-serif; 
-            background: var(--dark-gradient);
-            color: var(--text-primary);
+            background: var(--black);
+            color: var(--white);
         }
         .hero-section { 
             position: relative; 
@@ -353,6 +358,24 @@
             text-align: center;
             margin-bottom: 2rem;
         }
+        /* Bordas e divisórias roxas para caixas e seções secundárias */
+        .modules-section, .bonuses-section, .info-section, .testimonial-section {
+            border: 2px solid var(--purple);
+            border-radius: 12px;
+            margin-bottom: 2rem;
+        }
+        /* Remove gradientes e roxo de títulos, botões e áreas principais */
+        [style*="background: var(--neon-purple)"],
+        [style*="background: var(--primary-gradient)"],
+        [style*="background: var(--neon-red)"],
+        [style*="background: var(--neon-orange)"],
+        [style*="background: var(--gold-gradient)"],
+        [style*="background: var(--purple-gradient)"] {
+            background: none !important;
+            color: var(--white) !important;
+        }
+        /* Remove emojis e ícones não profissionais */
+        svg, [class*="emoji"], [class*="icon"] { display: none !important; }
     </style>
     
     <!-- CSS não crítico carregado assincronamente -->
