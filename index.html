@@ -1,387 +1,357 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Curso de Desbloqueio de iPhones - iOS Unlocker Pro</title>
-    <meta name="description" content="Aprenda a desbloquear todos os modelos de iPhone com nosso curso completo do zero ao avançado">
-    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
-    <meta http-equiv="Pragma" content="no-cache">
-    <meta http-equiv="Expires" content="0">
-    
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&display=swap" rel="stylesheet">
-    
+    <meta charSet="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="preload" href="/_next/static/media/028c0d39d2e8f589-s.p.woff2" as="font" crossorigin=""
+        type="font/woff2" />
+    <link rel="preload" href="/_next/static/media/5b01f339abf2f1a5.p.woff2" as="font" crossorigin=""
+        type="font/woff2" />
+    <link rel="stylesheet" href="/_next/static/css/6ad9841b43ad2bc9.css?dpl=dpl_5QwSUwNPV23EPVcnhjdXw6uvqYXs"
+        data-precedence="next" />
+    <link rel="stylesheet" href="/_next/static/css/23e812b6ea6e7f1e.css?dpl=dpl_5QwSUwNPV23EPVcnhjdXw6uvqYXs"
+        data-precedence="next" />
+    <link rel="preload" as="script" fetchPriority="low"
+        href="/_next/static/chunks/webpack-6214a53e9d6a9f00.js?dpl=dpl_5QwSUwNPV23EPVcnhjdXw6uvqYXs" />
+    <script src="/_next/static/chunks/8490244b-66b1614e83bbd3c5.js?dpl=dpl_5QwSUwNPV23EPVcnhjdXw6uvqYXs"
+        async=""></script>
+    <script src="/_next/static/chunks/571-5f488986bd9490b4.js?dpl=dpl_5QwSUwNPV23EPVcnhjdXw6uvqYXs" async=""></script>
+    <script src="/_next/static/chunks/main-app-d1cf215c4567dde7.js?dpl=dpl_5QwSUwNPV23EPVcnhjdXw6uvqYXs"
+        async=""></script>
+    <script src="/_next/static/chunks/112-eeef589641f1df65.js?dpl=dpl_5QwSUwNPV23EPVcnhjdXw6uvqYXs" async=""></script>
+    <script src="/_next/static/chunks/app/page-b22c061f7ee91db9.js?dpl=dpl_5QwSUwNPV23EPVcnhjdXw6uvqYXs"
+        async=""></script>
+    <meta name="next-size-adjust" content="" />
+    <title>v0 App</title>
+    <meta name="description" content="Created with v0" />
+    <meta name="generator" content="v0.dev" />
     <style>
-        :root {
-            --red: #ff2d2d;
-            --purple: #8b00ff;
-            --white: #ffffff;
-            --black: #000000;
-            --dark-gray: #111111;
-            --light-gray: #cccccc;
-        }
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: 'Inter', sans-serif;
-            background: var(--black);
-            color: var(--white);
-            line-height: 1.6;
-        }
-        
-        /* HEADER - FUNDO BRANCO */
-        .header {
-            background: var(--white);
-            color: var(--black);
-            padding: 3rem 2rem;
-            text-align: center;
-            border-bottom: 3px solid var(--purple);
-        }
-        
-        .header .main-title {
-            font-size: 2.5rem;
-            font-weight: 800;
-            color: var(--black);
-            margin-bottom: 0.5rem;
-        }
-        
-        .header .subtitle {
-            font-size: 1.3rem;
-            font-weight: 700;
-            color: var(--purple);
-        }
-        
-        /* SITE ESCURO - FUNDO PRETO */
-        .main-content {
-            background: var(--black);
-            color: var(--white);
-        }
-        
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
-        }
-        
-        /* SEÇÕES */
-        .section {
-            padding: 4rem 0;
-            border-bottom: 2px solid var(--purple);
-        }
-        
-        .section-title {
-            font-size: 2.2rem;
-            font-weight: 700;
-            color: var(--white);
-            text-align: center;
-            margin-bottom: 3rem;
-        }
-        
-        /* CARDS */
-        .card {
-            background: var(--dark-gray);
-            border: 2px solid var(--purple);
-            border-radius: 12px;
-            padding: 2rem;
-            margin-bottom: 2rem;
-        }
-        
-        .card h3 {
-            color: var(--white);
-            font-size: 1.4rem;
-            margin-bottom: 1rem;
-        }
-        
-        .card p {
-            color: var(--light-gray);
-        }
-        
-        /* DESTAQUES */
-        .highlight-red {
-            color: var(--red);
-            font-weight: bold;
-        }
-        
-        .highlight-purple {
-            color: var(--purple);
-            font-weight: bold;
-        }
-        
-        /* SEÇÃO DE COMPRA SIMPLES */
-        .offer-section {
-            background: var(--black);
-            padding: 4rem 2rem;
-            border-top: 3px solid var(--purple);
-        }
-        
-        .offer-container {
-            max-width: 500px;
-            margin: 0 auto;
-            background: var(--dark-gray);
-            border: 3px solid var(--purple);
-            border-radius: 16px;
-            padding: 3rem 2rem;
-            text-align: center;
-        }
-        
-        .price-area {
-            margin-bottom: 2rem;
-        }
-        
-        .old-price {
-            color: var(--light-gray);
-            text-decoration: line-through;
-            font-size: 1.2rem;
-            margin-right: 1rem;
-        }
-        
-        .new-price {
-            color: var(--red);
-            font-size: 3rem;
-            font-weight: 800;
-        }
-        
-        .offer-timer {
-            color: var(--red);
-            font-size: 1.1rem;
-            font-weight: 700;
-            margin-top: 1rem;
-        }
-        
-        .buy-button {
-            display: block;
-            width: 100%;
-            background: var(--red);
-            color: var(--white);
-            border: 2px solid var(--purple);
-            border-radius: 8px;
-            font-size: 1.4rem;
-            font-weight: 800;
-            padding: 1.2rem 0;
-            margin: 2rem 0;
-            text-align: center;
-            text-decoration: none;
-            transition: background 0.3s;
-        }
-        
-        .buy-button:hover {
-            background: #c40000;
-        }
-        
-        .benefits-list {
-            list-style: none;
-            margin: 2rem 0;
-            text-align: left;
-        }
-        
-        .benefits-list li {
-            color: var(--white);
-            margin-bottom: 1rem;
-            padding-left: 1.5rem;
-            position: relative;
-        }
-        
-        .benefits-list li:before {
-            content: "•";
-            color: var(--red);
-            font-weight: bold;
-            position: absolute;
-            left: 0;
-        }
-        
-        .benefit-title {
-            color: var(--red);
-            font-weight: bold;
-        }
-        
-        /* RESPONSIVO */
-        @media (max-width: 768px) {
-            .header .main-title {
-                font-size: 2rem;
-            }
-            
-            .header .subtitle {
-                font-size: 1.1rem;
-            }
-            
-            .section-title {
-                font-size: 1.8rem;
-            }
-            
-            .new-price {
-                font-size: 2.5rem;
-            }
-            
-            .buy-button {
-                font-size: 1.2rem;
-                padding: 1rem 0;
-            }
+        html {
+            font-family: 'GeistSans', 'GeistSans Fallback';
+            --font-sans: __variable_fb8f2c;
+            --font-mono: __variable_f910ec;
         }
     </style>
+    <script src="/_next/static/chunks/polyfills-42372ed130431b0a.js?dpl=dpl_5QwSUwNPV23EPVcnhjdXw6uvqYXs"
+        noModule=""></script>
 </head>
 
 <body>
-    <!-- HEADER BRANCO -->
-    <header class="header">
-        <div class="main-title">Curso de Desbloqueio de iPhones</div>
-        <div class="subtitle">Domine todas as versões</div>
-    </header>
-
-    <!-- CONTEÚDO PRINCIPAL -->
-    <main class="main-content">
-        <!-- SEÇÃO DE MÓDULOS -->
-        <section class="section">
-            <div class="container">
-                <h2 class="section-title">Módulos do Curso</h2>
-                
-                <div class="card">
-                    <h3>Módulo 01: <span class="highlight-red">Fundamentos do Desbloqueio</span></h3>
-                    <p>Apresentação do curso e do conteúdo. Conceitos sobre desbloqueios e vai aprender na prática a como dominar a ferramenta UnlockTool.</p>
+    <div class="min-h-screen bg-black text-white overflow-x-hidden font-sans antialiased">
+        <section
+            class="relative overflow-hidden bg-gradient-to-br from-black via-gray-900 to-black py-16 sm:py-20 md:py-24 lg:py-32 px-4 sm:px-6 lg:px-8">
+            <div class="absolute inset-0 bg-gradient-to-r from-[#FF6600]/5 to-[#6633CC]/5"></div>
+            <div class="absolute inset-0">
+                <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-[#FF6600]/10 rounded-full blur-3xl"></div>
+                <div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-[#6633CC]/10 rounded-full blur-3xl"></div>
+            </div>
+            <div
+                class="relative max-w-5xl mx-auto text-center transition-all duration-1200 ease-out opacity-0 translate-y-12">
+                <span data-slot="badge"
+                    class="inline-flex items-center justify-center w-fit whitespace-nowrap shrink-0 [&amp;&gt;svg]:size-3 gap-1 [&amp;&gt;svg]:pointer-events-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive transition-[color,box-shadow] overflow-hidden bg-primary [a&amp;]:hover:bg-primary/90 mb-8 bg-gradient-to-r from-[#6633CC] to-[#8B5CF6] text-white px-8 py-3 text-sm font-medium rounded-full shadow-lg backdrop-blur-sm border border-white/10">CURSO
+                    AVANÇADO</span>
+                <h1
+                    class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-light mb-8 text-white leading-[1.1] tracking-tight">
+                    Curso de Desbloqueio de<!-- --> <span
+                        class="font-semibold bg-gradient-to-r from-[#FF6600] to-[#FF8533] bg-clip-text text-transparent">iPhones</span>
+                </h1>
+                <p
+                    class="text-lg sm:text-xl md:text-2xl mb-12 text-gray-300 leading-relaxed max-w-4xl mx-auto font-light">
+                    Aprenda a desbloquear todos os modelos de iPhone com nosso curso completo do zero ao avançado</p>
+                <div
+                    class="bg-gradient-to-r from-[#FF6600] to-[#FF8533] text-white p-8 sm:p-10 rounded-3xl mb-12 shadow-2xl mx-auto max-w-2xl backdrop-blur-sm border border-white/10">
+                    <p class="text-base sm:text-lg font-medium mb-4 opacity-90">Oferta especial válida apenas hoje –
+                        04/08/2025</p>
+                    <div class="flex flex-col sm:flex-row items-center justify-center gap-4"><span
+                            class="text-xl sm:text-2xl line-through opacity-60 font-light">R$ 147,00</span><span
+                            class="text-3xl sm:text-4xl lg:text-5xl font-light tracking-tight">R$ 19,90</span></div>
+                </div><button data-slot="button"
+                    class="inline-flex items-center justify-center gap-2 whitespace-nowrap disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg:not([class*=&#x27;size-&#x27;])]:size-4 shrink-0 [&amp;_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive bg-primary hover:bg-primary/90 h-9 has-[&gt;svg]:px-3 bg-gradient-to-r from-[#FF6600] to-[#FF8533] hover:from-[#E55A00] hover:to-[#E5751A] text-white text-lg sm:text-xl px-12 sm:px-16 py-6 sm:py-8 rounded-2xl font-medium shadow-2xl transform hover:scale-105 transition-all duration-300 w-full sm:w-auto border border-white/10 backdrop-blur-sm">Começar
+                    Agora</button>
+            </div>
+        </section>
+        <section class="py-20 sm:py-24 md:py-32 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-black to-gray-900">
+            <div class="max-w-7xl mx-auto">
+                <div class="text-center mb-16 sm:mb-20">
+                    <h2 class="text-3xl sm:text-4xl md:text-5xl font-light mb-6 text-white tracking-tight">Módulos do
+                        Curso</h2>
+                    <p class="text-lg sm:text-xl text-gray-400 max-w-3xl mx-auto font-light">Conteúdo estruturado para
+                        levar você do iniciante ao profissional</p>
                 </div>
-                
-                <div class="card">
-                    <h3>Módulo 02: <span class="highlight-red">Método Lucrativo</span></h3>
-                    <p>Passo a passo para você desbloquear o iPhone muito rápido e lucrar até <span class="highlight-red">R$ 700,00</span> por aparelho. Compartilho meu método e os melhores servidores.</p>
-                </div>
-                
-                <div class="card">
-                    <h3>Módulo 03: <span class="highlight-red">Ferramentas e Softwares</span></h3>
-                    <p>Apresentação de ferramentas, softwares e servidores que vamos utilizar para realizar os desbloqueios com eficiência.</p>
-                </div>
-                
-                <div class="card">
-                    <h3>Módulo 04: <span class="highlight-red">Aulas Práticas</span></h3>
-                    <p>Aulas práticas de desbloqueios usando ferramentas e servidores apresentados no curso, com todo o suporte necessário.</p>
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-10">
+                    <div data-slot="card"
+                        class="bg-card text-card-foreground flex flex-col gap-6 py-6 shadow-sm bg-gradient-to-br from-gray-900/50 to-black/50 border border-gray-800/50 hover:border-[#FF6600]/30 transition-all duration-500 hover:transform hover:scale-[1.02] backdrop-blur-sm rounded-3xl overflow-hidden group"
+                        style="animation-delay:0ms">
+                        <div data-slot="card-content" class="p-8 sm:p-10">
+                            <div class="flex flex-col sm:flex-row items-start gap-6">
+                                <div
+                                    class="bg-gradient-to-r from-[#FF6600] to-[#FF8533] text-white rounded-2xl w-16 h-16 flex items-center justify-center font-light text-2xl flex-shrink-0 shadow-lg group-hover:shadow-[#FF6600]/25 transition-all duration-300">
+                                    01</div>
+                                <div class="flex-1">
+                                    <h3 class="text-xl sm:text-2xl font-medium text-white mb-4 tracking-tight">Módulo
+                                        <!-- -->01<!-- -->: <!-- -->Apresentação do Curso</h3>
+                                    <p class="text-gray-400 leading-relaxed text-base sm:text-lg font-light">
+                                        Apresentação do curso e do conteúdo. Conceitos sobre desbloqueios e vai aprender
+                                        na prática a como dominar a ferramenta UnlockTool.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div data-slot="card"
+                        class="bg-card text-card-foreground flex flex-col gap-6 py-6 shadow-sm bg-gradient-to-br from-gray-900/50 to-black/50 border border-gray-800/50 hover:border-[#FF6600]/30 transition-all duration-500 hover:transform hover:scale-[1.02] backdrop-blur-sm rounded-3xl overflow-hidden group"
+                        style="animation-delay:150ms">
+                        <div data-slot="card-content" class="p-8 sm:p-10">
+                            <div class="flex flex-col sm:flex-row items-start gap-6">
+                                <div
+                                    class="bg-gradient-to-r from-[#FF6600] to-[#FF8533] text-white rounded-2xl w-16 h-16 flex items-center justify-center font-light text-2xl flex-shrink-0 shadow-lg group-hover:shadow-[#FF6600]/25 transition-all duration-300">
+                                    02</div>
+                                <div class="flex-1">
+                                    <h3 class="text-xl sm:text-2xl font-medium text-white mb-4 tracking-tight">Módulo
+                                        <!-- -->02<!-- -->: <!-- -->Método Lucrativo</h3>
+                                    <p class="text-gray-400 leading-relaxed text-base sm:text-lg font-light">Passo a
+                                        passo para você desbloquear o iPhone muito rápido e lucrar até R$ 700,00 por
+                                        aparelho. Compartilho meu método e os melhores servidores.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div data-slot="card"
+                        class="bg-card text-card-foreground flex flex-col gap-6 py-6 shadow-sm bg-gradient-to-br from-gray-900/50 to-black/50 border border-gray-800/50 hover:border-[#FF6600]/30 transition-all duration-500 hover:transform hover:scale-[1.02] backdrop-blur-sm rounded-3xl overflow-hidden group"
+                        style="animation-delay:300ms">
+                        <div data-slot="card-content" class="p-8 sm:p-10">
+                            <div class="flex flex-col sm:flex-row items-start gap-6">
+                                <div
+                                    class="bg-gradient-to-r from-[#FF6600] to-[#FF8533] text-white rounded-2xl w-16 h-16 flex items-center justify-center font-light text-2xl flex-shrink-0 shadow-lg group-hover:shadow-[#FF6600]/25 transition-all duration-300">
+                                    03</div>
+                                <div class="flex-1">
+                                    <h3 class="text-xl sm:text-2xl font-medium text-white mb-4 tracking-tight">Módulo
+                                        <!-- -->03<!-- -->: <!-- -->Ferramentas e Softwares</h3>
+                                    <p class="text-gray-400 leading-relaxed text-base sm:text-lg font-light">
+                                        Apresentação de ferramentas, softwares e servidores que vamos utilizar para
+                                        realizar os desbloqueios com eficiência.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div data-slot="card"
+                        class="bg-card text-card-foreground flex flex-col gap-6 py-6 shadow-sm bg-gradient-to-br from-gray-900/50 to-black/50 border border-gray-800/50 hover:border-[#FF6600]/30 transition-all duration-500 hover:transform hover:scale-[1.02] backdrop-blur-sm rounded-3xl overflow-hidden group"
+                        style="animation-delay:450ms">
+                        <div data-slot="card-content" class="p-8 sm:p-10">
+                            <div class="flex flex-col sm:flex-row items-start gap-6">
+                                <div
+                                    class="bg-gradient-to-r from-[#FF6600] to-[#FF8533] text-white rounded-2xl w-16 h-16 flex items-center justify-center font-light text-2xl flex-shrink-0 shadow-lg group-hover:shadow-[#FF6600]/25 transition-all duration-300">
+                                    04</div>
+                                <div class="flex-1">
+                                    <h3 class="text-xl sm:text-2xl font-medium text-white mb-4 tracking-tight">Módulo
+                                        <!-- -->04<!-- -->: <!-- -->Aulas Práticas</h3>
+                                    <p class="text-gray-400 leading-relaxed text-base sm:text-lg font-light">Aulas
+                                        práticas de desbloqueios usando ferramentas e servidores apresentados no curso,
+                                        com todo o suporte necessário.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
-
-        <!-- SEÇÃO DE DEPOIMENTOS -->
-        <section class="section">
-            <div class="container">
-                <h2 class="section-title">Depoimentos dos Alunos</h2>
-                
-                <div class="card">
-                    <h3><span class="highlight-red">500+</span> Alunos Atendidos</h3>
-                    <p>Veja o que nossos alunos estão dizendo sobre o curso e os resultados que estão alcançando.</p>
+        <section class="py-20 sm:py-24 md:py-32 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-gray-900 to-black">
+            <div class="max-w-7xl mx-auto">
+                <div class="text-center mb-16 sm:mb-20">
+                    <h2 class="text-3xl sm:text-4xl md:text-5xl font-light mb-6 text-white tracking-tight">Bônus
+                        Exclusivos</h2>
+                    <p class="text-lg sm:text-xl text-[#FF6600] font-medium">Para quem adquirir o plano premium</p>
                 </div>
-                
-                <div class="card">
-                    <h3><span class="highlight-red">98%</span> Taxa de Sucesso</h3>
-                    <p>Nossos alunos conseguem desbloquear iPhones com sucesso em 98% dos casos.</p>
-                </div>
-                
-                <div class="card">
-                    <h3><span class="highlight-red">24/7</span> Suporte Disponível</h3>
-                    <p>Suporte técnico disponível 24 horas por dia, 7 dias por semana.</p>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+                    <div data-slot="card"
+                        class="bg-card text-card-foreground flex flex-col gap-6 py-6 shadow-sm bg-gradient-to-br from-gray-900/30 to-black/30 border border-gray-800/30 hover:border-[#6633CC]/40 transition-all duration-500 hover:transform hover:scale-105 backdrop-blur-sm rounded-3xl overflow-hidden group"
+                        style="animation-delay:0ms">
+                        <div data-slot="card-content" class="p-8 text-center">
+                            <div
+                                class="text-[#6633CC] mb-6 flex justify-center group-hover:scale-110 transition-all duration-300">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" class="lucide lucide-zap w-8 h-8">
+                                    <path
+                                        d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z">
+                                    </path>
+                                </svg></div>
+                            <h3 class="text-lg sm:text-xl font-medium text-white mb-4 tracking-tight">Bypass iOS 17.5
+                            </h3>
+                            <p class="text-gray-400 text-sm sm:text-base font-light leading-relaxed">Técnicas avançadas
+                                para contornar as últimas proteções do iOS</p>
+                        </div>
+                    </div>
+                    <div data-slot="card"
+                        class="bg-card text-card-foreground flex flex-col gap-6 py-6 shadow-sm bg-gradient-to-br from-gray-900/30 to-black/30 border border-gray-800/30 hover:border-[#6633CC]/40 transition-all duration-500 hover:transform hover:scale-105 backdrop-blur-sm rounded-3xl overflow-hidden group"
+                        style="animation-delay:100ms">
+                        <div data-slot="card-content" class="p-8 text-center">
+                            <div
+                                class="text-[#6633CC] mb-6 flex justify-center group-hover:scale-110 transition-all duration-300">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" class="lucide lucide-users w-8 h-8">
+                                    <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
+                                    <circle cx="9" cy="7" r="4"></circle>
+                                    <path d="M22 21v-2a4 4 0 0 0-3-3.87"></path>
+                                    <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                                </svg></div>
+                            <h3 class="text-lg sm:text-xl font-medium text-white mb-4 tracking-tight">Suporte Individual
+                            </h3>
+                            <p class="text-gray-400 text-sm sm:text-base font-light leading-relaxed">Atendimento
+                                personalizado via AnyDesk com especialistas</p>
+                        </div>
+                    </div>
+                    <div data-slot="card"
+                        class="bg-card text-card-foreground flex flex-col gap-6 py-6 shadow-sm bg-gradient-to-br from-gray-900/30 to-black/30 border border-gray-800/30 hover:border-[#6633CC]/40 transition-all duration-500 hover:transform hover:scale-105 backdrop-blur-sm rounded-3xl overflow-hidden group"
+                        style="animation-delay:200ms">
+                        <div data-slot="card-content" class="p-8 text-center">
+                            <div
+                                class="text-[#6633CC] mb-6 flex justify-center group-hover:scale-110 transition-all duration-300">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" class="lucide lucide-shield w-8 h-8">
+                                    <path
+                                        d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z">
+                                    </path>
+                                </svg></div>
+                            <h3 class="text-lg sm:text-xl font-medium text-white mb-4 tracking-tight">Servidores Premium
+                            </h3>
+                            <p class="text-gray-400 text-sm sm:text-base font-light leading-relaxed">Acesso exclusivo
+                                aos melhores servidores do mercado</p>
+                        </div>
+                    </div>
+                    <div data-slot="card"
+                        class="bg-card text-card-foreground flex flex-col gap-6 py-6 shadow-sm bg-gradient-to-br from-gray-900/30 to-black/30 border border-gray-800/30 hover:border-[#6633CC]/40 transition-all duration-500 hover:transform hover:scale-105 backdrop-blur-sm rounded-3xl overflow-hidden group"
+                        style="animation-delay:300ms">
+                        <div data-slot="card-content" class="p-8 text-center">
+                            <div
+                                class="text-[#6633CC] mb-6 flex justify-center group-hover:scale-110 transition-all duration-300">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" class="lucide lucide-star w-8 h-8">
+                                    <path
+                                        d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z">
+                                    </path>
+                                </svg></div>
+                            <h3 class="text-lg sm:text-xl font-medium text-white mb-4 tracking-tight">Kit de Ferramentas
+                            </h3>
+                            <p class="text-gray-400 text-sm sm:text-base font-light leading-relaxed">Conjunto completo
+                                de ferramentas profissionais</p>
+                        </div>
+                    </div>
+                    <div data-slot="card"
+                        class="bg-card text-card-foreground flex flex-col gap-6 py-6 shadow-sm bg-gradient-to-br from-gray-900/30 to-black/30 border border-gray-800/30 hover:border-[#6633CC]/40 transition-all duration-500 hover:transform hover:scale-105 backdrop-blur-sm rounded-3xl overflow-hidden group"
+                        style="animation-delay:400ms">
+                        <div data-slot="card-content" class="p-8 text-center">
+                            <div
+                                class="text-[#6633CC] mb-6 flex justify-center group-hover:scale-110 transition-all duration-300">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" class="lucide lucide-gift w-8 h-8">
+                                    <rect x="3" y="8" width="18" height="4" rx="1"></rect>
+                                    <path d="M12 8v13"></path>
+                                    <path d="M19 12v7a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2v-7"></path>
+                                    <path
+                                        d="M7.5 8a2.5 2.5 0 0 1 0-5A4.8 8 0 0 1 12 8a4.8 8 0 0 1 4.5-5 2.5 2.5 0 0 1 0 5">
+                                    </path>
+                                </svg></div>
+                            <h3 class="text-lg sm:text-xl font-medium text-white mb-4 tracking-tight">Atualizações
+                                Vitalícias</h3>
+                            <p class="text-gray-400 text-sm sm:text-base font-light leading-relaxed">Receba todas as
+                                atualizações sem custo adicional</p>
+                        </div>
+                    </div>
+                    <div data-slot="card"
+                        class="bg-card text-card-foreground flex flex-col gap-6 py-6 shadow-sm bg-gradient-to-br from-gray-900/30 to-black/30 border border-gray-800/30 hover:border-[#6633CC]/40 transition-all duration-500 hover:transform hover:scale-105 backdrop-blur-sm rounded-3xl overflow-hidden group"
+                        style="animation-delay:500ms">
+                        <div data-slot="card-content" class="p-8 text-center">
+                            <div
+                                class="text-[#6633CC] mb-6 flex justify-center group-hover:scale-110 transition-all duration-300">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" class="lucide lucide-circle-check-big w-8 h-8">
+                                    <path d="M21.801 10A10 10 0 1 1 17 3.335"></path>
+                                    <path d="m9 11 3 3L22 4"></path>
+                                </svg></div>
+                            <h3 class="text-lg sm:text-xl font-medium text-white mb-4 tracking-tight">Certificado
+                                Oficial</h3>
+                            <p class="text-gray-400 text-sm sm:text-base font-light leading-relaxed">Comprove sua
+                                expertise com certificado de conclusão</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
-
-        <!-- SEÇÃO DE BÔNUS -->
-        <section class="section">
-            <div class="container">
-                <h2 class="section-title">Bônus Exclusivos</h2>
-                
-                <div class="card">
-                    <h3><span class="highlight-red">Bypass iOS 17.5</span></h3>
-                    <p>Método completo para desbloqueio iCloud em dispositivos com iOS 17.5</p>
+        <section class="py-20 sm:py-24 md:py-32 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-black to-gray-900">
+            <div class="max-w-5xl mx-auto text-center">
+                <h2 class="text-3xl sm:text-4xl md:text-5xl font-light mb-10 text-white tracking-tight">O que é o Curso
+                    de Desbloqueio?</h2>
+                <div
+                    class="bg-gradient-to-r from-gray-900/50 to-black/50 p-10 sm:p-12 rounded-3xl backdrop-blur-sm border border-gray-800/30 mb-12">
+                    <p class="text-xl sm:text-2xl leading-relaxed text-gray-200 font-light">É o treinamento mais
+                        completo e atualizado do Brasil sobre<!-- --> <span
+                            class="font-medium text-[#FF6600]">desbloqueio de iPhones</span>. Mesmo que você<!-- -->
+                        <span class="font-medium text-[#FF6600]">nunca tenha feito isso antes</span>, você vai
+                        aprender<!-- --> <span class="font-medium text-[#FF6600]">passo a passo</span> tudo o que
+                        precisa para começar<!-- --> <span class="font-medium text-[#FF6600]">do zero até o nível
+                            profissional</span>.</p>
+                </div><button data-slot="button"
+                    class="inline-flex items-center justify-center gap-2 whitespace-nowrap disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg:not([class*=&#x27;size-&#x27;])]:size-4 shrink-0 [&amp;_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive bg-primary hover:bg-primary/90 h-9 has-[&gt;svg]:px-3 bg-gradient-to-r from-[#FF6600] to-[#FF8533] hover:from-[#E55A00] hover:to-[#E5751A] text-white text-lg sm:text-xl px-12 sm:px-16 py-6 sm:py-8 rounded-2xl font-medium shadow-2xl transform hover:scale-105 transition-all duration-300 w-full sm:w-auto border border-white/10 backdrop-blur-sm">Começar
+                    Agora</button>
+            </div>
+        </section>
+        <section class="py-20 sm:py-24 md:py-32 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-gray-900 to-black">
+            <div class="max-w-5xl mx-auto text-center space-y-8">
+                <div
+                    class="bg-gradient-to-r from-[#6633CC]/20 to-[#8B5CF6]/20 backdrop-blur-sm border border-[#6633CC]/20 p-10 sm:p-12 rounded-3xl transform hover:scale-105 transition-all duration-300">
+                    <h3 class="text-2xl sm:text-3xl font-medium mb-6 text-white tracking-tight">Comunidade de Suporte
+                    </h3>
+                    <p class="text-lg sm:text-xl text-gray-300 font-light">Faça parte do nosso grupo exclusivo com
+                        milhares de membros prontos para ajudar</p>
                 </div>
-                
-                <div class="card">
-                    <h3><span class="highlight-red">Bypass iOS 18.5</span></h3>
-                    <p>Solução avançada para contornar o iCloud na última versão do iOS</p>
-                </div>
-                
-                <div class="card">
-                    <h3><span class="highlight-red">Suporte Técnico VIP</span></h3>
-                    <p>Assistência remota especializada para bypass em todas versões</p>
-                </div>
-                
-                <div class="card">
-                    <h3><span class="highlight-red">Pacote Completo iOS</span></h3>
-                    <p>Ferramentas para bypass desde iOS 14 até 18.5</p>
-                </div>
-                
-                <div class="card">
-                    <h3><span class="highlight-red">Atualizações Vitalícias</span></h3>
-                    <p>Novos métodos de bypass para futuras atualizações do iOS</p>
-                </div>
-                
-                <div class="card">
-                    <h3><span class="highlight-red">Compatibilidade Total</span></h3>
-                    <p>Funciona em todos modelos (iPhone 6s ao 15 Pro Max)</p>
+                <div
+                    class="bg-gradient-to-r from-[#FF6600]/20 to-[#FF8533]/20 backdrop-blur-sm border border-[#FF6600]/20 p-10 sm:p-12 rounded-3xl transform hover:scale-105 transition-all duration-300">
+                    <h3 class="text-2xl sm:text-3xl font-medium mb-6 text-white tracking-tight">Garantia Total</h3>
+                    <p class="text-lg sm:text-xl text-gray-300 font-light">7 dias de garantia incondicional - satisfeito
+                        ou seu dinheiro de volta</p>
                 </div>
             </div>
         </section>
-
-        <!-- SEÇÃO DE COMPRA SIMPLES -->
-        <section class="offer-section">
-            <div class="offer-container">
-                <!-- PREÇO GRANDE -->
-                <div class="price-area">
-                    <span class="old-price">R$ 147,00</span>
-                    <span class="new-price">R$ 19,90</span>
-                    <div class="offer-timer">Oferta válida por: <span id="timer">09:59</span></div>
+        <footer
+            class="bg-gradient-to-t from-black to-gray-900 py-16 sm:py-20 px-4 sm:px-6 lg:px-8 border-t border-gray-800/50">
+            <div class="max-w-7xl mx-auto">
+                <div class="text-center mb-12">
+                    <p class="text-gray-300 mb-6 text-base sm:text-lg font-light">Copyright 2025 -<!-- --> <span
+                            class="font-medium bg-gradient-to-r from-[#FF6600] to-[#FF8533] bg-clip-text text-transparent">Expert
+                            Unlocker ®</span> <!-- -->Todos os direitos reservados.</p>
+                    <div class="flex flex-col sm:flex-row justify-center gap-4 sm:gap-8"><a href="#"
+                            class="text-[#FF6600] hover:text-[#FF8533] transition-all duration-300 font-medium hover:underline">Termos
+                            de Uso</a><a href="#"
+                            class="text-[#FF6600] hover:text-[#FF8533] transition-all duration-300 font-medium hover:underline">Políticas
+                            de Privacidade</a></div>
                 </div>
-                
-                <!-- BOTÃO DE COMPRA -->
-                <a href="#comprar" class="buy-button">COMPRAR AGORA</a>
-                
-                <!-- BENEFÍCIOS + BÔNUS -->
-                <ul class="benefits-list">
-                    <li><span class="benefit-title">Acesso vitalício</span> ao curso completo</li>
-                    <li><span class="benefit-title">Suporte VIP</span> 24h</li>
-                    <li><span class="benefit-title">6 bônus exclusivos</span> incluídos</li>
-                    <li><span class="benefit-title">Atualizações gratuitas</span> para sempre</li>
-                    <li><span class="benefit-title">Garantia de 7 dias</span> ou seu dinheiro de volta</li>
-                </ul>
-                
-                <!-- BOTÃO DE COMPRA REPETIDO -->
-                <a href="#comprar" class="buy-button">COMPRAR AGORA</a>
+                <div class="text-sm text-gray-500 leading-relaxed space-y-6 max-w-4xl mx-auto font-light">
+                    <p><span class="font-medium text-gray-400">Aviso sobre Plágio:</span> Todo o conteúdo deste curso é
+                        protegido por direitos autorais. A reprodução não autorizada é crime previsto em lei.</p>
+                    <p><span class="font-medium text-gray-400">Isenção de Responsabilidade:</span> Os resultados podem
+                        variar de pessoa para pessoa. Este curso é apenas para fins educacionais. O uso das técnicas
+                        ensinadas deve respeitar as leis locais.</p>
+                    <p><span class="font-medium text-gray-400">Importante:</span> Este curso destina-se apenas ao
+                        desbloqueio de aparelhos próprios ou com autorização expressa do proprietário. O uso indevido
+                        das técnicas é de responsabilidade exclusiva do usuário.</p>
+                </div>
             </div>
-        </section>
-    </main>
-
-    <!-- FOOTER -->
-    <footer style="background: var(--black); color: var(--light-gray); text-align: center; padding: 2rem; border-top: 2px solid var(--purple);">
-        <p>Copyright 2025 - <span class="highlight-red">iOS Unlocker Pro</span> Todos os direitos reservados.</p>
-        <p style="margin-top: 1rem; font-size: 0.9rem;">Este curso destina-se apenas ao desbloqueio de aparelhos próprios.</p>
-    </footer>
-
-    <script>
-        // Contador de oferta
-        function updateTimer() {
-            const timerElement = document.getElementById('timer');
-            let minutes = 9;
-            let seconds = 59;
-            
-            const interval = setInterval(() => {
-                if (seconds === 0) {
-                    if (minutes === 0) {
-                        clearInterval(interval);
-                        timerElement.textContent = "00:00";
-                        return;
-                    }
-                    minutes--;
-                    seconds = 59;
-                } else {
-                    seconds--;
-                }
-                
-                timerElement.textContent = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
-            }, 1000);
-        }
-        
-        // Iniciar contador quando a página carregar
-        document.addEventListener('DOMContentLoaded', updateTimer);
-    </script>
+        </footer>
+    </div>
+    <script src="/_next/static/chunks/webpack-6214a53e9d6a9f00.js?dpl=dpl_5QwSUwNPV23EPVcnhjdXw6uvqYXs"
+        async=""></script>
+    <script>(self.__next_f = self.__next_f || []).push([0])</script>
+    <script>self.__next_f.push([1, "1:\"$Sreact.fragment\"\n2:I[464,[],\"\"]\n3:I[6950,[],\"\"]\n4:I[8077,[],\"ClientPageRoot\"]\n5:I[9628,[\"112\",\"static/chunks/112-eeef589641f1df65.js?dpl=dpl_5QwSUwNPV23EPVcnhjdXw6uvqYXs\",\"974\",\"static/chunks/app/page-b22c061f7ee91db9.js?dpl=dpl_5QwSUwNPV23EPVcnhjdXw6uvqYXs\"],\"default\"]\n8:I[4880,[],\"OutletBoundary\"]\nb:I[4880,[],\"ViewportBoundary\"]\nd:I[4880,[],\"MetadataBoundary\"]\nf:I[6751,[],\"\"]\n:HL[\"/_next/static/media/028c0d39d2e8f589-s.p.woff2\",\"font\",{\"crossOrigin\":\"\",\"type\":\"font/woff2\"}]\n:HL[\"/_next/static/css/6ad9841b43ad2bc9.css?dpl=dpl_5QwSUwNPV23EPVcnhjdXw6uvqYXs\",\"style\"]\n:HL[\"/_next/static/css/23e812b6ea6e7f1e.css?dpl=dpl_5QwSUwNPV23EPVcnhjdXw6uvqYXs\",\"style\"]\n"])</script>
+    <script>self.__next_f.push([1, "0:{\"P\":null,\"b\":\"-NOWF5hIYsmvQHHxes2Gw\",\"p\":\"\",\"c\":[\"\",\"\"],\"i\":false,\"f\":[[[\"\",{\"children\":[\"__PAGE__\",{}]},\"$undefined\",\"$undefined\",true],[\"\",[\"$\",\"$1\",\"c\",{\"children\":[[[\"$\",\"link\",\"0\",{\"rel\":\"stylesheet\",\"href\":\"/_next/static/css/6ad9841b43ad2bc9.css?dpl=dpl_5QwSUwNPV23EPVcnhjdXw6uvqYXs\",\"precedence\":\"next\",\"crossOrigin\":\"$undefined\",\"nonce\":\"$undefined\"}],[\"$\",\"link\",\"1\",{\"rel\":\"stylesheet\",\"href\":\"/_next/static/css/23e812b6ea6e7f1e.css?dpl=dpl_5QwSUwNPV23EPVcnhjdXw6uvqYXs\",\"precedence\":\"next\",\"crossOrigin\":\"$undefined\",\"nonce\":\"$undefined\"}]],[\"$\",\"html\",null,{\"lang\":\"en\",\"children\":[[\"$\",\"head\",null,{\"children\":[\"$\",\"style\",null,{\"children\":\"\\nhtml {\\n  font-family: 'GeistSans', 'GeistSans Fallback';\\n  --font-sans: __variable_fb8f2c;\\n  --font-mono: __variable_f910ec;\\n}\\n        \"}]}],[\"$\",\"body\",null,{\"children\":[\"$\",\"$L2\",null,{\"parallelRouterKey\":\"children\",\"error\":\"$undefined\",\"errorStyles\":\"$undefined\",\"errorScripts\":\"$undefined\",\"template\":[\"$\",\"$L3\",null,{}],\"templateStyles\":\"$undefined\",\"templateScripts\":\"$undefined\",\"notFound\":[[[\"$\",\"title\",null,{\"children\":\"404: This page could not be found.\"}],[\"$\",\"div\",null,{\"style\":{\"fontFamily\":\"system-ui,\\\"Segoe UI\\\",Roboto,Helvetica,Arial,sans-serif,\\\"Apple Color Emoji\\\",\\\"Segoe UI Emoji\\\"\",\"height\":\"100vh\",\"textAlign\":\"center\",\"display\":\"flex\",\"flexDirection\":\"column\",\"alignItems\":\"center\",\"justifyContent\":\"center\"},\"children\":[\"$\",\"div\",null,{\"children\":[[\"$\",\"style\",null,{\"dangerouslySetInnerHTML\":{\"__html\":\"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}\"}}],[\"$\",\"h1\",null,{\"className\":\"next-error-h1\",\"style\":{\"display\":\"inline-block\",\"margin\":\"0 20px 0 0\",\"padding\":\"0 23px 0 0\",\"fontSize\":24,\"fontWeight\":500,\"verticalAlign\":\"top\",\"lineHeight\":\"49px\"},\"children\":404}],[\"$\",\"div\",null,{\"style\":{\"display\":\"inline-block\"},\"children\":[\"$\",\"h2\",null,{\"style\":{\"fontSize\":14,\"fontWeight\":400,\"lineHeight\":\"49px\",\"margin\":0},\"children\":\"This page could not be found.\"}]}]]}]}]],[]],\"forbidden\":\"$undefined\",\"unauthorized\":\"$undefined\"}]}]]}]]}],{\"children\":[\"__PAGE__\",[\"$\",\"$1\",\"c\",{\"children\":[[\"$\",\"$L4\",null,{\"Component\":\"$5\",\"searchParams\":{},\"params\":{},\"promises\":[\"$@6\",\"$@7\"]}],\"$undefined\",null,[\"$\",\"$L8\",null,{\"children\":[\"$L9\",\"$La\",null]}]]}],{},null,false]},null,false],[\"$\",\"$1\",\"h\",{\"children\":[null,[\"$\",\"$1\",\"JnMSql6d4gFa9-KnAp-wC\",{\"children\":[[\"$\",\"$Lb\",null,{\"children\":\"$Lc\"}],[\"$\",\"meta\",null,{\"name\":\"next-size-adjust\",\"content\":\"\"}]]}],[\"$\",\"$Ld\",null,{\"children\":\"$Le\"}]]}],false]],\"m\":\"$undefined\",\"G\":[\"$f\",\"$undefined\"],\"s\":false,\"S\":true}\n"])</script>
+    <script>self.__next_f.push([1, "6:{}\n7:{}\n"])</script>
+    <script>self.__next_f.push([1, "c:[[\"$\",\"meta\",\"0\",{\"charSet\":\"utf-8\"}],[\"$\",\"meta\",\"1\",{\"name\":\"viewport\",\"content\":\"width=device-width, initial-scale=1\"}]]\n9:null\n"])</script>
+    <script>self.__next_f.push([1, "a:null\ne:[[\"$\",\"title\",\"0\",{\"children\":\"v0 App\"}],[\"$\",\"meta\",\"1\",{\"name\":\"description\",\"content\":\"Created with v0\"}],[\"$\",\"meta\",\"2\",{\"name\":\"generator\",\"content\":\"v0.dev\"}]]\n"])</script>
 </body>
+
 </html>
