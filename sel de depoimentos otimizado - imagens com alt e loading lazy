@@ -1,0 +1,3 @@
+[33m15ee7ca[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m Otimizações Lighthouse: CSS não-bloqueante, imagens WebP, fetchpriority, preconnect, event listeners passivos
+[33m7b3abbf[m Otimizações Google PageSpeed: doctype, imagens corretas, meta tags, headers de segurança
+[33m935768d[m Botões GARANTIR ACESSO redirecionam para checkout
