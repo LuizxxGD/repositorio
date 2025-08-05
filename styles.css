@@ -1640,6 +1640,64 @@ img.lazy.loaded {
   .gap-8 {
     gap: 1.5rem;
   }
+  
+  /* Correções específicas para mobile */
+  .offer-container {
+    padding: 1.5rem 1rem;
+    margin: 1rem;
+  }
+  
+  .price-container {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .current-price {
+    font-size: 2.5rem;
+  }
+  
+  .benefits-grid,
+  .bonus-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .cta-button {
+    padding: 1rem 2rem;
+    font-size: 1rem;
+    min-height: 50px;
+  }
+  
+  /* Testimonials mobile */
+  .testimonials {
+    min-height: 80vh;
+  }
+  
+  .testimonials h2 {
+    font-size: 1.2rem;
+    margin: 15px 0;
+    padding: 0 15px;
+  }
+  
+  /* Modules mobile */
+  .modules-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .module-card {
+    padding: 1.5rem;
+  }
+  
+  /* Bonuses mobile */
+  .bonuses-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .bonus-card {
+    padding: 1.5rem;
+  }
 }
 
 @media (max-width: 640px) {
@@ -2029,4 +2087,333 @@ img.lazy {
 /* Otimizações de touch */
 .touch-animate {
   contain: layout style;
+} 
+
+/* Correções específicas de responsividade */
+@media (max-width: 768px) {
+  /* Hero section mobile */
+  .hero-section {
+    padding: 2rem 1rem;
+  }
+  
+  .hero-section h1 {
+    font-size: 2rem;
+    line-height: 1.2;
+  }
+  
+  .hero-section p {
+    font-size: 1rem;
+  }
+  
+  /* Price section mobile */
+  .price-section {
+    padding: 2rem 1rem;
+  }
+  
+  .price-container {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  
+  .current-price {
+    font-size: 3rem;
+  }
+  
+  /* Offer container mobile */
+  .offer-container {
+    padding: 2rem 1.5rem;
+    margin: 1rem;
+    border-radius: 12px;
+  }
+  
+  .offer-tag {
+    font-size: 0.8rem;
+    letter-spacing: 0.15rem;
+  }
+  
+  .section-title {
+    font-size: 1.3rem;
+  }
+  
+  /* Benefits and bonuses mobile */
+  .benefits-grid,
+  .bonus-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .benefit-item,
+  .bonus-item {
+    margin-bottom: 1rem;
+  }
+  
+  .benefit-item p,
+  .bonus-item p {
+    font-size: 0.9rem;
+  }
+  
+  /* CTA button mobile */
+  .cta-button {
+    min-height: 50px;
+    padding: 1rem 2rem;
+    font-size: 1rem;
+  }
+  
+  /* Testimonials mobile */
+  .testimonials {
+    min-height: 80vh;
+  }
+  
+  .testimonials h2 {
+    font-size: 1.2rem;
+    margin: 15px 0;
+    padding: 0 15px;
+    letter-spacing: 2px;
+  }
+  
+  /* Modules mobile */
+  .modules-section {
+    padding: 2rem 1rem;
+  }
+  
+  .modules-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .module-card {
+    padding: 1.5rem;
+  }
+  
+  .module-title {
+    font-size: 1.2rem;
+  }
+  
+  .module-description {
+    font-size: 0.9rem;
+  }
+  
+  /* Bonuses section mobile */
+  .bonuses-section {
+    padding: 2rem 1rem;
+  }
+  
+  .bonuses-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .bonus-card {
+    padding: 1.5rem;
+  }
+  
+  .bonus-title {
+    font-size: 1.2rem;
+  }
+  
+  .bonus-description {
+    font-size: 0.9rem;
+  }
+  
+  /* Info section mobile */
+  .info-section {
+    padding: 2rem 1rem;
+  }
+  
+  .info-cards {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .info-card {
+    padding: 1.5rem;
+  }
+  
+  .info-title {
+    font-size: 1.2rem;
+  }
+  
+  .info-text {
+    font-size: 0.9rem;
+  }
+  
+  /* Footer mobile */
+  .footer {
+    padding: 2rem 1rem;
+  }
+  
+  .footer-content {
+    flex-direction: column;
+    gap: 1rem;
+    text-align: center;
+  }
+  
+  .footer-links {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .legal-text {
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  /* Extra small devices */
+  .hero-section h1 {
+    font-size: 1.8rem;
+  }
+  
+  .current-price {
+    font-size: 2.5rem;
+  }
+  
+  .offer-container {
+    padding: 1.5rem 1rem;
+    margin: 0.5rem;
+  }
+  
+  .cta-button {
+    padding: 0.9rem 1.5rem;
+    font-size: 0.9rem;
+  }
+  
+  .testimonials h2 {
+    font-size: 1rem;
+    letter-spacing: 1px;
+  }
+  
+  .module-card,
+  .bonus-card,
+  .info-card {
+    padding: 1rem;
+  }
+  
+  .module-title,
+  .bonus-title,
+  .info-title {
+    font-size: 1.1rem;
+  }
+  
+  .module-description,
+  .bonus-description,
+  .info-text {
+    font-size: 0.85rem;
+  }
+}
+
+/* Correções para tablets */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .offer-container {
+    padding: 2.5rem 2rem;
+    margin: 2rem;
+  }
+  
+  .benefits-grid,
+  .bonus-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
+  
+  .modules-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
+  
+  .info-cards {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
+}
+
+/* Correções para telas muito grandes */
+@media (min-width: 1200px) {
+  .offer-container {
+    max-width: 1000px;
+  }
+  
+  .container {
+    max-width: 1400px;
+  }
+}
+
+/* Correções para orientação landscape em mobile */
+@media (max-width: 768px) and (orientation: landscape) {
+  .testimonials {
+    min-height: 60vh;
+  }
+  
+  .hero-section {
+    padding: 1rem;
+  }
+  
+  .offer-container {
+    padding: 1.5rem;
+  }
+}
+
+/* Correções para dispositivos com tela de alta densidade */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  img {
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+  }
+}
+
+/* Correções para dispositivos com tela pequena e alta densidade */
+@media (max-width: 480px) and (-webkit-min-device-pixel-ratio: 2) {
+  .text-3xl {
+    font-size: 1.4rem;
+  }
+  
+  .text-lg {
+    font-size: 0.9rem;
+  }
+  
+  .current-price {
+    font-size: 2.2rem;
+  }
+}
+
+/* Correções para acessibilidade */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  
+  .animate-slide-in,
+  .animate-fade-scale,
+  .animate-fadeInUp,
+  .animate-fadeIn {
+    animation: none !important;
+  }
+}
+
+/* Correções para modo escuro do sistema */
+@media (prefers-color-scheme: dark) {
+  /* O site já é escuro, então não precisa de mudanças */
+}
+
+/* Correções para impressão */
+@media print {
+  .offer-container,
+  .cta-button,
+  .carousel,
+  .testimonials {
+    display: none !important;
+  }
+  
+  body {
+    background: white !important;
+    color: black !important;
+  }
+  
+  * {
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
 } 
