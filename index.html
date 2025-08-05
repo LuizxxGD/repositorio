@@ -714,12 +714,19 @@
         touchStartX = e.touches[0].clientX;
         touchStartY = e.touches[0].clientY;
         stopAutoplay();
-        e.preventDefault();
-      }, { passive: false });
+      }, { passive: true });
       
       carousel.addEventListener('touchmove', function(e) {
         if (isTouching) {
-          e.preventDefault();
+          const currentX = e.touches[0].clientX;
+          const currentY = e.touches[0].clientY;
+          const diffX = Math.abs(touchStartX - currentX);
+          const diffY = Math.abs(touchStartY - currentY);
+          
+          // Só previne scroll se for um swipe horizontal claro
+          if (diffX > diffY && diffX > 30) {
+            e.preventDefault();
+          }
         }
       }, { passive: false });
       
