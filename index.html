@@ -14,10 +14,10 @@
   <link rel="manifest" href="/manifest.json">
   <link rel="apple-touch-icon" href="/public/placeholder-logo.png">
   
-  <!-- Preload critical resources -->
-  <link rel="preload" href="css/styles.css" as="style">
-  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" as="style">
-  <link rel="preload" href="https://i.postimg.cc/pT3whJ7w/paredeoficial.jpg" as="image">
+  <!-- Preload critical resources with higher priority -->
+  <link rel="preload" href="css/styles.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <link rel="preload" href="https://i.postimg.cc/pT3whJ7w/paredeoficial.jpg" as="image" fetchpriority="high">
   
   <!-- DNS prefetch for external domains -->
   <link rel="dns-prefetch" href="//fonts.googleapis.com">
@@ -28,22 +28,122 @@
   <!-- Favicon -->
   <link rel="icon" href="/favicon.ico" type="image/x-icon">
   
-  <!-- Stylesheets -->
-  <link rel="stylesheet" href="css/styles.css?v=2.4.0">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap">
+  <!-- Fallback stylesheets -->
+  <noscript>
+    <link rel="stylesheet" href="css/styles.css?v=2.5.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap">
+  </noscript>
   
   <!-- Cache control -->
   <meta http-equiv="Cache-Control" content="public, max-age=31536000">
   
-  <!-- Critical CSS inline -->
+  <!-- Critical CSS inline - optimized for mobile -->
   <style>
-    /* Critical CSS for above-the-fold content */
-    body { margin: 0; font-family: "Inter", sans-serif; background: #000; color: #fff; }
-    .hero-section { position: relative; width: 100%; height: 100vh; }
-    .hero-background { background-image: url("https://i.postimg.cc/pT3whJ7w/paredeoficial.jpg"); background-size: cover; background-position: center; width: 100%; height: 100%; position: absolute; top: 0; left: 0; filter: brightness(50%); }
-    .hero-content { position: relative; z-index: 4; min-height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 1rem; }
-    .hero-title { font-size: clamp(3rem, 10vw, 5rem); margin-bottom: 0.8rem; line-height: 1.1; font-weight: 800; }
-    .cta-button { display: inline-block; padding: 0.8rem 1.8rem; background: linear-gradient(45deg, rgb(106, 13, 173), rgb(255, 140, 0)); color: white; border: none; border-radius: 5px; font-size: clamp(0.9rem, 3vw, 1rem); text-decoration: none; }
+    /* Critical CSS for above-the-fold content - mobile optimized */
+    * { box-sizing: border-box; }
+    body { 
+      margin: 0; 
+      font-family: "Inter", -apple-system, BlinkMacSystemFont, sans-serif; 
+      background: #000; 
+      color: #fff; 
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+    .hero-section { 
+      position: relative; 
+      width: 100%; 
+      height: 100vh; 
+      min-height: 600px;
+    }
+    .hero-background { 
+      background-image: url("https://i.postimg.cc/pT3whJ7w/paredeoficial.jpg"); 
+      background-size: cover; 
+      background-position: center; 
+      width: 100%; 
+      height: 100%; 
+      position: absolute; 
+      top: 0; 
+      left: 0; 
+      filter: brightness(50%);
+      will-change: transform;
+    }
+    .hero-content { 
+      position: relative; 
+      z-index: 4; 
+      min-height: 100vh; 
+      display: flex; 
+      flex-direction: column; 
+      justify-content: center; 
+      align-items: center; 
+      text-align: center; 
+      padding: 1rem; 
+      max-width: 100%;
+    }
+    .hero-title { 
+      font-size: clamp(2rem, 8vw, 4rem); 
+      margin-bottom: 0.8rem; 
+      line-height: 1.1; 
+      font-weight: 800; 
+      margin-top: 0;
+    }
+    .cta-button { 
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 1rem 2rem; 
+      background: linear-gradient(45deg, rgb(106, 13, 173), rgb(255, 140, 0)); 
+      color: white; 
+      border: none; 
+      border-radius: 50px; 
+      font-size: clamp(0.9rem, 3vw, 1.1rem); 
+      text-decoration: none; 
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      transition: all 0.3s ease;
+      box-shadow: 0 8px 25px rgba(255, 140, 0, 0.3);
+      cursor: pointer;
+      will-change: transform;
+    }
+    .cta-button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 35px rgba(255, 140, 0, 0.4);
+      background: linear-gradient(45deg, rgb(120, 15, 195), rgb(255, 160, 20));
+    }
+    .cta-subtitle {
+      font-size: 0.9rem;
+      color: #ccc;
+      text-align: center;
+      margin-top: 0.5rem;
+    }
+    .hero-logo {
+      max-width: 100%;
+      height: auto;
+      margin: 1rem 0;
+    }
+    .gradient-text {
+      background: linear-gradient(45deg, #ff8c00, #ff6b35);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .subtitle {
+      font-size: clamp(1rem, 4vw, 1.5rem);
+      color: #ccc;
+      margin-top: 0.5rem;
+    }
+    
+    /* Mobile-first responsive design */
+    @media (max-width: 768px) {
+      .hero-content {
+        padding: 0.5rem;
+      }
+      .cta-button {
+        padding: 0.8rem 1.5rem;
+        font-size: 0.9rem;
+      }
+    }
   </style>
   
   <!-- UTMify scripts with async loading -->
@@ -188,7 +288,7 @@
       overflow: hidden;
       box-shadow: 0 10px 30px rgba(0,0,0,0.5);
     ">
-      <img id="testimonial-image" src="dep/depoimento01iphone.jpg" style="width: 100%; height: 100%; object-fit: cover; border-radius: 20px; transition: opacity 0.5s; opacity: 1;">
+      <img id="testimonial-image" src="dep/depoimento01iphone.jpg" alt="Depoimento de aluno sobre o curso iOS Unlocker Pro" style="width: 100%; height: 100%; object-fit: cover; border-radius: 20px; transition: opacity 0.5s; opacity: 1;">
     </div>
   </div>
 
@@ -472,9 +572,9 @@
     </div>
   </footer>
 
-  <!-- Optimized JavaScript -->
+  <!-- Optimized JavaScript with passive listeners and reduced blocking -->
   <script>
-    // Optimized testimonials carousel
+    // Optimized testimonials carousel with Intersection Observer
     document.addEventListener('DOMContentLoaded', function() {
       const images = [
         'dep/depoimento01iphone.jpg',
@@ -487,22 +587,36 @@
       const imageElement = document.getElementById('testimonial-image');
       
       if (imageElement) {
-        function changeImage() {
-          currentIndex = (currentIndex + 1) % images.length;
-          imageElement.style.opacity = '0';
-          
-          setTimeout(() => {
-            imageElement.src = images[currentIndex];
-            imageElement.style.opacity = '1';
-          }, 250);
-        }
+        // Use Intersection Observer to only start carousel when visible
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              startCarousel();
+              observer.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.1 });
         
-        // Change image every 3 seconds
-        setInterval(changeImage, 3000);
+        observer.observe(imageElement.parentElement);
+        
+        function startCarousel() {
+          function changeImage() {
+            currentIndex = (currentIndex + 1) % images.length;
+            imageElement.style.opacity = '0';
+            
+            setTimeout(() => {
+              imageElement.src = images[currentIndex];
+              imageElement.style.opacity = '1';
+            }, 250);
+          }
+          
+          // Change image every 3 seconds
+          setInterval(changeImage, 3000);
+        }
       }
     });
 
-    // Smooth scrolling with passive listeners
+    // Smooth scrolling with passive listeners and reduced blocking
     document.addEventListener('DOMContentLoaded', function() {
       const links = document.querySelectorAll('a[href^="#"]');
       
@@ -520,7 +634,7 @@
       });
     });
 
-    // Optimized scroll handling
+    // Optimized scroll handling with throttling
     let ticking = false;
     function updateScroll() {
       if (!ticking) {
@@ -534,7 +648,7 @@
     
     window.addEventListener('scroll', updateScroll, { passive: true });
     
-    // Register Service Worker
+    // Register Service Worker with error handling
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', () => {
         navigator.serviceWorker.register('/sw.js')
@@ -546,6 +660,23 @@
           });
       });
     }
+    
+    // Preload critical images when page loads
+    function preloadImages() {
+      const criticalImages = [
+        'dep/depoimento02.jpg',
+        'dep/depoimento3.jpeg',
+        'dep/depoimento4.jpeg'
+      ];
+      
+      criticalImages.forEach(src => {
+        const img = new Image();
+        img.src = src;
+      });
+    }
+    
+    // Start preloading after initial render
+    setTimeout(preloadImages, 1000);
   </script>
 </body>
 </html>
