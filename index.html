@@ -619,129 +619,33 @@
       max-width: 500px;
       height: 750px;
       position: relative;
-      overflow: hidden;
       border-radius: 20px;
       box-shadow: 0 10px 30px rgba(0,0,0,0.5);
       margin: 30px auto;
       display: flex;
       justify-content: center;
       align-items: center;
-      touch-action: pan-y;
-      -webkit-overflow-scrolling: touch;
-      overscroll-behavior: contain;
     ">
-      <!-- CARROSSEL DE FOTOS -->
-      <div class="carousel" style="
-        position: absolute;
-        top: 0;
-        left: 0;
+      <!-- IMAGEM ÚNICA (SEM CARROSSEL) -->
+      <img src="dep/depoimento02.jpg" style="
         width: 100%;
         height: 100%;
+        object-fit: cover;
         border-radius: 20px;
-        touch-action: pan-y;
+        user-select: none;
+        -webkit-user-drag: none;
       ">
-        <!-- SLIDE 1 -->
-  <div class="slide active" style="position: absolute; width: 100%; height: 100%; opacity: 0; transition: opacity 0.5s; border-radius: 20px; touch-action: pan-y;">
-    <img src="dep/depoimento01iphone.jpg" style="
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      border-radius: 20px;
-      touch-action: pan-y;
-      user-select: none;
-    ">
-  </div>
-  
-  <!-- SLIDE 2 -->
-  <div class="slide" style="position: absolute; width: 100%; height: 100%; opacity: 1; transition: opacity 0.5s; border-radius: 20px; touch-action: pan-y;">
-    <img src="dep/depoimento02.jpg" style="
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      border-radius: 20px;
-      touch-action: pan-y;
-      user-select: none;
-    ">
-  </div>
-  
-  <!-- SLIDE 3 (NOVO) -->
-  <div class="slide" style="position: absolute; width: 100%; height: 100%; opacity: 0; transition: opacity 0.5s; border-radius: 20px; touch-action: pan-y;">
-    <img src="dep/depoimento3.jpeg" style="
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      border-radius: 20px;
-      touch-action: pan-y;
-      user-select: none;
-    ">
-  </div>
-  
-  <!-- SLIDE 4 (NOVO) -->
-  <div class="slide" style="position: absolute; width: 100%; height: 100%; opacity: 0; transition: opacity 0.5s; border-radius: 20px; touch-action: pan-y;">
-    <img src="dep/depoimento4.jpeg" style="
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      border-radius: 20px;
-      touch-action: pan-y;
-      user-select: none;
-    ">
-  </div>
-  
-        
-      </div>
     </div>
   </section>
   <script>
-    // CONTROLE DO CARROSSEL - APENAS AUTOPLAY (SEM TOUCH)
+    // DEPOIMENTOS - SEM CARROSSEL, APENAS IMAGEM ESTÁTICA
     document.addEventListener('DOMContentLoaded', function() {
-      const slides = document.querySelectorAll('.slide');
-      let currentIndex = 0;
-      let interval;
-      
-      function showSlide(index) {
-        slides.forEach((slide, i) => {
-          slide.style.opacity = i === index ? '1' : '0';
-        });
-        currentIndex = index;
+      // Garantir que o scroll funcione normalmente
+      const testimonialsSection = document.querySelector('.testimonials');
+      if (testimonialsSection) {
+        testimonialsSection.style.touchAction = 'pan-y';
+        testimonialsSection.style.webkitOverflowScrolling = 'touch';
       }
-      
-      function nextSlide() {
-        currentIndex = (currentIndex + 1) % slides.length;
-        showSlide(currentIndex);
-      }
-      
-      function startAutoplay() {
-        if (interval) clearInterval(interval);
-        interval = setInterval(nextSlide, 3000);
-      }
-      
-      // Garantir scroll touch funcionando
-      function enableTouchScroll() {
-        const testimonialsSection = document.querySelector('.testimonials');
-        const carouselContainer = testimonialsSection.querySelector('div');
-        
-        // Remover qualquer listener que possa interferir
-        carouselContainer.addEventListener('touchstart', function(e) {
-          // Permitir scroll natural
-          e.stopPropagation();
-        }, { passive: true });
-        
-        carouselContainer.addEventListener('touchmove', function(e) {
-          // Permitir scroll natural
-          e.stopPropagation();
-        }, { passive: true });
-        
-        carouselContainer.addEventListener('touchend', function(e) {
-          // Permitir scroll natural
-          e.stopPropagation();
-        }, { passive: true });
-      }
-      
-      // Inicializar
-      showSlide(0);
-      startAutoplay();
-      enableTouchScroll();
     });
   </script>
   
