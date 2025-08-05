@@ -65,12 +65,13 @@ input, textarea, select {
 /* Carrossel de depoimentos - proporção 9:16 */
 .testimonials .carousel {
   aspect-ratio: 9/16;
-  max-width: 400px;
+  max-width: 500px;
   width: 100%;
   height: auto;
   border-radius: 20px;
   overflow: hidden;
   box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+  pointer-events: none;
 }
 
 .testimonials .slide {
@@ -86,19 +87,19 @@ input, textarea, select {
 /* Responsividade para carrossel */
 @media (max-width: 768px) {
   .testimonials .carousel {
-    max-width: 350px;
+    max-width: 450px;
   }
 }
 
 @media (max-width: 480px) {
   .testimonials .carousel {
-    max-width: 300px;
+    max-width: 400px;
   }
 }
 
 @media (max-width: 360px) {
   .testimonials .carousel {
-    max-width: 280px;
+    max-width: 350px;
   }
 }
 

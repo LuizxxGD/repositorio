@@ -614,13 +614,16 @@
     <!-- CONTAINER DAS FOTOS ABAIXO DO TÍTULO -->
     <div style="
       width: 100%;
-      max-width: 400px;
-      height: 600px;
+      max-width: 500px;
+      height: 750px;
       position: relative;
       overflow: hidden;
       border-radius: 20px;
       box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-      margin: 20px auto;
+      margin: 30px auto;
+      display: flex;
+      justify-content: center;
+      align-items: center;
     ">
       <!-- CARROSSEL DE FOTOS -->
       <div class="carousel" style="
@@ -630,44 +633,53 @@
         width: 100%;
         height: 100%;
         border-radius: 20px;
+        pointer-events: none;
       ">
         <!-- SLIDE 1 -->
-  <div class="slide active" style="position: absolute; width: 100%; height: 100%; opacity: 0; transition: opacity 0.5s; border-radius: 20px;">
+  <div class="slide active" style="position: absolute; width: 100%; height: 100%; opacity: 0; transition: opacity 0.5s; border-radius: 20px; pointer-events: none;">
     <img src="dep/depoimento01iphone.jpg" style="
       width: 100%;
       height: 100%;
       object-fit: cover;
       border-radius: 20px;
+      pointer-events: none;
+      user-select: none;
     ">
   </div>
   
   <!-- SLIDE 2 -->
-  <div class="slide" style="position: absolute; width: 100%; height: 100%; opacity: 1; transition: opacity 0.5s; border-radius: 20px;">
+  <div class="slide" style="position: absolute; width: 100%; height: 100%; opacity: 1; transition: opacity 0.5s; border-radius: 20px; pointer-events: none;">
     <img src="dep/depoimento02.jpg" style="
       width: 100%;
       height: 100%;
       object-fit: cover;
       border-radius: 20px;
+      pointer-events: none;
+      user-select: none;
     ">
   </div>
   
   <!-- SLIDE 3 (NOVO) -->
-  <div class="slide" style="position: absolute; width: 100%; height: 100%; opacity: 0; transition: opacity 0.5s; border-radius: 20px;">
+  <div class="slide" style="position: absolute; width: 100%; height: 100%; opacity: 0; transition: opacity 0.5s; border-radius: 20px; pointer-events: none;">
     <img src="dep/depoimento3.jpeg" style="
       width: 100%;
       height: 100%;
       object-fit: cover;
       border-radius: 20px;
+      pointer-events: none;
+      user-select: none;
     ">
   </div>
   
   <!-- SLIDE 4 (NOVO) -->
-  <div class="slide" style="position: absolute; width: 100%; height: 100%; opacity: 0; transition: opacity 0.5s; border-radius: 20px;">
+  <div class="slide" style="position: absolute; width: 100%; height: 100%; opacity: 0; transition: opacity 0.5s; border-radius: 20px; pointer-events: none;">
     <img src="dep/depoimento4.jpeg" style="
       width: 100%;
       height: 100%;
       object-fit: cover;
       border-radius: 20px;
+      pointer-events: none;
+      user-select: none;
     ">
   </div>
   
@@ -676,7 +688,7 @@
     </div>
   </section>
   <script>
-    // CONTROLE DO CARROSSEL - TOUCH OTIMIZADO E AUTOPLAY CONTÍNUO
+    // CONTROLE DO CARROSSEL - APENAS AUTOPLAY (SEM TOUCH)
     document.addEventListener('DOMContentLoaded', function() {
       const slides = document.querySelectorAll('.slide');
       let currentIndex = 0;
@@ -694,66 +706,14 @@
         showSlide(currentIndex);
       }
       
-      function prevSlide() {
-        currentIndex = (currentIndex - 1 + slides.length) % slides.length;
-        showSlide(currentIndex);
-      }
-      
       function startAutoplay() {
         if (interval) clearInterval(interval);
         interval = setInterval(nextSlide, 3000);
       }
       
-      // Controle de touch otimizado
-      function initCarouselTouch() {
-        const carousel = document.querySelector('.carousel');
-        if (!carousel) return;
-
-        let startX = 0;
-        let startY = 0;
-        let isDragging = false;
-
-        function handleTouchStart(e) {
-          startX = e.touches[0].clientX;
-          startY = e.touches[0].clientY;
-          isDragging = true;
-        }
-
-        function handleTouchMove(e) {
-          if (!isDragging) return;
-
-          const currentX = e.touches[0].clientX;
-          const currentY = e.touches[0].clientY;
-          const diffX = startX - currentX;
-          const diffY = startY - currentY;
-
-          // Swipe horizontal detectado
-          if (Math.abs(diffX) > Math.abs(diffY) && Math.abs(diffX) > 50) {
-            if (diffX > 0) {
-              nextSlide();
-            } else {
-              prevSlide();
-            }
-            isDragging = false;
-
-            // Prevenir scroll lateral da página
-            e.preventDefault?.();
-          }
-        }
-
-        function handleTouchEnd() {
-          isDragging = false;
-        }
-
-        carousel.addEventListener('touchstart', handleTouchStart, { passive: true });
-        carousel.addEventListener('touchmove', handleTouchMove, { passive: false }); // Não passivo para permitir preventDefault
-        carousel.addEventListener('touchend', handleTouchEnd, { passive: true });
-      }
-      
-      // Inicializar
+      // Inicializar apenas autoplay
       showSlide(0);
       startAutoplay();
-      initCarouselTouch();
     });
   </script>
   
