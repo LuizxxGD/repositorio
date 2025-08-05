@@ -62,6 +62,19 @@ input, textarea, select {
   user-select: none !important;
 }
 
+/* Garantir scroll touch na seção de depoimentos */
+.testimonials {
+  touch-action: pan-y !important;
+  -webkit-overflow-scrolling: touch !important;
+  overscroll-behavior: contain !important;
+}
+
+.testimonials * {
+  touch-action: pan-y !important;
+  -webkit-user-select: none !important;
+  user-select: none !important;
+}
+
 /* Carrossel de depoimentos - proporção 9:16 */
 .testimonials .carousel {
   aspect-ratio: 9/16;

@@ -2,7 +2,7 @@
 
 **Última atualização:** $(date)
 
-**Versão:** 2.6.0
+**Versão:** 2.7.0
 
 **Arquivos principais:**
 - index.html (página principal)

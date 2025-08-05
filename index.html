@@ -596,6 +596,8 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    touch-action: pan-y;
+    -webkit-overflow-scrolling: touch;
   ">
     <!-- TÍTULO FIXO NO TOPO -->
     <h2 style="
@@ -625,6 +627,8 @@
       justify-content: center;
       align-items: center;
       touch-action: pan-y;
+      -webkit-overflow-scrolling: touch;
+      overscroll-behavior: contain;
     ">
       <!-- CARROSSEL DE FOTOS -->
       <div class="carousel" style="
@@ -712,9 +716,32 @@
         interval = setInterval(nextSlide, 3000);
       }
       
-      // Inicializar apenas autoplay
+      // Garantir scroll touch funcionando
+      function enableTouchScroll() {
+        const testimonialsSection = document.querySelector('.testimonials');
+        const carouselContainer = testimonialsSection.querySelector('div');
+        
+        // Remover qualquer listener que possa interferir
+        carouselContainer.addEventListener('touchstart', function(e) {
+          // Permitir scroll natural
+          e.stopPropagation();
+        }, { passive: true });
+        
+        carouselContainer.addEventListener('touchmove', function(e) {
+          // Permitir scroll natural
+          e.stopPropagation();
+        }, { passive: true });
+        
+        carouselContainer.addEventListener('touchend', function(e) {
+          // Permitir scroll natural
+          e.stopPropagation();
+        }, { passive: true });
+      }
+      
+      // Inicializar
       showSlide(0);
       startAutoplay();
+      enableTouchScroll();
     });
   </script>
   
