@@ -1034,7 +1034,7 @@
     </style>
 </section> 
 
-<style>.benefits-section {
+    <style>.benefits-section {
     padding: 4rem 0;
     background: #f9fafb;
 }
@@ -1086,6 +1086,52 @@
 .benefit-description {
     color: #4b5563;
     line-height: 1.6;
+}
+
+/* Responsividade para seção de benefícios */
+@media (max-width: 768px) {
+    .benefits-section {
+        padding: 2rem 0;
+    }
+    
+    .benefits-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .benefit-card {
+        padding: 1.5rem;
+    }
+    
+    .benefit-title {
+        font-size: 1.125rem;
+    }
+    
+    .benefit-description {
+        font-size: 0.875rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .benefits-section {
+        padding: 1.5rem 0;
+    }
+    
+    .benefits-grid {
+        gap: 1rem;
+    }
+    
+    .benefit-card {
+        padding: 1rem;
+    }
+    
+    .benefit-title {
+        font-size: 1rem;
+    }
+    
+    .benefit-description {
+        font-size: 0.75rem;
+    }
 }</style>
     <!-- Container Principal -->
     <div class=" offer-container">
@@ -1154,6 +1200,33 @@
                             .cta-button:hover {
                                 transform: translateY(-2px);
                                 box-shadow: 0 4px 8px rgba(0, 200, 83, 0.3);
+                            }
+                            
+                            /* Responsividade para container de preços */
+                            @media (max-width: 768px) {
+                                .price-container {
+                                    flex-direction: column;
+                                    align-items: center;
+                                    gap: 15px;
+                                }
+                                
+                                .cta-button {
+                                    padding: 0.8rem 1.5rem;
+                                    font-size: 0.85rem;
+                                }
+                            }
+                            
+                            @media (max-width: 480px) {
+                                .price-container {
+                                    gap: 10px;
+                                }
+                                
+                                .cta-button {
+                                    padding: 0.6rem 1.2rem;
+                                    font-size: 0.75rem;
+                                    width: 100%;
+                                    justify-content: center;
+                                }
                             }
                         </style>
                     </div>
