@@ -158,6 +158,93 @@
             backface-visibility: hidden;
         }
         
+        /* Estilos para notificações de compra */
+        .purchase-notification {
+            background: var(--bg-card);
+            border: 1px solid var(--border-glow);
+            border-radius: 12px;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            animation: slideInRight 0.5s ease-out;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .purchase-notification::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: var(--accent-gradient);
+        }
+        
+        .notification-header {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .notification-avatar {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: var(--primary-gradient);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 700;
+            font-size: 0.9rem;
+        }
+        
+        .notification-content {
+            flex: 1;
+        }
+        
+        .notification-name {
+            color: var(--text-primary);
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+        
+        .notification-text {
+            color: var(--text-secondary);
+            font-size: 0.8rem;
+            line-height: 1.3;
+        }
+        
+        .notification-time {
+            color: var(--text-muted);
+            font-size: 0.7rem;
+            margin-top: 0.25rem;
+        }
+        
+        @keyframes slideInRight {
+            from {
+                transform: translateX(100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+        
+        @keyframes slideOutRight {
+            from {
+                transform: translateX(0);
+                opacity: 1;
+            }
+            to {
+                transform: translateX(100%);
+                opacity: 0;
+            }
+        }
+        
         /* CSS para seções principais */
         .modules-section, .bonuses-section, .info-section {
             background: #000;
@@ -184,6 +271,11 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    
+    <!-- Notificações de Compras -->
+    <div id="purchase-notifications" style="position: fixed; top: 20px; right: 20px; z-index: 10000; max-width: 300px;">
+        <!-- As notificações serão inseridas aqui dinamicamente -->
+    </div>
 </head>
 
 <body>
@@ -267,31 +359,15 @@
                 <div class="carousel" style="position: relative; width: 100%; height: 100%;">
                     <div class="slide active" style="position: absolute; width: 100%; height: 100%; opacity: 1; transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1);">
                         <img src="dep/depoimento01iphone.jpg" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy" alt="Depoimento 1">
-                        <div style="position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(transparent, rgba(0,0,0,0.8)); padding: 2rem 1rem 1rem; color: white;">
-                            <div style="font-size: 0.9rem; opacity: 0.8;">Aluno do Curso</div>
-                            <div style="font-size: 1.1rem; font-weight: 600; margin-top: 0.5rem;">"Resultado incrível!"</div>
-                        </div>
                     </div>
                     <div class="slide" style="position: absolute; width: 100%; height: 100%; opacity: 0; transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1);">
                         <img src="dep/depoimento02.jpg" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy" alt="Depoimento 2">
-                        <div style="position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(transparent, rgba(0,0,0,0.8)); padding: 2rem 1rem 1rem; color: white;">
-                            <div style="font-size: 0.9rem; opacity: 0.8;">Aluno do Curso</div>
-                            <div style="font-size: 1.1rem; font-weight: 600; margin-top: 0.5rem;">"Funcionou perfeitamente!"</div>
-                        </div>
                     </div>
                     <div class="slide" style="position: absolute; width: 100%; height: 100%; opacity: 0; transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1);">
                         <img src="dep/depoimento3.jpeg" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy" alt="Depoimento 3">
-                        <div style="position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(transparent, rgba(0,0,0,0.8)); padding: 2rem 1rem 1rem; color: white;">
-                            <div style="font-size: 0.9rem; opacity: 0.8;">Aluno do Curso</div>
-                            <div style="font-size: 1.1rem; font-weight: 600; margin-top: 0.5rem;">"Super recomendo!"</div>
-                        </div>
                     </div>
                     <div class="slide" style="position: absolute; width: 100%; height: 100%; opacity: 0; transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1);">
                         <img src="dep/depoimento4.jpeg" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy" alt="Depoimento 4">
-                        <div style="position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(transparent, rgba(0,0,0,0.8)); padding: 2rem 1rem 1rem; color: white;">
-                            <div style="font-size: 0.9rem; opacity: 0.8;">Aluno do Curso</div>
-                            <div style="font-size: 1.1rem; font-weight: 600; margin-top: 0.5rem;">"Valeu muito a pena!"</div>
-                        </div>
                     </div>
                 </div>
                 
@@ -700,6 +776,64 @@
                 setTimeout(startSlideShow, 3000);
             });
         });
+        
+        // Sistema de notificações de compra
+        const purchaseNotifications = [
+            { name: 'Carlos Silva', text: 'acabou de adquirir o curso completo', time: '2 min atrás' },
+            { name: 'Roberto Santos', text: 'comprou o acesso vitalício', time: '5 min atrás' },
+            { name: 'Marcos Oliveira', text: 'garantiu sua vaga no curso', time: '8 min atrás' },
+            { name: 'Fernando Costa', text: 'adquiriu o pacote premium', time: '12 min atrás' },
+            { name: 'Ricardo Almeida', text: 'comprou o curso de desbloqueio', time: '15 min atrás' },
+            { name: 'André Pereira', text: 'garantiu o acesso vitalício', time: '18 min atrás' },
+            { name: 'Lucas Mendes', text: 'adquiriu o curso completo', time: '22 min atrás' },
+            { name: 'Thiago Rodrigues', text: 'comprou o pacote premium', time: '25 min atrás' },
+            { name: 'Bruno Ferreira', text: 'garantiu sua vaga no curso', time: '28 min atrás' },
+            { name: 'Diego Martins', text: 'adquiriu o acesso vitalício', time: '32 min atrás' }
+        ];
+        
+        function createNotification(notification) {
+            const notificationDiv = document.createElement('div');
+            notificationDiv.className = 'purchase-notification';
+            
+            const initials = notification.name.split(' ').map(n => n[0]).join('');
+            
+            notificationDiv.innerHTML = `
+                <div class="notification-header">
+                    <div class="notification-avatar">${initials}</div>
+                    <div class="notification-content">
+                        <div class="notification-name">${notification.name}</div>
+                        <div class="notification-text">${notification.text}</div>
+                        <div class="notification-time">${notification.time}</div>
+                    </div>
+                </div>
+            `;
+            
+            return notificationDiv;
+        }
+        
+        function showPurchaseNotification() {
+            const container = document.getElementById('purchase-notifications');
+            const randomNotification = purchaseNotifications[Math.floor(Math.random() * purchaseNotifications.length)];
+            const notification = createNotification(randomNotification);
+            
+            container.appendChild(notification);
+            
+            // Remover notificação após 8 segundos
+            setTimeout(() => {
+                notification.style.animation = 'slideOutRight 0.5s ease-out';
+                setTimeout(() => {
+                    if (container.contains(notification)) {
+                        container.removeChild(notification);
+                    }
+                }, 500);
+            }, 8000);
+        }
+        
+        // Mostrar primeira notificação após 3 segundos
+        setTimeout(showPurchaseNotification, 3000);
+        
+        // Mostrar notificações a cada 15-25 segundos
+        setInterval(showPurchaseNotification, Math.random() * 10000 + 15000);
         
         // Executar preload quando possível
         if ('requestIdleCallback' in window) {
