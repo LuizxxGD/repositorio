@@ -5,20 +5,47 @@
   box-sizing: border-box;
 }
 
-/* Otimizações de performance */
+/* Otimizações de performance avançadas */
+* {
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Permitir seleção apenas em textos importantes */
+p, h1, h2, h3, h4, h5, h6, span, div {
+  -webkit-user-select: text;
+  -khtml-user-select: text;
+  -moz-user-select: text;
+  -ms-user-select: text;
+  user-select: text;
+}
+
+/* Otimizações de scroll e touch */
 html {
-  font-family: 'GeistSans', 'GeistSans Fallback', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   scroll-behavior: smooth;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior: contain;
 }
 
 body {
-  background: #000;
-  color: #fff;
-  line-height: 1.6;
-  overflow-x: hidden;
-  will-change: scroll-position;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior: contain;
+  touch-action: manipulation;
+}
+
+/* Animações touch suaves */
+.touch-animate {
+  transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: transform;
+}
+
+.touch-animate:active {
+  transform: scale(0.98);
 }
 
 /* Otimizações de renderização */
@@ -36,6 +63,8 @@ body {
 html {
   font-family: 'GeistSans', 'GeistSans Fallback', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 body {
@@ -43,6 +72,60 @@ body {
   color: #fff;
   line-height: 1.6;
   overflow-x: hidden;
+  will-change: scroll-position;
+}
+
+/* Otimizações de renderização para elementos críticos */
+.hero-section,
+.price-section,
+.testimonials-section,
+.modules-section,
+.bonus-section {
+  will-change: transform, opacity;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+
+/* Animações de entrada otimizadas */
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px) translateZ(0);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) translateZ(0);
+  }
+}
+
+@keyframes fadeInScale {
+  from {
+    opacity: 0;
+    transform: scale(0.95) translateZ(0);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateZ(0);
+  }
+}
+
+.animate-slide-in {
+  animation: slideInUp 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+.animate-fade-scale {
+  animation: fadeInScale 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+/* Otimizações de hover para touch */
+@media (hover: hover) {
+  .hover\:scale-105:hover {
+    transform: scale(1.05) translateZ(0);
+  }
+  
+  .hover\:scale-\[1\.02\]:hover {
+    transform: scale(1.02) translateZ(0);
+  }
 }
 
 /* Container principal */
@@ -1501,4 +1584,449 @@ img.lazy.loaded {
     width: 10px;
     height: 10px;
   }
+} 
+
+/* Responsividade melhorada */
+@media (max-width: 480px) {
+  .text-3xl {
+    font-size: 1.5rem;
+    line-height: 1.2;
+  }
+  
+  .text-lg {
+    font-size: 1rem;
+  }
+  
+  .p-8 {
+    padding: 1rem;
+  }
+  
+  .px-12 {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  
+  .py-6 {
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
+  }
+  
+  .py-16 {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+  }
+  
+  .py-20 {
+    padding-top: 2.5rem;
+    padding-bottom: 2.5rem;
+  }
+  
+  .mb-8 {
+    margin-bottom: 1.5rem;
+  }
+  
+  .mb-12 {
+    margin-bottom: 2rem;
+  }
+  
+  .gap-4 {
+    gap: 0.75rem;
+  }
+  
+  .gap-6 {
+    gap: 1rem;
+  }
+  
+  .gap-8 {
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .text-3xl {
+    font-size: 1.75rem;
+  }
+  
+  .text-lg {
+    font-size: 1.125rem;
+  }
+  
+  .p-8 {
+    padding: 1.5rem;
+  }
+  
+  .px-12 {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+  
+  .py-6 {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+  }
+  
+  .py-16 {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+  }
+  
+  .py-20 {
+    padding-top: 3.5rem;
+    padding-bottom: 3.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .grid-cols-1 {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+  }
+  
+  .flex-col {
+    flex-direction: column;
+  }
+  
+  .text-center {
+    text-align: center;
+  }
+  
+  .sm\:flex-row {
+    flex-direction: column;
+  }
+  
+  .sm\:grid-cols-2 {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+  }
+  
+  .lg\:grid-cols-2 {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+  }
+  
+  .lg\:grid-cols-3 {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+  }
+  
+  .carousel-btn {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .carousel-btn.prev {
+    left: 8px;
+  }
+  
+  .carousel-btn.next {
+    right: 8px;
+  }
+  
+  .carousel-indicator {
+    width: 10px;
+    height: 10px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .lg\:grid-cols-2 {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+  }
+  
+  .lg\:grid-cols-3 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* Otimizações de performance para imagens */
+img {
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+  will-change: transform;
+}
+
+/* Otimizações de scroll suave */
+.smooth-scroll {
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Otimizações de animação para elementos interativos */
+button, a, .clickable {
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: transform, opacity;
+}
+
+button:active, a:active, .clickable:active {
+  transform: scale(0.98) translateZ(0);
+}
+
+/* Otimizações de carregamento */
+.lazy-load {
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.lazy-load.loaded {
+  opacity: 1;
+}
+
+/* Otimizações de performance para gradientes */
+.bg-gradient-to-r,
+.bg-gradient-to-b,
+.bg-gradient-to-br,
+.bg-gradient-to-t {
+  will-change: auto;
+}
+
+/* Otimizações de sombra para performance */
+.shadow-lg,
+.shadow-2xl {
+  will-change: box-shadow;
+}
+
+/* Otimizações de backdrop-filter */
+.backdrop-blur-sm {
+  will-change: backdrop-filter;
+}
+
+/* Otimizações de texto para performance */
+.bg-clip-text {
+  will-change: background-clip;
+}
+
+/* Otimizações de border-radius */
+.rounded-full,
+.rounded-2xl,
+.rounded-3xl {
+  will-change: border-radius;
+}
+
+/* Otimizações de opacidade */
+.opacity-60,
+.opacity-90,
+.opacity-0 {
+  will-change: opacity;
+}
+
+/* Otimizações de transform */
+.transform,
+.hover\:transform:hover {
+  will-change: transform;
+}
+
+/* Otimizações de transition */
+.transition-all {
+  will-change: all;
+}
+
+/* Otimizações de focus para acessibilidade */
+.focus-visible\:border-ring:focus-visible,
+.focus-visible\:ring-ring\/50:focus-visible,
+.focus-visible\:ring-\[3px\]:focus-visible {
+  will-change: box-shadow, border-color;
+}
+
+/* Otimizações de aria para acessibilidade */
+.aria-invalid\:ring-destructive\/20[aria-invalid="true"],
+.dark\:aria-invalid\:ring-destructive\/40[aria-invalid="true"],
+.aria-invalid\:border-destructive[aria-invalid="true"] {
+  will-change: box-shadow, border-color;
+}
+
+/* Otimizações de disabled */
+.disabled\:pointer-events-none:disabled,
+.disabled\:opacity-50:disabled {
+  will-change: opacity, pointer-events;
+}
+
+/* Otimizações de group hover */
+.group-hover\:shadow-\[#FF6600\]\/25:group:hover,
+.group-hover\:scale-110:group:hover {
+  will-change: box-shadow, transform;
+}
+
+/* Otimizações de hover para elementos específicos */
+.hover\:bg-primary\/90:hover,
+.hover\:border-\[#FF6600\]\/30:hover,
+.hover\:border-\[#6633CC\]\/40:hover,
+.hover\:text-\[#FF8533\]:hover,
+.hover\:underline:hover {
+  will-change: background-color, border-color, color, text-decoration;
+}
+
+/* Otimizações de scale para hover */
+.hover\:scale-105:hover,
+.hover\:scale-\[1\.02\]:hover {
+  will-change: transform;
+}
+
+/* Otimizações de duration */
+.duration-300,
+.duration-500,
+.duration-1200 {
+  will-change: auto;
+}
+
+/* Otimizações de ease */
+.ease-out {
+  will-change: auto;
+}
+
+/* Otimizações de translate */
+.translate-y-12 {
+  will-change: transform;
+}
+
+/* Otimizações de opacity inicial */
+.opacity-0 {
+  will-change: opacity;
+}
+
+/* Otimizações de whitespace */
+.whitespace-nowrap {
+  will-change: white-space;
+}
+
+/* Otimizações de shrink */
+.shrink-0 {
+  will-change: flex-shrink;
+}
+
+/* Otimizações de w-fit */
+.w-fit {
+  will-change: width;
+}
+
+/* Otimizações de line-through */
+.line-through {
+  will-change: text-decoration;
+}
+
+/* Otimizações de outline */
+.outline-none {
+  will-change: outline;
+}
+
+/* Otimizações de h-9 */
+.h-9 {
+  will-change: height;
+}
+
+/* Otimizações de w-full */
+.w-full {
+  will-change: width;
+}
+
+/* Otimizações de sm:w-auto */
+.sm\:w-auto {
+  will-change: width;
+}
+
+/* Otimizações de border */
+.border {
+  will-change: border-width;
+}
+
+/* Otimizações de border-t */
+.border-t {
+  will-change: border-top-width;
+}
+
+/* Otimizações de space-y */
+.space-y-8 > * + *,
+.space-y-6 > * + * {
+  will-change: margin-top;
+}
+
+/* Otimizações de has */
+.has-\[&gt;svg\]\:px-3:has(svg) {
+  will-change: padding-left, padding-right;
+}
+
+/* Otimizações de a:hover */
+.\[a\&\]\:hover\:bg-primary\/90 a:hover {
+  will-change: background-color;
+}
+
+/* Otimizações de transition específicas */
+.transition-\[color\,box-shadow\] {
+  will-change: color, box-shadow;
+}
+
+/* Otimizações de duration */
+.duration-300,
+.duration-500,
+.duration-1200 {
+  will-change: auto;
+}
+
+/* Otimizações de ease */
+.ease-out {
+  will-change: auto;
+}
+
+/* Otimizações de translate */
+.translate-y-12 {
+  will-change: transform;
+}
+
+/* Otimizações de sm: */
+.sm\:py-20,
+.sm\:py-24,
+.sm\:px-6,
+.sm\:px-16,
+.sm\:py-8,
+.sm\:text-4xl,
+.sm\:text-xl,
+.sm\:text-lg,
+.sm\:text-2xl,
+.sm\:p-10,
+.sm\:p-12,
+.sm\:flex-row,
+.sm\:flex-col,
+.sm\:grid-cols-2,
+.sm\:gap-10,
+.sm\:gap-8,
+.sm\:mb-20,
+.sm\:w-auto {
+  contain: layout style;
+}
+
+/* Otimizações de performance para md: */
+.md\:py-24,
+.md\:py-32,
+.md\:text-5xl,
+.md\:text-2xl {
+  contain: layout style;
+}
+
+/* Otimizações de performance para lg: */
+.lg\:py-32,
+.lg\:px-8,
+.lg\:text-6xl,
+.lg\:grid-cols-2,
+.lg\:grid-cols-3 {
+  contain: layout style;
+}
+
+/* Otimizações de performance para xl: */
+.xl\:text-7xl {
+  contain: layout style;
+}
+
+/* Otimizações de carousel */
+.carousel-container,
+.carousel-track,
+.carousel-slide,
+.carousel-slide img,
+.carousel-btn,
+.carousel-indicator {
+  contain: layout style paint;
+}
+
+/* Otimizações de lazy loading */
+img.lazy {
+  contain: layout style paint;
+}
+
+/* Otimizações de touch */
+.touch-animate {
+  contain: layout style;
 } 
