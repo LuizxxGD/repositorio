@@ -640,14 +640,11 @@
   </div>
 </section>
 <script>
-  // CARROSSEL SIMPLIFICADO E OTIMIZADO
+  // CARROSSEL APENAS COM AUTOPLAY - SEM INTERFERÊNCIA TOUCH
   document.addEventListener('DOMContentLoaded', function() {
     const slides = document.querySelectorAll('.slide');
     let currentIndex = 0;
     let interval;
-    let isTouching = false;
-    let touchStartX = 0;
-    let touchStartY = 0;
     
     function showSlide(index) {
       slides.forEach((slide, i) => {
@@ -657,81 +654,13 @@
     }
     
     function nextSlide() {
-      if (!isTouching) {
-        currentIndex = (currentIndex + 1) % slides.length;
-        showSlide(currentIndex);
-      }
-    }
-    
-    function prevSlide() {
-      if (!isTouching) {
-        currentIndex = (currentIndex - 1 + slides.length) % slides.length;
-        showSlide(currentIndex);
-      }
+      currentIndex = (currentIndex + 1) % slides.length;
+      showSlide(currentIndex);
     }
     
     function startAutoplay() {
       if (interval) clearInterval(interval);
       interval = setInterval(nextSlide, 4000);
-    }
-    
-    function stopAutoplay() {
-      if (interval) {
-        clearInterval(interval);
-        interval = null;
-      }
-    }
-    
-    // Event listeners otimizados para touch
-    const carousel = document.querySelector('.carousel');
-    
-    if (carousel) {
-      carousel.addEventListener('touchstart', function(e) {
-        isTouching = true;
-        touchStartX = e.touches[0].clientX;
-        touchStartY = e.touches[0].clientY;
-        stopAutoplay();
-      }, { passive: true });
-      
-      carousel.addEventListener('touchmove', function(e) {
-        if (isTouching) {
-          const currentX = e.touches[0].clientX;
-          const currentY = e.touches[0].clientY;
-          const diffX = Math.abs(touchStartX - currentX);
-          const diffY = Math.abs(touchStartY - currentY);
-          
-          // Só previne scroll se for um swipe horizontal claro
-          if (diffX > diffY && diffX > 30) {
-            e.preventDefault();
-          }
-        }
-      }, { passive: false });
-      
-      carousel.addEventListener('touchend', function(e) {
-        if (isTouching) {
-          const touchEndX = e.changedTouches[0].clientX;
-          const touchEndY = e.changedTouches[0].clientY;
-          const diffX = touchStartX - touchEndX;
-          const diffY = touchStartY - touchEndY;
-          
-          // Verificar se é um swipe horizontal válido
-          if (Math.abs(diffX) > Math.abs(diffY) && Math.abs(diffX) > 30) {
-            if (diffX > 0) {
-              nextSlide();
-            } else {
-              prevSlide();
-            }
-          }
-          
-          isTouching = false;
-          setTimeout(startAutoplay, 1000);
-        }
-      }, { passive: true });
-      
-      carousel.addEventListener('touchcancel', function() {
-        isTouching = false;
-        setTimeout(startAutoplay, 1000);
-      }, { passive: true });
     }
     
     // Inicializar
@@ -740,30 +669,7 @@
   });
 </script>
 
-<script>
-  // Adicione este JavaScript para melhorar o comportamento touch
-  document.querySelectorAll('.carousel').forEach(carousel => {
-      let startX, startY;
-      
-      carousel.addEventListener('touchstart', function(e) {
-          startX = e.touches[0].clientX;
-          startY = e.touches[0].clientY;
-      }, {passive: true});
-      
-      carousel.addEventListener('touchmove', function(e) {
-          const x = e.touches[0].clientX;
-          const y = e.touches[0].clientY;
-          
-          // Se o movimento for principalmente vertical, permita o scroll
-          if (Math.abs(y - startY) > Math.abs(x - startX)) {
-              return; // Permite o comportamento padrão (scroll)
-          }
-          
-          // Caso contrário, previna o scroll para o carrossel horizontal
-          e.preventDefault();
-      }, {passive: false});
-  });
-  </script>
+
 
 
 
