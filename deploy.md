@@ -2,7 +2,7 @@
 
 **Última atualização:** $(date)
 
-**Versão:** 2.5.0
+**Versão:** 2.6.0
 
 **Arquivos principais:**
 - index.html (página principal)
@@ -18,4 +18,4 @@
 - Cache desabilitado para atualizações imediatas
 - Carrossel em formato 9:16 (quadrado grande)
 - Carrossel maior e centralizado
-- Touch desabilitado - scroll livre 
+- Touch otimizado - scroll vertical permitido 
