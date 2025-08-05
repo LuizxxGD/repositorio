@@ -1926,15 +1926,7 @@
                         const currentScrollY = window.scrollY;
                         const scrollDirection = currentScrollY > lastScrollY ? 'down' : 'up';
                         
-                        // Animações de entrada baseadas no scroll
-                        elements.sections.forEach(section => {
-                            const rect = section.getBoundingClientRect();
-                            const isVisible = rect.top < window.innerHeight * 0.8 && rect.bottom > 0;
-                            
-                            if (isVisible && !section.classList.contains('animate-slide-in')) {
-                                section.classList.add('animate-slide-in');
-                            }
-                        });
+                                                 // Animações removidas para evitar quebra de layout
                         
                         lastScrollY = currentScrollY;
                     }
@@ -2099,19 +2091,7 @@
                         window.addEventListener('load', () => {
                             document.body.classList.add('loaded');
                             
-                            // Inicializar animações de entrada
-                            const observer = new IntersectionObserver((entries) => {
-                                entries.forEach(entry => {
-                                    if (entry.isIntersecting) {
-                                        entry.target.classList.add('animate-fade-scale');
-                                        observer.unobserve(entry.target);
-                                    }
-                                });
-                            }, { threshold: 0.1 });
-                            
-                            document.querySelectorAll('.hero-section, .price-section, .testimonials-section, .modules-section, .bonus-section').forEach(section => {
-                                observer.observe(section);
-                            });
+                                                         // Animações removidas para evitar quebra de layout
                         });
                         
                         // Otimizar font loading

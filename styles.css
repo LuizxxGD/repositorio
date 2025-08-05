@@ -81,41 +81,10 @@ body {
 .testimonials-section,
 .modules-section,
 .bonus-section {
-  will-change: transform, opacity;
-  transform: translateZ(0);
-  backface-visibility: hidden;
+  /* Animações removidas para evitar quebra de layout */
 }
 
-/* Animações de entrada otimizadas */
-@keyframes slideInUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px) translateZ(0);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0) translateZ(0);
-  }
-}
-
-@keyframes fadeInScale {
-  from {
-    opacity: 0;
-    transform: scale(0.95) translateZ(0);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1) translateZ(0);
-  }
-}
-
-.animate-slide-in {
-  animation: slideInUp 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
-}
-
-.animate-fade-scale {
-  animation: fadeInScale 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
-}
+/* Animações removidas para evitar quebra de layout */
 
 /* Otimizações de hover para touch */
 @media (hover: hover) {
@@ -2383,13 +2352,6 @@ img.lazy {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
-  }
-  
-  .animate-slide-in,
-  .animate-fade-scale,
-  .animate-fadeInUp,
-  .animate-fadeIn {
-    animation: none !important;
   }
 }
 
