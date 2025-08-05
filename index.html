@@ -14,18 +14,24 @@
     <style>
         /* Paleta de cores profissional */
         :root {
-            --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            --secondary-gradient: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-            --accent-gradient: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
-            --dark-gradient: linear-gradient(135deg, #0c0c0c 0%, #1a1a1a 100%);
-            --gold-gradient: linear-gradient(135deg, #ffd700 0%, #ff8c00 100%);
-            --purple-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --primary-gradient: linear-gradient(135deg, #8b00ff 0%, #4a0080 100%);
+            --secondary-gradient: linear-gradient(135deg, #ff4500 0%, #ff8c00 100%);
+            --accent-gradient: linear-gradient(135deg, #ff0000 0%, #ff6600 100%);
+            --dark-gradient: linear-gradient(135deg, #000000 0%, #1a0033 100%);
+            --gold-gradient: linear-gradient(135deg, #ff6600 0%, #ff4500 100%);
+            --purple-gradient: linear-gradient(135deg, #8b00ff 0%, #6600cc 100%);
+            --neon-purple: linear-gradient(135deg, #8b00ff 0%, #ff00ff 100%);
+            --neon-red: linear-gradient(135deg, #ff0000 0%, #ff4500 100%);
+            --neon-orange: linear-gradient(135deg, #ff6600 0%, #ff8c00 100%);
             --text-primary: #ffffff;
-            --text-secondary: #e2e8f0;
-            --text-muted: #94a3b8;
-            --bg-dark: #0a0a0a;
-            --bg-card: rgba(20, 20, 20, 0.9);
-            --border-glow: rgba(102, 126, 234, 0.3);
+            --text-secondary: #f0f0f0;
+            --text-muted: #cccccc;
+            --bg-dark: #000000;
+            --bg-card: rgba(26, 0, 51, 0.95);
+            --border-glow: rgba(139, 0, 255, 0.5);
+            --neon-glow: 0 0 20px rgba(139, 0, 255, 0.8);
+            --red-glow: 0 0 20px rgba(255, 0, 0, 0.8);
+            --orange-glow: 0 0 20px rgba(255, 102, 0, 0.8);
         }
 
         /* CSS crítico para renderização inicial */
@@ -51,7 +57,21 @@
             position: absolute; 
             top: 0; 
             left: 0; 
-            filter: brightness(40%) contrast(1.2);
+            filter: brightness(30%) contrast(1.5) saturate(1.2);
+        }
+        
+        .hero-background::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 20%, rgba(139, 0, 255, 0.4) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(255, 0, 0, 0.3) 0%, transparent 50%),
+                radial-gradient(circle at 50% 50%, rgba(255, 102, 0, 0.2) 0%, transparent 70%);
+            z-index: 1;
         }
         .hero-content {
             position: relative;
@@ -73,10 +93,11 @@
             line-height: 1.1;
             font-weight: 800;
             letter-spacing: -0.05em;
-            background: var(--gold-gradient);
+            background: var(--neon-purple);
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
+            text-shadow: var(--neon-glow);
         }
         .gradient-text {
             background: var(--accent-gradient);
@@ -87,7 +108,7 @@
         .cta-button {
             display: inline-block;
             padding: 1rem 2rem;
-            background: var(--primary-gradient);
+            background: var(--neon-red);
             color: white;
             border: none;
             border-radius: 50px;
@@ -97,13 +118,15 @@
             text-decoration: none;
             transition: all 0.3s ease;
             white-space: nowrap;
-            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+            box-shadow: var(--red-glow);
             position: relative;
             overflow: hidden;
+            border: 2px solid rgba(255, 0, 0, 0.5);
         }
         .cta-button:hover { 
             transform: translateY(-3px);
-            box-shadow: 0 15px 40px rgba(102, 126, 234, 0.4);
+            box-shadow: var(--red-glow), 0 15px 40px rgba(255, 0, 0, 0.6);
+            background: var(--neon-orange);
         }
         
         /* Otimizações de performance e fluidez */
@@ -507,11 +530,14 @@
 
     <!-- Seção de Depoimentos Stories 9:16 -->
     <section style="background: var(--dark-gradient); min-height: 100vh; width: 100%; display: flex; flex-direction: column; align-items: center; position: relative; overflow: hidden;">
-        <!-- Background com gradiente profissional -->
-        <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: radial-gradient(circle at 30% 20%, rgba(102, 126, 234, 0.1) 0%, transparent 50%); z-index: 1;"></div>
+        <!-- Background com gradiente agressivo -->
+        <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: 
+            radial-gradient(circle at 20% 20%, rgba(139, 0, 255, 0.3) 0%, transparent 50%),
+            radial-gradient(circle at 80% 80%, rgba(255, 0, 0, 0.2) 0%, transparent 50%),
+            radial-gradient(circle at 50% 50%, rgba(255, 102, 0, 0.1) 0%, transparent 70%); z-index: 1;"></div>
         
         <div style="position: relative; z-index: 2; width: 100%; max-width: 1200px; padding: 4rem 2rem; text-align: center;">
-            <h2 style="background: var(--gold-gradient); -webkit-background-clip: text; background-clip: text; color: transparent; font-size: 2.5rem; margin-bottom: 1rem; font-weight: 700; text-transform: uppercase; letter-spacing: 2px;">
+            <h2 style="background: var(--neon-purple); -webkit-background-clip: text; background-clip: text; color: transparent; font-size: 2.5rem; margin-bottom: 1rem; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; text-shadow: var(--neon-glow);">
                 DEPOIMENTOS DOS ALUNOS
             </h2>
             <p style="color: var(--text-secondary); font-size: 1.1rem; margin-bottom: 3rem; max-width: 600px; margin-left: auto; margin-right: auto;">
@@ -535,27 +561,27 @@
                     </div>
                 </div>
                 
-                <!-- Controles profissionais para stories -->
+                <!-- Controles agressivos para stories -->
                 <div style="position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%); display: flex; gap: 8px; z-index: 10;">
-                    <div class="carousel-dot active" style="width: 10px; height: 10px; border-radius: 50%; background: var(--primary-gradient); cursor: pointer; transition: all 0.3s ease;"></div>
-                    <div class="carousel-dot" style="width: 10px; height: 10px; border-radius: 50%; background: rgba(102, 126, 234, 0.3); cursor: pointer; transition: all 0.3s ease;"></div>
-                    <div class="carousel-dot" style="width: 10px; height: 10px; border-radius: 50%; background: rgba(102, 126, 234, 0.3); cursor: pointer; transition: all 0.3s ease;"></div>
-                    <div class="carousel-dot" style="width: 10px; height: 10px; border-radius: 50%; background: rgba(102, 126, 234, 0.3); cursor: pointer; transition: all 0.3s ease;"></div>
+                    <div class="carousel-dot active" style="width: 12px; height: 12px; border-radius: 50%; background: var(--neon-purple); cursor: pointer; transition: all 0.3s ease; box-shadow: var(--neon-glow);"></div>
+                    <div class="carousel-dot" style="width: 12px; height: 12px; border-radius: 50%; background: rgba(139, 0, 255, 0.3); cursor: pointer; transition: all 0.3s ease;"></div>
+                    <div class="carousel-dot" style="width: 12px; height: 12px; border-radius: 50%; background: rgba(139, 0, 255, 0.3); cursor: pointer; transition: all 0.3s ease;"></div>
+                    <div class="carousel-dot" style="width: 12px; height: 12px; border-radius: 50%; background: rgba(139, 0, 255, 0.3); cursor: pointer; transition: all 0.3s ease;"></div>
                 </div>
             </div>
             
-            <!-- Estatísticas profissionais com nova paleta -->
+            <!-- Estatísticas agressivas com nova paleta -->
             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; margin-top: 4rem; max-width: 800px; margin-left: auto; margin-right: auto;">
                 <div style="text-align: center; padding: 1.5rem; background: var(--bg-card); border-radius: 15px; border: 1px solid var(--border-glow); box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);">
-                    <div style="font-size: 2.5rem; font-weight: 700; background: var(--gold-gradient); -webkit-background-clip: text; background-clip: text; color: transparent; margin-bottom: 0.5rem;">500+</div>
+                    <div style="font-size: 2.5rem; font-weight: 700; background: var(--neon-orange); -webkit-background-clip: text; background-clip: text; color: transparent; margin-bottom: 0.5rem; text-shadow: var(--orange-glow);">500+</div>
                     <div style="color: var(--text-secondary); font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px;">Alunos Atendidos</div>
                 </div>
                 <div style="text-align: center; padding: 1.5rem; background: var(--bg-card); border-radius: 15px; border: 1px solid var(--border-glow); box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);">
-                    <div style="font-size: 2.5rem; font-weight: 700; background: var(--accent-gradient); -webkit-background-clip: text; background-clip: text; color: transparent; margin-bottom: 0.5rem;">98%</div>
+                    <div style="font-size: 2.5rem; font-weight: 700; background: var(--neon-red); -webkit-background-clip: text; background-clip: text; color: transparent; margin-bottom: 0.5rem; text-shadow: var(--red-glow);">98%</div>
                     <div style="color: var(--text-secondary); font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px;">Taxa de Sucesso</div>
                 </div>
                 <div style="text-align: center; padding: 1.5rem; background: var(--bg-card); border-radius: 15px; border: 1px solid var(--border-glow); box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);">
-                    <div style="font-size: 2.5rem; font-weight: 700; background: var(--secondary-gradient); -webkit-background-clip: text; background-clip: text; color: transparent; margin-bottom: 0.5rem;">24/7</div>
+                    <div style="font-size: 2.5rem; font-weight: 700; background: var(--neon-purple); -webkit-background-clip: text; background-clip: text; color: transparent; margin-bottom: 0.5rem; text-shadow: var(--neon-glow);">24/7</div>
                     <div style="color: var(--text-secondary); font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px;">Suporte Disponível</div>
                 </div>
             </div>
@@ -698,13 +724,13 @@
                         </div>
                     </div>
                     
-                    <!-- Botão CTA Ultra Premium -->
+                    <!-- Botão CTA Ultra Agressivo -->
                     <div style="text-align: center; margin-bottom: 2rem;">
-                        <div style="background: var(--accent-gradient); padding: 0.5rem; border-radius: 50px; margin-bottom: 1rem; display: inline-block;">
+                        <div style="background: var(--neon-red); padding: 0.5rem; border-radius: 50px; margin-bottom: 1rem; display: inline-block; box-shadow: var(--red-glow);">
                             <span style="color: white; font-size: 0.9rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1rem;">🔥 OFERTA LIMITADA - 86% DE DESCONTO</span>
                         </div>
                         
-                        <a href="#comprar-agora" style="display: inline-flex; align-items: center; justify-content: center; background: var(--accent-gradient); color: white; padding: 1.8rem 4.5rem; border-radius: 50px; font-size: 1.4rem; font-weight: 800; text-transform: uppercase; text-decoration: none; letter-spacing: 0.1rem; box-shadow: 0 25px 50px rgba(79, 172, 254, 0.5); transition: all 0.3s ease; position: relative; overflow: hidden; min-width: 350px; border: 2px solid rgba(255, 255, 255, 0.2);">
+                        <a href="#comprar-agora" style="display: inline-flex; align-items: center; justify-content: center; background: var(--neon-red); color: white; padding: 1.8rem 4.5rem; border-radius: 50px; font-size: 1.4rem; font-weight: 800; text-transform: uppercase; text-decoration: none; letter-spacing: 0.1rem; box-shadow: var(--red-glow); transition: all 0.3s ease; position: relative; overflow: hidden; min-width: 350px; border: 2px solid rgba(255, 0, 0, 0.5);">
                             <span style="position: relative; z-index: 2;">GARANTIR ACESSO VITALÍCIO + 6 BÔNUS</span>
                             <svg style="width: 28px; height: 28px; margin-left: 1.5rem; position: relative; z-index: 2; transition: transform 0.3s ease;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                 <path d="M5 12H19"></path>
@@ -723,7 +749,7 @@
                     
                     <!-- Benefícios e Bônus Completos -->
                     <div style="margin-bottom: 2rem;">
-                        <h3 style="background: var(--gold-gradient); -webkit-background-clip: text; background-clip: text; color: transparent; font-size: 1.5rem; font-weight: 700; text-align: center; margin-bottom: 2rem;">🎁 BÔNUS EXCLUSIVOS INCLUÍDOS</h3>
+                        <h3 style="background: var(--neon-purple); -webkit-background-clip: text; background-clip: text; color: transparent; font-size: 1.5rem; font-weight: 700; text-align: center; margin-bottom: 2rem; text-shadow: var(--neon-glow);">🎁 BÔNUS EXCLUSIVOS INCLUÍDOS</h3>
                         
                         <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-bottom: 2rem;">
                             <!-- Bônus 1 -->
@@ -807,7 +833,7 @@
                         </div>
                         
                         <!-- Benefícios Principais -->
-                        <h3 style="background: var(--accent-gradient); -webkit-background-clip: text; background-clip: text; color: transparent; font-size: 1.5rem; font-weight: 700; text-align: center; margin-bottom: 2rem;">⚡ BENEFÍCIOS PRINCIPAIS</h3>
+                        <h3 style="background: var(--neon-orange); -webkit-background-clip: text; background-clip: text; color: transparent; font-size: 1.5rem; font-weight: 700; text-align: center; margin-bottom: 2rem; text-shadow: var(--orange-glow);">⚡ BENEFÍCIOS PRINCIPAIS</h3>
                         
                         <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem;">
                             <div style="display: flex; align-items: center; gap: 1rem; padding: 1.2rem; background: rgba(255, 255, 255, 0.05); border-radius: 15px; border: 1px solid rgba(255, 255, 255, 0.1);">
