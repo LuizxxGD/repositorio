@@ -2,7 +2,7 @@
 
 **Última atualização:** $(date)
 
-**Versão:** 2.9.0
+**Versão:** 3.0.0
 
 **Arquivos principais:**
 - index.html (página principal)
@@ -18,4 +18,7 @@
 - Cache desabilitado para atualizações imediatas
 - Carrossel em formato 9:16 (quadrado grande)
 - Carrossel maior e centralizado
-- Seção simplificada - div simples sem classes 
+- Carrossel automático implementado
+- Troca de imagens a cada 3 segundos
+- Transição suave com fade
+- Scroll mantido 100% funcional 
