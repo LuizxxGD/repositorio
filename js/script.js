@@ -1,212 +1,301 @@
-// Smooth scrolling and animations
+// Optimized JavaScript for iOS Unlocker Pro
+// Performance optimizations and modern best practices
+
+// Wait for DOM to be ready
 document.addEventListener("DOMContentLoaded", () => {
-  // Initialize animations
-  initializeAnimations()
+  // Initialize all optimizations
+  initializeOptimizations();
+});
 
-  // Add scroll event listeners
-  window.addEventListener("scroll", handleScroll)
+// Main initialization function
+function initializeOptimizations() {
+  // Initialize smooth scrolling with passive listeners
+  initSmoothScrolling();
+  
+  // Initialize testimonials carousel
+  initTestimonialsCarousel();
+  
+  // Initialize performance optimizations
+  initPerformanceOptimizations();
+  
+  // Initialize accessibility improvements
+  initAccessibility();
+}
 
-  // Add click event listeners
-  addEventListeners()
-})
-
-// Initialize animations on page load
-function initializeAnimations() {
-  // Animate elements on scroll
-  const observerOptions = {
-    threshold: 0.1,
-    rootMargin: "0px 0px -50px 0px",
-  }
-
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        const element = entry.target
-        const animationType = element.getAttribute("data-aos")
-
-        switch (animationType) {
-          case "slide-left":
-            element.style.animation = "slideInLeft 1s ease-out forwards"
-            break
-          case "slide-right":
-            element.style.animation = "slideInRight 1s ease-out forwards"
-            break
-          case "fade-up":
-            element.style.animation = "fadeInUpStagger 1s ease-out forwards"
-            break
-          default:
-            element.style.animation = "fadeInUp 1s ease-out forwards"
-        }
-
-        observer.unobserve(element)
+// Smooth scrolling with passive event listeners
+function initSmoothScrolling() {
+  const links = document.querySelectorAll('a[href^="#"]');
+  
+  links.forEach(link => {
+    link.addEventListener('click', function(e) {
+      e.preventDefault();
+      const target = document.querySelector(this.getAttribute('href'));
+      if (target) {
+        target.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start'
+        });
       }
-    })
-  }, observerOptions)
-
-  // Observe all elements with data-aos attribute
-  const animatedElements = document.querySelectorAll("[data-aos]")
-  animatedElements.forEach((el) => {
-    el.style.opacity = "0"
-    observer.observe(el)
-  })
+    }, { passive: false });
+  });
 }
 
-// Handle scroll events
-function handleScroll() {
-  const scrolled = window.pageYOffset
-  const parallax = document.querySelector(".hero-background")
-
-  if (parallax) {
-    const speed = scrolled * 0.5
-    parallax.style.transform = `translateY(${speed}px)`
-  }
-
-  // Add scroll-based animations for orbs
-  const orbs = document.querySelectorAll(".orb")
-  orbs.forEach((orb, index) => {
-    const speed = (index + 1) * 0.3
-    orb.style.transform = `translateY(${scrolled * speed}px) rotate(${scrolled * 0.1}deg)`
-  })
-}
-
-// Add event listeners
-function addEventListeners() {
-  // CTA button clicks
-  const ctaButtons = document.querySelectorAll(".cta-button")
-  ctaButtons.forEach((button) => {
-    button.addEventListener("click", function (e) {
-      // Add click animation
-      this.style.transform = "scale(0.95)"
+// Optimized testimonials carousel
+function initTestimonialsCarousel() {
+  const images = [
+    'dep/depoimento02.jpg',
+    'dep/depoimento3.jpeg', 
+    'dep/depoimento4.jpeg',
+    'dep/depoimento01iphone.jpg'
+  ];
+  
+  let currentIndex = 0;
+  const imageElement = document.getElementById('testimonial-image');
+  
+  if (imageElement) {
+    // Preload images for better performance
+    images.forEach(src => {
+      const img = new Image();
+      img.src = src;
+    });
+    
+    function changeImage() {
+      currentIndex = (currentIndex + 1) % images.length;
+      imageElement.style.opacity = '0';
+      
       setTimeout(() => {
-        this.style.transform = "scale(1.05)"
-      }, 150)
-
-      // Add ripple effect
-      createRipple(e, this)
-    })
-  })
-
-  // Card hover effects
-  const cards = document.querySelectorAll(".module-card, .bonus-card, .info-card")
-  cards.forEach((card) => {
-    card.addEventListener("mouseenter", function () {
-      this.style.transform = "scale(1.02) translateY(-5px)"
-    })
-
-    card.addEventListener("mouseleave", function () {
-      this.style.transform = "scale(1) translateY(0)"
-    })
-  })
-
-  // Bonus icon rotation on hover
-  const bonusCards = document.querySelectorAll(".bonus-card")
-  bonusCards.forEach((card) => {
-    const icon = card.querySelector(".bonus-icon")
-
-    card.addEventListener("mouseenter", () => {
-      icon.style.transform = "scale(1.1) rotate(10deg)"
-    })
-
-    card.addEventListener("mouseleave", () => {
-      icon.style.transform = "scale(1) rotate(0deg)"
-    })
-  })
+        imageElement.src = images[currentIndex];
+        imageElement.style.opacity = '1';
+      }, 250);
+    }
+    
+    // Change image every 3 seconds
+    setInterval(changeImage, 3000);
+  }
 }
 
-// Create ripple effect on button click
-function createRipple(event, button) {
-  const circle = document.createElement("span")
-  const diameter = Math.max(button.clientWidth, button.clientHeight)
-  const radius = diameter / 2
-
-  const rect = button.getBoundingClientRect()
-  circle.style.width = circle.style.height = `${diameter}px`
-  circle.style.left = `${event.clientX - rect.left - radius}px`
-  circle.style.top = `${event.clientY - rect.top - radius}px`
-  circle.classList.add("ripple")
-
-  // Add ripple styles
-  circle.style.position = "absolute"
-  circle.style.borderRadius = "50%"
-  circle.style.background = "rgba(255, 255, 255, 0.3)"
-  circle.style.transform = "scale(0)"
-  circle.style.animation = "ripple 0.6s linear"
-  circle.style.pointerEvents = "none"
-
-  const ripple = button.getElementsByClassName("ripple")[0]
-  if (ripple) {
-    ripple.remove()
+// Performance optimizations
+function initPerformanceOptimizations() {
+  // Optimize scroll handling with throttling
+  let ticking = false;
+  
+  function updateScroll() {
+    if (!ticking) {
+      requestAnimationFrame(() => {
+        // Minimal scroll-based updates if needed
+        ticking = false;
+      });
+      ticking = true;
+    }
   }
+  
+  // Use passive listener for better scroll performance
+  window.addEventListener('scroll', updateScroll, { passive: true });
+  
+  // Optimize images with lazy loading
+  if ('IntersectionObserver' in window) {
+    const imageObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const img = entry.target;
+          if (img.dataset.src) {
+            img.src = img.dataset.src;
+            img.classList.remove('lazy');
+            observer.unobserve(img);
+          }
+        }
+      });
+    }, {
+      rootMargin: '50px 0px',
+      threshold: 0.1
+    });
+    
+    // Observe all lazy images
+    document.querySelectorAll('img[data-src]').forEach(img => {
+      imageObserver.observe(img);
+    });
+  }
+  
+  // Optimize animations with will-change
+  const animatedElements = document.querySelectorAll('.module-card, .bonus-card, .info-card, .cta-button');
+  animatedElements.forEach(el => {
+    el.style.willChange = 'transform';
+  });
+  
+  // Remove will-change after animations to save memory
+  animatedElements.forEach(el => {
+    el.addEventListener('transitionend', () => {
+      el.style.willChange = 'auto';
+    }, { once: true });
+  });
+}
 
-  button.style.position = "relative"
-  button.style.overflow = "hidden"
-  button.appendChild(circle)
+// Accessibility improvements
+function initAccessibility() {
+  // Add focus indicators for keyboard navigation
+  const focusableElements = document.querySelectorAll('a, button, input, textarea, select');
+  
+  focusableElements.forEach(element => {
+    element.addEventListener('focus', function() {
+      this.style.outline = '2px solid #ff8c00';
+      this.style.outlineOffset = '2px';
+    });
+    
+    element.addEventListener('blur', function() {
+      this.style.outline = '';
+      this.style.outlineOffset = '';
+    });
+  });
+  
+  // Add ARIA labels for better screen reader support
+  const testimonialImage = document.getElementById('testimonial-image');
+  if (testimonialImage) {
+    testimonialImage.setAttribute('alt', 'Depoimento de aluno sobre o curso de desbloqueio de iPhones');
+  }
+  
+  // Add skip link for accessibility
+  const skipLink = document.createElement('a');
+  skipLink.href = '#main-content';
+  skipLink.textContent = 'Pular para o conteúdo principal';
+  skipLink.style.cssText = `
+    position: absolute;
+    top: -40px;
+    left: 6px;
+    background: #ff8c00;
+    color: white;
+    padding: 8px;
+    text-decoration: none;
+    border-radius: 4px;
+    z-index: 1000;
+  `;
+  skipLink.addEventListener('focus', function() {
+    this.style.top = '6px';
+  });
+  skipLink.addEventListener('blur', function() {
+    this.style.top = '-40px';
+  });
+  
+  document.body.insertBefore(skipLink, document.body.firstChild);
+  
+  // Add main content landmark
+  const mainContent = document.querySelector('.hero-content');
+  if (mainContent) {
+    mainContent.id = 'main-content';
+    mainContent.setAttribute('role', 'main');
+  }
+}
 
-  // Remove ripple after animation
+// Optimized event handlers with passive listeners where possible
+function addOptimizedEventListeners() {
+  // CTA button interactions
+  const ctaButtons = document.querySelectorAll('.cta-button');
+  ctaButtons.forEach(button => {
+    // Use passive listeners for touch events
+    button.addEventListener('touchstart', function() {
+      this.style.transform = 'scale(0.98)';
+    }, { passive: true });
+    
+    button.addEventListener('touchend', function() {
+      this.style.transform = '';
+    }, { passive: true });
+    
+    // Mouse events
+    button.addEventListener('mouseenter', function() {
+      this.style.transform = 'scale(1.02)';
+    }, { passive: true });
+    
+    button.addEventListener('mouseleave', function() {
+      this.style.transform = '';
+    }, { passive: true });
+  });
+  
+  // Card hover effects with passive listeners
+  const cards = document.querySelectorAll('.module-card, .bonus-card, .info-card');
+  cards.forEach(card => {
+    card.addEventListener('mouseenter', function() {
+      this.style.transform = 'translateY(-5px)';
+    }, { passive: true });
+    
+    card.addEventListener('mouseleave', function() {
+      this.style.transform = 'translateY(0)';
+    }, { passive: true });
+  });
+}
+
+// Utility function for throttling
+function throttle(func, limit) {
+  let inThrottle;
+  return function() {
+    const args = arguments;
+    const context = this;
+    if (!inThrottle) {
+      func.apply(context, args);
+      inThrottle = true;
+      setTimeout(() => inThrottle = false, limit);
+    }
+  };
+}
+
+// Optimized ripple effect (if needed)
+function createOptimizedRipple(event, button) {
+  const ripple = document.createElement('span');
+  const rect = button.getBoundingClientRect();
+  const size = Math.max(rect.width, rect.height);
+  const x = event.clientX - rect.left - size / 2;
+  const y = event.clientY - rect.top - size / 2;
+  
+  ripple.style.cssText = `
+    position: absolute;
+    width: ${size}px;
+    height: ${size}px;
+    left: ${x}px;
+    top: ${y}px;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    transform: scale(0);
+    animation: ripple 0.6s linear;
+    pointer-events: none;
+  `;
+  
+  button.appendChild(ripple);
+  
   setTimeout(() => {
-    circle.remove()
-  }, 600)
-}
-
-// Smooth scroll to section
-function scrollToSection(sectionId) {
-  const section = document.getElementById(sectionId)
-  if (section) {
-    section.scrollIntoView({
-      behavior: "smooth",
-      block: "start",
-    })
-  }
+    ripple.remove();
+  }, 600);
 }
 
 // Add CSS for ripple animation
-const style = document.createElement("style")
-style.textContent = `
-    @keyframes ripple {
-        to {
-            transform: scale(4);
-            opacity: 0;
-        }
+const rippleStyle = document.createElement('style');
+rippleStyle.textContent = `
+  @keyframes ripple {
+    to {
+      transform: scale(4);
+      opacity: 0;
     }
-`
-document.head.appendChild(style)
-
-// Performance optimization: Throttle scroll events
-function throttle(func, wait) {
-  let timeout
-  return function executedFunction(...args) {
-    const later = () => {
-      clearTimeout(timeout)
-      func(...args)
-    }
-    clearTimeout(timeout)
-    timeout = setTimeout(later, wait)
   }
-}
+`;
+document.head.appendChild(rippleStyle);
 
-// Apply throttling to scroll handler
-window.addEventListener("scroll", throttle(handleScroll, 16))
+// Initialize additional optimizations after load
+window.addEventListener('load', () => {
+  // Add optimized event listeners
+  addOptimizedEventListeners();
+  
+  // Log performance metrics
+  if ('performance' in window) {
+    const perfData = performance.getEntriesByType('navigation')[0];
+    console.log('Site loaded in:', Math.round(perfData.loadEventEnd - perfData.loadEventStart), 'ms');
+  }
+  
+  // Remove loading states
+  document.body.classList.add('loaded');
+});
 
-// Add loading animation
-window.addEventListener("load", () => {
-  document.body.style.opacity = "0"
-  document.body.style.transition = "opacity 0.5s ease-in-out"
-
-  setTimeout(() => {
-    document.body.style.opacity = "1"
-  }, 100)
-})
-
-// Add mobile touch interactions
-if ("ontouchstart" in window) {
-  const cards = document.querySelectorAll(".module-card, .bonus-card")
-  cards.forEach((card) => {
-    card.addEventListener("touchstart", function () {
-      this.style.transform = "scale(0.98)"
-    })
-
-    card.addEventListener("touchend", function () {
-      this.style.transform = "scale(1)"
-    })
-  })
-}
+// Export functions for potential external use
+window.iOSUnlockerPro = {
+  initOptimizations: initializeOptimizations,
+  initSmoothScrolling,
+  initTestimonialsCarousel,
+  initPerformanceOptimizations,
+  initAccessibility
+};
