@@ -213,25 +213,58 @@
         </div>
     </section>
 
-    <!-- Seção de Depoimentos Otimizada -->
-    <section style="background: #000; min-height: 100vh; width: 100vw; display: flex; flex-direction: column; align-items: center;">
-        <h2 style="text-align: center; color: white; font-size: 1.5rem; margin: 20px 0; padding: 0 20px; text-transform: uppercase; letter-spacing: 3px; text-shadow: 2px 2px 5px rgba(0,0,0,0.8); line-height: 1.3; width: 100%;">
-            O QUE NOSSOS<br>ALUNOS DIZEM
-        </h2>
+    <!-- Seção de Depoimentos Profissional -->
+    <section style="background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%); min-height: 100vh; width: 100%; display: flex; flex-direction: column; align-items: center; position: relative; overflow: hidden;">
+        <!-- Background profissional -->
+        <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: radial-gradient(circle at 30% 20%, rgba(255, 140, 0, 0.05) 0%, transparent 50%); z-index: 1;"></div>
         
-        <div style="width: 100%; flex-grow: 1; position: relative; overflow: hidden;">
-            <div class="carousel" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
-                <div class="slide active">
-                    <img src="dep/depoimento01iphone.jpg" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy">
+        <div style="position: relative; z-index: 2; width: 100%; max-width: 1200px; padding: 4rem 2rem; text-align: center;">
+            <h2 style="color: white; font-size: 2.5rem; margin-bottom: 1rem; font-weight: 700; text-transform: uppercase; letter-spacing: 2px;">
+                DEPOIMENTOS DOS ALUNOS
+            </h2>
+            <p style="color: #ccc; font-size: 1.1rem; margin-bottom: 3rem; max-width: 600px; margin-left: auto; margin-right: auto;">
+                Veja o que nossos alunos estão dizendo sobre o curso e os resultados que estão alcançando
+            </p>
+            
+            <!-- Carrossel profissional -->
+            <div style="width: 100%; max-width: 800px; margin: 0 auto; position: relative; border-radius: 15px; overflow: hidden; box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);">
+                <div class="carousel" style="position: relative; width: 100%; height: 500px;">
+                    <div class="slide active" style="position: absolute; width: 100%; height: 100%; opacity: 1; transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1);">
+                        <img src="dep/depoimento01iphone.jpg" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy" alt="Depoimento 1">
+                    </div>
+                    <div class="slide" style="position: absolute; width: 100%; height: 100%; opacity: 0; transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1);">
+                        <img src="dep/depoimento02.jpg" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy" alt="Depoimento 2">
+                    </div>
+                    <div class="slide" style="position: absolute; width: 100%; height: 100%; opacity: 0; transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1);">
+                        <img src="dep/depoimento3.jpeg" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy" alt="Depoimento 3">
+                    </div>
+                    <div class="slide" style="position: absolute; width: 100%; height: 100%; opacity: 0; transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1);">
+                        <img src="dep/depoimento4.jpeg" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy" alt="Depoimento 4">
+                    </div>
                 </div>
-                <div class="slide">
-                    <img src="dep/depoimento02.jpg" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy">
+                
+                <!-- Controles profissionais -->
+                <div style="position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%); display: flex; gap: 10px; z-index: 10;">
+                    <div class="carousel-dot active" style="width: 12px; height: 12px; border-radius: 50%; background: #ff8c00; cursor: pointer; transition: all 0.3s ease;"></div>
+                    <div class="carousel-dot" style="width: 12px; height: 12px; border-radius: 50%; background: rgba(255, 140, 0, 0.3); cursor: pointer; transition: all 0.3s ease;"></div>
+                    <div class="carousel-dot" style="width: 12px; height: 12px; border-radius: 50%; background: rgba(255, 140, 0, 0.3); cursor: pointer; transition: all 0.3s ease;"></div>
+                    <div class="carousel-dot" style="width: 12px; height: 12px; border-radius: 50%; background: rgba(255, 140, 0, 0.3); cursor: pointer; transition: all 0.3s ease;"></div>
                 </div>
-                <div class="slide">
-                    <img src="dep/depoimento3.jpeg" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy">
+            </div>
+            
+            <!-- Estatísticas profissionais -->
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; margin-top: 4rem; max-width: 800px; margin-left: auto; margin-right: auto;">
+                <div style="text-align: center; padding: 1.5rem; background: rgba(255, 140, 0, 0.1); border-radius: 10px; border: 1px solid rgba(255, 140, 0, 0.2);">
+                    <div style="font-size: 2.5rem; font-weight: 700; color: #ff8c00; margin-bottom: 0.5rem;">500+</div>
+                    <div style="color: #ccc; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px;">Alunos Atendidos</div>
                 </div>
-                <div class="slide">
-                    <img src="dep/depoimento4.jpeg" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy">
+                <div style="text-align: center; padding: 1.5rem; background: rgba(106, 13, 173, 0.1); border-radius: 10px; border: 1px solid rgba(106, 13, 173, 0.2);">
+                    <div style="font-size: 2.5rem; font-weight: 700; color: #6a0dad; margin-bottom: 0.5rem;">98%</div>
+                    <div style="color: #ccc; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px;">Taxa de Sucesso</div>
+                </div>
+                <div style="text-align: center; padding: 1.5rem; background: rgba(255, 140, 0, 0.1); border-radius: 10px; border: 1px solid rgba(255, 140, 0, 0.2);">
+                    <div style="font-size: 2.5rem; font-weight: 700; color: #ff8c00; margin-bottom: 0.5rem;">24/7</div>
+                    <div style="color: #ccc; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px;">Suporte Disponível</div>
                 </div>
             </div>
         </div>
@@ -249,7 +282,9 @@
                 <!-- Bônus cards otimizados -->
                 <div style="background: rgba(20, 20, 20, 0.8); border-radius: 12px; padding: 30px; border: 1px solid rgba(255, 140, 0, 0.3); transition: transform 0.3s ease;">
                     <div style="width: 60px; height: 60px; background: rgba(255, 140, 0, 0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 20px; border: 1px solid rgba(255, 140, 0, 0.3);">
-                        <span style="font-size: 2rem;">⚡</span>
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#ff8c00" stroke-width="2">
+                            <polygon points="13,2 3,14 12,14 11,22 21,10 12,10 13,2"></polygon>
+                        </svg>
                     </div>
                     <h3 style="font-size: 1.4rem; margin: 0 0 15px; color: white; font-weight: 700;">Bypass iOS 17.5</h3>
                     <p style="font-size: 1rem; color: #ccc; line-height: 1.5; margin: 0;">Método completo para desbloqueio iCloud em dispositivos com iOS 17.5</p>
@@ -257,7 +292,9 @@
                 
                 <div style="background: rgba(20, 20, 20, 0.8); border-radius: 12px; padding: 30px; border: 1px solid rgba(106, 13, 173, 0.3); transition: transform 0.3s ease;">
                     <div style="width: 60px; height: 60px; background: rgba(106, 13, 173, 0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 20px; border: 1px solid rgba(106, 13, 173, 0.3);">
-                        <span style="font-size: 2rem;">🚀</span>
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#6a0dad" stroke-width="2">
+                            <polygon points="13,2 3,14 12,14 11,22 21,10 12,10 13,2"></polygon>
+                        </svg>
                     </div>
                     <h3 style="font-size: 1.4rem; margin: 0 0 15px; color: white; font-weight: 700;">Bypass iOS 18.5</h3>
                     <p style="font-size: 1rem; color: #ccc; line-height: 1.5; margin: 0;">Solução avançada para contornar o iCloud na última versão do iOS</p>
@@ -265,7 +302,12 @@
                 
                 <div style="background: rgba(20, 20, 20, 0.8); border-radius: 12px; padding: 30px; border: 1px solid rgba(255, 140, 0, 0.3); transition: transform 0.3s ease;">
                     <div style="width: 60px; height: 60px; background: rgba(255, 140, 0, 0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 20px; border: 1px solid rgba(255, 140, 0, 0.3);">
-                        <span style="font-size: 2rem;">💎</span>
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#ff8c00" stroke-width="2">
+                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                            <circle cx="9" cy="7" r="4"></circle>
+                            <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                            <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                        </svg>
                     </div>
                     <h3 style="font-size: 1.4rem; margin: 0 0 15px; color: white; font-weight: 700;">Suporte Técnico VIP</h3>
                     <p style="font-size: 1rem; color: #ccc; line-height: 1.5; margin: 0;">Assistência remota especializada para bypass em todas versões</p>
@@ -273,7 +315,9 @@
                 
                 <div style="background: rgba(20, 20, 20, 0.8); border-radius: 12px; padding: 30px; border: 1px solid rgba(106, 13, 173, 0.3); transition: transform 0.3s ease;">
                     <div style="width: 60px; height: 60px; background: rgba(106, 13, 173, 0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 20px; border: 1px solid rgba(106, 13, 173, 0.3);">
-                        <span style="font-size: 2rem;">📱</span>
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#6a0dad" stroke-width="2">
+                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                        </svg>
                     </div>
                     <h3 style="font-size: 1.4rem; margin: 0 0 15px; color: white; font-weight: 700;">Pacote Completo iOS</h3>
                     <p style="font-size: 1rem; color: #ccc; line-height: 1.5; margin: 0;">Ferramentas para bypass desde iOS 14 até 18.5</p>
@@ -404,9 +448,10 @@
             images.forEach(img => imageObserver.observe(img));
         });
 
-        // Carrossel otimizado com animações suaves
+        // Carrossel profissional com controles
         let currentSlide = 0;
         const slides = document.querySelectorAll('.slide');
+        const dots = document.querySelectorAll('.carousel-dot');
         let slideInterval;
         
         function showSlide(index) {
@@ -415,6 +460,13 @@
                     slide.style.opacity = i === index ? '1' : '0';
                     slide.classList.toggle('active', i === index);
                 });
+                
+                // Atualizar dots
+                dots.forEach((dot, i) => {
+                    dot.style.background = i === index ? '#ff8c00' : 'rgba(255, 140, 0, 0.3)';
+                    dot.classList.toggle('active', i === index);
+                });
+                
                 currentSlide = index;
             });
         }
@@ -511,6 +563,15 @@
                 img.src = src;
             });
         }
+        
+        // Event listeners para dots do carrossel
+        dots.forEach((dot, index) => {
+            dot.addEventListener('click', () => {
+                showSlide(index);
+                stopSlideShow();
+                setTimeout(startSlideShow, 3000);
+            });
+        });
         
         // Executar preload quando possível
         if ('requestIdleCallback' in window) {
