@@ -570,19 +570,18 @@
 
     <section class="testimonials" style="
   background: #000;
-  min-height: 60vh;
+  min-height: 100vh;
   width: 100vw;
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 40px 0;
 ">
   <!-- TÍTULO FIXO NO TOPO -->
   <h2 style="
     text-align: center;
     color: white;
     font-size: 1.5rem;
-    margin: 20px 0 30px 0;
+    margin: 20px 0;
     padding: 0 20px;
     text-transform: uppercase;
     letter-spacing: 3px;
@@ -592,83 +591,65 @@
   ">O QUE NOSSOS<br>ALUNOS DIZEM</h2>
 
   <!-- CONTAINER DAS FOTOS ABAIXO DO TÍTULO -->
-  <div style="
-    width: 90%;
-    max-width: 400px;
-    height: 300px;
-    position: relative;
-    margin: 0 auto;
-  ">
-    <!-- CARROSSEL DE FOTOS -->
-    <div class="carousel" top: 0; left: 0; width: 100%; height: 100%; touch-action: pan-y;">
-      <!-- SLIDE 1 -->
-<div class="slide active" style="position: absolute; width: 100%; height: 100%; opacity: 1;">
-  <img src="dep/depoimento01iphone.jpg" style="
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  " alt="Depoimento 1" onerror="this.style.display='none'">
-</div>
+<div style="width: 100%; flex-grow: 1; position: relative;">
+  <!-- CARROSSEL DE FOTOS (removido position: absolute) -->
+  <div class="carousel" style="width: 100%; height: auto; touch-action: pan-y;">
+    <!-- SLIDE 1 -->
+    <div class="slide active" style="width: 100%; height: auto; opacity: 1;">
+      <img src="dep/depoimento01iphone.jpg" style="width: 100%; height: auto; object-fit: cover;" alt="Depoimento 1" onerror="this.style.display='none'">
+    </div>
 
-<!-- SLIDE 2 -->
-<div class="slide" style="position: absolute; width: 100%; height: 100%; opacity: 0;">
-  <img src="dep/depoimento02.jpg" style="
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  " alt="Depoimento 2" onerror="this.style.display='none'">
-</div>
+    <!-- SLIDE 2 -->
+    <div class="slide" style="width: 100%; height: auto; opacity: 0; display: none;">
+      <img src="dep/depoimento02.jpg" style="width: 100%; height: auto; object-fit: cover;" alt="Depoimento 2" onerror="this.style.display='none'">
+    </div>
 
-<!-- SLIDE 3 -->
-<div class="slide" style="position: absolute; width: 100%; height: 100%; opacity: 0;">
-  <img src="dep/depoimento3.jpeg" style="
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  " alt="Depoimento 3" onerror="this.style.display='none'">
-</div>
+    <!-- SLIDE 3 -->
+    <div class="slide" style="width: 100%; height: auto; opacity: 0; display: none;">
+      <img src="dep/depoimento3.jpeg" style="width: 100%; height: auto; object-fit: cover;" alt="Depoimento 3" onerror="this.style.display='none'">
+    </div>
 
-<!-- SLIDE 4 -->
-<div class="slide" style="position: absolute; width: 100%; height: 100%; opacity: 0;">
-  <img src="dep/depoimento4.jpeg" style="
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  " alt="Depoimento 4" onerror="this.style.display='none'">
-</div>
-
-      
+    <!-- SLIDE 4 -->
+    <div class="slide" style="width: 100%; height: auto; opacity: 0; display: none;">
+      <img src="dep/depoimento4.jpeg" style="width: 100%; height: auto; object-fit: cover;" alt="Depoimento 4" onerror="this.style.display='none'">
     </div>
   </div>
-</section>
+</div>
+
 <script>
-  // CARROSSEL APENAS COM AUTOPLAY - SEM INTERFERÊNCIA TOUCH
-  document.addEventListener('DOMContentLoaded', function() {
-    const slides = document.querySelectorAll('.slide');
-    let currentIndex = 0;
-    let interval;
-    
-    function showSlide(index) {
-      slides.forEach((slide, i) => {
-        slide.style.opacity = i === index ? '1' : '0';
-      });
-      currentIndex = index;
-    }
-    
-    function nextSlide() {
-      currentIndex = (currentIndex + 1) % slides.length;
-      showSlide(currentIndex);
-    }
-    
-    function startAutoplay() {
-      if (interval) clearInterval(interval);
-      interval = setInterval(nextSlide, 4000);
-    }
-    
-    // Inicializar
-    showSlide(0);
-    startAutoplay();
-  });
+// CARROSSEL AUTOPLAY SEM BLOQUEAR SCROLL
+document.addEventListener('DOMContentLoaded', function() {
+  const slides = document.querySelectorAll('.slide');
+  let currentIndex = 0;
+  let interval;
+  
+  function showSlide(index) {
+    slides.forEach((slide, i) => {
+      if (i === index) {
+        slide.style.opacity = '1';
+        slide.style.display = 'block';
+      } else {
+        slide.style.opacity = '0';
+        slide.style.display = 'none';
+      }
+    });
+    currentIndex = index;
+  }
+  
+  function nextSlide() {
+    currentIndex = (currentIndex + 1) % slides.length;
+    showSlide(currentIndex);
+  }
+  
+  function startAutoplay() {
+    if (interval) clearInterval(interval);
+    interval = setInterval(nextSlide, 4000);
+  }
+  
+  // Inicializar
+  showSlide(0);
+  startAutoplay();
+});
 </script>
 
 
