@@ -10,6 +10,9 @@ html {
   /* Fixar tamanho mínimo para evitar diminuição */
   min-width: 320px;
   min-height: 100vh;
+  /* Evita que o site deslize lateralmente */
+  overflow-x: hidden !important;
+  max-width: 100vw !important;
 }
 
 body {
@@ -27,6 +30,9 @@ body {
   -webkit-text-size-adjust: 100%;
   -ms-text-size-adjust: 100%;
   text-size-adjust: 100%;
+  /* Evita que o site deslize lateralmente */
+  overflow-x: hidden !important;
+  max-width: 100vw !important;
 }
 
 /* Prevenir zoom em inputs no iOS */
@@ -43,6 +49,17 @@ input, textarea, select {
   padding: 0 1rem;
   /* Garantir largura mínima */
   min-width: 320px;
+}
+
+/* Carrossel otimizado para touch */
+.carousel, .carousel * {
+  touch-action: pan-y !important;
+  -webkit-user-drag: none !important;
+}
+
+.slide, .slide img {
+  pointer-events: none !important;
+  user-select: none !important;
 }
 
 /* Hero Section */

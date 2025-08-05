@@ -667,7 +667,7 @@
     </div>
   </section>
   <script>
-    // CONTROLE DO CARROSSEL - APENAS TOUCH E AUTOPLAY
+    // CONTROLE DO CARROSSEL - TOUCH OTIMIZADO E AUTOPLAY CONTÍNUO
     document.addEventListener('DOMContentLoaded', function() {
       const slides = document.querySelectorAll('.slide');
       let currentIndex = 0;
@@ -695,35 +695,56 @@
         interval = setInterval(nextSlide, 3000);
       }
       
-      // Controle de touch
-      let touchStartX = 0;
-      const carousel = document.querySelector('.carousel');
-      
-      if (carousel) {
-        carousel.addEventListener('touchstart', (e) => {
-          touchStartX = e.touches[0].clientX;
-          clearInterval(interval);
-        }, { passive: true });
-        
-        carousel.addEventListener('touchend', (e) => {
-          const touchEndX = e.changedTouches[0].clientX;
-          const diffX = touchStartX - touchEndX;
-          
-          if (Math.abs(diffX) > 50) {
+      // Controle de touch otimizado
+      function initCarouselTouch() {
+        const carousel = document.querySelector('.carousel');
+        if (!carousel) return;
+
+        let startX = 0;
+        let startY = 0;
+        let isDragging = false;
+
+        function handleTouchStart(e) {
+          startX = e.touches[0].clientX;
+          startY = e.touches[0].clientY;
+          isDragging = true;
+        }
+
+        function handleTouchMove(e) {
+          if (!isDragging) return;
+
+          const currentX = e.touches[0].clientX;
+          const currentY = e.touches[0].clientY;
+          const diffX = startX - currentX;
+          const diffY = startY - currentY;
+
+          // Swipe horizontal detectado
+          if (Math.abs(diffX) > Math.abs(diffY) && Math.abs(diffX) > 50) {
             if (diffX > 0) {
               nextSlide();
             } else {
               prevSlide();
             }
+            isDragging = false;
+
+            // Prevenir scroll lateral da página
+            e.preventDefault?.();
           }
-          
-          startAutoplay();
-        }, { passive: true });
+        }
+
+        function handleTouchEnd() {
+          isDragging = false;
+        }
+
+        carousel.addEventListener('touchstart', handleTouchStart, { passive: true });
+        carousel.addEventListener('touchmove', handleTouchMove, { passive: false }); // Não passivo para permitir preventDefault
+        carousel.addEventListener('touchend', handleTouchEnd, { passive: true });
       }
       
       // Inicializar
       showSlide(0);
       startAutoplay();
+      initCarouselTouch();
     });
   </script>
   
