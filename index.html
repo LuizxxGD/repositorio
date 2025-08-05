@@ -509,27 +509,10 @@
         }
 
         a[href="#comprar-agora"]:hover svg {
-            transform: translateX(4px);
+            /* Movimento removido para evitar deslocamento da página */
         }
 
-        /* Efeito de brilho */
-        a[href="#comprar-agora"]::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg,
-                    transparent,
-                    rgba(255, 255, 255, 0.2),
-                    transparent);
-            transition: 0.5s;
-        }
-
-        a[href="#comprar-agora"]:hover::after {
-            left: 100%;
-        }
+        /* Efeito de brilho removido para evitar movimento automático */
     </style>
 
 
