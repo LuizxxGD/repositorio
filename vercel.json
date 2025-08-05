@@ -14,7 +14,7 @@
       "headers": [
         {
           "key": "Cache-Control",
-          "value": "no-cache, no-store, must-revalidate, max-age=0"
+          "value": "no-cache, no-store, must-revalidate, max-age=0, s-maxage=0"
         },
         {
           "key": "Pragma",
@@ -27,6 +27,10 @@
         {
           "key": "Surrogate-Control",
           "value": "no-store"
+        },
+        {
+          "key": "Vary",
+          "value": "*"
         }
       ]
     },
@@ -35,7 +39,7 @@
       "headers": [
         {
           "key": "Cache-Control",
-          "value": "no-cache, no-store, must-revalidate, max-age=0"
+          "value": "no-cache, no-store, must-revalidate, max-age=0, s-maxage=0, private"
         },
         {
           "key": "Last-Modified",
@@ -44,6 +48,14 @@
         {
           "key": "ETag",
           "value": "{{hash}}"
+        },
+        {
+          "key": "Pragma",
+          "value": "no-cache"
+        },
+        {
+          "key": "Expires",
+          "value": "0"
         }
       ]
     },
@@ -97,7 +109,11 @@
   },
   "build": {
     "env": {
-      "VERCEL_FORCE_NO_BUILD_CACHE": "1"
+      "VERCEL_FORCE_NO_BUILD_CACHE": "1",
+      "VERCEL_BUILD_CACHE_DISABLED": "1"
     }
+  },
+  "env": {
+    "VERCEL_FORCE_NO_BUILD_CACHE": "1"
   }
 } 
