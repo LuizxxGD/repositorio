@@ -7,6 +7,9 @@
 
 html {
   scroll-behavior: smooth;
+  /* Fixar tamanho mínimo para evitar diminuição */
+  min-width: 320px;
+  min-height: 100vh;
 }
 
 body {
@@ -17,12 +20,29 @@ body {
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  /* Fixar tamanho mínimo */
+  min-width: 320px;
+  min-height: 100vh;
+  /* Prevenir zoom e escala */
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+/* Prevenir zoom em inputs no iOS */
+input, textarea, select {
+  font-size: 16px !important;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  text-size-adjust: 100%;
 }
 
 .container {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 1rem;
+  /* Garantir largura mínima */
+  min-width: 320px;
 }
 
 /* Hero Section */
@@ -457,10 +477,19 @@ body {
 
 /* Animações removidas para evitar quebra de layout */
 
-/* Responsive Design */
+/* Responsive Design - Fixo para todos os dispositivos */
 @media (max-width: 768px) {
   .container {
     padding: 0 1rem;
+    min-width: 320px;
+    width: 100%;
+  }
+  
+  /* Fixar tamanhos mínimos para mobile */
+  html, body {
+    min-width: 320px;
+    width: 100%;
+    overflow-x: auto;
   }
 
   .hero-section {
@@ -530,9 +559,16 @@ body {
 }
 
 @media (max-width: 640px) {
+  /* Fixar tamanhos mínimos */
+  html, body {
+    min-width: 320px;
+    width: 100%;
+  }
+  
   .hero-section {
     padding: 1.5rem 0.5rem;
     min-height: 70vh;
+    min-width: 320px;
   }
 
   .hero-content {
@@ -590,9 +626,17 @@ body {
 }
 
 @media (max-width: 480px) {
+  /* Fixar tamanhos mínimos absolutos */
+  html, body {
+    min-width: 320px;
+    width: 100%;
+    overflow-x: auto;
+  }
+  
   .hero-section {
     padding: 1rem 0.25rem;
     min-height: 60vh;
+    min-width: 320px;
   }
 
   .hero-title {
@@ -751,9 +795,18 @@ body {
 }
 
 @media (max-width: 360px) {
+  /* Tamanho mínimo absoluto - não diminuir mais */
+  html, body {
+    min-width: 320px;
+    width: 320px;
+    overflow-x: auto;
+  }
+  
   .hero-section {
     padding: 0.75rem 0.125rem;
     min-height: 50vh;
+    min-width: 320px;
+    width: 320px;
   }
 
   .hero-title {

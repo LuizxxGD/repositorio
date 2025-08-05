@@ -1,5 +1,10 @@
 {
   "version": 2,
+  "framework": null,
+  "buildCommand": null,
+  "outputDirectory": ".",
+  "installCommand": null,
+  "devCommand": null,
   "builds": [
     {
       "src": "**/*",
@@ -18,7 +23,7 @@
       "headers": [
         {
           "key": "Cache-Control",
-          "value": "no-cache, no-store, must-revalidate, max-age=0, s-maxage=0"
+          "value": "no-cache, no-store, must-revalidate, max-age=0, s-maxage=0, private"
         },
         {
           "key": "Pragma",
@@ -39,6 +44,31 @@
         {
           "key": "ETag",
           "value": "{{hash}}"
+        },
+        {
+          "key": "Last-Modified",
+          "value": "{{timestamp}}"
+        }
+      ]
+    },
+    {
+      "source": "/index.html",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "no-cache, no-store, must-revalidate, max-age=0, s-maxage=0, private"
+        },
+        {
+          "key": "Pragma",
+          "value": "no-cache"
+        },
+        {
+          "key": "Expires",
+          "value": "0"
+        },
+        {
+          "key": "Content-Type",
+          "value": "text/html; charset=utf-8"
         }
       ]
     },
@@ -47,7 +77,7 @@
       "headers": [
         {
           "key": "Cache-Control",
-          "value": "no-cache, no-store, must-revalidate"
+          "value": "no-cache, no-store, must-revalidate, max-age=0"
         },
         {
           "key": "Content-Type",
@@ -60,7 +90,7 @@
       "headers": [
         {
           "key": "Cache-Control",
-          "value": "no-cache, no-store, must-revalidate"
+          "value": "no-cache, no-store, must-revalidate, max-age=0"
         },
         {
           "key": "Content-Type",
@@ -73,7 +103,7 @@
       "headers": [
         {
           "key": "Cache-Control",
-          "value": "no-cache, no-store, must-revalidate"
+          "value": "no-cache, no-store, must-revalidate, max-age=0"
         }
       ]
     }
@@ -86,6 +116,7 @@
   },
   "env": {
     "VERCEL_FORCE_NO_BUILD_CACHE": "1",
-    "VERCEL_BUILD_CACHE_DISABLED": "1"
+    "VERCEL_BUILD_CACHE_DISABLED": "1",
+    "VERCEL_FORCE_NO_CACHE": "1"
   }
 } 
