@@ -9,990 +9,379 @@
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Expires" content="0">
     
-    <!-- Preload crítico -->
-    <link rel="preload" href="css/styles.css?v=1.0.1" as="style">
-    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" as="style">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&display=swap" rel="stylesheet">
     
-    <!-- CSS crítico inline -->
     <style>
-        /* Paleta de cores profissional */
         :root {
-            --primary-gradient: linear-gradient(135deg, #8b00ff 0%, #4a0080 100%);
-            --secondary-gradient: linear-gradient(135deg, #ff4500 0%, #ff8c00 100%);
-            --accent-gradient: linear-gradient(135deg, #ff0000 0%, #ff6600 100%);
-            --dark-gradient: linear-gradient(135deg, #000000 0%, #1a0033 100%);
-            --gold-gradient: linear-gradient(135deg, #ff6600 0%, #ff4500 100%);
-            --purple-gradient: linear-gradient(135deg, #8b00ff 0%, #6600cc 100%);
-            --neon-purple: linear-gradient(135deg, #8b00ff 0%, #ff00ff 100%);
-            --neon-red: linear-gradient(135deg, #ff0000 0%, #ff4500 100%);
-            --neon-orange: linear-gradient(135deg, #ff6600 0%, #ff8c00 100%);
-            --text-primary: #ffffff;
-            --text-secondary: #f0f0f0;
-            --text-muted: #cccccc;
-            --bg-dark: #000000;
-            --bg-card: rgba(26, 0, 51, 0.95);
-            --border-glow: rgba(139, 0, 255, 0.5);
-            --neon-glow: 0 0 20px rgba(139, 0, 255, 0.8);
-            --red-glow: 0 0 20px rgba(255, 0, 0, 0.8);
-            --orange-glow: 0 0 20px rgba(255, 102, 0, 0.8);
             --red: #ff2d2d;
             --purple: #8b00ff;
-            --white: #fff;
-            --black: #111;
-            --gray: #bbb;
+            --white: #ffffff;
+            --black: #000000;
+            --dark-gray: #111111;
+            --light-gray: #cccccc;
         }
-
-        /* CSS crítico para renderização inicial */
-        body { 
-            margin: 0; 
-            font-family: 'Inter', sans-serif; 
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--black);
+            color: var(--white);
+            line-height: 1.6;
+        }
+        
+        /* HEADER - FUNDO BRANCO */
+        .header {
+            background: var(--white);
+            color: var(--black);
+            padding: 3rem 2rem;
+            text-align: center;
+            border-bottom: 3px solid var(--purple);
+        }
+        
+        .header .main-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--black);
+            margin-bottom: 0.5rem;
+        }
+        
+        .header .subtitle {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--purple);
+        }
+        
+        /* SITE ESCURO - FUNDO PRETO */
+        .main-content {
             background: var(--black);
             color: var(--white);
         }
-        .hero-section { 
-            position: relative; 
-            width: 100%; 
-            height: 100vh; 
-            overflow: hidden; 
-            background: var(--dark-gradient);
-        }
-        .hero-background { 
-            background-image: url('https://i.postimg.cc/pT3whJ7w/paredeoficial.jpg');
-            background-size: cover; 
-            background-position: center; 
-            width: 100%; 
-            height: 100%; 
-            position: absolute; 
-            top: 0;
-            left: 0;
-            filter: brightness(30%) contrast(1.5) saturate(1.2);
-        }
         
-        .hero-background::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: 
-                radial-gradient(circle at 20% 20%, rgba(139, 0, 255, 0.4) 0%, transparent 50%),
-                radial-gradient(circle at 80% 80%, rgba(255, 0, 0, 0.3) 0%, transparent 50%),
-                radial-gradient(circle at 50% 50%, rgba(255, 102, 0, 0.2) 0%, transparent 70%);
-            z-index: 1;
-        }
-        .hero-content {
-            position: relative;
-            z-index: 4;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            color: white;
-            text-align: center;
-            padding: 1rem;
-            box-sizing: border-box;
-            width: 100%;
-        }
-        .hero-title {
-            font-size: clamp(3rem, 10vw, 5rem);
-            margin-bottom: 0.8rem;
-            line-height: 1.1;
-            font-weight: 800;
-            letter-spacing: -0.05em;
-            background: var(--neon-purple);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            text-shadow: var(--neon-glow);
-        }
-        .gradient-text {
-            background: var(--accent-gradient);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-        }
-        .cta-button {
-            display: inline-block;
-            padding: 1rem 2rem;
-            background: var(--neon-red);
-            color: white;
-            border: none;
-            border-radius: 50px;
-            font-size: clamp(0.9rem, 3vw, 1rem);
-            font-weight: 700;
-            cursor: pointer;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            white-space: nowrap;
-            box-shadow: var(--red-glow);
-            position: relative;
-            overflow: hidden;
-            border: 2px solid rgba(255, 0, 0, 0.5);
-        }
-        .cta-button:hover { 
-            transform: translateY(-3px);
-            box-shadow: var(--red-glow), 0 15px 40px rgba(255, 0, 0, 0.6);
-            background: var(--neon-orange);
-        }
-        
-        /* Otimizações de performance e fluidez */
-        * { 
-            box-sizing: border-box;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-        }
-        img { 
-            max-width: 100%; 
-            height: auto; 
-            will-change: transform;
-        }
-        .optimized-img { 
-            max-width: min(100%, 350px);
-            height: auto;
-            display: block;
-            margin: 0.5rem auto;
-            width: 70%;
-            will-change: transform;
-        }
-        
-        /* Animações suaves otimizadas */
-        .slide { 
-            opacity: 0; 
-            transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            will-change: opacity;
-        }
-        .slide.active { 
-            opacity: 1;
-        }
-        
-        /* Hover effects suaves */
-        .bonus-card, .info-card, .module-card {
-            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), 
-                        box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            will-change: transform, box-shadow;
-        }
-        .bonus-card:hover, .info-card:hover, .module-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
-        }
-        
-        /* Scroll suave */
-        html {
-            scroll-behavior: smooth;
-        }
-        
-        /* Otimizações de renderização */
-        .hero-section, .modules-section, .bonuses-section, .info-section {
-            transform: translateZ(0);
-            backface-visibility: hidden;
-        }
-        
-       
-        @keyframes slideInRight {
-            from {
-                transform: translateX(100%);
-                opacity: 0;
-            }
-            to {
-                transform: translateX(0);
-                opacity: 1;
-            }
-        }
-        
-        @keyframes slideOutRight {
-            from {
-                transform: translateX(0);
-                opacity: 1;
-            }
-            to {
-                transform: translateX(100%);
-                opacity: 0;
-            }
-        }
-        
-        /* Responsividade completa */
-        @media (max-width: 768px) {
-            .hero-title {
-                font-size: clamp(2rem, 8vw, 3rem);
-            }
-            
-            .optimized-img {
-                width: 90%;
-                max-width: 300px;
-            }
-            
-            .container {
-                padding: 0 1rem;
-            }
-            
-            .section-title {
-                font-size: 2rem;
-            }
-            
-            /* Stories em tela cheia no mobile */
-            .carousel {
-                max-width: 100vw;
-                height: 100vh;
-                border-radius: 0;
-            }
-            
-           
-            
-            /* Seção de oferta mobile */
-            .offer-section {
-                padding: 3rem 1rem;
-            }
-            
-            .price-grid {
-                grid-template-columns: 1fr;
-                gap: 1rem;
-            }
-            
-            .benefits-grid {
-                grid-template-columns: 1fr;
-                gap: 1rem;
-            }
-            
-            /* Botão CTA responsivo */
-            .cta-button {
-                min-width: 280px !important;
-                padding: 1.5rem 3rem !important;
-                font-size: 1.2rem !important;
-            }
-            
-            /* Benefícios responsivos */
-            .benefits-grid > div {
-                padding: 1rem !important;
-            }
-            
-            .benefits-grid .notification-avatar {
-                width: 40px !important;
-                height: 40px !important;
-            }
-        }
-        
-        @media (max-width: 480px) {
-            .hero-title {
-                font-size: clamp(1.8rem, 7vw, 2.5rem);
-            }
-            
-            .cta-button {
-                padding: 0.8rem 1.5rem;
-                font-size: 0.9rem;
-            }
-            
-            .section-title {
-                font-size: 1.5rem;
-            }
-            
-            
-            
-            
-        
-        @media (max-width: 480px) {
-            .hero-title {
-                font-size: clamp(1.8rem, 7vw, 2.5rem);
-            }
-            
-            .cta-button {
-                padding: 0.8rem 1.5rem;
-                font-size: 0.9rem;
-            }
-            
-            .section-title {
-                font-size: 1.5rem;
-            }
-            
-           
-            
-            /* Botão CTA ultra responsivo */
-            .cta-button {
-                min-width: 250px !important;
-                padding: 1.2rem 2.5rem !important;
-                font-size: 1rem !important;
-            }
-            
-            /* Benefícios em coluna única */
-            .benefits-grid {
-                grid-template-columns: 1fr !important;
-                gap: 0.8rem !important;
-            }
-            
-            .benefits-grid > div {
-                padding: 0.8rem !important;
-            }
-        }
-        
-        @media (max-width: 320px) {
-            .hero-title {
-                font-size: clamp(1.5rem, 6vw, 2rem);
-            }
-            
-            .cta-button {
-                padding: 0.7rem 1.2rem;
-                font-size: 0.8rem;
-                min-width: 220px !important;
-            }
-            
-            /* Stories em tela cheia total */
-            .carousel {
-                max-width: 100vw;
-                height: 100vh;
-                border-radius: 0;
-            }
-            
-            
-        
-        /* CSS para seções principais */
-        .modules-section, .bonuses-section, .info-section {
-            background: #000;
-            padding: 4rem 0;
-        }
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 0 2rem;
         }
+        
+        /* SEÇÕES */
+        .section {
+            padding: 4rem 0;
+            border-bottom: 2px solid var(--purple);
+        }
+        
         .section-title {
-            color: white;
-            font-size: 2.5rem;
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: var(--white);
             text-align: center;
-            margin-bottom: 2rem;
+            margin-bottom: 3rem;
         }
-        /* Bordas e divisórias roxas para caixas e seções secundárias */
-        .modules-section, .bonuses-section, .info-section, .testimonial-section {
+        
+        /* CARDS */
+        .card {
+            background: var(--dark-gray);
             border: 2px solid var(--purple);
             border-radius: 12px;
+            padding: 2rem;
             margin-bottom: 2rem;
         }
-        /* Remove gradientes e roxo de títulos, botões e áreas principais */
-        [style*="background: var(--neon-purple)"],
-        [style*="background: var(--primary-gradient)"],
-        [style*="background: var(--neon-red)"],
-        [style*="background: var(--neon-orange)"],
-        [style*="background: var(--gold-gradient)"],
-        [style*="background: var(--purple-gradient)"] {
-            background: none !important;
-            color: var(--white) !important;
+        
+        .card h3 {
+            color: var(--white);
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
         }
-        /* Remove emojis e ícones não profissionais */
-        svg, [class*="emoji"], [class*="icon"] { display: none !important; }
+        
+        .card p {
+            color: var(--light-gray);
+        }
+        
+        /* DESTAQUES */
+        .highlight-red {
+            color: var(--red);
+            font-weight: bold;
+        }
+        
+        .highlight-purple {
+            color: var(--purple);
+            font-weight: bold;
+        }
+        
+        /* SEÇÃO DE COMPRA SIMPLES */
+        .offer-section {
+            background: var(--black);
+            padding: 4rem 2rem;
+            border-top: 3px solid var(--purple);
+        }
+        
+        .offer-container {
+            max-width: 500px;
+            margin: 0 auto;
+            background: var(--dark-gray);
+            border: 3px solid var(--purple);
+            border-radius: 16px;
+            padding: 3rem 2rem;
+            text-align: center;
+        }
+        
+        .price-area {
+            margin-bottom: 2rem;
+        }
+        
+        .old-price {
+            color: var(--light-gray);
+            text-decoration: line-through;
+            font-size: 1.2rem;
+            margin-right: 1rem;
+        }
+        
+        .new-price {
+            color: var(--red);
+            font-size: 3rem;
+            font-weight: 800;
+        }
+        
+        .offer-timer {
+            color: var(--red);
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-top: 1rem;
+        }
+        
+        .buy-button {
+            display: block;
+            width: 100%;
+            background: var(--red);
+            color: var(--white);
+            border: 2px solid var(--purple);
+            border-radius: 8px;
+            font-size: 1.4rem;
+            font-weight: 800;
+            padding: 1.2rem 0;
+            margin: 2rem 0;
+            text-align: center;
+            text-decoration: none;
+            transition: background 0.3s;
+        }
+        
+        .buy-button:hover {
+            background: #c40000;
+        }
+        
+        .benefits-list {
+            list-style: none;
+            margin: 2rem 0;
+            text-align: left;
+        }
+        
+        .benefits-list li {
+            color: var(--white);
+            margin-bottom: 1rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+        
+        .benefits-list li:before {
+            content: "•";
+            color: var(--red);
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+        
+        .benefit-title {
+            color: var(--red);
+            font-weight: bold;
+        }
+        
+        /* RESPONSIVO */
+        @media (max-width: 768px) {
+            .header .main-title {
+                font-size: 2rem;
+            }
+            
+            .header .subtitle {
+                font-size: 1.1rem;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
+            .new-price {
+                font-size: 2.5rem;
+            }
+            
+            .buy-button {
+                font-size: 1.2rem;
+                padding: 1rem 0;
+            }
+        }
     </style>
-    
-    <!-- CSS não crítico carregado assincronamente -->
-    <link rel="stylesheet" href="css/styles.css" media="print" onload="this.media='all'">
-    <noscript><link rel="stylesheet" href="css/styles.css"></noscript>
-    
-    <!-- Fontes otimizadas -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
-    
-    
 </head>
 
 <body>
-    <!-- Hero Section Otimizado -->
-    <section class="hero-section">
-        <div class="hero-background"></div>
-        
-        <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.3); z-index: 2;"></div>
-        
-        <div class="hero-content">
-            <h1 class="hero-title">
-                Curso de Desbloqueio de
-                <span class="gradient-text">iPhones</span>
-                <span style="display: block; color: #6a0dad; text-shadow: 0 0 10px #6a0dadcc, 0 0 20px #6a0dadaa; font-size: clamp(2rem, 6vw, 3.5rem); margin-top: 0.5rem; font-weight: 700; letter-spacing: -0.03em;">
-                    Domine todas as versões
-                </span>
-            </h1>
+    <!-- HEADER BRANCO -->
+    <header class="header">
+        <div class="main-title">Curso de Desbloqueio de iPhones</div>
+        <div class="subtitle">Domine todas as versões</div>
+    </header>
 
-            <img src="https://i.postimg.cc/d0wShtBj/COMUNIDADE-removebg-preview.png" alt="Logo da comunidade" class="optimized-img" loading="lazy">
-
-            <p style="font-size: clamp(0.9rem, 3vw, 1.1rem); max-width: min(95%, 700px); margin: 0.5rem auto 1.5rem; line-height: 1.4; padding: 0 0.5rem;">
-                Aprenda a desbloquear todos os modelos de iPhone, dominando as técnicas para todas as versões do iOS.
-                Nosso curso completo leva você do zero ao avançado, preparando para qualquer desafio.
-            </p>
-
-            <a href="#comprar-agora" class="cta-button">
-    Começar Agora
-</a>
-        </div>
-    </section>
-
-    <!-- Seção de Módulos Otimizada -->
-    <section class="modules-section">
-        <div class="container">
-                <h2 class="section-title">Módulos do Curso: Básico ao Avançado</h2>
-            <p style="text-align: center; color: #ccc; font-size: 1.2rem; margin-bottom: 3rem;">Conteúdo estruturado para levar você do iniciante ao profissional</p>
-            
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
-                <div style="background: rgba(20, 20, 20, 0.8); border-radius: 12px; padding: 2rem; border: 1px solid rgba(255, 140, 0, 0.3);">
-                    <div style="font-size: 2rem; color: #ff8c00; margin-bottom: 1rem;">01</div>
-                    <h3 style="color: white; font-size: 1.4rem; margin-bottom: 1rem;">Módulo 01: Fundamentos do Desbloqueio</h3>
-                    <p style="color: #ccc; line-height: 1.5;">Apresentação do curso e do conteúdo. Conceitos sobre desbloqueios e vai aprender na prática a como dominar a ferramenta UnlockTool.</p>
-            </div>
+    <!-- CONTEÚDO PRINCIPAL -->
+    <main class="main-content">
+        <!-- SEÇÃO DE MÓDULOS -->
+        <section class="section">
+            <div class="container">
+                <h2 class="section-title">Módulos do Curso</h2>
                 
-                <div style="background: rgba(20, 20, 20, 0.8); border-radius: 12px; padding: 2rem; border: 1px solid rgba(106, 13, 173, 0.3);">
-                    <div style="font-size: 2rem; color: #6a0dad; margin-bottom: 1rem;">02</div>
-                    <h3 style="color: white; font-size: 1.4rem; margin-bottom: 1rem;">Módulo 02: Método Lucrativo</h3>
-                    <p style="color: #ccc; line-height: 1.5;">Passo a passo para você desbloquear o iPhone muito rápido e lucrar até R$ 700,00 por aparelho. Compartilho meu método e os melhores servidores.</p>
-                    </div>
-                
-                <div style="background: rgba(20, 20, 20, 0.8); border-radius: 12px; padding: 2rem; border: 1px solid rgba(255, 140, 0, 0.3);">
-                    <div style="font-size: 2rem; color: #ff8c00; margin-bottom: 1rem;">03</div>
-                    <h3 style="color: white; font-size: 1.4rem; margin-bottom: 1rem;">Módulo 03: Ferramentas e Softwares</h3>
-                    <p style="color: #ccc; line-height: 1.5;">Apresentação de ferramentas, softwares e servidores que vamos utilizar para realizar os desbloqueios com eficiência.</p>
+                <div class="card">
+                    <h3>Módulo 01: <span class="highlight-red">Fundamentos do Desbloqueio</span></h3>
+                    <p>Apresentação do curso e do conteúdo. Conceitos sobre desbloqueios e vai aprender na prática a como dominar a ferramenta UnlockTool.</p>
                 </div>
                 
-                <div style="background: rgba(20, 20, 20, 0.8); border-radius: 12px; padding: 2rem; border: 1px solid rgba(106, 13, 173, 0.3);">
-                    <div style="font-size: 2rem; color: #6a0dad; margin-bottom: 1rem;">04</div>
-                    <h3 style="color: white; font-size: 1.4rem; margin-bottom: 1rem;">Módulo 04: Aulas Práticas</h3>
-                    <p style="color: #ccc; line-height: 1.5;">Aulas práticas de desbloqueios usando ferramentas e servidores apresentados no curso, com todo o suporte necessário.</p>
-                    </div>
+                <div class="card">
+                    <h3>Módulo 02: <span class="highlight-red">Método Lucrativo</span></h3>
+                    <p>Passo a passo para você desbloquear o iPhone muito rápido e lucrar até <span class="highlight-red">R$ 700,00</span> por aparelho. Compartilho meu método e os melhores servidores.</p>
                 </div>
-                    </div>
-    </section>
-
-    <!-- Seção de Depoimentos Stories 9:16 -->
-    <section style="background: var(--dark-gradient); min-height: 100vh; width: 100%; display: flex; flex-direction: column; align-items: center; position: relative; overflow: hidden;">
-        <!-- Background com gradiente agressivo -->
-        <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: 
-            radial-gradient(circle at 20% 20%, rgba(139, 0, 255, 0.3) 0%, transparent 50%),
-            radial-gradient(circle at 80% 80%, rgba(255, 0, 0, 0.2) 0%, transparent 50%),
-            radial-gradient(circle at 50% 50%, rgba(255, 102, 0, 0.1) 0%, transparent 70%); z-index: 1;"></div>
-        
-        <div style="position: relative; z-index: 2; width: 100%; max-width: 1200px; padding: 4rem 2rem; text-align: center;">
-            <h2 style="background: var(--neon-purple); -webkit-background-clip: text; background-clip: text; color: transparent; font-size: 2.5rem; margin-bottom: 1rem; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; text-shadow: var(--neon-glow);">
-                DEPOIMENTOS DOS ALUNOS
-            </h2>
-            <p style="color: var(--text-secondary); font-size: 1.1rem; margin-bottom: 3rem; max-width: 600px; margin-left: auto; margin-right: auto;">
-                Veja o que nossos alunos estão dizendo sobre o curso e os resultados que estão alcançando
-            </p>
-            
-            <!-- Stories Carrossel 9:16 para Mobile -->
-            <div style="width: 100%; max-width: 400px; margin: 0 auto; position: relative; border-radius: 20px; overflow: hidden; box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5); aspect-ratio: 9/16;">
-                <div class="carousel" style="position: relative; width: 100%; height: 100%;">
-                    <div class="slide active" style="position: absolute; width: 100%; height: 100%; opacity: 1; transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1);">
-                        <img src="dep/depoimento01iphone.jpg" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy" alt="Depoimento 1">
-                    </div>
-                    <div class="slide" style="position: absolute; width: 100%; height: 100%; opacity: 0; transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1);">
-                        <img src="dep/depoimento02.jpg" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy" alt="Depoimento 2">
-                </div>
-                    <div class="slide" style="position: absolute; width: 100%; height: 100%; opacity: 0; transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1);">
-                        <img src="dep/depoimento3.jpeg" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy" alt="Depoimento 3">
-            </div>
-                    <div class="slide" style="position: absolute; width: 100%; height: 100%; opacity: 0; transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1);">
-                        <img src="dep/depoimento4.jpeg" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy" alt="Depoimento 4">
-        </div>
-</div>
-
-                <!-- Controles agressivos para stories -->
-                <div style="position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%); display: flex; gap: 8px; z-index: 10;">
-                    <div class="carousel-dot active" style="width: 12px; height: 12px; border-radius: 50%; background: var(--neon-purple); cursor: pointer; transition: all 0.3s ease; box-shadow: var(--neon-glow);"></div>
-                    <div class="carousel-dot" style="width: 12px; height: 12px; border-radius: 50%; background: rgba(139, 0, 255, 0.3); cursor: pointer; transition: all 0.3s ease;"></div>
-                    <div class="carousel-dot" style="width: 12px; height: 12px; border-radius: 50%; background: rgba(139, 0, 255, 0.3); cursor: pointer; transition: all 0.3s ease;"></div>
-                    <div class="carousel-dot" style="width: 12px; height: 12px; border-radius: 50%; background: rgba(139, 0, 255, 0.3); cursor: pointer; transition: all 0.3s ease;"></div>
-</div>
-</div>
-
-            <!-- Estatísticas agressivas com nova paleta -->
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; margin-top: 4rem; max-width: 800px; margin-left: auto; margin-right: auto;">
-                <div style="text-align: center; padding: 1.5rem; background: var(--bg-card); border-radius: 15px; border: 1px solid var(--border-glow); box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);">
-                    <div style="font-size: 2.5rem; font-weight: 700; background: var(--neon-orange); -webkit-background-clip: text; background-clip: text; color: transparent; margin-bottom: 0.5rem; text-shadow: var(--orange-glow);">500+</div>
-                    <div style="color: var(--text-secondary); font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px;">Alunos Atendidos</div>
-</div>
-                <div style="text-align: center; padding: 1.5rem; background: var(--bg-card); border-radius: 15px; border: 1px solid var(--border-glow); box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);">
-                    <div style="font-size: 2.5rem; font-weight: 700; background: var(--neon-red); -webkit-background-clip: text; background-clip: text; color: transparent; margin-bottom: 0.5rem; text-shadow: var(--red-glow);">98%</div>
-                    <div style="color: var(--text-secondary); font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px;">Taxa de Sucesso</div>
-                </div>
-                <div style="text-align: center; padding: 1.5rem; background: var(--bg-card); border-radius: 15px; border: 1px solid var(--border-glow); box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);">
-                    <div style="font-size: 2.5rem; font-weight: 700; background: var(--neon-purple); -webkit-background-clip: text; background-clip: text; color: transparent; margin-bottom: 0.5rem; text-shadow: var(--neon-glow);">24/7</div>
-                    <div style="color: var(--text-secondary); font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px;">Suporte Disponível</div>
-                </div>
-    </div>
-  </div>
-</section>
-
-    <!-- Seção de Bônus Otimizada -->
-    <section class="bonuses-section">
-        <div class="container">
-            <h2 class="section-title">
-                <span style="background: linear-gradient(90deg, #ff8c00, #ff4500); -webkit-background-clip: text; background-clip: text; color: transparent;">Bônus Exclusivos</span>
-                </h2>
-            <p style="text-align: center; color: #ff8c00; font-size: 1.2rem; margin-bottom: 3rem;">Para quem adquirir o plano premium</p>
-            
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px;">
-                <!-- Bônus cards otimizados -->
-                <div style="background: rgba(20, 20, 20, 0.8); border-radius: 12px; padding: 30px; border: 1px solid rgba(255, 140, 0, 0.3); transition: transform 0.3s ease;">
-                    <div style="width: 60px; height: 60px; background: rgba(255, 140, 0, 0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 20px; border: 1px solid rgba(255, 140, 0, 0.3);">
-                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#ff8c00" stroke-width="2">
-                            <polygon points="13,2 3,14 12,14 11,22 21,10 12,10 13,2"></polygon>
-                        </svg>
-                    </div>
-                    <h3 style="font-size: 1.4rem; margin: 0 0 15px; color: white; font-weight: 700;">Bypass iOS 17.5</h3>
-                    <p style="font-size: 1rem; color: #ccc; line-height: 1.5; margin: 0;">Método completo para desbloqueio iCloud em dispositivos com iOS 17.5</p>
-                </div>
-
-                <div style="background: rgba(20, 20, 20, 0.8); border-radius: 12px; padding: 30px; border: 1px solid rgba(106, 13, 173, 0.3); transition: transform 0.3s ease;">
-                    <div style="width: 60px; height: 60px; background: rgba(106, 13, 173, 0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 20px; border: 1px solid rgba(106, 13, 173, 0.3);">
-                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#6a0dad" stroke-width="2">
-                            <polygon points="13,2 3,14 12,14 11,22 21,10 12,10 13,2"></polygon>
-                        </svg>
-                    </div>
-                    <h3 style="font-size: 1.4rem; margin: 0 0 15px; color: white; font-weight: 700;">Bypass iOS 18.5</h3>
-                    <p style="font-size: 1rem; color: #ccc; line-height: 1.5; margin: 0;">Solução avançada para contornar o iCloud na última versão do iOS</p>
-                </div>
-
-                <div style="background: rgba(20, 20, 20, 0.8); border-radius: 12px; padding: 30px; border: 1px solid rgba(255, 140, 0, 0.3); transition: transform 0.3s ease;">
-                    <div style="width: 60px; height: 60px; background: rgba(255, 140, 0, 0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 20px; border: 1px solid rgba(255, 140, 0, 0.3);">
-                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#ff8c00" stroke-width="2">
-                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
-                            <circle cx="9" cy="7" r="4"></circle>
-                            <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
-                            <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
-                        </svg>
-                    </div>
-                    <h3 style="font-size: 1.4rem; margin: 0 0 15px; color: white; font-weight: 700;">Suporte Técnico VIP</h3>
-                    <p style="font-size: 1rem; color: #ccc; line-height: 1.5; margin: 0;">Assistência remota especializada para bypass em todas versões</p>
-                </div>
-
-                <div style="background: rgba(20, 20, 20, 0.8); border-radius: 12px; padding: 30px; border: 1px solid rgba(106, 13, 173, 0.3); transition: transform 0.3s ease;">
-                    <div style="width: 60px; height: 60px; background: rgba(106, 13, 173, 0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 20px; border: 1px solid rgba(106, 13, 173, 0.3);">
-                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#6a0dad" stroke-width="2">
-                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
-                        </svg>
-                    </div>
-                    <h3 style="font-size: 1.4rem; margin: 0 0 15px; color: white; font-weight: 700;">Pacote Completo iOS</h3>
-                    <p style="font-size: 1rem; color: #ccc; line-height: 1.5; margin: 0;">Ferramentas para bypass desde iOS 14 até 18.5</p>
-                    </div>
                 
-                <div style="background: rgba(20, 20, 20, 0.8); border-radius: 12px; padding: 30px; border: 1px solid rgba(255, 140, 0, 0.3); transition: transform 0.3s ease;">
-                    <div style="width: 60px; height: 60px; background: rgba(255, 140, 0, 0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 20px; border: 1px solid rgba(255, 140, 0, 0.3);">
-                        <span style="font-size: 2rem;">🔄</span>
-                    </div>
-                    <h3 style="font-size: 1.4rem; margin: 0 0 15px; color: white; font-weight: 700;">Atualizações Vitalícias</h3>
-                    <p style="font-size: 1rem; color: #ccc; line-height: 1.5; margin: 0;">Novos métodos de bypass para futuras atualizações do iOS</p>
+                <div class="card">
+                    <h3>Módulo 03: <span class="highlight-red">Ferramentas e Softwares</span></h3>
+                    <p>Apresentação de ferramentas, softwares e servidores que vamos utilizar para realizar os desbloqueios com eficiência.</p>
                 </div>
-
-                <div style="background: rgba(20, 20, 20, 0.8); border-radius: 12px; padding: 30px; border: 1px solid rgba(106, 13, 173, 0.3); transition: transform 0.3s ease;">
-                    <div style="width: 60px; height: 60px; background: rgba(106, 13, 173, 0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 20px; border: 1px solid rgba(106, 13, 173, 0.3);">
-                        <span style="font-size: 2rem;">✅</span>
-                    </div>
-                    <h3 style="font-size: 1.4rem; margin: 0 0 15px; color: white; font-weight: 700;">Compatibilidade Total</h3>
-                    <p style="font-size: 1rem; color: #ccc; line-height: 1.5; margin: 0;">Funciona em todos modelos (iPhone 6s ao 15 Pro Max)</p>
-                    </div>
-                </div>
-        </div>
-    </section>
-
-    <!-- Seção de Informações Otimizada -->
-    <section class="info-section" style="background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%); padding: 60px 0;">
-        <div class="container">
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px;">
-                <div style="background: rgba(20, 20, 20, 0.8); border-radius: 12px; padding: 30px; border-top: 4px solid #6a0dad; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);">
-                    <div style="width: 50px; height: 50px; background: rgba(106, 13, 173, 0.2); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 20px; border: 1px solid rgba(106, 13, 173, 0.5);">
-                        <span style="font-size: 1.5rem;">👥</span>
-                    </div>
-                    <h3 style="font-size: 1.4rem; margin: 0 0 15px; color: #8b5cf6; font-weight: 700;">Comunidade de Suporte VIP</h3>
-                    <p style="font-size: 1rem; color: #e2e8f0; line-height: 1.5; margin: 0;">Acesso exclusivo ao nosso grupo premium com milhares de especialistas e suporte técnico 24/7 para resolver qualquer desafio de desbloqueio.</p>
-                </div>
-
-                <div style="background: rgba(20, 20, 20, 0.8); border-radius: 12px; padding: 30px; border-top: 4px solid #ff8c00; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);">
-                    <div style="width: 50px; height: 50px; background: rgba(255, 140, 0, 0.2); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 20px; border: 1px solid rgba(255, 140, 0, 0.5);">
-                        <span style="font-size: 1.5rem;">🛡️</span>
-                    </div>
-                    <h3 style="font-size: 1.4rem; margin: 0 0 15px; color: #ff8c00; font-weight: 700;">Garantia Incondicional</h3>
-                    <p style="font-size: 1rem; color: #e2e8f0; line-height: 1.5; margin: 0;">7 dias de garantia total - se não dominar as técnicas de desbloqueio, devolvemos 100% do seu investimento sem burocracia.</p>
-                    </div>
-                </div>
-        </div>
-    </section>
-
-    <!-- Seção de Oferta Premium Ultra Profissional -->
-    <section style="background: var(--dark-gradient); padding: 6rem 2rem; position: relative; overflow: hidden;">
-        <!-- Background com efeitos profissionais -->
-        <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: radial-gradient(circle at 20% 80%, rgba(102, 126, 234, 0.15) 0%, transparent 50%), radial-gradient(circle at 80% 20%, rgba(240, 147, 251, 0.1) 0%, transparent 50%); z-index: 1;"></div>
-        
-        <div style="position: relative; z-index: 2; max-width: 1000px; margin: 0 auto;">
-            <!-- Container principal com design premium -->
-            <div style="background: var(--bg-card); border-radius: 30px; padding: 4rem 3rem; border: 2px solid var(--border-glow); box-shadow: 0 30px 80px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.1); position: relative; overflow: hidden;">
                 
-                <!-- Efeito de brilho -->
-                <div style="position: absolute; top: -50%; left: -50%; width: 200%; height: 200%; background: linear-gradient(45deg, transparent, rgba(102, 126, 234, 0.1), transparent); transform: rotate(45deg); animation: shine 3s ease-in-out infinite; z-index: 1;"></div>
-                
-                <div style="position: relative; z-index: 2;">
-                    <!-- Header premium -->
-                    <div style="text-align: center; margin-bottom: 3rem;">
-                        <div style="background: var(--primary-gradient); -webkit-background-clip: text; background-clip: text; color: transparent; font-size: 0.9rem; margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 0.3rem; font-weight: 700;">OFERTA EXCLUSIVA PREMIUM</div>
-                        <h2 style="background: var(--gold-gradient); -webkit-background-clip: text; background-clip: text; color: transparent; font-size: 2.5rem; font-weight: 800; margin-bottom: 1rem;">ACESSO VITALÍCIO</h2>
-                        <p style="color: var(--text-secondary); font-size: 1.1rem; max-width: 600px; margin: 0 auto;">Desbloqueie o poder completo do curso e transforme sua vida profissional hoje mesmo</p>
-                    </div>
-                    
-                    <!-- Grid de preços premium -->
-                    <div style="display: grid; grid-template-columns: 1fr auto 1fr; gap: 2rem; align-items: center; margin-bottom: 3rem;">
-                        <!-- Preço original -->
-                        <div style="text-align: center; padding: 2rem; background: rgba(255, 255, 255, 0.05); border-radius: 20px; border: 1px solid rgba(255, 255, 255, 0.1);">
-                            <div style="color: var(--text-muted); font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.1rem; margin-bottom: 0.5rem;">Preço Original</div>
-                            <div style="color: var(--text-muted); font-size: 2rem; font-weight: 700; text-decoration: line-through;">R$ 147,00</div>
-                            <div style="color: var(--text-muted); font-size: 0.8rem; margin-top: 0.5rem;">Por tempo limitado</div>
-                    </div>
-                        
-                        <!-- VS -->
-                        <div style="text-align: center; font-size: 1.5rem; font-weight: 700; color: var(--text-secondary);">VS</div>
-                        
-                        <!-- Preço promocional -->
-                        <div style="text-align: center; padding: 2rem; background: var(--primary-gradient); border-radius: 20px; position: relative; overflow: hidden;">
-                            <div style="position: absolute; top: -10px; right: -10px; background: var(--secondary-gradient); color: white; padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.8rem; font-weight: 700; transform: rotate(15deg);">-86%</div>
-                            <div style="color: white; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.1rem; margin-bottom: 0.5rem;">Preço Promocional</div>
-                            <div style="color: white; font-size: 3.5rem; font-weight: 800; line-height: 1;">R$ 19,90</div>
-                            <div style="color: rgba(255, 255, 255, 0.8); font-size: 0.9rem; margin-top: 0.5rem;">Acesso vitalício</div>
+                <div class="card">
+                    <h3>Módulo 04: <span class="highlight-red">Aulas Práticas</span></h3>
+                    <p>Aulas práticas de desbloqueios usando ferramentas e servidores apresentados no curso, com todo o suporte necessário.</p>
                 </div>
             </div>
-                    
-                    <!-- Botão CTA Ultra Agressivo -->
-                    <div style="text-align: center; margin-bottom: 2rem;">
-                        <div style="background: var(--neon-red); padding: 0.5rem; border-radius: 50px; margin-bottom: 1rem; display: inline-block; box-shadow: var(--red-glow);">
-                            <span style="color: white; font-size: 0.9rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1rem;">🔥 OFERTA LIMITADA - 86% DE DESCONTO</span>
-        </div>
+        </section>
 
-                        <a href="#comprar-agora" style="display: inline-flex; align-items: center; justify-content: center; background: var(--neon-red); color: white; padding: 1.8rem 4.5rem; border-radius: 50px; font-size: 1.4rem; font-weight: 800; text-transform: uppercase; text-decoration: none; letter-spacing: 0.1rem; box-shadow: var(--red-glow); transition: all 0.3s ease; position: relative; overflow: hidden; min-width: 350px; border: 2px solid rgba(255, 0, 0, 0.5);">
-                            <span style="position: relative; z-index: 2;">GARANTIR ACESSO VITALÍCIO + 6 BÔNUS</span>
-                            <svg style="width: 28px; height: 28px; margin-left: 1.5rem; position: relative; z-index: 2; transition: transform 0.3s ease;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M5 12H19"></path>
-                                <path d="M12 5L19 12L12 19"></path>
-                            </svg>
-                            <div style="position: absolute; top: 0; left: -100%; width: 100%; height: 100%; background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent); transition: 0.5s;"></div>
-                        </a>
-                        
-                        <div style="margin-top: 1rem; display: flex; align-items: center; justify-content: center; gap: 0.5rem; color: var(--text-secondary); font-size: 0.9rem;">
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <polyline points="20,6 9,17 4,12"></polyline>
-                            </svg>
-                            <span>Pagamento 100% Seguro | SSL Criptografado</span>
-                        </div>
-                    </div>
-                    
-                    <!-- Benefícios e Bônus Completos -->
-                    <div style="margin-bottom: 2rem;">
-                        <h3 style="background: var(--neon-purple); -webkit-background-clip: text; background-clip: text; color: transparent; font-size: 1.5rem; font-weight: 700; text-align: center; margin-bottom: 2rem; text-shadow: var(--neon-glow);">🎁 BÔNUS EXCLUSIVOS INCLUÍDOS</h3>
-                        
-                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-bottom: 2rem;">
-                            <!-- Bônus 1 -->
-                            <div style="display: flex; align-items: center; gap: 1rem; padding: 1.2rem; background: rgba(255, 255, 255, 0.05); border-radius: 15px; border: 1px solid rgba(255, 255, 255, 0.1);">
-                                <div style="width: 45px; height: 45px; background: var(--accent-gradient); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
-                                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
-                                        <polygon points="13,2 3,14 12,14 11,22 21,10 12,10 13,2"></polygon>
-                                    </svg>
-                                </div>
-                                <div>
-                                    <div style="color: var(--text-primary); font-weight: 700; font-size: 1rem;">Bypass iOS 17.5</div>
-                                    <div style="color: var(--text-secondary); font-size: 0.9rem;">Método completo para desbloqueio iCloud</div>
-                                </div>
-                            </div>
-                            
-                            <!-- Bônus 2 -->
-                            <div style="display: flex; align-items: center; gap: 1rem; padding: 1.2rem; background: rgba(255, 255, 255, 0.05); border-radius: 15px; border: 1px solid rgba(255, 255, 255, 0.1);">
-                                <div style="width: 45px; height: 45px; background: var(--secondary-gradient); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
-                                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
-                                        <polygon points="13,2 3,14 12,14 11,22 21,10 12,10 13,2"></polygon>
-                                    </svg>
+        <!-- SEÇÃO DE DEPOIMENTOS -->
+        <section class="section">
+            <div class="container">
+                <h2 class="section-title">Depoimentos dos Alunos</h2>
+                
+                <div class="card">
+                    <h3><span class="highlight-red">500+</span> Alunos Atendidos</h3>
+                    <p>Veja o que nossos alunos estão dizendo sobre o curso e os resultados que estão alcançando.</p>
+                </div>
+                
+                <div class="card">
+                    <h3><span class="highlight-red">98%</span> Taxa de Sucesso</h3>
+                    <p>Nossos alunos conseguem desbloquear iPhones com sucesso em 98% dos casos.</p>
+                </div>
+                
+                <div class="card">
+                    <h3><span class="highlight-red">24/7</span> Suporte Disponível</h3>
+                    <p>Suporte técnico disponível 24 horas por dia, 7 dias por semana.</p>
+                </div>
             </div>
-                                <div>
-                                    <div style="color: var(--text-primary); font-weight: 700; font-size: 1rem;">Bypass iOS 18.5</div>
-                                    <div style="color: var(--text-secondary); font-size: 0.9rem;">Solução para a última versão do iOS</div>
-</div>
-        </div>
-                            
-                            <!-- Bônus 3 -->
-                            <div style="display: flex; align-items: center; gap: 1rem; padding: 1.2rem; background: rgba(255, 255, 255, 0.05); border-radius: 15px; border: 1px solid rgba(255, 255, 255, 0.1);">
-                                <div style="width: 45px; height: 45px; background: var(--gold-gradient); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
-                                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
-                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
-                            <circle cx="9" cy="7" r="4"></circle>
-                        </svg>
-                    </div>
-                                <div>
-                                    <div style="color: var(--text-primary); font-weight: 700; font-size: 1rem;">Suporte Técnico VIP</div>
-                                    <div style="color: var(--text-secondary); font-size: 0.9rem;">Assistência remota especializada</div>
-                                </div>
+        </section>
+
+        <!-- SEÇÃO DE BÔNUS -->
+        <section class="section">
+            <div class="container">
+                <h2 class="section-title">Bônus Exclusivos</h2>
+                
+                <div class="card">
+                    <h3><span class="highlight-red">Bypass iOS 17.5</span></h3>
+                    <p>Método completo para desbloqueio iCloud em dispositivos com iOS 17.5</p>
                 </div>
-
-                            <!-- Bônus 4 -->
-                            <div style="display: flex; align-items: center; gap: 1rem; padding: 1.2rem; background: rgba(255, 255, 255, 0.05); border-radius: 15px; border: 1px solid rgba(255, 255, 255, 0.1);">
-                                <div style="width: 45px; height: 45px; background: var(--purple-gradient); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
-                                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
-                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
-                        </svg>
-                    </div>
-                                <div>
-                                    <div style="color: var(--text-primary); font-weight: 700; font-size: 1rem;">Pacote Completo iOS</div>
-                                    <div style="color: var(--text-secondary); font-size: 0.9rem;">Ferramentas para todas versões</div>
-        </div>
-    </div>
-
-                            <!-- Bônus 5 -->
-                            <div style="display: flex; align-items: center; gap: 1rem; padding: 1.2rem; background: rgba(255, 255, 255, 0.05); border-radius: 15px; border: 1px solid rgba(255, 255, 255, 0.1);">
-                                <div style="width: 45px; height: 45px; background: var(--accent-gradient); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
-                                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
-                                        <polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26 12,2"></polygon>
-                                    </svg>
-                            </div>
-                                <div>
-                                    <div style="color: var(--text-primary); font-weight: 700; font-size: 1rem;">Atualizações Vitalícias</div>
-                                    <div style="color: var(--text-secondary); font-size: 0.9rem;">Novos métodos para futuros iOS</div>
-                            </div>
-                            </div>
-
-                            <!-- Bônus 6 -->
-                            <div style="display: flex; align-items: center; gap: 1rem; padding: 1.2rem; background: rgba(255, 255, 255, 0.05); border-radius: 15px; border: 1px solid rgba(255, 255, 255, 0.1);">
-                                <div style="width: 45px; height: 45px; background: var(--secondary-gradient); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
-                                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
-                                        <polyline points="20,6 9,17 4,12"></polyline>
-                                        </svg>
-                            </div>
-                                <div>
-                                    <div style="color: var(--text-primary); font-weight: 700; font-size: 1rem;">Compatibilidade Total</div>
-                                    <div style="color: var(--text-secondary); font-size: 0.9rem;">iPhone 6s ao 15 Pro Max</div>
-                        </div>
-                            </div>
-                    </div>
-
-                        <!-- Benefícios Principais -->
-                        <h3 style="background: var(--neon-orange); -webkit-background-clip: text; background-clip: text; color: transparent; font-size: 1.5rem; font-weight: 700; text-align: center; margin-bottom: 2rem; text-shadow: var(--orange-glow);">⚡ BENEFÍCIOS PRINCIPAIS</h3>
-                        
-                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem;">
-                            <div style="display: flex; align-items: center; gap: 1rem; padding: 1.2rem; background: rgba(255, 255, 255, 0.05); border-radius: 15px; border: 1px solid rgba(255, 255, 255, 0.1);">
-                                <div style="width: 45px; height: 45px; background: var(--accent-gradient); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
-                                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
-                                        <polyline points="20,6 9,17 4,12"></polyline>
-                                    </svg>
-                                </div>
-                                <div>
-                                    <div style="color: var(--text-primary); font-weight: 700; font-size: 1rem;">Acesso Vitalício</div>
-                                    <div style="color: var(--text-secondary); font-size: 0.9rem;">Para sempre, sem mensalidades</div>
-                                </div>
-                            </div>
-
-                            <div style="display: flex; align-items: center; gap: 1rem; padding: 1.2rem; background: rgba(255, 255, 255, 0.05); border-radius: 15px; border: 1px solid rgba(255, 255, 255, 0.1);">
-                                <div style="width: 45px; height: 45px; background: var(--secondary-gradient); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
-                                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
-                                        <polyline points="20,6 9,17 4,12"></polyline>
-                                    </svg>
-                                </div>
-                                <div>
-                                    <div style="color: var(--text-primary); font-weight: 700; font-size: 1rem;">Atualizações Gratuitas</div>
-                                    <div style="color: var(--text-secondary); font-size: 0.9rem;">Novos métodos incluídos</div>
-                        </div>
-                    </div>
-
-                            <div style="display: flex; align-items: center; gap: 1rem; padding: 1.2rem; background: rgba(255, 255, 255, 0.05); border-radius: 15px; border: 1px solid rgba(255, 255, 255, 0.1);">
-                                <div style="width: 45px; height: 45px; background: var(--gold-gradient); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
-                                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
-                                        <polyline points="20,6 9,17 4,12"></polyline>
-                                    </svg>
-                                </div>
-                                <div>
-                                    <div style="color: var(--text-primary); font-weight: 700; font-size: 1rem;">Suporte VIP 24/7</div>
-                                    <div style="color: var(--text-secondary); font-size: 0.9rem;">Assistência especializada</div>
-                                </div>
-                                </div>
-                                </div>
-                            </div>
-
-                    <!-- Garantia premium -->
-                    <div style="text-align: center; padding: 2rem; background: rgba(255, 255, 255, 0.05); border-radius: 20px; border: 1px solid rgba(255, 255, 255, 0.1);">
-                        <div style="display: flex; align-items: center; justify-content: center; gap: 1rem; margin-bottom: 1rem;">
-                            <div style="width: 50px; height: 50px; background: var(--accent-gradient); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
-                                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
-                                </svg>
-                                </div>
-                            <div style="text-align: left;">
-                                <div style="color: var(--text-primary); font-weight: 700; font-size: 1.1rem;">Garantia de 7 Dias</div>
-                                <div style="color: var(--text-secondary); font-size: 0.9rem;">100% do dinheiro de volta se não ficar satisfeito</div>
-                                </div>
-                                </div>
-                        <div style="color: var(--text-muted); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.1rem;">Pagamento 100% Seguro | SSL Criptografado</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-        <style>
-            @keyframes shine {
-                0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
-                50% { transform: translateX(100%) translateY(100%) rotate(45deg); }
-                100% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
-            }
-        </style>
-    </section>
-
-    <!-- Footer Otimizado -->
-    <footer style="background: #000; padding: 2rem 0; color: #ccc;">
-        <div class="container">
-            <div style="text-align: center; margin-bottom: 1rem;">
-                <p style="margin: 0;">Copyright 2025 - <span style="color: #ff8c00;">iOS Unlocker Pro ®</span> Todos os direitos reservados.</p>
-                        </div>
-            <div style="text-align: center; margin-bottom: 1rem;">
-                <a href="#" style="color: #ccc; text-decoration: none; margin: 0 1rem;">Termos de Uso</a>
-                <a href="#" style="color: #ccc; text-decoration: none; margin: 0 1rem;">Políticas de Privacidade</a>
-                    </div>
-            <div style="text-align: center; font-size: 0.9rem; color: #999;">
-                <p style="margin: 0.5rem 0;"><strong>Aviso sobre Plágio:</strong> Todo o conteúdo deste curso é protegido por direitos autorais.</p>
-                <p style="margin: 0.5rem 0;"><strong>Isenção de Responsabilidade:</strong> Os resultados podem variar de pessoa para pessoa.</p>
-                <p style="margin: 0.5rem 0;"><strong>Importante:</strong> Este curso destina-se apenas ao desbloqueio de aparelhos próprios.</p>
+                
+                <div class="card">
+                    <h3><span class="highlight-red">Bypass iOS 18.5</span></h3>
+                    <p>Solução avançada para contornar o iCloud na última versão do iOS</p>
                 </div>
-        </div>
+                
+                <div class="card">
+                    <h3><span class="highlight-red">Suporte Técnico VIP</span></h3>
+                    <p>Assistência remota especializada para bypass em todas versões</p>
+                </div>
+                
+                <div class="card">
+                    <h3><span class="highlight-red">Pacote Completo iOS</span></h3>
+                    <p>Ferramentas para bypass desde iOS 14 até 18.5</p>
+                </div>
+                
+                <div class="card">
+                    <h3><span class="highlight-red">Atualizações Vitalícias</span></h3>
+                    <p>Novos métodos de bypass para futuras atualizações do iOS</p>
+                </div>
+                
+                <div class="card">
+                    <h3><span class="highlight-red">Compatibilidade Total</span></h3>
+                    <p>Funciona em todos modelos (iPhone 6s ao 15 Pro Max)</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SEÇÃO DE COMPRA SIMPLES -->
+        <section class="offer-section">
+            <div class="offer-container">
+                <!-- PREÇO GRANDE -->
+                <div class="price-area">
+                    <span class="old-price">R$ 147,00</span>
+                    <span class="new-price">R$ 19,90</span>
+                    <div class="offer-timer">Oferta válida por: <span id="timer">09:59</span></div>
+                </div>
+                
+                <!-- BOTÃO DE COMPRA -->
+                <a href="#comprar" class="buy-button">COMPRAR AGORA</a>
+                
+                <!-- BENEFÍCIOS + BÔNUS -->
+                <ul class="benefits-list">
+                    <li><span class="benefit-title">Acesso vitalício</span> ao curso completo</li>
+                    <li><span class="benefit-title">Suporte VIP</span> 24h</li>
+                    <li><span class="benefit-title">6 bônus exclusivos</span> incluídos</li>
+                    <li><span class="benefit-title">Atualizações gratuitas</span> para sempre</li>
+                    <li><span class="benefit-title">Garantia de 7 dias</span> ou seu dinheiro de volta</li>
+                </ul>
+                
+                <!-- BOTÃO DE COMPRA REPETIDO -->
+                <a href="#comprar" class="buy-button">COMPRAR AGORA</a>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer style="background: var(--black); color: var(--light-gray); text-align: center; padding: 2rem; border-top: 2px solid var(--purple);">
+        <p>Copyright 2025 - <span class="highlight-red">iOS Unlocker Pro</span> Todos os direitos reservados.</p>
+        <p style="margin-top: 1rem; font-size: 0.9rem;">Este curso destina-se apenas ao desbloqueio de aparelhos próprios.</p>
     </footer>
 
-    <!-- JavaScript Otimizado para Fluidez -->
     <script>
-        // Carregamento lazy de imagens com performance otimizada
-        document.addEventListener('DOMContentLoaded', function() {
-            const images = document.querySelectorAll('img[loading="lazy"]');
-            const imageObserver = new IntersectionObserver((entries, observer) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        const img = entry.target;
-                        img.src = img.src;
-                        observer.unobserve(img);
+        // Contador de oferta
+        function updateTimer() {
+            const timerElement = document.getElementById('timer');
+            let minutes = 9;
+            let seconds = 59;
+            
+            const interval = setInterval(() => {
+                if (seconds === 0) {
+                    if (minutes === 0) {
+                        clearInterval(interval);
+                        timerElement.textContent = "00:00";
+                        return;
                     }
-                });
-            }, {
-                rootMargin: '50px 0px',
-                threshold: 0.1
-            });
-            
-            images.forEach(img => imageObserver.observe(img));
-        });
-
-        // Carrossel profissional com controles
-        let currentSlide = 0;
-        const slides = document.querySelectorAll('.slide');
-        const dots = document.querySelectorAll('.carousel-dot');
-        let slideInterval;
-        
-        function showSlide(index) {
-            requestAnimationFrame(() => {
-                slides.forEach((slide, i) => {
-                    slide.style.opacity = i === index ? '1' : '0';
-                    slide.classList.toggle('active', i === index);
-                });
-                
-                // Atualizar dots
-                dots.forEach((dot, i) => {
-                    dot.style.background = i === index ? '#ff8c00' : 'rgba(255, 140, 0, 0.3)';
-                    dot.classList.toggle('active', i === index);
-                });
-                
-                currentSlide = index;
-            });
-        }
-        
-        function nextSlide() {
-            currentSlide = (currentSlide + 1) % slides.length;
-            showSlide(currentSlide);
-        }
-        
-        function prevSlide() {
-            currentSlide = (currentSlide - 1 + slides.length) % slides.length;
-            showSlide(currentSlide);
-        }
-        
-        // Auto-play otimizado com pausa no hover
-        function startSlideShow() {
-            slideInterval = setInterval(nextSlide, 4000);
-        }
-        
-        function stopSlideShow() {
-            clearInterval(slideInterval);
-        }
-        
-        startSlideShow();
-        
-        // Touch events otimizados para mobile
-        let touchStartX = 0;
-        let touchStartTime = 0;
-        const carousel = document.querySelector('.carousel');
-        
-        if (carousel) {
-            carousel.addEventListener('touchstart', (e) => {
-                touchStartX = e.touches[0].clientX;
-                touchStartTime = Date.now();
-                stopSlideShow();
-            }, { passive: true });
-            
-            carousel.addEventListener('touchend', (e) => {
-                const touchEndX = e.changedTouches[0].clientX;
-                const touchEndTime = Date.now();
-                const touchDuration = touchEndTime - touchStartTime;
-                
-                if (touchDuration < 300) { // Swipe rápido
-                    if (touchStartX - touchEndX > 50) nextSlide();
-                    if (touchEndX - touchStartX > 50) prevSlide();
+                    minutes--;
+                    seconds = 59;
+                } else {
+                    seconds--;
                 }
                 
-                setTimeout(startSlideShow, 1000);
-            }, { passive: true });
-            
-            // Pausa no hover para desktop
-            carousel.addEventListener('mouseenter', stopSlideShow);
-            carousel.addEventListener('mouseleave', startSlideShow);
+                timerElement.textContent = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+            }, 1000);
         }
         
-        // Smooth scroll otimizado para links internos
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    const targetPosition = target.offsetTop - 80; // Offset para header
-                    window.scrollTo({
-                        top: targetPosition,
-                        behavior: 'smooth'
-                    });
-                }
-            });
-        });
-        
-        // Otimizações de performance para scroll
-        let ticking = false;
-        function updateOnScroll() {
-            if (!ticking) {
-                requestAnimationFrame(() => {
-                    // Otimizações durante scroll
-                    ticking = false;
-                });
-                ticking = true;
-            }
-        }
-        
-        window.addEventListener('scroll', updateOnScroll, { passive: true });
-        
-        // Preload de recursos críticos
-        function preloadCriticalResources() {
-            const criticalImages = [
-                'https://i.postimg.cc/pT3whJ7w/paredeoficial.jpg',
-                'https://i.postimg.cc/d0wShtBj/COMUNIDADE-removebg-preview.png'
-            ];
-            
-            criticalImages.forEach(src => {
-                const img = new Image();
-                img.src = src;
-            });
-        }
-        
-        // Event listeners para dots do carrossel
-        dots.forEach((dot, index) => {
-            dot.addEventListener('click', () => {
-                showSlide(index);
-                stopSlideShow();
-                setTimeout(startSlideShow, 3000);
-            });
-        });
-                </script>
+        // Iniciar contador quando a página carregar
+        document.addEventListener('DOMContentLoaded', updateTimer);
+    </script>
 </body>
 </html>
