@@ -13,6 +13,8 @@ html {
   /* Evita que o site deslize lateralmente */
   overflow-x: hidden !important;
   max-width: 100vw !important;
+  /* Garantir scroll touch */
+  -webkit-overflow-scrolling: touch !important;
 }
 
 body {
@@ -33,6 +35,9 @@ body {
   /* Evita que o site deslize lateralmente */
   overflow-x: hidden !important;
   max-width: 100vw !important;
+  /* Garantir scroll touch */
+  -webkit-overflow-scrolling: touch !important;
+  touch-action: pan-y !important;
 }
 
 /* Prevenir zoom em inputs no iOS */
@@ -62,17 +67,9 @@ input, textarea, select {
   user-select: none !important;
 }
 
-/* Garantir scroll touch na seção de depoimentos */
+/* Seção de depoimentos simplificada */
 .testimonials {
-  touch-action: pan-y !important;
-  -webkit-overflow-scrolling: touch !important;
-  overscroll-behavior: contain !important;
-}
-
-.testimonials * {
-  touch-action: pan-y !important;
-  -webkit-user-select: none !important;
-  user-select: none !important;
+  /* Removido - usando div simples */
 }
 
 /* Carrossel de depoimentos - proporção 9:16 */
