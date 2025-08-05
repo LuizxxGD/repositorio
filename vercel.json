@@ -2,6 +2,10 @@
   "version": 2,
   "builds": [
     {
+      "src": "index.html",
+      "use": "@vercel/static"
+    },
+    {
       "src": "**/*",
       "use": "@vercel/static"
     }
@@ -18,12 +22,37 @@
       "headers": [
         {
           "key": "Cache-Control",
-          "value": "no-cache, no-store, must-revalidate"
+          "value": "no-cache, no-store, must-revalidate, max-age=0"
+        },
+        {
+          "key": "Pragma",
+          "value": "no-cache"
+        },
+        {
+          "key": "Expires",
+          "value": "0"
+        }
+      ]
+    },
+    {
+      "source": "/index.html",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "no-cache, no-store, must-revalidate, max-age=0"
+        },
+        {
+          "key": "Last-Modified",
+          "value": "{{timestamp}}"
         }
       ]
     }
   ],
   "github": {
-    "silent": false
+    "silent": false,
+    "autoAlias": true
+  },
+  "env": {
+    "VERCEL_FORCE_NO_BUILD_CACHE": "1"
   }
 } 
