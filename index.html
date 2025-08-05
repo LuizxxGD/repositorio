@@ -663,58 +663,97 @@
   </div>
 </section>
 <script>
-  // CONTROLE DO CARROSSEL (mesmo código funcional)
-  const slides = document.querySelectorAll('.slide');
-  const prevBtn = document.querySelector('.prev');
-  const nextBtn = document.querySelector('.next');
-  let currentIndex = 0;
-  let interval = setInterval(nextSlide, 3000);
-
-  function showSlide(index) {
-    slides.forEach((slide, i) => {
-      slide.style.opacity = i === index ? '1' : '0';
-    });
-    currentIndex = index;
-  }
-
-  function nextSlide() {
-    currentIndex = (currentIndex + 1) % slides.length;
-    showSlide(currentIndex);
-  }
-
-  function prevSlide() {
-    currentIndex = (currentIndex - 1 + slides.length) % slides.length;
-    showSlide(currentIndex);
-  }
-
-  nextBtn.addEventListener('click', () => {
-    clearInterval(interval);
-    nextSlide();
-    interval = setInterval(nextSlide, 3000);
+  // CARROSSEL SIMPLIFICADO E OTIMIZADO
+  document.addEventListener('DOMContentLoaded', function() {
+    const slides = document.querySelectorAll('.slide');
+    let currentIndex = 0;
+    let interval;
+    let isTouching = false;
+    let touchStartX = 0;
+    let touchStartY = 0;
+    
+    function showSlide(index) {
+      slides.forEach((slide, i) => {
+        slide.style.opacity = i === index ? '1' : '0';
+      });
+      currentIndex = index;
+    }
+    
+    function nextSlide() {
+      if (!isTouching) {
+        currentIndex = (currentIndex + 1) % slides.length;
+        showSlide(currentIndex);
+      }
+    }
+    
+    function prevSlide() {
+      if (!isTouching) {
+        currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+        showSlide(currentIndex);
+      }
+    }
+    
+    function startAutoplay() {
+      if (interval) clearInterval(interval);
+      interval = setInterval(nextSlide, 4000);
+    }
+    
+    function stopAutoplay() {
+      if (interval) {
+        clearInterval(interval);
+        interval = null;
+      }
+    }
+    
+    // Event listeners otimizados para touch
+    const carousel = document.querySelector('.carousel');
+    
+    if (carousel) {
+      carousel.addEventListener('touchstart', function(e) {
+        isTouching = true;
+        touchStartX = e.touches[0].clientX;
+        touchStartY = e.touches[0].clientY;
+        stopAutoplay();
+        e.preventDefault();
+      }, { passive: false });
+      
+      carousel.addEventListener('touchmove', function(e) {
+        if (isTouching) {
+          e.preventDefault();
+        }
+      }, { passive: false });
+      
+      carousel.addEventListener('touchend', function(e) {
+        if (isTouching) {
+          const touchEndX = e.changedTouches[0].clientX;
+          const touchEndY = e.changedTouches[0].clientY;
+          const diffX = touchStartX - touchEndX;
+          const diffY = touchStartY - touchEndY;
+          
+          // Verificar se é um swipe horizontal válido
+          if (Math.abs(diffX) > Math.abs(diffY) && Math.abs(diffX) > 30) {
+            if (diffX > 0) {
+              nextSlide();
+            } else {
+              prevSlide();
+            }
+          }
+          
+          isTouching = false;
+          setTimeout(startAutoplay, 1000);
+        }
+      }, { passive: true });
+      
+      carousel.addEventListener('touchcancel', function() {
+        isTouching = false;
+        setTimeout(startAutoplay, 1000);
+      }, { passive: true });
+    }
+    
+    // Inicializar
+    showSlide(0);
+    startAutoplay();
   });
-
-  prevBtn.addEventListener('click', () => {
-    clearInterval(interval);
-    prevSlide();
-    interval = setInterval(nextSlide, 3000);
-  });
-
-  let touchStartX = 0;
-  const carousel = document.querySelector('.carousel');
-
-  carousel.addEventListener('touchstart', (e) => {
-    touchStartX = e.touches[0].clientX;
-    clearInterval(interval);
-  }, { passive: true });
-
-  carousel.addEventListener('touchend', (e) => {
-    const touchEndX = e.changedTouches[0].clientX;
-    if (touchStartX - touchEndX > 50) nextSlide();
-    if (touchEndX - touchStartX > 50) prevSlide();
-    interval = setInterval(nextSlide, 3000);
-  }, { passive: true });
-
-  showSlide(0);
 </script>
 
 
