@@ -22,5 +22,8 @@
         }
       ]
     }
-  ]
+  ],
+  "github": {
+    "silent": false
+  }
 } 

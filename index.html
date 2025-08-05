@@ -667,58 +667,64 @@
     </div>
   </section>
   <script>
-    // CONTROLE DO CARROSSEL (mesmo código funcional)
-    const slides = document.querySelectorAll('.slide');
-    const prevBtn = document.querySelector('.prev');
-    const nextBtn = document.querySelector('.next');
-    let currentIndex = 0;
-    let interval = setInterval(nextSlide, 3000);
-  
-    function showSlide(index) {
-      slides.forEach((slide, i) => {
-        slide.style.opacity = i === index ? '1' : '0';
-      });
-      currentIndex = index;
-    }
-  
-    function nextSlide() {
-      currentIndex = (currentIndex + 1) % slides.length;
-      showSlide(currentIndex);
-    }
-  
-    function prevSlide() {
-      currentIndex = (currentIndex - 1 + slides.length) % slides.length;
-      showSlide(currentIndex);
-    }
-  
-    nextBtn.addEventListener('click', () => {
-      clearInterval(interval);
-      nextSlide();
-      interval = setInterval(nextSlide, 3000);
+    // CONTROLE DO CARROSSEL - APENAS TOUCH E AUTOPLAY
+    document.addEventListener('DOMContentLoaded', function() {
+      const slides = document.querySelectorAll('.slide');
+      let currentIndex = 0;
+      let interval;
+      
+      function showSlide(index) {
+        slides.forEach((slide, i) => {
+          slide.style.opacity = i === index ? '1' : '0';
+        });
+        currentIndex = index;
+      }
+      
+      function nextSlide() {
+        currentIndex = (currentIndex + 1) % slides.length;
+        showSlide(currentIndex);
+      }
+      
+      function prevSlide() {
+        currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+        showSlide(currentIndex);
+      }
+      
+      function startAutoplay() {
+        if (interval) clearInterval(interval);
+        interval = setInterval(nextSlide, 3000);
+      }
+      
+      // Controle de touch
+      let touchStartX = 0;
+      const carousel = document.querySelector('.carousel');
+      
+      if (carousel) {
+        carousel.addEventListener('touchstart', (e) => {
+          touchStartX = e.touches[0].clientX;
+          clearInterval(interval);
+        }, { passive: true });
+        
+        carousel.addEventListener('touchend', (e) => {
+          const touchEndX = e.changedTouches[0].clientX;
+          const diffX = touchStartX - touchEndX;
+          
+          if (Math.abs(diffX) > 50) {
+            if (diffX > 0) {
+              nextSlide();
+            } else {
+              prevSlide();
+            }
+          }
+          
+          startAutoplay();
+        }, { passive: true });
+      }
+      
+      // Inicializar
+      showSlide(0);
+      startAutoplay();
     });
-  
-    prevBtn.addEventListener('click', () => {
-      clearInterval(interval);
-      prevSlide();
-      interval = setInterval(nextSlide, 3000);
-    });
-  
-    let touchStartX = 0;
-    const carousel = document.querySelector('.carousel');
-  
-    carousel.addEventListener('touchstart', (e) => {
-      touchStartX = e.touches[0].clientX;
-      clearInterval(interval);
-    }, { passive: true });
-  
-    carousel.addEventListener('touchend', (e) => {
-      const touchEndX = e.changedTouches[0].clientX;
-      if (touchStartX - touchEndX > 50) nextSlide();
-      if (touchEndX - touchStartX > 50) prevSlide();
-      interval = setInterval(nextSlide, 3000);
-    }, { passive: true });
-  
-    showSlide(0);
   </script>
   
 
