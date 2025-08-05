@@ -70,20 +70,57 @@
         }
         .cta-button:hover { transform: scale(1.05); }
         
-        /* Otimizações de performance */
-        * { box-sizing: border-box; }
-        img { max-width: 100%; height: auto; }
+        /* Otimizações de performance e fluidez */
+        * { 
+            box-sizing: border-box; 
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        img { 
+            max-width: 100%; 
+            height: auto; 
+            will-change: transform;
+        }
         .optimized-img { 
             max-width: min(100%, 350px);
             height: auto;
             display: block;
             margin: 0.5rem auto;
             width: 70%;
+            will-change: transform;
         }
         
-        /* Remover animações pesadas inicialmente */
-        .slide { opacity: 0; transition: opacity 0.3s; }
-        .slide.active { opacity: 1; }
+        /* Animações suaves otimizadas */
+        .slide { 
+            opacity: 0; 
+            transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            will-change: opacity;
+        }
+        .slide.active { 
+            opacity: 1; 
+        }
+        
+        /* Hover effects suaves */
+        .bonus-card, .info-card, .module-card {
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), 
+                        box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            will-change: transform, box-shadow;
+        }
+        .bonus-card:hover, .info-card:hover, .module-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+        }
+        
+        /* Scroll suave */
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        /* Otimizações de renderização */
+        .hero-section, .modules-section, .bonuses-section, .info-section {
+            transform: translateZ(0);
+            backface-visibility: hidden;
+        }
         
         /* CSS para seções principais */
         .modules-section, .bonuses-section, .info-section {
@@ -346,9 +383,9 @@
         </div>
     </footer>
 
-    <!-- JavaScript Otimizado -->
+    <!-- JavaScript Otimizado para Fluidez -->
     <script>
-        // Carregamento lazy de imagens
+        // Carregamento lazy de imagens com performance otimizada
         document.addEventListener('DOMContentLoaded', function() {
             const images = document.querySelectorAll('img[loading="lazy"]');
             const imageObserver = new IntersectionObserver((entries, observer) => {
@@ -359,20 +396,27 @@
                         observer.unobserve(img);
                     }
                 });
+            }, {
+                rootMargin: '50px 0px',
+                threshold: 0.1
             });
             
             images.forEach(img => imageObserver.observe(img));
         });
 
-        // Carrossel otimizado
+        // Carrossel otimizado com animações suaves
         let currentSlide = 0;
         const slides = document.querySelectorAll('.slide');
+        let slideInterval;
         
         function showSlide(index) {
-            slides.forEach((slide, i) => {
-                slide.style.opacity = i === index ? '1' : '0';
+            requestAnimationFrame(() => {
+                slides.forEach((slide, i) => {
+                    slide.style.opacity = i === index ? '1' : '0';
+                    slide.classList.toggle('active', i === index);
+                });
+                currentSlide = index;
             });
-            currentSlide = index;
         }
         
         function nextSlide() {
@@ -380,41 +424,100 @@
             showSlide(currentSlide);
         }
         
-        // Auto-play otimizado
-        setInterval(nextSlide, 4000);
+        function prevSlide() {
+            currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+            showSlide(currentSlide);
+        }
         
-        // Touch events para mobile
+        // Auto-play otimizado com pausa no hover
+        function startSlideShow() {
+            slideInterval = setInterval(nextSlide, 4000);
+        }
+        
+        function stopSlideShow() {
+            clearInterval(slideInterval);
+        }
+        
+        startSlideShow();
+        
+        // Touch events otimizados para mobile
         let touchStartX = 0;
+        let touchStartTime = 0;
         const carousel = document.querySelector('.carousel');
         
         if (carousel) {
             carousel.addEventListener('touchstart', (e) => {
                 touchStartX = e.touches[0].clientX;
+                touchStartTime = Date.now();
+                stopSlideShow();
             }, { passive: true });
             
             carousel.addEventListener('touchend', (e) => {
                 const touchEndX = e.changedTouches[0].clientX;
-                if (touchStartX - touchEndX > 50) nextSlide();
-                if (touchEndX - touchStartX > 50) {
-                    currentSlide = (currentSlide - 1 + slides.length) % slides.length;
-                    showSlide(currentSlide);
+                const touchEndTime = Date.now();
+                const touchDuration = touchEndTime - touchStartTime;
+                
+                if (touchDuration < 300) { // Swipe rápido
+                    if (touchStartX - touchEndX > 50) nextSlide();
+                    if (touchEndX - touchStartX > 50) prevSlide();
                 }
+                
+                setTimeout(startSlideShow, 1000);
             }, { passive: true });
+            
+            // Pausa no hover para desktop
+            carousel.addEventListener('mouseenter', stopSlideShow);
+            carousel.addEventListener('mouseleave', startSlideShow);
         }
         
-        // Smooth scroll para links internos
+        // Smooth scroll otimizado para links internos
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
                 const target = document.querySelector(this.getAttribute('href'));
                 if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
+                    const targetPosition = target.offsetTop - 80; // Offset para header
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
                     });
                 }
             });
         });
+        
+        // Otimizações de performance para scroll
+        let ticking = false;
+        function updateOnScroll() {
+            if (!ticking) {
+                requestAnimationFrame(() => {
+                    // Otimizações durante scroll
+                    ticking = false;
+                });
+                ticking = true;
+            }
+        }
+        
+        window.addEventListener('scroll', updateOnScroll, { passive: true });
+        
+        // Preload de recursos críticos
+        function preloadCriticalResources() {
+            const criticalImages = [
+                'https://i.postimg.cc/pT3whJ7w/paredeoficial.jpg',
+                'https://i.postimg.cc/d0wShtBj/COMUNIDADE-removebg-preview.png'
+            ];
+            
+            criticalImages.forEach(src => {
+                const img = new Image();
+                img.src = src;
+            });
+        }
+        
+        // Executar preload quando possível
+        if ('requestIdleCallback' in window) {
+            requestIdleCallback(preloadCriticalResources);
+        } else {
+            setTimeout(preloadCriticalResources, 1000);
+        }
     </script>
 </body>
 </html>
