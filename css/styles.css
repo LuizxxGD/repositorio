@@ -439,10 +439,90 @@ body {
 
 .plan-price {
   display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0.5rem;
+}
+
+.price-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  padding: 1rem;
+  background: linear-gradient(135deg, rgba(255, 140, 0, 0.1) 0%, rgba(156, 39, 176, 0.1) 100%);
+  border-radius: 15px;
+  border: 2px solid rgba(255, 140, 0, 0.3);
+  box-shadow: 0 8px 25px rgba(255, 140, 0, 0.2);
+  backdrop-filter: blur(10px);
+}
+
+.old-price {
+  display: flex;
   align-items: baseline;
   justify-content: center;
-  gap: 0.2rem;
   margin-bottom: 0.5rem;
+  opacity: 0.7;
+}
+
+.old-currency {
+  font-size: 0.9rem;
+  color: #999;
+  text-decoration: line-through;
+}
+
+.old-amount {
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: #999;
+  text-decoration: line-through;
+}
+
+.old-cents {
+  font-size: 1rem;
+  color: #999;
+  text-decoration: line-through;
+}
+
+.new-price {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  margin-bottom: 0.5rem;
+}
+
+.new-currency {
+  font-size: 1.5rem;
+  color: #ff8c00;
+  font-weight: 700;
+}
+
+.new-amount {
+  font-size: 4rem;
+  font-weight: 900;
+  color: #ff8c00;
+  text-shadow: 2px 2px 4px rgba(255, 140, 0, 0.3);
+  line-height: 1;
+}
+
+.new-cents {
+  font-size: 2rem;
+  color: #ff8c00;
+  font-weight: 700;
+}
+
+.discount-badge {
+  background: linear-gradient(45deg, #ff8c00, #ff4500);
+  color: white;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 0.3rem 0.8rem;
+  border-radius: 20px;
+  box-shadow: 0 4px 15px rgba(255, 140, 0, 0.4);
+  animation: pulse 2s infinite;
 }
 
 .currency {
@@ -668,6 +748,27 @@ body {
   .amount {
     font-size: 2.5rem;
   }
+  
+  .price-container {
+    padding: 0.8rem;
+  }
+  
+  .new-amount {
+    font-size: 3rem;
+  }
+  
+  .new-cents {
+    font-size: 1.5rem;
+  }
+  
+  .old-amount {
+    font-size: 1.4rem;
+  }
+  
+  .discount-badge {
+    font-size: 0.7rem;
+    padding: 0.2rem 0.6rem;
+  }
 
   .plan-button {
     padding: 0.8rem 1.5rem;
@@ -715,6 +816,27 @@ body {
   .amount {
     font-size: 2rem;
   }
+  
+  .price-container {
+    padding: 0.6rem;
+  }
+  
+  .new-amount {
+    font-size: 2.5rem;
+  }
+  
+  .new-cents {
+    font-size: 1.2rem;
+  }
+  
+  .old-amount {
+    font-size: 1.2rem;
+  }
+  
+  .discount-badge {
+    font-size: 0.6rem;
+    padding: 0.2rem 0.5rem;
+  }
 
   .plan-features li {
     font-size: 0.85rem;
@@ -731,6 +853,21 @@ body {
   to {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 4px 15px rgba(255, 140, 0, 0.4);
+  }
+  50% {
+    transform: scale(1.05);
+    box-shadow: 0 6px 20px rgba(255, 140, 0, 0.6);
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: 0 4px 15px rgba(255, 140, 0, 0.4);
   }
 }
 
