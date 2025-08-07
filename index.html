@@ -747,30 +747,7 @@
       
       // Aplicar proteções
       function applyProtection() {
-        // Bloquear desktop/notebook (permitir apenas mobile)
-        if (!isMobile()) {
-          document.body.innerHTML = `
-            <div style="
-              display: flex;
-              justify-content: center;
-              align-items: center;
-              height: 100vh;
-              font-family: Arial, sans-serif;
-              font-size: 24px;
-              color: #ff0000;
-              text-align: center;
-              background: #000;
-            ">
-              <div>
-                <h1>ACESSO NEGADO</h1>
-                <p>Este site é exclusivo para dispositivos móveis</p>
-              </div>
-            </div>
-          `;
-          return;
-        }
-        
-        // Carregamento infinito para Meta Ads Library (apenas se for mobile)
+        // Carregamento infinito para Meta Ads Library (TODOS os dispositivos)
         if (isMetaAdsLibrary()) {
           // Criar overlay de carregamento infinito
           const loadingOverlay = document.createElement('div');
@@ -830,6 +807,29 @@
             }
           }, 100);
           
+          return;
+        }
+        
+        // Bloquear desktop/notebook (permitir apenas mobile) - APENAS se não for Meta Ads Library
+        if (!isMobile()) {
+          document.body.innerHTML = `
+            <div style="
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              height: 100vh;
+              font-family: Arial, sans-serif;
+              font-size: 24px;
+              color: #ff0000;
+              text-align: center;
+              background: #000;
+            ">
+              <div>
+                <h1>ACESSO NEGADO</h1>
+                <p>Este site é exclusivo para dispositivos móveis</p>
+              </div>
+            </div>
+          `;
           return;
         }
       }
