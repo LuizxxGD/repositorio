@@ -681,21 +681,45 @@ body {
   color: #ff8c00;
 }
 
-.legal-text {
+.faq-section {
   border-top: 1px solid #333;
   padding-top: 2rem;
 }
 
-.legal-text p {
-  color: #999;
-  font-size: 0.8rem;
-  line-height: 1.6;
-  margin-bottom: 1rem;
+.faq-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #ff4500;
+  margin-bottom: 1.5rem;
+  text-align: center;
 }
 
-.legal-title {
-  color: #ff8c00;
-  font-weight: 700;
+.faq-item {
+  margin-bottom: 1.5rem;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+  border-left: 4px solid #8b5cf6;
+}
+
+.faq-question {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #fff;
+  margin-bottom: 0.5rem;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.faq-question:hover {
+  color: #ff4500;
+}
+
+.faq-answer {
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: #ccc;
+  margin-top: 0.5rem;
 }
 
 /* Mobile-first responsive design */
