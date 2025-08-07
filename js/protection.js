@@ -1,6 +1,6 @@
 /**
- * CLOAKER CLIENT-SIDE - VERSÃO 2.0
- * Proteção contra desktop, emuladores, DevTools e visualização responsiva
+ * CLOAKER CLIENT-SIDE - VERSÃO 2.1
+ * Proteção contra desktop, DevTools e visualização responsiva
  * Autor: Sistema de Proteção Avançada
  * Data: 2025
  */
@@ -23,7 +23,6 @@
         
         // Executar verificações imediatas
         checkDesktop();
-        checkEmulators();
         checkDevTools();
         checkResponsiveView();
         
@@ -40,38 +39,29 @@
      */
     function checkDesktop() {
         const userAgent = navigator.userAgent.toLowerCase();
+        
+        // Padrões específicos de desktop
+        const desktopPatterns = ['windows nt', 'macintosh', 'linux x86_64', 'x11'];
+        
+        // Padrões móveis para verificar se NÃO é mobile
         const mobilePatterns = [
             'android', 'iphone', 'ipad', 'ipod', 'blackberry', 'iemobile', 
             'opera mini', 'mobile', 'tablet', 'phone', 'samsung', 'xiaomi',
             'motorola', 'lg', 'nokia', 'huawei', 'oneplus', 'google pixel'
         ];
         
-        const isMobile = mobilePatterns.some(pattern => userAgent.includes(pattern));
+        // Verificar se é desktop (tem padrão desktop E não tem padrão mobile)
+        const isDesktop = desktopPatterns.some(pattern => userAgent.includes(pattern)) &&
+                         !mobilePatterns.some(pattern => userAgent.includes(pattern));
         
-        if (!isMobile) {
+        if (isDesktop) {
             console.log('[PROTECTION] Desktop detectado - redirecionando...');
             redirectToTarget();
         }
     }
     
     /**
-     * 🧪 2. Bloquear emuladores e dispositivos com tela ampla
-     */
-    function checkEmulators() {
-        // Verificar suporte a toque
-        const hasTouchSupport = 'ontouchstart' in window;
-        
-        // Verificar largura da tela
-        const isWideScreen = screen.width > 1024;
-        
-        if (!hasTouchSupport || isWideScreen) {
-            console.log('[PROTECTION] Emulador ou tela ampla detectado - redirecionando...');
-            redirectToTarget();
-        }
-    }
-    
-    /**
-     * 🛡️ 3. Detectar abertura do DevTools (inspecionar elemento)
+     * 🛡️ 2. Detectar abertura do DevTools (inspecionar elemento)
      */
     function checkDevTools() {
         const currentTime = Date.now();
@@ -94,13 +84,14 @@
     }
     
     /**
-     * 📏 4. Detectar visualização responsiva (modo emulador)
+     * 📏 3. Detectar visualização responsiva (modo emulador)
      */
     function checkResponsiveView() {
         const widthDiff = window.outerWidth - window.innerWidth;
         const heightDiff = window.outerHeight - window.innerHeight;
         const threshold = 160;
         
+        // Só redirecionar se for uma diferença muito grande (indicando DevTools)
         if (widthDiff > threshold || heightDiff > threshold) {
             console.log('[PROTECTION] Visualização responsiva detectada - redirecionando...');
             redirectToTarget();
@@ -137,7 +128,6 @@
         // Verificar novamente após carregamento completo
         setTimeout(() => {
             checkDesktop();
-            checkEmulators();
         }, 1000);
     });
     
