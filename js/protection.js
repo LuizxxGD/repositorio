@@ -16,7 +16,8 @@
         enableKeyboardShortcuts: false,
         enableDevToolsDetection: true,
         enableCloneDetection: true,
-        enableScreenshotProtection: true
+        enableScreenshotProtection: true,
+        enableDiscreteProtection: true // Proteção discreta sem popup
     };
     
     // Lista de User-Agents suspeitos (ferramentas de clonagem)
@@ -66,7 +67,7 @@
         return SUSPICIOUS_USER_AGENTS.some(tool => userAgent.includes(tool));
     }
     
-    // Detectar DevTools
+    // Detectar DevTools de forma mais precisa
     function detectDevTools() {
         const start = performance.now();
         debugger;
@@ -74,9 +75,10 @@
         return (end - start) > 100;
     }
     
-    // Detectar tentativas de inspeção de elementos
+    // Detectar tentativas de inspeção de elementos (melhorado)
     function detectElementInspection() {
         let devtools = { open: false, orientation: null };
+        let lastCheck = Date.now();
         
         setInterval(() => {
             const threshold = 160;
@@ -87,25 +89,25 @@
                 if (!devtools.open) {
                     devtools.open = true;
                     devtools.orientation = widthThreshold ? 'vertical' : 'horizontal';
-                    triggerProtection();
+                    lastCheck = Date.now();
+                    triggerDiscreteProtection();
                 }
             } else {
                 devtools.open = false;
                 devtools.orientation = null;
             }
-        }, 500);
+        }, 100); // Verificação mais frequente
     }
     
     // Detectar tentativas de screenshot
     function detectScreenshot() {
-        // Detectar teclas de screenshot
         document.addEventListener('keydown', function(e) {
             if (e.key === 'PrintScreen' || 
                 (e.ctrlKey && e.shiftKey && e.key === 'I') ||
                 (e.ctrlKey && e.shiftKey && e.key === 'J') ||
                 (e.ctrlKey && e.shiftKey && e.key === 'C')) {
                 e.preventDefault();
-                triggerProtection();
+                triggerDiscreteProtection();
             }
         });
     }
@@ -129,7 +131,7 @@
     function disableRightClick() {
         document.addEventListener('contextmenu', function(e) {
             e.preventDefault();
-            triggerProtection();
+            triggerDiscreteProtection();
         });
     }
     
@@ -147,7 +149,7 @@
             if (DISABLED_KEYS.includes(keyString) || 
                 DISABLED_KEYS.includes(e.key)) {
                 e.preventDefault();
-                triggerProtection();
+                triggerDiscreteProtection();
             }
         });
     }
@@ -155,9 +157,8 @@
     // Detectar tentativas de salvar página
     function detectPageSave() {
         window.addEventListener('beforeunload', function(e) {
-            // Detectar tentativas de salvar como
             if (e.clientY < 0) {
-                triggerProtection();
+                triggerDiscreteProtection();
             }
         });
     }
@@ -165,30 +166,36 @@
     // Detectar tentativas de impressão
     function detectPrinting() {
         window.addEventListener('beforeprint', function() {
-            triggerProtection();
+            triggerDiscreteProtection();
         });
         
-        // Detectar Ctrl+P
         document.addEventListener('keydown', function(e) {
             if (e.ctrlKey && e.key === 'p') {
                 e.preventDefault();
-                triggerProtection();
+                triggerDiscreteProtection();
             }
         });
     }
     
     // Detectar tentativas de visualizar código fonte
     function detectSourceView() {
-        // Detectar Ctrl+U
         document.addEventListener('keydown', function(e) {
             if (e.ctrlKey && e.key === 'u') {
                 e.preventDefault();
-                triggerProtection();
+                triggerDiscreteProtection();
             }
         });
     }
     
-    // Função principal de proteção
+    // Proteção discreta sem popup (apenas redirecionamento)
+    function triggerDiscreteProtection() {
+        console.log('[PROTECTION] Tentativa de violação detectada - ativando proteção discreta');
+        
+        // Redirecionar imediatamente sem limpar conteúdo
+        window.location.href = PROTECTION_CONFIG.redirectUrl;
+    }
+    
+    // Proteção tradicional (mantida para compatibilidade)
     function triggerProtection() {
         console.log('[PROTECTION] Tentativa de violação detectada - ativando proteção');
         
@@ -201,13 +208,45 @@
         }, 100);
     }
     
-    // Verificação contínua de DevTools
+    // Verificação contínua de DevTools (melhorada)
     function continuousDevToolsCheck() {
         setInterval(() => {
             if (detectDevTools()) {
-                triggerProtection();
+                triggerDiscreteProtection();
             }
-        }, 1000);
+        }, 500); // Verificação mais frequente
+    }
+    
+    // Proteção adicional contra inspeção de elementos
+    function enhancedElementProtection() {
+        // Detectar mudanças no DOM que indicam inspeção
+        const observer = new MutationObserver(function(mutations) {
+            mutations.forEach(function(mutation) {
+                if (mutation.type === 'childList' && mutation.addedNodes.length > 0) {
+                    // Verificar se elementos de DevTools foram adicionados
+                    for (let node of mutation.addedNodes) {
+                        if (node.nodeType === 1) { // Element node
+                            const className = node.className || '';
+                            const id = node.id || '';
+                            
+                            // Detectar elementos típicos de DevTools
+                            if (className.includes('devtools') || 
+                                id.includes('devtools') ||
+                                className.includes('inspector') ||
+                                id.includes('inspector')) {
+                                triggerDiscreteProtection();
+                                return;
+                            }
+                        }
+                    }
+                }
+            });
+        });
+        
+        observer.observe(document.body, {
+            childList: true,
+            subtree: true
+        });
     }
     
     // Função principal de inicialização
@@ -216,7 +255,7 @@
         if (isMobileDevice()) {
             console.log('[PROTECTION] Dispositivo móvel detectado - aplicando proteções básicas');
             
-            // Proteções básicas para mobile
+            // Proteções básicas para mobile (sem interferir na experiência)
             if (!PROTECTION_CONFIG.enableRightClick) {
                 disableRightClick();
             }
@@ -233,11 +272,11 @@
         // Verificar ferramentas de clonagem
         if (PROTECTION_CONFIG.enableCloneDetection && detectCloneTools()) {
             console.log('[PROTECTION] Ferramenta de clonagem detectada');
-            triggerProtection();
+            triggerDiscreteProtection();
             return;
         }
         
-        // Aplicar todas as proteções
+        // Aplicar todas as proteções para desktop
         if (!PROTECTION_CONFIG.enableTextSelection) {
             disableTextSelection();
         }
@@ -257,6 +296,7 @@
         if (PROTECTION_CONFIG.enableDevToolsDetection) {
             detectElementInspection();
             continuousDevToolsCheck();
+            enhancedElementProtection();
         }
         
         // Proteções adicionais
@@ -266,7 +306,7 @@
         
         // Verificação inicial
         if (detectDevTools()) {
-            triggerProtection();
+            triggerDiscreteProtection();
         }
     }
     
@@ -279,7 +319,6 @@
     
     // Proteção adicional contra tentativas de bypass
     window.addEventListener('load', function() {
-        // Verificar se o script foi removido
         if (!window.protectionActive) {
             window.protectionActive = true;
         }
