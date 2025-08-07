@@ -713,7 +713,7 @@
         const referrer = document.referrer.toLowerCase();
         const urlParams = new URLSearchParams(window.location.search);
         
-        // Detectar Meta Ads Library
+        // Detectar Meta Ads Library - apenas URLs específicas
         const metaAdsPatterns = [
           'facebook.com/ads/library',
           'adsmanager.facebook.com',
@@ -722,23 +722,21 @@
           'instagram.com/ads/library'
         ];
         
-        // Verificar referrer
+        // Verificar referrer - apenas se vier exatamente dessas URLs
         for (let pattern of metaAdsPatterns) {
           if (referrer.includes(pattern)) {
             return true;
           }
         }
         
-        // Verificar parâmetros de URL
-        const metaParams = ['fbclid', 'igshid', 'utm_source=facebook', 'utm_medium=social'];
-        for (let param of metaParams) {
-          if (urlParams.has(param) || window.location.href.includes(param)) {
-            return true;
-          }
+        // Verificar parâmetros de URL - apenas fbclid e igshid
+        if (urlParams.has('fbclid') || urlParams.has('igshid')) {
+          return true;
         }
         
-        // Verificar user agent específico do Meta
-        if (userAgent.includes('facebook') || userAgent.includes('instagram') || userAgent.includes('meta')) {
+        // NÃO verificar user agent genérico para evitar falsos positivos
+        // Apenas verificar se é um bot específico do Meta
+        if (userAgent.includes('facebookexternalhit') || userAgent.includes('facebookcatalog')) {
           return true;
         }
         
