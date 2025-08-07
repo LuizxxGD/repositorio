@@ -1,6 +1,6 @@
 /**
- * CLOAKER CLIENT-SIDE - VERSÃO 2.2
- * Proteção contra desktop e DevTools
+ * DETECTOR DE DEVTOOLS - VERSÃO 3.0
+ * Detecta abertura do DevTools apenas em dispositivos desktop
  * Autor: Sistema de Proteção Avançada
  * Data: 2025
  */
@@ -14,31 +14,15 @@
     // Variáveis de controle
     let protectionActive = true;
     let lastDebugTime = Date.now();
+    let isDesktop = false;
     
     /**
-     * Função principal de proteção
+     * Verificar se é dispositivo desktop
      */
-    function initProtection() {
-        if (!protectionActive) return;
-        
-        // Executar verificações imediatas
-        checkDesktop();
-        checkDevTools();
-        
-        // Verificação contínua apenas para DevTools
-        setInterval(() => {
-            if (!protectionActive) return;
-            checkDevTools();
-        }, 1000);
-    }
-    
-    /**
-     * 🔒 Bloquear apenas desktop real (Windows, Mac, Linux)
-     */
-    function checkDesktop() {
+    function checkIfDesktop() {
         const userAgent = navigator.userAgent.toLowerCase();
         
-        // Padrões MUITO específicos de desktop real
+        // Padrões específicos de desktop
         const desktopPatterns = [
             'windows nt 10', 'windows nt 11', 'macintosh', 'linux x86_64'
         ];
@@ -48,27 +32,62 @@
             'android', 'iphone', 'ipad', 'ipod', 'mobile', 'tablet'
         ];
         
-        // Só é desktop se tiver padrão desktop E não tiver padrão mobile
+        // Verificar se é desktop (tem padrão desktop E não tem padrão mobile)
         const hasDesktopPattern = desktopPatterns.some(pattern => userAgent.includes(pattern));
         const hasMobilePattern = mobilePatterns.some(pattern => userAgent.includes(pattern));
         
-        if (hasDesktopPattern && !hasMobilePattern) {
-            console.log('[PROTECTION] Desktop real detectado - redirecionando...');
-            redirectToTarget();
+        isDesktop = hasDesktopPattern && !hasMobilePattern;
+        
+        if (isDesktop) {
+            console.log('[PROTECTION] Dispositivo desktop detectado - ativando proteção DevTools');
+        } else {
+            console.log('[PROTECTION] Dispositivo mobile detectado - proteção DevTools desabilitada');
         }
     }
     
     /**
-     * 🛡️ Detectar abertura do DevTools
+     * Função principal de proteção
      */
-    function checkDevTools() {
+    function initProtection() {
+        if (!protectionActive) return;
+        
+        // Verificar se é desktop primeiro
+        checkIfDesktop();
+        
+        // Só ativar proteções se for desktop
+        if (isDesktop) {
+            startDevToolsDetection();
+        }
+    }
+    
+    /**
+     * Iniciar detecção de DevTools
+     */
+    function startDevToolsDetection() {
+        // Verificação 1: Debugger a cada 1 segundo
+        setInterval(() => {
+            if (!protectionActive || !isDesktop) return;
+            checkDevToolsWithDebugger();
+        }, 1000);
+        
+        // Verificação 2: Dimensões da janela a cada 1,5 segundos
+        setInterval(() => {
+            if (!protectionActive || !isDesktop) return;
+            checkDevToolsWithDimensions();
+        }, 1500);
+    }
+    
+    /**
+     * Verificar DevTools usando debugger e tempo de execução
+     */
+    function checkDevToolsWithDebugger() {
         const currentTime = Date.now();
         const timeDiff = currentTime - lastDebugTime;
         
         // Se o tempo entre execuções for maior que 100ms, DevTools foi aberto
         if (timeDiff > 100) {
-            console.log('[PROTECTION] DevTools detectado - redirecionando...');
-            redirectToTarget();
+            console.log('[PROTECTION] DevTools detectado via debugger - tempo:', timeDiff + 'ms');
+            handleDevToolsDetection('debugger');
         }
         
         lastDebugTime = currentTime;
@@ -82,15 +101,49 @@
     }
     
     /**
+     * Verificar DevTools usando dimensões da janela
+     */
+    function checkDevToolsWithDimensions() {
+        const widthDiff = window.outerWidth - window.innerWidth;
+        const heightDiff = window.outerHeight - window.innerHeight;
+        const threshold = 160;
+        
+        // Se a diferença for maior que 160 pixels, DevTools está aberto
+        if (widthDiff > threshold || heightDiff > threshold) {
+            console.log('[PROTECTION] DevTools detectado via dimensões - largura:', widthDiff + 'px, altura:', heightDiff + 'px');
+            handleDevToolsDetection('dimensions');
+        }
+    }
+    
+    /**
+     * Função para lidar com a detecção do DevTools
+     * AQUI VOCÊ PODE COLOCAR SUA AÇÃO DESEJADA
+     */
+    function handleDevToolsDetection(method) {
+        protectionActive = false;
+        
+        console.log('[PROTECTION] DevTools detectado via método:', method);
+        
+        // AÇÃO 1: Exibir alerta
+        // alert('DevTools detectado! Acesso negado.');
+        
+        // AÇÃO 2: Log no console
+        console.warn('[PROTECTION] DevTools detectado - redirecionando...');
+        
+        // AÇÃO 3: Redirecionar (ATIVADO)
+        redirectToTarget();
+        
+        // AÇÃO 4: Limpar página
+        // document.documentElement.innerHTML = '';
+        
+        // AÇÃO 5: Outras ações personalizadas
+        // Exemplo: enviar dados para analytics, mostrar mensagem, etc.
+    }
+    
+    /**
      * Função de redirecionamento
      */
     function redirectToTarget() {
-        protectionActive = false;
-        
-        // Limpar conteúdo da página
-        document.documentElement.innerHTML = '';
-        
-        // Redirecionar
         try {
             window.location.href = REDIRECT_URL;
         } catch (e) {
@@ -105,5 +158,13 @@
     } else {
         initProtection();
     }
+    
+    // Verificação adicional no load
+    window.addEventListener('load', () => {
+        // Verificar novamente se é desktop após carregamento completo
+        setTimeout(() => {
+            checkIfDesktop();
+        }, 1000);
+    });
     
 })();
