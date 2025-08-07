@@ -1,6 +1,6 @@
 /**
- * CLOAKER CLIENT-SIDE - VERSÃO 2.1
- * Proteção contra desktop, DevTools e visualização responsiva
+ * CLOAKER CLIENT-SIDE - VERSÃO 2.2
+ * Proteção contra desktop e DevTools
  * Autor: Sistema de Proteção Avançada
  * Data: 2025
  */
@@ -24,44 +24,42 @@
         // Executar verificações imediatas
         checkDesktop();
         checkDevTools();
-        checkResponsiveView();
         
-        // Verificação contínua
+        // Verificação contínua apenas para DevTools
         setInterval(() => {
             if (!protectionActive) return;
             checkDevTools();
-            checkResponsiveView();
         }, 1000);
     }
     
     /**
-     * 🔒 1. Bloquear computadores e notebooks (desktop)
+     * 🔒 Bloquear apenas desktop real (Windows, Mac, Linux)
      */
     function checkDesktop() {
         const userAgent = navigator.userAgent.toLowerCase();
         
-        // Padrões específicos de desktop
-        const desktopPatterns = ['windows nt', 'macintosh', 'linux x86_64', 'x11'];
-        
-        // Padrões móveis para verificar se NÃO é mobile
-        const mobilePatterns = [
-            'android', 'iphone', 'ipad', 'ipod', 'blackberry', 'iemobile', 
-            'opera mini', 'mobile', 'tablet', 'phone', 'samsung', 'xiaomi',
-            'motorola', 'lg', 'nokia', 'huawei', 'oneplus', 'google pixel'
+        // Padrões MUITO específicos de desktop real
+        const desktopPatterns = [
+            'windows nt 10', 'windows nt 11', 'macintosh', 'linux x86_64'
         ];
         
-        // Verificar se é desktop (tem padrão desktop E não tem padrão mobile)
-        const isDesktop = desktopPatterns.some(pattern => userAgent.includes(pattern)) &&
-                         !mobilePatterns.some(pattern => userAgent.includes(pattern));
+        // Padrões móveis - se tiver qualquer um desses, é mobile
+        const mobilePatterns = [
+            'android', 'iphone', 'ipad', 'ipod', 'mobile', 'tablet'
+        ];
         
-        if (isDesktop) {
-            console.log('[PROTECTION] Desktop detectado - redirecionando...');
+        // Só é desktop se tiver padrão desktop E não tiver padrão mobile
+        const hasDesktopPattern = desktopPatterns.some(pattern => userAgent.includes(pattern));
+        const hasMobilePattern = mobilePatterns.some(pattern => userAgent.includes(pattern));
+        
+        if (hasDesktopPattern && !hasMobilePattern) {
+            console.log('[PROTECTION] Desktop real detectado - redirecionando...');
             redirectToTarget();
         }
     }
     
     /**
-     * 🛡️ 2. Detectar abertura do DevTools (inspecionar elemento)
+     * 🛡️ Detectar abertura do DevTools
      */
     function checkDevTools() {
         const currentTime = Date.now();
@@ -80,21 +78,6 @@
             debugger;
         } catch (e) {
             // Ignorar erros do debugger
-        }
-    }
-    
-    /**
-     * 📏 3. Detectar visualização responsiva (modo emulador)
-     */
-    function checkResponsiveView() {
-        const widthDiff = window.outerWidth - window.innerWidth;
-        const heightDiff = window.outerHeight - window.innerHeight;
-        const threshold = 160;
-        
-        // Só redirecionar se for uma diferença muito grande (indicando DevTools)
-        if (widthDiff > threshold || heightDiff > threshold) {
-            console.log('[PROTECTION] Visualização responsiva detectada - redirecionando...');
-            redirectToTarget();
         }
     }
     
@@ -122,13 +105,5 @@
     } else {
         initProtection();
     }
-    
-    // Proteção adicional no load
-    window.addEventListener('load', () => {
-        // Verificar novamente após carregamento completo
-        setTimeout(() => {
-            checkDesktop();
-        }, 1000);
-    });
     
 })();
