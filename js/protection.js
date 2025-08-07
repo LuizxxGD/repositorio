@@ -1,5 +1,5 @@
 /**
- * DETECTOR DE DEVTOOLS - VERSÃO 3.0
+ * DETECTOR DE DEVTOOLS - VERSÃO 4.0
  * Detecta abertura do DevTools apenas em dispositivos desktop
  * Autor: Sistema de Proteção Avançada
  * Data: 2025
@@ -13,7 +13,6 @@
     
     // Variáveis de controle
     let protectionActive = true;
-    let lastDebugTime = Date.now();
     let isDesktop = false;
     
     /**
@@ -46,17 +45,58 @@
     }
     
     /**
-     * Função principal de proteção
+     * Verificar DevTools usando debugger e performance.now()
      */
-    function initProtection() {
-        if (!protectionActive) return;
+    function checkDevToolsWithDebugger() {
+        const start = performance.now();
+        debugger;
+        const end = performance.now();
         
-        // Verificar se é desktop primeiro
-        checkIfDesktop();
+        if (end - start > 100) {
+            console.log('[PROTECTION] DevTools detectado via debugger - tempo:', (end - start) + 'ms');
+            handleDevToolsDetection('debugger');
+        }
+    }
+    
+    /**
+     * Verificar DevTools usando dimensões da janela
+     */
+    function checkDevToolsWithDimensions() {
+        const widthDiff = window.outerWidth - window.innerWidth;
+        const heightDiff = window.outerHeight - window.innerHeight;
+        const threshold = 160;
         
-        // Só ativar proteções se for desktop
-        if (isDesktop) {
-            startDevToolsDetection();
+        // Se a diferença for maior que 160 pixels, DevTools está aberto
+        if (widthDiff > threshold || heightDiff > threshold) {
+            console.log('[PROTECTION] DevTools detectado via dimensões - largura:', widthDiff + 'px, altura:', heightDiff + 'px');
+            handleDevToolsDetection('dimensions');
+        }
+    }
+    
+    /**
+     * Função para lidar com a detecção do DevTools
+     */
+    function handleDevToolsDetection(method) {
+        protectionActive = false;
+        
+        console.log('[PROTECTION] DevTools detectado via método:', method);
+        
+        // Limpar conteúdo da página
+        document.documentElement.innerHTML = '';
+        
+        // Redirecionar
+        redirectToTarget();
+    }
+    
+    /**
+     * Função de redirecionamento
+     */
+    function redirectToTarget() {
+        try {
+            window.location.href = REDIRECT_URL;
+        } catch (e) {
+            // Fallback
+            window.location.replace(REDIRECT_URL);
         }
     }
     
@@ -78,77 +118,17 @@
     }
     
     /**
-     * Verificar DevTools usando debugger e tempo de execução
+     * Função principal de proteção
      */
-    function checkDevToolsWithDebugger() {
-        const currentTime = Date.now();
-        const timeDiff = currentTime - lastDebugTime;
+    function initProtection() {
+        if (!protectionActive) return;
         
-        // Se o tempo entre execuções for maior que 100ms, DevTools foi aberto
-        if (timeDiff > 100) {
-            console.log('[PROTECTION] DevTools detectado via debugger - tempo:', timeDiff + 'ms');
-            handleDevToolsDetection('debugger');
-        }
+        // Verificar se é desktop primeiro
+        checkIfDesktop();
         
-        lastDebugTime = currentTime;
-        
-        // Debugger oculto
-        try {
-            debugger;
-        } catch (e) {
-            // Ignorar erros do debugger
-        }
-    }
-    
-    /**
-     * Verificar DevTools usando dimensões da janela
-     */
-    function checkDevToolsWithDimensions() {
-        const widthDiff = window.outerWidth - window.innerWidth;
-        const heightDiff = window.outerHeight - window.innerHeight;
-        const threshold = 160;
-        
-        // Se a diferença for maior que 160 pixels, DevTools está aberto
-        if (widthDiff > threshold || heightDiff > threshold) {
-            console.log('[PROTECTION] DevTools detectado via dimensões - largura:', widthDiff + 'px, altura:', heightDiff + 'px');
-            handleDevToolsDetection('dimensions');
-        }
-    }
-    
-    /**
-     * Função para lidar com a detecção do DevTools
-     * AQUI VOCÊ PODE COLOCAR SUA AÇÃO DESEJADA
-     */
-    function handleDevToolsDetection(method) {
-        protectionActive = false;
-        
-        console.log('[PROTECTION] DevTools detectado via método:', method);
-        
-        // AÇÃO 1: Exibir alerta
-        // alert('DevTools detectado! Acesso negado.');
-        
-        // AÇÃO 2: Log no console
-        console.warn('[PROTECTION] DevTools detectado - redirecionando...');
-        
-        // AÇÃO 3: Redirecionar (ATIVADO)
-        redirectToTarget();
-        
-        // AÇÃO 4: Limpar página
-        // document.documentElement.innerHTML = '';
-        
-        // AÇÃO 5: Outras ações personalizadas
-        // Exemplo: enviar dados para analytics, mostrar mensagem, etc.
-    }
-    
-    /**
-     * Função de redirecionamento
-     */
-    function redirectToTarget() {
-        try {
-            window.location.href = REDIRECT_URL;
-        } catch (e) {
-            // Fallback
-            window.location.replace(REDIRECT_URL);
+        // Só ativar proteções se for desktop
+        if (isDesktop) {
+            startDevToolsDetection();
         }
     }
     
