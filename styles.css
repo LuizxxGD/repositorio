@@ -1428,12 +1428,16 @@ body {
   overflow: hidden;
   border-radius: 1.5rem;
   box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .carousel-track {
   display: flex;
   transition: transform 0.5s ease-in-out;
   will-change: transform;
+  gap: 20px;
+  padding: 20px;
 }
 
 .carousel-slide {
@@ -1446,6 +1450,27 @@ body {
   height: 100%;
   object-fit: cover;
   will-change: transform;
+}
+
+/* Estilos específicos para bonus-card no carrossel */
+.carousel-container .bonus-card {
+  min-width: 300px;
+  max-width: 400px;
+  flex: 0 0 auto;
+  margin: 0 10px;
+  opacity: 0.7;
+  transform: scale(0.9);
+  transition: all 0.3s ease;
+}
+
+.carousel-container .bonus-card.active {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.carousel-container .bonus-card:not(.active) {
+  opacity: 0.5;
+  transform: scale(0.8);
 }
 
 .carousel-btn {

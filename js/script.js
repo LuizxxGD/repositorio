@@ -301,8 +301,8 @@ class BonusesCarousel {
   }
 
   setupCarousel() {
-    this.track = document.querySelector('.bonuses-track');
-    this.cards = document.querySelectorAll('.bonus-card');
+    this.track = document.querySelector('.carousel-track');
+    this.cards = document.querySelectorAll('.carousel-container .bonus-card');
     this.indicators = document.querySelectorAll('.indicator');
     this.totalCards = this.cards.length;
 
