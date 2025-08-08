@@ -326,9 +326,10 @@ class BonusesCarousel {
       clearInterval(this.interval);
     }
     
+    // Iniciar o carrossel automático a cada 4 segundos
     this.interval = setInterval(() => {
       this.nextCard();
-    }, 3000); // 3 segundos por card
+    }, 4000);
   }
 
   nextCard() {
@@ -427,7 +428,6 @@ class IOSUnlockerApp {
     this.setupAccessibility();
 
     console.log('iOS Unlocker Pro - Mobile Optimized Version Loaded');
-    console.log('Carrossel de bônus inicializado:', this.bonusesCarousel);
   }
 
   setupAccessibility() {
