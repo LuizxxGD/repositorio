@@ -1,0 +1,5 @@
+[33m1e46db5[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m)[m feat: adiciona carrossel automático dos bônus e estilização do botão CTA
+[33me78eb58[m[33m ([m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m Corrigido carrossel de bônus - adicionados estilos inline e JavaScript atualizado
+[33m0207a5a[m Atualizada seção de bônus com novo design e carrossel funcional
+[33mbe86c9f[m Simplifica carrossel de bônus para corrigir problema de congelamento
+[33maf3b00a[m Corrige carrossel de bônus com proporção 9:16 e funcionamento automático
