@@ -283,10 +283,95 @@ class PerformanceMonitor {
   }
 }
 
+// Carrossel de Bônus
+class BonusesCarousel {
+  constructor() {
+    this.track = document.querySelector('.bonuses-track');
+    this.cards = document.querySelectorAll('.bonus-card');
+    this.indicators = document.querySelectorAll('.indicator');
+    this.currentIndex = 0;
+    this.interval = null;
+    this.totalCards = this.cards.length;
+    this.init();
+  }
+
+  init() {
+    if (!this.track || this.cards.length === 0) return;
+
+    // Ativar o primeiro card
+    this.activateCard(0);
+    
+    // Iniciar o carrossel automático
+    this.startCarousel();
+    
+    // Adicionar eventos aos indicadores
+    this.setupIndicators();
+  }
+
+  startCarousel() {
+    this.interval = setInterval(() => {
+      this.nextCard();
+    }, 4000); // 4 segundos por card
+  }
+
+  nextCard() {
+    this.currentIndex = (this.currentIndex + 1) % this.totalCards;
+    this.activateCard(this.currentIndex);
+  }
+
+  activateCard(index) {
+    // Remover classes ativas de todos os cards
+    this.cards.forEach(card => {
+      card.classList.remove('active');
+    });
+
+    // Remover classes ativas de todos os indicadores
+    this.indicators.forEach(indicator => {
+      indicator.classList.remove('active');
+    });
+
+    // Ativar o card atual
+    if (this.cards[index]) {
+      this.cards[index].classList.add('active');
+    }
+
+    // Ativar o indicador atual
+    if (this.indicators[index]) {
+      this.indicators[index].classList.add('active');
+    }
+
+    // Mover o track
+    this.track.style.transform = `translateX(-${index * 100}%)`;
+  }
+
+  setupIndicators() {
+    this.indicators.forEach((indicator, index) => {
+      indicator.addEventListener('click', () => {
+        this.currentIndex = index;
+        this.activateCard(index);
+        
+        // Reiniciar o intervalo
+        if (this.interval) {
+          clearInterval(this.interval);
+          this.startCarousel();
+        }
+      });
+    });
+  }
+
+  destroy() {
+    if (this.interval) {
+      clearInterval(this.interval);
+      this.interval = null;
+    }
+  }
+}
+
 // Main application class
 class IOSUnlockerApp {
   constructor() {
     this.carousel = null;
+    this.bonusesCarousel = null;
     this.scroller = null;
     this.scrollHandler = null;
     this.imagePreloader = null;
@@ -306,6 +391,7 @@ class IOSUnlockerApp {
   setup() {
     // Initialize components
     this.carousel = new TestimonialsCarousel();
+    this.bonusesCarousel = new BonusesCarousel();
     this.scroller = new SmoothScroller();
     this.scrollHandler = new ScrollHandler();
     this.imagePreloader = new ImagePreloader();
@@ -354,6 +440,9 @@ class IOSUnlockerApp {
   destroy() {
     if (this.carousel) {
       this.carousel.destroy();
+    }
+    if (this.bonusesCarousel) {
+      this.bonusesCarousel.destroy();
     }
     // Clean up other resources if needed
   }
