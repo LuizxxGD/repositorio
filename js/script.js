@@ -326,10 +326,10 @@ class BonusesCarousel {
       clearInterval(this.interval);
     }
     
-    // Iniciar o carrossel automático a cada 4 segundos
+    // Iniciar o carrossel automático a cada 3 segundos para transição mais suave
     this.interval = setInterval(() => {
       this.nextCard();
-    }, 4000);
+    }, 3000);
   }
 
   nextCard() {
@@ -338,30 +338,34 @@ class BonusesCarousel {
   }
 
   showCard(index) {
-    // Esconder todos os cards
+    // Esconder todos os cards com transição suave
     this.cards.forEach(card => {
       card.classList.remove('active');
-      card.style.opacity = '0.5';
+      card.style.opacity = '0.3';
       card.style.transform = 'scale(0.8)';
+      card.style.transition = 'all 1s ease-in-out';
     });
 
     // Remover classes ativas de todos os indicadores
     this.indicators.forEach(indicator => {
       indicator.classList.remove('active');
       indicator.style.background = 'rgba(255, 255, 255, 0.3)';
+      indicator.style.transition = 'all 0.5s ease';
     });
 
-    // Mostrar o card atual
+    // Mostrar o card atual com transição suave
     if (this.cards[index]) {
       this.cards[index].classList.add('active');
       this.cards[index].style.opacity = '1';
       this.cards[index].style.transform = 'scale(1)';
+      this.cards[index].style.transition = 'all 1s ease-in-out';
     }
 
     // Ativar o indicador atual
     if (this.indicators[index]) {
       this.indicators[index].classList.add('active');
       this.indicators[index].style.background = '#ff6600';
+      this.indicators[index].style.transition = 'all 0.5s ease';
     }
   }
 
