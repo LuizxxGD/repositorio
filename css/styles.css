@@ -1341,18 +1341,13 @@ body {
 }
 
 .bonus-card {
-  min-width: 450px;
-  max-width: 450px;
+  width: 374px;
+  height: 750px;
   flex: 0 0 auto;
   margin: 0 20px;
   opacity: 1;
   transform: scale(1);
   transition: all 0.3s ease;
-  min-height: 800px;
-  max-height: 1000px;
-  overflow-y: auto;
-  scrollbar-width: thin;
-  scrollbar-color: #ff6600 rgba(0,0,0,0.3);
 }
 
 .bonus-card::-webkit-scrollbar {
@@ -1380,10 +1375,8 @@ body {
   }
   
   .bonus-card {
-    min-width: 380px !important;
-    max-width: 380px !important;
-    min-height: 700px !important;
-    max-height: 900px !important;
+    width: 320px !important;
+    height: 650px !important;
   }
 }
 
@@ -1393,10 +1386,8 @@ body {
   }
   
   .bonus-card {
-    min-width: 320px !important;
-    max-width: 320px !important;
-    min-height: 600px !important;
-    max-height: 800px !important;
+    width: 280px !important;
+    height: 600px !important;
   }
 }
 
@@ -1404,16 +1395,15 @@ body {
 .bonus-card .bonus-content {
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
-  gap: 25px;
+  justify-content: space-between;
   height: 100%;
-  padding: 40px;
+  padding: 30px;
   text-align: center;
 }
 
 .bonus-card .bonus-image {
-  width: 280px;
-  height: 280px;
+  width: 200px;
+  height: 200px;
   object-fit: cover;
   border-radius: 15px;
   margin: 0 auto;
@@ -1423,79 +1413,50 @@ body {
 .bonus-card .bonus-badge {
   background: #ff6600;
   color: #000000;
-  padding: 15px 30px;
+  padding: 10px 20px;
   border-radius: 25px;
   font-weight: bold;
-  font-size: 16px;
+  font-size: 14px;
   display: inline-block;
   text-shadow: 1px 1px 2px rgba(255,255,255,0.8);
   box-shadow: 0 4px 8px rgba(0,0,0,0.3);
-  margin-top: 20px;
+  margin-top: 15px;
 }
 
 .bonus-card .bonus-title {
-  font-size: 36px;
+  font-size: 28px;
   color: #ff6600;
-  margin-bottom: 12px;
+  margin-bottom: 8px;
   font-weight: bold;
   text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
 }
 
 .bonus-card .bonus-subtitle {
-  font-size: 32px;
+  font-size: 24px;
   color: #ffffff;
-  margin-bottom: 12px;
+  margin-bottom: 8px;
   font-weight: bold;
   text-shadow: 1px 1px 2px rgba(0,0,0,0.8);
 }
 
 .bonus-card .bonus-price {
-  font-size: 26px;
+  font-size: 20px;
   color: #ff0000;
-  margin-bottom: 15px;
+  margin-bottom: 12px;
   font-weight: bold;
 }
 
 .bonus-card .bonus-description {
   color: #ffffff;
-  font-size: 18px;
-  line-height: 1.5;
+  font-size: 16px;
+  line-height: 1.4;
   text-shadow: 1px 1px 2px rgba(0,0,0,0.8);
 }
 
 /* Responsividade para os cards */
 @media (max-width: 768px) {
   .bonus-card .bonus-content {
-    padding: 30px;
-    gap: 20px;
-  }
-  
-  .bonus-card .bonus-image {
-    width: 220px;
-    height: 220px;
-  }
-  
-  .bonus-card .bonus-title {
-    font-size: 30px;
-  }
-  
-  .bonus-card .bonus-subtitle {
-    font-size: 26px;
-  }
-  
-  .bonus-card .bonus-price {
-    font-size: 22px;
-  }
-  
-  .bonus-card .bonus-description {
-    font-size: 16px;
-  }
-}
-
-@media (max-width: 480px) {
-  .bonus-card .bonus-content {
     padding: 25px;
-    gap: 18px;
   }
   
   .bonus-card .bonus-image {
@@ -1504,18 +1465,45 @@ body {
   }
   
   .bonus-card .bonus-title {
-    font-size: 26px;
+    font-size: 24px;
   }
   
   .bonus-card .bonus-subtitle {
-    font-size: 22px;
-  }
-  
-  .bonus-card .bonus-price {
     font-size: 20px;
   }
   
+  .bonus-card .bonus-price {
+    font-size: 18px;
+  }
+  
   .bonus-card .bonus-description {
-    font-size: 15px;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .bonus-card .bonus-content {
+    padding: 20px;
+  }
+  
+  .bonus-card .bonus-image {
+    width: 150px;
+    height: 150px;
+  }
+  
+  .bonus-card .bonus-title {
+    font-size: 20px;
+  }
+  
+  .bonus-card .bonus-subtitle {
+    font-size: 18px;
+  }
+  
+  .bonus-card .bonus-price {
+    font-size: 16px;
+  }
+  
+  .bonus-card .bonus-description {
+    font-size: 13px;
   }
 }
