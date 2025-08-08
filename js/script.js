@@ -283,120 +283,10 @@ class PerformanceMonitor {
   }
 }
 
-// Carrossel de Bônus
-class BonusesCarousel {
-  constructor() {
-    this.currentIndex = 0;
-    this.interval = null;
-    this.init();
-  }
-
-  init() {
-    // Aguardar o DOM estar pronto
-    if (document.readyState === 'loading') {
-      document.addEventListener('DOMContentLoaded', () => this.setupCarousel());
-    } else {
-      this.setupCarousel();
-    }
-  }
-
-  setupCarousel() {
-    this.track = document.querySelector('.carousel-track');
-    this.cards = document.querySelectorAll('.carousel-container .bonus-card');
-    this.indicators = document.querySelectorAll('.indicator');
-    this.totalCards = this.cards.length;
-
-    if (!this.track || this.cards.length === 0) {
-      console.log('Carrossel de bônus não encontrado');
-      return;
-    }
-
-    // Ativar o primeiro card
-    this.showCard(0);
-    
-    // Iniciar o carrossel automático
-    this.startCarousel();
-    
-    // Adicionar eventos aos indicadores
-    this.setupIndicators();
-  }
-
-  startCarousel() {
-    if (this.interval) {
-      clearInterval(this.interval);
-    }
-    
-    // Iniciar o carrossel automático a cada 3 segundos para transição mais suave
-    this.interval = setInterval(() => {
-      this.nextCard();
-    }, 3000);
-  }
-
-  nextCard() {
-    this.currentIndex = (this.currentIndex + 1) % this.totalCards;
-    this.showCard(this.currentIndex);
-  }
-
-  showCard(index) {
-    // Esconder todos os cards com transição suave
-    this.cards.forEach(card => {
-      card.classList.remove('active');
-      card.style.opacity = '0.3';
-      card.style.transform = 'scale(0.8)';
-      card.style.transition = 'all 1s ease-in-out';
-    });
-
-    // Remover classes ativas de todos os indicadores
-    this.indicators.forEach(indicator => {
-      indicator.classList.remove('active');
-      indicator.style.background = 'rgba(255, 255, 255, 0.3)';
-      indicator.style.transition = 'all 0.5s ease';
-    });
-
-    // Mostrar o card atual com transição suave
-    if (this.cards[index]) {
-      this.cards[index].classList.add('active');
-      this.cards[index].style.opacity = '1';
-      this.cards[index].style.transform = 'scale(1)';
-      this.cards[index].style.transition = 'all 1s ease-in-out';
-    }
-
-    // Ativar o indicador atual
-    if (this.indicators[index]) {
-      this.indicators[index].classList.add('active');
-      this.indicators[index].style.background = '#ff6600';
-      this.indicators[index].style.transition = 'all 0.5s ease';
-    }
-  }
-
-  setupIndicators() {
-    this.indicators.forEach((indicator, index) => {
-      indicator.addEventListener('click', () => {
-        this.currentIndex = index;
-        this.showCard(index);
-        
-        // Reiniciar o intervalo
-        if (this.interval) {
-          clearInterval(this.interval);
-          this.startCarousel();
-        }
-      });
-    });
-  }
-
-  destroy() {
-    if (this.interval) {
-      clearInterval(this.interval);
-      this.interval = null;
-    }
-  }
-}
-
 // Main application class
 class IOSUnlockerApp {
   constructor() {
     this.carousel = null;
-    this.bonusesCarousel = null;
     this.scroller = null;
     this.scrollHandler = null;
     this.imagePreloader = null;
@@ -416,7 +306,6 @@ class IOSUnlockerApp {
   setup() {
     // Initialize components
     this.carousel = new TestimonialsCarousel();
-    this.bonusesCarousel = new BonusesCarousel();
     this.scroller = new SmoothScroller();
     this.scrollHandler = new ScrollHandler();
     this.imagePreloader = new ImagePreloader();
@@ -465,9 +354,6 @@ class IOSUnlockerApp {
   destroy() {
     if (this.carousel) {
       this.carousel.destroy();
-    }
-    if (this.bonusesCarousel) {
-      this.bonusesCarousel.destroy();
     }
     // Clean up other resources if needed
   }

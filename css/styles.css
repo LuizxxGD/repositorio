@@ -1306,3 +1306,69 @@ body {
     min-width: 160px;
   }
 }
+
+/* Carrossel de Bônus - Animação Contínua */
+@keyframes carousel-scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(-50% - 20px));
+  }
+}
+
+.carousel-container {
+  position: relative;
+  overflow: hidden;
+  border-radius: 1.5rem;
+  box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25);
+  max-width: 1200px;
+  margin: 0 auto;
+  background: rgba(0,0,0,0.1);
+}
+
+.carousel-track {
+  display: flex;
+  gap: 20px;
+  padding: 20px;
+  animation: carousel-scroll 30s linear infinite;
+  will-change: transform;
+  width: max-content;
+}
+
+.carousel-track:hover {
+  animation-play-state: paused;
+}
+
+.bonus-card {
+  min-width: 300px;
+  max-width: 400px;
+  flex: 0 0 auto;
+  margin: 0 10px;
+  opacity: 1;
+  transform: scale(1);
+  transition: all 0.3s ease;
+}
+
+/* Responsividade para mobile */
+@media (max-width: 768px) {
+  .carousel-track {
+    animation-duration: 20s;
+  }
+  
+  .bonus-card {
+    min-width: 250px !important;
+    max-width: 300px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .carousel-track {
+    animation-duration: 15s;
+  }
+  
+  .bonus-card {
+    min-width: 200px !important;
+    max-width: 250px !important;
+  }
+}
