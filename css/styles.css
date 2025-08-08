@@ -102,9 +102,19 @@ body {
 .subtitle {
   display: block;
   font-size: clamp(1rem, 4vw, 1.5rem);
-  font-weight: 400;
-  color: #ccc;
+  font-weight: 700;
   margin-top: 0.5rem;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+}
+
+.red-text {
+  color: #ff0000;
+  text-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
+}
+
+.purple-text {
+  color: #8a2be2;
+  text-shadow: 0 0 10px rgba(138, 43, 226, 0.5);
 }
 
 .hero-logo {
