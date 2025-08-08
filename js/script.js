@@ -286,39 +286,41 @@ class PerformanceMonitor {
 // Carrossel de Bônus
 class BonusesCarousel {
   constructor() {
-    this.track = document.querySelector('.bonuses-track');
-    this.cards = document.querySelectorAll('.bonus-card');
-    this.indicators = document.querySelectorAll('.indicator');
     this.currentIndex = 0;
     this.interval = null;
-    this.totalCards = this.cards.length;
     this.init();
   }
 
   init() {
-    // Aguardar um pouco para garantir que o DOM esteja pronto
-    setTimeout(() => {
-      this.track = document.querySelector('.bonuses-track');
-      this.cards = document.querySelectorAll('.bonus-card');
-      this.indicators = document.querySelectorAll('.indicator');
-      this.totalCards = this.cards.length;
+    // Aguardar o DOM estar pronto
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', () => this.setupCarousel());
+    } else {
+      this.setupCarousel();
+    }
+  }
 
-      if (!this.track || this.cards.length === 0) {
-        console.log('Carrossel de bônus não encontrado');
-        return;
-      }
+  setupCarousel() {
+    this.track = document.querySelector('.bonuses-track');
+    this.cards = document.querySelectorAll('.bonus-card');
+    this.indicators = document.querySelectorAll('.indicator');
+    this.totalCards = this.cards.length;
 
-      console.log('Inicializando carrossel de bônus com', this.totalCards, 'cards');
+    if (!this.track || this.cards.length === 0) {
+      console.log('Carrossel de bônus não encontrado');
+      return;
+    }
 
-      // Ativar o primeiro card
-      this.activateCard(0);
-      
-      // Iniciar o carrossel automático
-      this.startCarousel();
-      
-      // Adicionar eventos aos indicadores
-      this.setupIndicators();
-    }, 100);
+    console.log('Inicializando carrossel de bônus com', this.totalCards, 'cards');
+
+    // Ativar o primeiro card
+    this.showCard(0);
+    
+    // Iniciar o carrossel automático
+    this.startCarousel();
+    
+    // Adicionar eventos aos indicadores
+    this.setupIndicators();
   }
 
   startCarousel() {
@@ -328,18 +330,18 @@ class BonusesCarousel {
     
     this.interval = setInterval(() => {
       this.nextCard();
-    }, 4000); // 4 segundos por card
+    }, 3000); // 3 segundos por card
   }
 
   nextCard() {
     this.currentIndex = (this.currentIndex + 1) % this.totalCards;
-    this.activateCard(this.currentIndex);
+    this.showCard(this.currentIndex);
   }
 
-  activateCard(index) {
-    console.log('Ativando card:', index);
+  showCard(index) {
+    console.log('Mostrando card:', index);
     
-    // Remover classes ativas de todos os cards
+    // Esconder todos os cards
     this.cards.forEach(card => {
       card.classList.remove('active');
     });
@@ -349,7 +351,7 @@ class BonusesCarousel {
       indicator.classList.remove('active');
     });
 
-    // Ativar o card atual
+    // Mostrar o card atual
     if (this.cards[index]) {
       this.cards[index].classList.add('active');
     }
@@ -358,16 +360,13 @@ class BonusesCarousel {
     if (this.indicators[index]) {
       this.indicators[index].classList.add('active');
     }
-
-    // Mover o track
-    this.track.style.transform = `translateX(-${index * 100}%)`;
   }
 
   setupIndicators() {
     this.indicators.forEach((indicator, index) => {
       indicator.addEventListener('click', () => {
         this.currentIndex = index;
-        this.activateCard(index);
+        this.showCard(index);
         
         // Reiniciar o intervalo
         if (this.interval) {
