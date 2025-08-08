@@ -101,10 +101,11 @@ body {
 
 .subtitle {
   display: block;
-  font-size: clamp(1rem, 4vw, 1.5rem);
+  font-size: clamp(1.5rem, 5vw, 2.5rem);
   font-weight: 700;
   margin-top: 0.5rem;
   text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+  line-height: 1.2;
 }
 
 .red-text {
@@ -964,5 +965,126 @@ body {
   
   .faq-answer p {
     font-size: 0.9rem;
+  }
+}
+
+/* SEÇÃO PROMOCIONAL COM PREÇOS E GARANTIA */
+.promo-section {
+  background: #000;
+  padding: 60px 20px;
+  text-align: center;
+  position: relative;
+}
+
+.guarantee-text {
+  margin-bottom: 30px;
+}
+
+.guarantee-title {
+  color: white;
+  font-size: clamp(1.2rem, 3vw, 1.8rem);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 10px;
+}
+
+.price-section {
+  margin: 40px 0;
+}
+
+.old-price {
+  margin-bottom: 15px;
+}
+
+.old-price-text {
+  color: #ff0000;
+  font-size: clamp(2rem, 6vw, 3.5rem);
+  font-weight: 900;
+  text-decoration: line-through;
+  text-decoration-thickness: 3px;
+  text-decoration-color: #ff0000;
+}
+
+.only-text {
+  margin-bottom: 15px;
+}
+
+.only-text-content {
+  color: white;
+  font-size: clamp(1.5rem, 4vw, 2.2rem);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.new-price {
+  margin-bottom: 40px;
+}
+
+.new-price-text {
+  color: #00ff00;
+  font-size: clamp(3rem, 8vw, 5rem);
+  font-weight: 900;
+  text-shadow: 0 0 20px rgba(0, 255, 0, 0.5);
+}
+
+.promo-cta {
+  margin-top: 30px;
+}
+
+.promo-button {
+  display: inline-block;
+  background: linear-gradient(45deg, #ff8c00, #ff4500);
+  color: white;
+  padding: 20px 40px;
+  border-radius: 10px;
+  text-decoration: none;
+  font-size: clamp(1.2rem, 3vw, 1.5rem);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  box-shadow: 0 8px 25px rgba(255, 140, 0, 0.4);
+  transition: all 0.3s ease;
+  border: none;
+  cursor: pointer;
+}
+
+.promo-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 35px rgba(255, 140, 0, 0.6);
+  background: linear-gradient(45deg, #ff9c20, #ff5500);
+}
+
+.promo-button:focus {
+  outline: 2px solid #ff8c00;
+  outline-offset: 2px;
+}
+
+/* Mobile responsive for promo section */
+@media (max-width: 768px) {
+  .promo-section {
+    padding: 40px 20px;
+  }
+  
+  .guarantee-title {
+    font-size: clamp(1rem, 4vw, 1.5rem);
+  }
+  
+  .old-price-text {
+    font-size: clamp(1.5rem, 8vw, 2.5rem);
+  }
+  
+  .only-text-content {
+    font-size: clamp(1.2rem, 5vw, 1.8rem);
+  }
+  
+  .new-price-text {
+    font-size: clamp(2.5rem, 10vw, 4rem);
+  }
+  
+  .promo-button {
+    padding: 15px 30px;
+    font-size: clamp(1rem, 4vw, 1.3rem);
   }
 }
