@@ -1341,13 +1341,14 @@ body {
 }
 
 .bonus-card {
-  min-width: 300px;
+  min-width: 400px;
   max-width: 400px;
   flex: 0 0 auto;
-  margin: 0 10px;
+  margin: 0 15px;
   opacity: 1;
   transform: scale(1);
   transition: all 0.3s ease;
+  height: 800px;
 }
 
 /* Responsividade para mobile */
@@ -1357,8 +1358,9 @@ body {
   }
   
   .bonus-card {
-    min-width: 250px !important;
-    max-width: 300px !important;
+    min-width: 350px !important;
+    max-width: 350px !important;
+    height: 700px !important;
   }
 }
 
@@ -1368,7 +1370,8 @@ body {
   }
   
   .bonus-card {
-    min-width: 200px !important;
-    max-width: 250px !important;
+    min-width: 300px !important;
+    max-width: 300px !important;
+    height: 600px !important;
   }
 }
