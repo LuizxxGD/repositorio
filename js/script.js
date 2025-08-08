@@ -296,19 +296,36 @@ class BonusesCarousel {
   }
 
   init() {
-    if (!this.track || this.cards.length === 0) return;
+    // Aguardar um pouco para garantir que o DOM esteja pronto
+    setTimeout(() => {
+      this.track = document.querySelector('.bonuses-track');
+      this.cards = document.querySelectorAll('.bonus-card');
+      this.indicators = document.querySelectorAll('.indicator');
+      this.totalCards = this.cards.length;
 
-    // Ativar o primeiro card
-    this.activateCard(0);
-    
-    // Iniciar o carrossel automático
-    this.startCarousel();
-    
-    // Adicionar eventos aos indicadores
-    this.setupIndicators();
+      if (!this.track || this.cards.length === 0) {
+        console.log('Carrossel de bônus não encontrado');
+        return;
+      }
+
+      console.log('Inicializando carrossel de bônus com', this.totalCards, 'cards');
+
+      // Ativar o primeiro card
+      this.activateCard(0);
+      
+      // Iniciar o carrossel automático
+      this.startCarousel();
+      
+      // Adicionar eventos aos indicadores
+      this.setupIndicators();
+    }, 100);
   }
 
   startCarousel() {
+    if (this.interval) {
+      clearInterval(this.interval);
+    }
+    
     this.interval = setInterval(() => {
       this.nextCard();
     }, 4000); // 4 segundos por card
@@ -320,6 +337,8 @@ class BonusesCarousel {
   }
 
   activateCard(index) {
+    console.log('Ativando card:', index);
+    
     // Remover classes ativas de todos os cards
     this.cards.forEach(card => {
       card.classList.remove('active');
@@ -407,6 +426,7 @@ class IOSUnlockerApp {
     this.setupAccessibility();
 
     console.log('iOS Unlocker Pro - Mobile Optimized Version Loaded');
+    console.log('Carrossel de bônus inicializado:', this.bonusesCarousel);
   }
 
   setupAccessibility() {

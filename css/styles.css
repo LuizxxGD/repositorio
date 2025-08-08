@@ -1144,10 +1144,15 @@ body {
 /* CARROSSEL DE BÔNUS */
 .bonuses-carousel {
   position: relative;
-  max-width: 400px;
+  width: 100%;
+  max-width: 360px;
   margin: 0 auto;
   overflow: hidden;
-  height: 300px;
+  aspect-ratio: 9/16;
+  height: auto;
+  min-height: 500px;
+  background: #000;
+  border-radius: 15px;
 }
 
 .bonuses-track {
@@ -1155,6 +1160,7 @@ body {
   transition: transform 0.8s ease-in-out;
   width: 100%;
   height: 100%;
+  position: relative;
 }
 
 .bonuses-track .bonus-card {
@@ -1168,11 +1174,21 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 20px;
+  background: #1a1a1a;
+  border-radius: 15px;
+  border: 1px solid #333;
+  box-sizing: border-box;
+  color: white;
 }
 
 .bonuses-track .bonus-card.active {
   opacity: 1;
   transform: scale(1);
+  border-color: #ff8c00;
+  box-shadow: 0 8px 25px rgba(255, 140, 0, 0.3);
 }
 
 /* Indicadores do carrossel */
@@ -1206,6 +1222,7 @@ body {
   .bonuses-carousel {
     max-width: 100%;
     padding: 0 20px;
+    min-height: 400px;
   }
   
   .carousel-indicators {
