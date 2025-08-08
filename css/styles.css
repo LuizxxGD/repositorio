@@ -1234,3 +1234,75 @@ body {
     height: 10px;
   }
 }
+
+/* Estilos para o botão elementor-button */
+.elementor-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 1rem 2rem;
+  background: linear-gradient(45deg, rgb(106, 13, 173), rgb(255, 140, 0));
+  color: white;
+  border: none;
+  border-radius: 50px;
+  font-size: clamp(0.9rem, 3vw, 1.1rem);
+  text-decoration: none;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+  box-shadow: 0 8px 25px rgba(255, 140, 0, 0.3);
+  cursor: pointer;
+  will-change: transform;
+  min-width: 200px;
+  text-align: center;
+}
+
+.elementor-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 35px rgba(255, 140, 0, 0.4);
+  background: linear-gradient(45deg, rgb(120, 15, 195), rgb(255, 160, 20));
+  color: white;
+  text-decoration: none;
+}
+
+.elementor-button:focus {
+  outline: 2px solid rgba(255, 140, 0, 0.5);
+  outline-offset: 2px;
+}
+
+.elementor-button:active {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(255, 140, 0, 0.3);
+}
+
+.elementor-button-content-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.elementor-button-text {
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Responsividade para o botão */
+@media (max-width: 768px) {
+  .elementor-button {
+    padding: 0.8rem 1.5rem;
+    font-size: 0.9rem;
+    min-width: 180px;
+  }
+}
+
+@media (max-width: 480px) {
+  .elementor-button {
+    padding: 0.7rem 1.2rem;
+    font-size: 0.8rem;
+    min-width: 160px;
+  }
+}

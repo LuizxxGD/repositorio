@@ -311,8 +311,6 @@ class BonusesCarousel {
       return;
     }
 
-    console.log('Inicializando carrossel de bônus com', this.totalCards, 'cards');
-
     // Ativar o primeiro card
     this.showCard(0);
     
@@ -339,26 +337,30 @@ class BonusesCarousel {
   }
 
   showCard(index) {
-    console.log('Mostrando card:', index);
-    
     // Esconder todos os cards
     this.cards.forEach(card => {
       card.classList.remove('active');
+      card.style.opacity = '0.5';
+      card.style.transform = 'scale(0.8)';
     });
 
     // Remover classes ativas de todos os indicadores
     this.indicators.forEach(indicator => {
       indicator.classList.remove('active');
+      indicator.style.background = 'rgba(255, 255, 255, 0.3)';
     });
 
     // Mostrar o card atual
     if (this.cards[index]) {
       this.cards[index].classList.add('active');
+      this.cards[index].style.opacity = '1';
+      this.cards[index].style.transform = 'scale(1)';
     }
 
     // Ativar o indicador atual
     if (this.indicators[index]) {
       this.indicators[index].classList.add('active');
+      this.indicators[index].style.background = '#ff6600';
     }
   }
 
