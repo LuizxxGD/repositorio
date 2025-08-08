@@ -1341,14 +1341,36 @@ body {
 }
 
 .bonus-card {
-  min-width: 400px;
-  max-width: 400px;
+  min-width: 350px;
+  max-width: 350px;
   flex: 0 0 auto;
   margin: 0 15px;
   opacity: 1;
   transform: scale(1);
   transition: all 0.3s ease;
-  height: 800px;
+  min-height: 600px;
+  max-height: 800px;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: #ff6600 rgba(0,0,0,0.3);
+}
+
+.bonus-card::-webkit-scrollbar {
+  width: 6px;
+}
+
+.bonus-card::-webkit-scrollbar-track {
+  background: rgba(0,0,0,0.3);
+  border-radius: 3px;
+}
+
+.bonus-card::-webkit-scrollbar-thumb {
+  background: #ff6600;
+  border-radius: 3px;
+}
+
+.bonus-card::-webkit-scrollbar-thumb:hover {
+  background: #ff8c00;
 }
 
 /* Responsividade para mobile */
@@ -1358,9 +1380,10 @@ body {
   }
   
   .bonus-card {
-    min-width: 350px !important;
-    max-width: 350px !important;
-    height: 700px !important;
+    min-width: 300px !important;
+    max-width: 300px !important;
+    min-height: 500px !important;
+    max-height: 700px !important;
   }
 }
 
@@ -1370,8 +1393,129 @@ body {
   }
   
   .bonus-card {
-    min-width: 300px !important;
-    max-width: 300px !important;
-    height: 600px !important;
+    min-width: 280px !important;
+    max-width: 280px !important;
+    min-height: 450px !important;
+    max-height: 600px !important;
+  }
+}
+
+/* Estilos específicos para os cards de bônus responsivos */
+.bonus-card .bonus-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 20px;
+  height: 100%;
+  padding: 30px;
+  text-align: center;
+}
+
+.bonus-card .bonus-image {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 15px;
+  margin: 0 auto;
+  display: block;
+}
+
+.bonus-card .bonus-badge {
+  background: #ff6600;
+  color: #000000;
+  padding: 10px 20px;
+  border-radius: 25px;
+  font-weight: bold;
+  font-size: 14px;
+  display: inline-block;
+  text-shadow: 1px 1px 2px rgba(255,255,255,0.8);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+  margin-top: 15px;
+}
+
+.bonus-card .bonus-title {
+  font-size: 28px;
+  color: #ff6600;
+  margin-bottom: 8px;
+  font-weight: bold;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+}
+
+.bonus-card .bonus-subtitle {
+  font-size: 24px;
+  color: #ffffff;
+  margin-bottom: 8px;
+  font-weight: bold;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.8);
+}
+
+.bonus-card .bonus-price {
+  font-size: 20px;
+  color: #ff0000;
+  margin-bottom: 12px;
+  font-weight: bold;
+}
+
+.bonus-card .bonus-description {
+  color: #ffffff;
+  font-size: 16px;
+  line-height: 1.4;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.8);
+}
+
+/* Responsividade para os cards */
+@media (max-width: 768px) {
+  .bonus-card .bonus-content {
+    padding: 20px;
+    gap: 15px;
+  }
+  
+  .bonus-card .bonus-image {
+    width: 150px;
+    height: 150px;
+  }
+  
+  .bonus-card .bonus-title {
+    font-size: 24px;
+  }
+  
+  .bonus-card .bonus-subtitle {
+    font-size: 20px;
+  }
+  
+  .bonus-card .bonus-price {
+    font-size: 18px;
+  }
+  
+  .bonus-card .bonus-description {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .bonus-card .bonus-content {
+    padding: 15px;
+    gap: 12px;
+  }
+  
+  .bonus-card .bonus-image {
+    width: 120px;
+    height: 120px;
+  }
+  
+  .bonus-card .bonus-title {
+    font-size: 20px;
+  }
+  
+  .bonus-card .bonus-subtitle {
+    font-size: 18px;
+  }
+  
+  .bonus-card .bonus-price {
+    font-size: 16px;
+  }
+  
+  .bonus-card .bonus-description {
+    font-size: 13px;
   }
 }
