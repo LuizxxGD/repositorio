@@ -1996,3 +1996,63 @@ body {
     font-size: 12px !important;
   }
 }
+
+/* Estilos para seções dentro do fundo escuro */
+.modules-section,
+.promo-section,
+.bonus-section {
+  color: white;
+}
+
+.modules-section .section-title,
+.modules-section .section-subtitle {
+  color: white;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+}
+
+.module-card {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.module-title {
+  color: white;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.8);
+}
+
+.module-description {
+  color: white;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.8);
+}
+
+.guarantee-title {
+  color: white;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+}
+
+.old-price-text,
+.only-text-content,
+.new-price-text {
+  color: white;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+}
+
+.promo-button {
+  background: #ff8c00;
+  color: white;
+  border: none;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.8);
+}
+
+.promo-button:hover {
+  background: #e67e00;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(255, 140, 0, 0.4);
+}
+
+/* Ajuste para a seção de depoimentos dentro do fundo */
+.modules-section + div[style*="background: #000"] {
+  background: rgba(0, 0, 0, 0.8) !important;
+  backdrop-filter: blur(10px);
+}
