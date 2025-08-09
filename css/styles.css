@@ -93,7 +93,7 @@ body {
 }
 
 .gradient-text {
-  background: linear-gradient(135deg, #ff8c00, #ff4500);
+  background: linear-gradient(135deg, #dc2626, #b91c1c);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -138,7 +138,7 @@ body {
   align-items: center;
   gap: 10px;
   padding: 1rem 2rem;
-  background: linear-gradient(45deg, rgb(106, 13, 173), rgb(255, 140, 0));
+  background: #dc2626;
   color: white;
   border: none;
   border-radius: 50px;
@@ -148,15 +148,15 @@ body {
   text-transform: uppercase;
   letter-spacing: 1px;
   transition: all 0.3s ease;
-  box-shadow: 0 8px 25px rgba(255, 140, 0, 0.3);
+  box-shadow: 0 8px 25px rgba(220, 38, 38, 0.3);
   cursor: pointer;
   will-change: transform;
 }
 
 .cta-button:hover {
   transform: translateY(-3px);
-  box-shadow: 0 12px 35px rgba(255, 140, 0, 0.4);
-  background: linear-gradient(45deg, rgb(120, 15, 195), rgb(255, 160, 20));
+  box-shadow: 0 12px 35px rgba(220, 38, 38, 0.4);
+  background: #b91c1c;
 }
 
 .cta-subtitle {
@@ -224,7 +224,7 @@ body {
 }
 
 .module-card {
-  background: #1a1a1a;
+  background: #1e3a8a;
   border-radius: 20px;
   border: 2px solid #8a2be2;
   transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
@@ -239,7 +239,7 @@ body {
   left: 0;
   right: 0;
   bottom: 0;
-  background: linear-gradient(135deg, rgba(138, 43, 226, 0.1), rgba(255, 140, 0, 0.1));
+  background: linear-gradient(135deg, rgba(138, 43, 226, 0.1), rgba(220, 38, 38, 0.1));
   opacity: 0;
   transition: opacity 0.4s ease;
   z-index: 1;
@@ -251,13 +251,13 @@ body {
 
 .module-card:hover {
   transform: translateY(-8px) scale(1.02);
-  border-color: #ff8c00;
-  box-shadow: 0 20px 40px rgba(138, 43, 226, 0.3), 0 0 60px rgba(255, 140, 0, 0.2);
+  border-color: #dc2626;
+  box-shadow: 0 20px 40px rgba(138, 43, 226, 0.3), 0 0 60px rgba(220, 38, 38, 0.2);
 }
 
 .module-header {
   padding: 1.5rem;
-  background: linear-gradient(135deg, #1a1a1a, #2a2a2a);
+  background: linear-gradient(135deg, #1e3a8a, #3b82f6);
   border-bottom: 1px solid #333;
   position: relative;
   z-index: 2;
@@ -336,7 +336,7 @@ body {
 .module-image:hover {
   transform: scale(1.05);
   box-shadow: 0 8px 25px rgba(138, 43, 226, 0.5);
-  border-color: #ff8c00;
+  border-color: #dc2626;
 }
 
 .module-content {
@@ -726,7 +726,7 @@ body {
 .plan-button {
   width: 100%;
   padding: 1rem 2rem;
-  background: linear-gradient(45deg, #ff8c00, #ff4500);
+  background: #dc2626;
   color: white;
   border: none;
   border-radius: 50px;
@@ -742,20 +742,20 @@ body {
 }
 
 .plan-button.basic {
-  background: linear-gradient(45deg, #4CAF50, #45a049);
+  background: #dc2626;
 }
 
 .plan-button.intermediate {
-  background: linear-gradient(45deg, #ff8c00, #ff4500);
+  background: #dc2626;
 }
 
 .plan-button.premium {
-  background: linear-gradient(45deg, #9c27b0, #673ab7);
+  background: #dc2626;
 }
 
 .plan-button:hover {
   transform: translateY(-2px);
-  box-shadow: 0 10px 25px rgba(255, 140, 0, 0.4);
+  box-shadow: 0 10px 25px rgba(220, 38, 38, 0.4);
 }
 
 .guarantee-section {
@@ -1242,7 +1242,7 @@ body {
 
 .promo-button {
   display: inline-block;
-  background: linear-gradient(45deg, #ff8c00, #ff4500);
+  background: #dc2626;
   color: white;
   padding: 20px 40px;
   border-radius: 10px;
@@ -1251,7 +1251,7 @@ body {
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 2px;
-  box-shadow: 0 8px 25px rgba(255, 140, 0, 0.4);
+  box-shadow: 0 8px 25px rgba(220, 38, 38, 0.4);
   transition: all 0.3s ease;
   border: none;
   cursor: pointer;
@@ -1259,12 +1259,12 @@ body {
 
 .promo-button:hover {
   transform: translateY(-3px);
-  box-shadow: 0 12px 35px rgba(255, 140, 0, 0.6);
-  background: linear-gradient(45deg, #ff9c20, #ff5500);
+  box-shadow: 0 12px 35px rgba(220, 38, 38, 0.6);
+  background: #b91c1c;
 }
 
 .promo-button:focus {
-  outline: 2px solid #ff8c00;
+  outline: 2px solid #dc2626;
   outline-offset: 2px;
 }
 
