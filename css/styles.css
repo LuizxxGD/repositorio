@@ -1704,10 +1704,10 @@ body {
   width: max-content;
   min-width: 100%;
   align-items: stretch;
-}
-
-.bonus-scroll-track:hover {
-  animation-play-state: paused !important;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
 }
 
 .bonus-scroll-card {
@@ -1723,13 +1723,18 @@ body {
   flex-direction: column;
   justify-content: space-between;
   margin: 0;
-  transition: all 0.3s ease;
+  transition: none;
+  pointer-events: none;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
 }
 
 .bonus-scroll-card:hover {
-  transform: translateY(-8px);
+  transform: none;
   border-color: #ff6600;
-  box-shadow: 0 15px 40px rgba(255, 102, 0, 0.4);
+  box-shadow: none;
 }
 
 .bonus-card-inner {
