@@ -345,6 +345,27 @@ body {
   text-align: center;
 }
 
+/* About Section with Background */
+.about-section-with-bg {
+  padding: 3rem 0;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+  color: white;
+  text-align: center;
+}
+
+.about-section-with-bg .section-title {
+  color: white;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+}
+
+.about-section-with-bg .about-text {
+  color: white;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.8);
+}
+
 .about-text {
   font-size: clamp(1.1rem, 3vw, 1.3rem);
   line-height: 1.8;
