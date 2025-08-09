@@ -114,8 +114,8 @@ body {
 }
 
 .purple-text {
-  color: #ff8c00;
-  text-shadow: 0 0 10px rgba(255, 140, 0, 0.5);
+  color: #8a2be2;
+  text-shadow: 0 0 10px rgba(138, 43, 226, 0.5);
 }
 
 .hero-logo {
@@ -138,7 +138,7 @@ body {
   align-items: center;
   gap: 10px;
   padding: 1rem 2rem;
-  background: linear-gradient(45deg, #000000, rgb(255, 140, 0));
+  background: linear-gradient(45deg, rgb(106, 13, 173), rgb(255, 140, 0));
   color: white;
   border: none;
   border-radius: 50px;
@@ -156,7 +156,7 @@ body {
 .cta-button:hover {
   transform: translateY(-3px);
   box-shadow: 0 12px 35px rgba(255, 140, 0, 0.4);
-  background: linear-gradient(45deg, #1a1a1a, rgb(255, 160, 20));
+  background: linear-gradient(45deg, rgb(120, 15, 195), rgb(255, 160, 20));
 }
 
 .cta-subtitle {
@@ -529,19 +529,19 @@ body {
 
 /* Premium Plan Special Effects */
 .plan-card.featured {
-  border-color: #8b5cf6;
+  border-color: #ff8c00;
   transform: scale(1.05);
   box-shadow: 
-    0 35px 70px rgba(139, 92, 246, 0.4),
-    0 0 0 2px rgba(139, 92, 246, 0.3),
-    inset 0 1px 0 rgba(255, 255, 255, 0.2);
-  background: linear-gradient(145deg, #1a1a1a 0%, #0a0a0a 100%);
+    0 35px 70px rgba(255, 140, 0, 0.3),
+    0 0 0 2px rgba(255, 140, 0, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  background: linear-gradient(145deg, #000000 0%, #0a0a0a 50%, #1a1a1a 100%);
   position: relative;
   animation: premiumGlow 4s ease-in-out infinite;
 }
 
 .plan-card.featured::before {
-  background: linear-gradient(90deg, #8b5cf6, #a855f7, #ff8c00, #8b5cf6);
+  background: linear-gradient(90deg, #000000, #1a1a1a, #ff8c00, #000000);
   background-size: 300% 100%;
   animation: shimmer 2s ease-in-out infinite;
 }
@@ -553,7 +553,7 @@ body {
   left: -2px;
   right: -2px;
   bottom: -2px;
-  background: linear-gradient(45deg, #8b5cf6, #a855f7, #ff8c00, #8b5cf6);
+  background: linear-gradient(45deg, #000000, #1a1a1a, #ff8c00, #000000);
   border-radius: 32px;
   z-index: -1;
   animation: borderRotate 4s linear infinite;
@@ -562,8 +562,8 @@ body {
 .plan-card.featured:hover {
   transform: scale(1.05) translateY(-12px);
   box-shadow: 
-    0 40px 80px rgba(139, 92, 246, 0.5),
-    0 0 0 3px rgba(139, 92, 246, 0.4);
+    0 40px 80px rgba(255, 140, 0, 0.4),
+    0 0 0 3px rgba(255, 140, 0, 0.3);
   animation: premiumGlowHover 0.5s ease-in-out;
 }
 
@@ -571,30 +571,30 @@ body {
 @keyframes premiumGlow {
   0%, 100% { 
     box-shadow: 
-      0 35px 70px rgba(139, 92, 246, 0.4),
-      0 0 0 2px rgba(139, 92, 246, 0.3),
-      inset 0 1px 0 rgba(255, 255, 255, 0.2);
+      0 35px 70px rgba(255, 140, 0, 0.3),
+      0 0 0 2px rgba(255, 140, 0, 0.2),
+      inset 0 1px 0 rgba(255, 255, 255, 0.1);
   }
   50% { 
     box-shadow: 
-      0 35px 70px rgba(139, 92, 246, 0.6),
-      0 0 0 2px rgba(139, 92, 246, 0.5),
-      inset 0 1px 0 rgba(255, 255, 255, 0.3),
-      0 0 30px rgba(139, 92, 246, 0.3);
+      0 35px 70px rgba(255, 140, 0, 0.5),
+      0 0 0 2px rgba(255, 140, 0, 0.4),
+      inset 0 1px 0 rgba(255, 255, 255, 0.2),
+      0 0 30px rgba(255, 140, 0, 0.2);
   }
 }
 
 @keyframes premiumGlowHover {
   0% { 
     box-shadow: 
-      0 35px 70px rgba(139, 92, 246, 0.4),
-      0 0 0 2px rgba(139, 92, 246, 0.3),
-      inset 0 1px 0 rgba(255, 255, 255, 0.2);
+      0 35px 70px rgba(255, 140, 0, 0.3),
+      0 0 0 2px rgba(255, 140, 0, 0.2),
+      inset 0 1px 0 rgba(255, 255, 255, 0.1);
   }
   100% { 
     box-shadow: 
-      0 40px 80px rgba(139, 92, 246, 0.5),
-      0 0 0 3px rgba(139, 92, 246, 0.4);
+      0 40px 80px rgba(255, 140, 0, 0.4),
+      0 0 0 3px rgba(255, 140, 0, 0.3);
   }
 }
 
@@ -1573,7 +1573,7 @@ body {
 }
 
 .bonus-banner-subtitle {
-  color: #ff8c00;
+  color: #8a2be2;
   font-size: clamp(1rem, 2.5vw, 1.4rem);
   font-weight: 700;
   text-transform: uppercase;
@@ -1697,7 +1697,7 @@ body {
   justify-content: center;
   gap: 10px;
   padding: 1rem 2rem;
-  background: linear-gradient(45deg, #000000, rgb(255, 140, 0));
+  background: linear-gradient(45deg, rgb(106, 13, 173), rgb(255, 140, 0));
   color: white;
   border: none;
   border-radius: 50px;
@@ -1717,7 +1717,7 @@ body {
 .elementor-button:hover {
   transform: translateY(-3px);
   box-shadow: 0 12px 35px rgba(255, 140, 0, 0.4);
-  background: linear-gradient(45deg, #1a1a1a, rgb(255, 160, 20));
+  background: linear-gradient(45deg, rgb(120, 15, 195), rgb(255, 160, 20));
   color: white;
   text-decoration: none;
 }
