@@ -1,6 +1,5 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
+
+<!DOCTYPE html><html lang="pt-BR"><head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Curso de Desbloqueio de Celulares - Unlocker Pro</title>
@@ -12,12 +11,12 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="apple-mobile-web-app-title" content="iOS Unlocker Pro">
   <link rel="manifest" href="/manifest.json">
-  <link rel="apple-touch-icon" href="/public/placeholder-logo.png">
+  <link rel="apple-touch-icon" href="images/placeholder-logo.png">
   
   <!-- Preload critical resources with higher priority -->
-  <link rel="stylesheet" href="css/styles.css">
+  <link rel="preload" href="css/styles.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
   <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  <link rel="preload" href="https://i.postimg.cc/pTc7xhLX/fundo-hero.webp" as="image" fetchpriority="high">
+  <link rel="preload" href="https://i.postimg.cc/pT3whJ7w/paredeoficial.jpg" as="image" fetchpriority="high">
   
   <!-- DNS prefetch for external domains -->
   <link rel="dns-prefetch" href="//fonts.googleapis.com">
@@ -50,29 +49,104 @@
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
     }
-    
-    /* Teste temporário para o fundo hero */
-    .hero-background {
-      background-image: url('https://i.postimg.cc/pTc7xhLX/fundo-hero.webp') !important;
-      background-size: cover !important;
-      background-position: center !important;
-      background-repeat: no-repeat !important;
-      /* Fallback para teste */
-      background-color: #1a1a1a !important;
-      /* Teste com URL alternativa */
-      background-image: url('https://i.postimg.cc/pT3whJ7w/paredeoficial.jpg') !important;
+    .hero-section { 
+      position: relative; 
+      width: 100%; 
+      height: 100vh; 
+      min-height: 600px;
     }
-
+    .hero-background { 
+      background-image: url("images/paredeoficial.jpg"); 
+      background-size: cover; 
+      background-position: center; 
+      width: 100%; 
+      height: 100%; 
+      position: absolute; 
+      top: 0; 
+      left: 0; 
+      filter: brightness(50%);
+      will-change: transform;
+    }
+    .hero-content { 
+      position: relative; 
+      z-index: 4; 
+      min-height: 100vh; 
+      display: flex; 
+      flex-direction: column; 
+      justify-content: center; 
+      align-items: center; 
+      text-align: center; 
+      padding: 1rem; 
+      max-width: 100%;
+    }
+    .hero-title { 
+      font-size: clamp(2rem, 8vw, 4rem); 
+      margin-bottom: 0.8rem; 
+      line-height: 1.1; 
+      font-weight: 800; 
+      margin-top: 0;
+    }
+    .cta-button { 
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 1rem 2rem; 
+      background: linear-gradient(45deg, rgb(106, 13, 173), rgb(255, 140, 0)); 
+      color: white; 
+      border: none; 
+      border-radius: 50px; 
+      font-size: clamp(0.9rem, 3vw, 1.1rem); 
+      text-decoration: none; 
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      transition: all 0.3s ease;
+      box-shadow: 0 8px 25px rgba(255, 140, 0, 0.3);
+      cursor: pointer;
+      will-change: transform;
+    }
+    .cta-button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 35px rgba(255, 140, 0, 0.4);
+      background: linear-gradient(45deg, rgb(120, 15, 195), rgb(255, 160, 20));
+    }
+    .cta-subtitle {
+      font-size: 0.9rem;
+      color: #ccc;
+      text-align: center;
+      margin-top: 0.5rem;
+    }
+    .hero-logo {
+      max-width: 100%;
+      height: auto;
+      margin: 1rem 0;
+    }
+    .gradient-text {
+      background: linear-gradient(45deg, #ff8c00, #ff6b35);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .subtitle {
+      font-size: clamp(1rem, 4vw, 1.5rem);
+      color: #ccc;
+      margin-top: 0.5rem;
+    }
+    
+    /* Mobile-first responsive design */
+    @media (max-width: 768px) {
+      .hero-content {
+        padding: 0.5rem;
+      }
+      .cta-button {
+        padding: 0.8rem 1.5rem;
+        font-size: 0.9rem;
+      }
+    }
   </style>
   
   <!-- UTMify scripts with async loading -->
-  <script
-  src="https://cdn.utmify.com.br/scripts/utms/latest.js"
-  data-utmify-prevent-xcod-sck
-  data-utmify-prevent-subids
-  async
-  defer
-></script>
+  <script src="js/latest.js" data-utmify-prevent-xcod-sck="" data-utmify-prevent-subids="" async="" defer=""></script>
   <script>
     window.pixelId = "6891a937ff05cd30cebd9def";
     var a = document.createElement("script");
@@ -104,7 +178,7 @@
         </span>
       </h1>
 
-      <img src="https://i.postimg.cc/d0wShtBj/COMUNIDADE-removebg-preview.png" alt="Logo da comunidade iOS Unlocker Pro" width="350" height="200" loading="lazy" class="hero-logo">
+      <img src="images/COMUNIDADE-removebg-preview.png" alt="Logo da comunidade iOS Unlocker Pro" width="350" height="200" loading="lazy" class="hero-logo">
 
       <!-- CTA Aprimorado -->
       <div class="hero-cta">
@@ -124,130 +198,66 @@
   <section id="modules" class="modules-section">
     <div class="container">
       <div class="section-header">
-        <h2 class="section-title">MÓDULOS DO CURSO</h2>
+        <h2 class="section-title">Módulos do Curso: Básico ao Avançado</h2>
         <p class="section-subtitle">Conteúdo estruturado para levar você do iniciante ao profissional</p>
       </div>
-      
       <div class="modules-grid">
-        <!-- Módulo 01 -->
         <div class="module-card">
-          <div class="module-header">
-            <div class="module-banner">
-              <div class="module-logo">
-                <div class="logo-icon">🔓</div>
-                <div class="logo-text">COMUNIDADE</div>
-                <div class="logo-colors">
-                  <span class="color-dot green"></span>
-                  <span class="color-dot blue"></span>
-                  <span class="color-dot yellow"></span>
-                  <span class="color-dot red"></span>
-                </div>
-              </div>
-            </div>
-            <img src="img/md1.png" alt="Imagem do Módulo 01" class="module-image" loading="lazy">
-            <h3 class="module-title">MÓDULO 01</h3>
+          <div class="module-icon">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 2L2 7L12 12L22 7L12 2Z"></path>
+              <path d="M2 17L12 22L22 17"></path>
+              <path d="M2 12L12 17L22 12"></path>
+            </svg>
           </div>
           <div class="module-content">
+            <h3 class="module-title">Módulo 01: Fundamentos Essenciais</h3>
             <p class="module-description">
-              <strong>APRESENTAÇÃO DO CURSO E DO CONTEÚDO.</strong><br>
-              CONCEITOS SOBRE DESBLOQUEIOS E VAI APRENDAR NA PRATICA A COMO DOMINAR A FERRAMENTA UNLOCKTOOL!
+              Aprenda os conceitos de desbloqueio para todas as marcas e domine ferramentas como a UnlockTool.
             </p>
-            <div class="module-features">
-              <span class="feature-tag">Fundamentos</span>
-              <span class="feature-tag">Teoria</span>
-              <span class="feature-tag">UnlockTool</span>
-            </div>
           </div>
         </div>
-
-        <!-- Módulo 02 -->
         <div class="module-card">
-          <div class="module-header">
-            <div class="module-banner">
-              <div class="module-logo">
-                <div class="logo-icon">💰</div>
-                <div class="logo-text">COMUNIDADE</div>
-                <div class="logo-colors">
-                  <span class="color-dot green"></span>
-                  <span class="color-dot blue"></span>
-                  <span class="color-dot yellow"></span>
-                  <span class="color-dot red"></span>
-                </div>
-              </div>
-            </div>
-            <img src="img/md2.png" alt="Imagem do Módulo 02" class="module-image" loading="lazy">
-            <h3 class="module-title">MÓDULO 02</h3>
+          <div class="module-icon">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 1V23"></path>
+              <path d="M17 5H9.5A3.5 3.5 0 0 0 6 8.5C6 9.28 6.19 10 6.54 10.64"></path>
+              <path d="M6 15.5A3.5 3.5 0 0 0 9.5 19H17"></path>
+            </svg>
           </div>
           <div class="module-content">
+            <h3 class="module-title">Módulo 02: Métodos Lucrativos</h3>
             <p class="module-description">
-              <strong>MÉTODOS LUCRATIVOS DE DESBLOQUEIO</strong><br>
-              DESBLOQUEIE IPHONES, ANDROIDS E REMOVA MDM PAYJOY, GERANDO LUCROS DE ATÉ R$700 POR APARELHO. CONHEÇA OS MELHORES SERVIDORES.
+              Desbloqueie iPhones, Androids e remova MDM PayJoy, gerando lucros de até R$700 por aparelho. Conheça os melhores servidores.
             </p>
-            <div class="module-features">
-              <span class="feature-tag">Prático</span>
-              <span class="feature-tag">Lucrativo</span>
-              <span class="feature-tag">MDM PayJoy</span>
-            </div>
           </div>
         </div>
-
-        <!-- Módulo 03 -->
         <div class="module-card">
-          <div class="module-header">
-            <div class="module-banner">
-              <div class="module-logo">
-                <div class="logo-icon">🛠️</div>
-                <div class="logo-text">COMUNIDADE</div>
-                <div class="logo-colors">
-                  <span class="color-dot green"></span>
-                  <span class="color-dot blue"></span>
-                  <span class="color-dot yellow"></span>
-                  <span class="color-dot red"></span>
-                </div>
-              </div>
-            </div>
-            <h3 class="module-title">MÓDULO 03</h3>
+          <div class="module-icon">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+              <line x1="8" y1="21" x2="16" y2="21"></line>
+              <line x1="12" y1="17" x2="12" y2="21"></line>
+            </svg>
           </div>
           <div class="module-content">
+            <h3 class="module-title">Módulo 03: Ferramentas e Softwares</h3>
             <p class="module-description">
-              <strong>FERRAMENTAS E SOFTWARES ESSENCIAIS</strong><br>
-              EXPLORE AS FERRAMENTAS E SOFTWARES ESSENCIAIS PARA DESBLOQUEIOS EFICIENTES, INCLUINDO SOLUÇÕES PARA MDM PAYJOY E FRP.
+              Explore as ferramentas e softwares essenciais para desbloqueios eficientes, incluindo soluções para MDM PayJoy e FRP.
             </p>
-            <div class="module-features">
-              <span class="feature-tag">Ferramentas</span>
-              <span class="feature-tag">Software</span>
-              <span class="feature-tag">FRP</span>
-            </div>
           </div>
         </div>
-
-        <!-- Módulo 04 -->
         <div class="module-card">
-          <div class="module-header">
-            <div class="module-banner">
-              <div class="module-logo">
-                <div class="logo-icon">🎯</div>
-                <div class="logo-text">COMUNIDADE</div>
-                <div class="logo-colors">
-                  <span class="color-dot green"></span>
-                  <span class="color-dot blue"></span>
-                  <span class="color-dot yellow"></span>
-                  <span class="color-dot red"></span>
-                </div>
-              </div>
-            </div>
-            <h3 class="module-title">MÓDULO 04</h3>
+          <div class="module-icon">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polygon points="13,2 3,14 12,14 11,22 21,10 12,10 13,2"></polygon>
+            </svg>
           </div>
           <div class="module-content">
+            <h3 class="module-title">Módulo 04: Aulas Práticas e Suporte</h3>
             <p class="module-description">
-              <strong>AULAS PRÁTICAS E SUPORTE COMPLETO</strong><br>
-              AULAS PRÁTICAS DE DESBLOQUEIO PARA DIVERSOS MODELOS, COM SUPORTE COMPLETO PARA TODAS AS SUAS DÚVIDAS E MENTORIA INDIVIDUAL.
+              Aulas práticas de desbloqueio para diversos modelos, com suporte completo para todas as suas dúvidas.
             </p>
-            <div class="module-features">
-              <span class="feature-tag">Prático</span>
-              <span class="feature-tag">Suporte</span>
-              <span class="feature-tag">Mentoria</span>
-            </div>
           </div>
         </div>
       </div>
@@ -278,7 +288,7 @@
       overflow: hidden;
       box-shadow: 0 10px 30px rgba(0,0,0,0.5);
     ">
-      <img id="testimonial-image" src="dep/depoimento01iphone.jpg" alt="Depoimento de aluno sobre o curso iOS Unlocker Pro" style="width: 100%; height: 100%; object-fit: cover; border-radius: 20px; transition: opacity 0.5s; opacity: 1;">
+      <img id="testimonial-image" src="images/depoimento01iphone.jpg" alt="Depoimento de aluno sobre o curso iOS Unlocker Pro" style="width: 100%; height: 100%; object-fit: cover; border-radius: 20px; transition: opacity 0.5s; opacity: 1;">
     </div>
   </div>
 
@@ -320,7 +330,7 @@
   </section>
 
   <!-- Bonuses Section -->
-  <section id="bonus-section" class="bonus-section" style="background: url('https://i.postimg.cc/2jKRNJ1F/bg-unlock-fundo.webp'); background-size: cover; background-position: center; padding: 40px 15px; min-height: 120vh; display: block;">
+  <section id="bonus-section" class="bonus-section" style="background: url('images/bg-unlock-fundo.webp'); background-size: cover; background-position: center; padding: 40px 15px; min-height: 120vh; display: block;">
 		  
 		  <div style="max-width: 1200px; margin: auto;">
 		    
@@ -341,7 +351,7 @@
             <div class="bonus-scroll-card">
                 <div class="bonus-card-inner">
                   <div class="bonus-image-wrapper">
-                    <img src="./img/BONUS 1.png" alt="Bônus 01" class="bonus-scroll-image">
+                    <img src="images/BONUS%201.png" alt="Bônus 01" class="bonus-scroll-image">
                     <div class="bonus-badge-scroll">
                       <span>INCLUSO NO PACOTE PREMIUM</span>
                     </div>
@@ -361,7 +371,7 @@
             <div class="bonus-scroll-card">
                 <div class="bonus-card-inner">
                   <div class="bonus-image-wrapper">
-                    <img src="./img/BONUS 3.png" alt="Bônus 02" class="bonus-scroll-image">
+                    <img src="images/BONUS%203.png" alt="Bônus 02" class="bonus-scroll-image">
                     <div class="bonus-badge-scroll">
                       <span>INCLUSO NO PACOTE PREMIUM</span>
                     </div>
@@ -381,7 +391,7 @@
             <div class="bonus-scroll-card">
                 <div class="bonus-card-inner">
                   <div class="bonus-image-wrapper">
-                    <img src="./img/BONUS 4.png" alt="Bônus 03" class="bonus-scroll-image">
+                    <img src="images/BONUS%204.png" alt="Bônus 03" class="bonus-scroll-image">
                     <div class="bonus-badge-scroll">
                       <span>INCLUSO NO PACOTE PREMIUM</span>
                     </div>
@@ -401,7 +411,7 @@
             <div class="bonus-scroll-card">
                 <div class="bonus-card-inner">
                   <div class="bonus-image-wrapper">
-                    <img src="./img/servidores-removebg-preview.png" alt="Bônus 04" class="bonus-scroll-image">
+                    <img src="images/servidores-removebg-preview.png" alt="Bônus 04" class="bonus-scroll-image">
                     <div class="bonus-badge-scroll">
                       <span>INCLUSO NO PACOTE PREMIUM</span>
                     </div>
@@ -421,7 +431,7 @@
             <div class="bonus-scroll-card">
                 <div class="bonus-card-inner">
                   <div class="bonus-image-wrapper">
-                    <img src="./img/ferramentas-removebg-preview.png" alt="Bônus 05" class="bonus-scroll-image">
+                    <img src="images/ferramentas-removebg-preview.png" alt="Bônus 05" class="bonus-scroll-image">
                     <div class="bonus-badge-scroll">
                       <span>INCLUSO NO PACOTE PREMIUM</span>
                     </div>
@@ -441,7 +451,7 @@
             <div class="bonus-scroll-card">
                 <div class="bonus-card-inner">
                   <div class="bonus-image-wrapper">
-                    <img src="./img/BONUS 5.png" alt="Bônus 06" class="bonus-scroll-image">
+                    <img src="images/BONUS%205.png" alt="Bônus 06" class="bonus-scroll-image">
                     <div class="bonus-badge-scroll">
                       <span>INCLUSO NO PACOTE PREMIUM</span>
                     </div>
@@ -462,7 +472,7 @@
             <div class="bonus-scroll-card">
                 <div class="bonus-card-inner">
                   <div class="bonus-image-wrapper">
-                    <img src="./img/BONUS 1.png" alt="Bônus 01" class="bonus-scroll-image">
+                    <img src="images/BONUS%201.png" alt="Bônus 01" class="bonus-scroll-image">
                     <div class="bonus-badge-scroll">
                       <span>INCLUSO NO PACOTE PREMIUM</span>
                     </div>
@@ -482,7 +492,7 @@
             <div class="bonus-scroll-card">
                 <div class="bonus-card-inner">
                   <div class="bonus-image-wrapper">
-                    <img src="./img/BONUS 3.png" alt="Bônus 02" class="bonus-scroll-image">
+                    <img src="images/BONUS%203.png" alt="Bônus 02" class="bonus-scroll-image">
                     <div class="bonus-badge-scroll">
                       <span>INCLUSO NO PACOTE PREMIUM</span>
                     </div>
@@ -502,7 +512,7 @@
             <div class="bonus-scroll-card">
                 <div class="bonus-card-inner">
                   <div class="bonus-image-wrapper">
-                    <img src="./img/BONUS 4.png" alt="Bônus 03" class="bonus-scroll-image">
+                    <img src="images/BONUS%204.png" alt="Bônus 03" class="bonus-scroll-image">
                     <div class="bonus-badge-scroll">
                       <span>INCLUSO NO PACOTE PREMIUM</span>
                     </div>
@@ -522,7 +532,7 @@
             <div class="bonus-scroll-card">
                 <div class="bonus-card-inner">
                   <div class="bonus-image-wrapper">
-                    <img src="./img/servidores-removebg-preview.png" alt="Bônus 04" class="bonus-scroll-image">
+                    <img src="images/servidores-removebg-preview.png" alt="Bônus 04" class="bonus-scroll-image">
                     <div class="bonus-badge-scroll">
                       <span>INCLUSO NO PACOTE PREMIUM</span>
                     </div>
@@ -542,7 +552,7 @@
             <div class="bonus-scroll-card">
                 <div class="bonus-card-inner">
                   <div class="bonus-image-wrapper">
-                    <img src="./img/ferramentas-removebg-preview.png" alt="Bônus 05" class="bonus-scroll-image">
+                    <img src="images/ferramentas-removebg-preview.png" alt="Bônus 05" class="bonus-scroll-image">
                     <div class="bonus-badge-scroll">
                       <span>INCLUSO NO PACOTE PREMIUM</span>
                     </div>
@@ -562,7 +572,7 @@
             <div class="bonus-scroll-card">
                 <div class="bonus-card-inner">
                   <div class="bonus-image-wrapper">
-                    <img src="./img/BONUS 5.png" alt="Bônus 06" class="bonus-scroll-image">
+                    <img src="images/BONUS%205.png" alt="Bônus 06" class="bonus-scroll-image">
                     <div class="bonus-badge-scroll">
                       <span>INCLUSO NO PACOTE PREMIUM</span>
                     </div>
@@ -583,7 +593,7 @@
             <div class="bonus-scroll-card">
                 <div class="bonus-card-inner">
                   <div class="bonus-image-wrapper">
-                    <img src="./img/BONUS 1.png" alt="Bônus 01" class="bonus-scroll-image">
+                    <img src="images/BONUS%201.png" alt="Bônus 01" class="bonus-scroll-image">
                     <div class="bonus-badge-scroll">
                       <span>INCLUSO NO PACOTE PREMIUM</span>
                     </div>
@@ -603,7 +613,7 @@
             <div class="bonus-scroll-card">
                 <div class="bonus-card-inner">
                   <div class="bonus-image-wrapper">
-                    <img src="./img/BONUS 3.png" alt="Bônus 02" class="bonus-scroll-image">
+                    <img src="images/BONUS%203.png" alt="Bônus 02" class="bonus-scroll-image">
                     <div class="bonus-badge-scroll">
                       <span>INCLUSO NO PACOTE PREMIUM</span>
                     </div>
@@ -623,7 +633,7 @@
             <div class="bonus-scroll-card">
                 <div class="bonus-card-inner">
                   <div class="bonus-image-wrapper">
-                    <img src="./img/BONUS 4.png" alt="Bônus 03" class="bonus-scroll-image">
+                    <img src="images/BONUS%204.png" alt="Bônus 03" class="bonus-scroll-image">
                     <div class="bonus-badge-scroll">
                       <span>INCLUSO NO PACOTE PREMIUM</span>
                     </div>
@@ -643,7 +653,7 @@
             <div class="bonus-scroll-card">
                 <div class="bonus-card-inner">
                   <div class="bonus-image-wrapper">
-                    <img src="./img/servidores-removebg-preview.png" alt="Bônus 04" class="bonus-scroll-image">
+                    <img src="images/servidores-removebg-preview.png" alt="Bônus 04" class="bonus-scroll-image">
                     <div class="bonus-badge-scroll">
                       <span>INCLUSO NO PACOTE PREMIUM</span>
                     </div>
@@ -663,7 +673,7 @@
             <div class="bonus-scroll-card">
                 <div class="bonus-card-inner">
                   <div class="bonus-image-wrapper">
-                    <img src="./img/ferramentas-removebg-preview.png" alt="Bônus 05" class="bonus-scroll-image">
+                    <img src="images/ferramentas-removebg-preview.png" alt="Bônus 05" class="bonus-scroll-image">
                     <div class="bonus-badge-scroll">
                       <span>INCLUSO NO PACOTE PREMIUM</span>
                     </div>
@@ -683,7 +693,7 @@
             <div class="bonus-scroll-card">
                 <div class="bonus-card-inner">
                   <div class="bonus-image-wrapper">
-                    <img src="./img/BONUS 5.png" alt="Bônus 06" class="bonus-scroll-image">
+                    <img src="images/BONUS%205.png" alt="Bônus 06" class="bonus-scroll-image">
                     <div class="bonus-badge-scroll">
                       <span>INCLUSO NO PACOTE PREMIUM</span>
                     </div>
@@ -1121,5 +1131,6 @@
 
 <script src="js/script.js"></script>
 
-</body>
-</html>
+
+
+</body></html>
