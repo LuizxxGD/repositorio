@@ -1313,7 +1313,7 @@ body {
     transform: translateX(0);
   }
   100% {
-    transform: translateX(calc(-50% - 20px));
+    transform: translateX(calc(-50% - 10px));
   }
 }
 
@@ -1323,7 +1323,9 @@ body {
   border-radius: 1.5rem;
   box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25);
   width: 100%;
-  height: 800px;
+  max-width: 1200px;
+  height: auto;
+  min-height: 600px;
   margin: 0 auto;
   background: rgba(0,0,0,0.1);
   display: flex;
@@ -1334,10 +1336,10 @@ body {
   display: flex;
   gap: 20px;
   padding: 20px;
-  animation: carousel-scroll 30s linear infinite;
+  animation: carousel-scroll 40s linear infinite;
   will-change: transform;
-  width: 100%;
-  height: 100%;
+  width: max-content;
+  min-width: 100%;
   align-items: stretch;
   justify-content: flex-start;
 }
@@ -1347,17 +1349,21 @@ body {
 }
 
 .bonus-card {
-  width: 100%;
-  height: 100%;
-  flex: 1 1 0;
-  margin: 0 10px;
+  flex: 0 0 350px;
+  max-width: 350px;
+  min-height: 550px;
+  background: rgba(0, 0, 0, 0.8);
+  border: 2px solid #ff6600;
+  border-radius: 20px;
+  padding: 25px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin: 0;
   opacity: 1;
   transform: scale(1);
   transition: all 0.3s ease;
-  min-width: 300px;
-  max-width: 400px;
-  display: flex;
-  flex-direction: column;
 }
 
 .bonus-card::-webkit-scrollbar {
@@ -1385,13 +1391,20 @@ body {
   }
   
   .carousel-container {
-    height: 700px;
+    height: auto;
+    min-height: 500px;
   }
   
   .bonus-card {
-    width: 100% !important;
-    height: 100% !important;
-    max-width: 350px !important;
+    flex: 0 0 300px !important;
+    max-width: 300px !important;
+    min-height: 450px !important;
+    padding: 20px !important;
+  }
+  
+  .bonus-card img {
+    width: 150px !important;
+    height: 150px !important;
   }
 }
 
@@ -1401,13 +1414,32 @@ body {
   }
   
   .carousel-container {
-    height: 650px;
+    height: auto;
+    min-height: 450px;
   }
   
   .bonus-card {
-    width: 100% !important;
-    height: 100% !important;
-    max-width: 300px !important;
+    flex: 0 0 280px !important;
+    max-width: 280px !important;
+    min-height: 400px !important;
+    padding: 15px !important;
+  }
+  
+  .bonus-card img {
+    width: 120px !important;
+    height: 120px !important;
+  }
+  
+  .bonus-card h3 {
+    font-size: 20px !important;
+  }
+  
+  .bonus-card h4 {
+    font-size: 16px !important;
+  }
+  
+  .bonus-card p {
+    font-size: 12px !important;
   }
 }
 
@@ -1526,5 +1558,116 @@ body {
   
   .bonus-card .bonus-description {
     font-size: 14px;
+  }
+}
+
+/* Carrossel de Bônus - Estilos Específicos */
+.carousel-container .bonus-card {
+  flex: 0 0 350px !important;
+  max-width: 350px !important;
+  min-height: 550px !important;
+  background: rgba(0, 0, 0, 0.8) !important;
+  border: 2px solid #ff6600 !important;
+  border-radius: 20px !important;
+  padding: 25px !important;
+  text-align: center !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: space-between !important;
+  margin: 0 !important;
+  opacity: 1 !important;
+  transform: scale(1) !important;
+  transition: all 0.3s ease !important;
+  box-shadow: none !important;
+}
+
+.carousel-container .bonus-card:hover {
+  transform: translateY(-5px) !important;
+  border-color: #ff6600 !important;
+  box-shadow: 0 10px 30px rgba(255, 102, 0, 0.3) !important;
+}
+
+.carousel-container .bonus-card img {
+  width: 180px !important;
+  height: 180px !important;
+  object-fit: cover !important;
+  border-radius: 15px !important;
+  margin: 0 auto 15px !important;
+  display: block !important;
+}
+
+.carousel-container .bonus-card h3 {
+  font-size: 24px !important;
+  color: #ff6600 !important;
+  margin-bottom: 8px !important;
+  font-weight: bold !important;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.8) !important;
+}
+
+.carousel-container .bonus-card h4 {
+  font-size: 20px !important;
+  color: #ffffff !important;
+  margin-bottom: 8px !important;
+  font-weight: bold !important;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.8) !important;
+}
+
+.carousel-container .bonus-card p {
+  color: #ffffff !important;
+  font-size: 14px !important;
+  line-height: 1.4 !important;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.8) !important;
+}
+
+/* Responsividade para mobile */
+@media (max-width: 768px) {
+  .carousel-container .bonus-card {
+    flex: 0 0 300px !important;
+    max-width: 300px !important;
+    min-height: 450px !important;
+    padding: 20px !important;
+  }
+  
+  .carousel-container .bonus-card img {
+    width: 150px !important;
+    height: 150px !important;
+  }
+  
+  .carousel-container .bonus-card h3 {
+    font-size: 20px !important;
+  }
+  
+  .carousel-container .bonus-card h4 {
+    font-size: 16px !important;
+  }
+  
+  .carousel-container .bonus-card p {
+    font-size: 12px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .carousel-container .bonus-card {
+    flex: 0 0 280px !important;
+    max-width: 280px !important;
+    min-height: 400px !important;
+    padding: 15px !important;
+  }
+  
+  .carousel-container .bonus-card img {
+    width: 120px !important;
+    height: 120px !important;
+  }
+  
+  .carousel-container .bonus-card h3 {
+    font-size: 18px !important;
+  }
+  
+  .carousel-container .bonus-card h4 {
+    font-size: 14px !important;
+  }
+  
+  .carousel-container .bonus-card p {
+    font-size: 11px !important;
   }
 }
