@@ -16,7 +16,8 @@
   
   <!-- Preload critical resources with higher priority -->
   <link rel="stylesheet" href="css/styles.css">
-  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <!-- Fontes Google com hierarquia -->
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Exo+2:wght@300;400;600;700;900&family=Inter:wght@400;700&family=Anton&family=Black+Ops+One&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
   <link rel="preload" href="https://i.postimg.cc/pTc7xhLX/fundo-hero.webp" as="image" fetchpriority="high">
   
   <!-- DNS prefetch for external domains -->
@@ -31,7 +32,7 @@
   <!-- Fallback stylesheets -->
   <noscript>
     <link rel="stylesheet" href="css/styles.css?v=2.5.0">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Exo+2:wght@300;400;600;700;900&family=Inter:wght@400;700&family=Anton&family=Black+Ops+One&display=swap">
   </noscript>
   
   <!-- Cache control -->
@@ -49,6 +50,228 @@
       line-height: 1.6;
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
+    }
+    
+    /* Hierarquia de fontes */
+    .title-3d {
+      font-family: 'Black Ops One', 'Orbitron', monospace;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 4px;
+      color: #ffffff;
+      text-shadow: 
+        0 0 10px rgba(255,255,255,0.9),
+        0 0 20px rgba(255,255,255,0.7),
+        0 0 30px rgba(255,255,255,0.5),
+        0 0 40px rgba(255,255,255,0.3),
+        0 0 50px rgba(255,255,255,0.2),
+        3px 3px 0px rgba(255,0,0,0.9),
+        6px 6px 0px rgba(255,0,0,0.7),
+        9px 9px 0px rgba(255,0,0,0.5),
+        12px 12px 0px rgba(255,0,0,0.3),
+        15px 15px 0px rgba(255,0,0,0.2);
+      animation: titleGlow 4s ease-in-out infinite alternate;
+      position: relative;
+    }
+    
+    .title-3d::before {
+      content: '';
+      position: absolute;
+      top: -2px;
+      left: -2px;
+      right: -2px;
+      bottom: -2px;
+      background: linear-gradient(45deg, #ff0000, #ff6b6b, #ff0000);
+      z-index: -1;
+      filter: blur(8px);
+      opacity: 0.3;
+      animation: borderGlow 3s ease-in-out infinite alternate;
+    }
+    
+    .title-3d .highlight {
+      color: #ff0000;
+      text-shadow: 
+        0 0 15px rgba(255,0,0,0.9),
+        0 0 25px rgba(255,0,0,0.7),
+        0 0 35px rgba(255,0,0,0.5),
+        0 0 45px rgba(255,0,0,0.3),
+        0 0 55px rgba(255,0,0,0.2),
+        3px 3px 0px rgba(255,255,255,0.9),
+        6px 6px 0px rgba(255,255,255,0.7),
+        9px 9px 0px rgba(255,255,255,0.5),
+        12px 12px 0px rgba(255,255,255,0.3),
+        15px 15px 0px rgba(255,255,255,0.2);
+      animation: highlightGlow 2s ease-in-out infinite alternate;
+    }
+    
+    /* Efeito 3D especial para módulos do curso */
+    .modules-title-3d {
+      font-family: 'Anton', 'Black Ops One', sans-serif;
+      font-weight: 900;
+      font-size: 2.5rem;
+      text-transform: uppercase;
+      letter-spacing: 6px;
+      color: #ffffff;
+      text-shadow: 
+        0 0 20px rgba(255,255,255,0.9),
+        0 0 30px rgba(255,255,255,0.7),
+        0 0 40px rgba(255,255,255,0.5),
+        0 0 50px rgba(255,255,255,0.3),
+        0 0 60px rgba(255,255,255,0.2),
+        4px 4px 0px rgba(255,0,0,0.9),
+        8px 8px 0px rgba(255,0,0,0.7),
+        12px 12px 0px rgba(255,0,0,0.5),
+        16px 16px 0px rgba(255,0,0,0.3),
+        20px 20px 0px rgba(255,0,0,0.2),
+        0 0 0 10px rgba(255,0,0,0.1);
+      animation: modulesTitleGlow 5s ease-in-out infinite alternate;
+      position: relative;
+      transform: perspective(1000px) rotateX(5deg);
+      transform-style: preserve-3d;
+    }
+    
+    .modules-title-3d .highlight {
+      color: #ff0000;
+      text-shadow: 
+        0 0 20px rgba(255,0,0,0.9),
+        0 0 30px rgba(255,0,0,0.7),
+        0 0 40px rgba(255,0,0,0.5),
+        0 0 50px rgba(255,0,0,0.3),
+        0 0 60px rgba(255,0,0,0.2),
+        4px 4px 0px rgba(255,255,255,0.9),
+        8px 8px 0px rgba(255,255,255,0.7),
+        12px 12px 0px rgba(255,255,255,0.5),
+        16px 16px 0px rgba(255,255,255,0.3),
+        20px 20px 0px rgba(255,255,255,0.2),
+        0 0 0 10px rgba(255,255,255,0.1);
+      animation: modulesHighlightGlow 3s ease-in-out infinite alternate;
+    }
+    
+    @keyframes titleGlow {
+      0% {
+        text-shadow: 
+          0 0 10px rgba(255,255,255,0.9),
+          0 0 20px rgba(255,255,255,0.7),
+          0 0 30px rgba(255,255,255,0.5),
+          0 0 40px rgba(255,255,255,0.3),
+          0 0 50px rgba(255,255,255,0.2),
+          3px 3px 0px rgba(255,0,0,0.9),
+          6px 6px 0px rgba(255,0,0,0.7),
+          9px 9px 0px rgba(255,0,0,0.5),
+          12px 12px 0px rgba(255,0,0,0.3),
+          15px 15px 0px rgba(255,0,0,0.2);
+      }
+      100% {
+        text-shadow: 
+          0 0 15px rgba(255,255,255,0.9),
+          0 0 25px rgba(255,255,255,0.7),
+          0 0 35px rgba(255,255,255,0.5),
+          0 0 45px rgba(255,255,255,0.3),
+          0 0 55px rgba(255,255,255,0.2),
+          4px 4px 0px rgba(255,0,0,0.9),
+          8px 8px 0px rgba(255,0,0,0.7),
+          12px 12px 0px rgba(255,0,0,0.5),
+          16px 16px 0px rgba(255,0,0,0.3),
+          20px 20px 0px rgba(255,0,0,0.2);
+      }
+    }
+    
+    @keyframes modulesTitleGlow {
+      0% {
+        text-shadow: 
+          0 0 20px rgba(255,255,255,0.9),
+          0 0 30px rgba(255,255,255,0.7),
+          0 0 40px rgba(255,255,255,0.5),
+          0 0 50px rgba(255,255,255,0.3),
+          0 0 60px rgba(255,255,255,0.2),
+          4px 4px 0px rgba(255,0,0,0.9),
+          8px 8px 0px rgba(255,0,0,0.7),
+          12px 12px 0px rgba(255,0,0,0.5),
+          16px 16px 0px rgba(255,0,0,0.3),
+          20px 20px 0px rgba(255,0,0,0.2),
+          0 0 0 10px rgba(255,0,0,0.1);
+        transform: perspective(1000px) rotateX(5deg) scale(1);
+      }
+      100% {
+        text-shadow: 
+          0 0 25px rgba(255,255,255,0.9),
+          0 0 35px rgba(255,255,255,0.7),
+          0 0 45px rgba(255,255,255,0.5),
+          0 0 55px rgba(255,255,255,0.3),
+          0 0 65px rgba(255,255,255,0.2),
+          5px 5px 0px rgba(255,0,0,0.9),
+          10px 10px 0px rgba(255,0,0,0.7),
+          15px 15px 0px rgba(255,0,0,0.5),
+          20px 20px 0px rgba(255,0,0,0.3),
+          25px 25px 0px rgba(255,0,0,0.2),
+          0 0 0 15px rgba(255,0,0,0.1);
+        transform: perspective(1000px) rotateX(5deg) scale(1.05);
+      }
+    }
+    
+    @keyframes modulesHighlightGlow {
+      0% {
+        text-shadow: 
+          0 0 20px rgba(255,0,0,0.9),
+          0 0 30px rgba(255,0,0,0.7),
+          0 0 40px rgba(255,0,0,0.5),
+          0 0 50px rgba(255,0,0,0.3),
+          0 0 60px rgba(255,0,0,0.2),
+          4px 4px 0px rgba(255,255,255,0.9),
+          8px 8px 0px rgba(255,255,255,0.7),
+          12px 12px 0px rgba(255,255,255,0.5),
+          16px 16px 0px rgba(255,255,255,0.3),
+          20px 20px 0px rgba(255,255,255,0.2),
+          0 0 0 10px rgba(255,255,255,0.1);
+      }
+      100% {
+        text-shadow: 
+          0 0 25px rgba(255,0,0,0.9),
+          0 0 35px rgba(255,0,0,0.7),
+          0 0 45px rgba(255,0,0,0.5),
+          0 0 55px rgba(255,0,0,0.3),
+          0 0 65px rgba(255,0,0,0.2),
+          5px 5px 0px rgba(255,255,255,0.9),
+          10px 10px 0px rgba(255,255,255,0.7),
+          15px 15px 0px rgba(255,255,255,0.5),
+          20px 20px 0px rgba(255,255,255,0.3),
+          25px 25px 0px rgba(255,255,255,0.2),
+          0 0 0 15px rgba(255,255,255,0.1);
+      }
+    }
+    
+    @keyframes borderGlow {
+      0% { opacity: 0.3; filter: blur(8px); }
+      100% { opacity: 0.6; filter: blur(12px); }
+    }
+    
+    @keyframes highlightGlow {
+      0% { 
+        text-shadow: 
+          0 0 15px rgba(255,0,0,0.9),
+          0 0 25px rgba(255,0,0,0.7),
+          0 0 35px rgba(255,0,0,0.5),
+          0 0 45px rgba(255,0,0,0.3),
+          0 0 55px rgba(255,0,0,0.2),
+          3px 3px 0px rgba(255,255,255,0.9),
+          6px 6px 0px rgba(255,255,255,0.7),
+          9px 9px 0px rgba(255,255,255,0.5),
+          12px 12px 0px rgba(255,255,255,0.3),
+          15px 15px 0px rgba(255,255,255,0.2);
+      }
+      100% { 
+        text-shadow: 
+          0 0 20px rgba(255,0,0,0.9),
+          0 0 30px rgba(255,0,0,0.7),
+          0 0 40px rgba(255,0,0,0.5),
+          0 0 50px rgba(255,0,0,0.3),
+          0 0 60px rgba(255,0,0,0.2),
+          4px 4px 0px rgba(255,255,255,0.9),
+          8px 8px 0px rgba(255,255,255,0.7),
+          12px 12px 0px rgba(255,255,255,0.5),
+          16px 16px 0px rgba(255,255,255,0.3),
+          20px 20px 0px rgba(255,255,255,0.2);
+      }
     }
     
     /* Teste temporário para o fundo hero */
@@ -124,7 +347,7 @@
   <section id="modules" class="modules-section">
     <div class="container">
       <div class="section-header">
-        <h2 class="section-title">MÓDULOS DO CURSO</h2>
+        <h2 class="section-title modules-title-3d">MÓDULOS DO <span class="highlight">CURSO</span></h2>
         <p class="section-subtitle">Conteúdo estruturado para levar você do iniciante ao profissional</p>
       </div>
       
@@ -138,7 +361,7 @@
           <div class="module-content">
             <p class="module-description">
               <strong>APRESENTAÇÃO DO CURSO E DO CONTEÚDO.</strong><br>
-              CONCEITOS SOBRE DESBLOQUEIOS E VAI APRENDAR NA PRATICA A COMO DOMINAR A FERRAMENTA UNLOCKTOOL!
+              CONCEITOS SOBRE DESBLOQUEIOS E VAI APRENDER NA PRATICA A COMO DOMINAR A FERRAMENTA UNLOCKTOOL!
             </p>
             <div class="module-features">
               <span class="feature-tag">Fundamentos</span>
@@ -214,13 +437,12 @@
     padding: 40px 20px;
     text-align: center;
   ">
-    <h2 style="
-      color: white;
+    <h2 class="modules-title-3d" style="
       font-size: 1.5rem;
       margin: 20px 0;
       text-transform: uppercase;
       letter-spacing: 3px;
-    ">O QUE NOSSOS<br>ALUNOS DIZEM</h2>
+    ">O QUE NOSSOS<br>ALUNOS <span class="highlight">DIZEM</span></h2>
   
     <div style="
       width: 100%;
@@ -241,9 +463,9 @@
     <div class="container">
       <!-- Texto de Garantia -->
       <div class="guarantee-text">
-        <h3 class="guarantee-title">E COM GARANTIA, VOCÊ</h3>
-        <h3 class="guarantee-title">SATISFEITO OU SEU DINHEIRO</h3>
-        <h3 class="guarantee-title">DE VOLTA!</h3>
+        <h3 class="guarantee-title modules-title-3d">E COM <span class="highlight">GARANTIA</span>, VOCÊ</h3>
+        <h3 class="guarantee-title modules-title-3d"><span class="highlight">SATISFEITO</span> OU SEU DINHEIRO</h3>
+        <h3 class="guarantee-title modules-title-3d">DE <span class="highlight">VOLTA</span>!</h3>
       </div>
 
       <!-- Preços -->
@@ -280,10 +502,10 @@
 		    
 		    <!-- Título Principal -->
 		    <div style="text-align: center; margin-bottom: 40px;">
-		      <h2 style="font-size: 32px; color: #a020f0; font-weight: bold; text-shadow: 2px 2px 4px rgba(0,0,0,0.8); margin-bottom: 10px;">
-		        <span style="background-color: #ff0000; color: white; padding: 5px 15px; border-radius: 5px;">06 BÔNUS EXCLUSIVOS</span> 
-		        <br>PARA QUEM COMPRAR O PLANO PREMIUM HOJE!
-		      </h2>
+		            <h2 class="modules-title-3d" style="font-size: 32px; margin-bottom: 10px;">
+        <span style="background-color: #ff0000; color: white; padding: 5px 15px; border-radius: 5px;">06 BÔNUS <span class="highlight">EXCLUSIVOS</span></span> 
+        <br>PARA QUEM COMPRAR O PLANO <span class="highlight">PREMIUM</span> HOJE!
+      </h2>
 		    </div>
 
 
@@ -671,7 +893,7 @@
   <!-- About Section -->
   <section class="about-section">
     <div class="container">
-      <h2 class="section-title">O que é o Curso de Desbloqueio?</h2>
+      <h2 class="section-title modules-title-3d">O QUE É O <span class="highlight">CURSO</span> DE <span class="highlight">DESBLOQUEIO</span>?</h2>
       <div class="about-content">
         <p class="about-text">
           O treinamento mais completo do Brasil para desbloquear qualquer celular. Aprenda do zero ao profissional a remover bloqueios de iPhone, Android e MDM PayJoy.
@@ -688,7 +910,7 @@
   <!-- MDM PayJoy Section -->
   <section class="about-section">
     <div class="container">
-      <h2 class="section-title">O que é MDM PayJoy?</h2>
+      <h2 class="section-title modules-title-3d">O QUE É <span class="highlight">MDM PAYJOY</span>?</h2>
       <div class="about-content">
         <p class="about-text">
           MDM PayJoy é um bloqueio aplicado em smartphones financiados pela PayJoy para garantir o pagamento das parcelas. Se o cliente não paga, o aparelho é bloqueado remotamente. Desbloquear esse bloqueio exige conhecimento técnico especializado e ferramentas específicas, tornando os profissionais dessa área escassos.
@@ -731,7 +953,7 @@
   <section id="comprar-agora" class="plans-section">
     <div class="container">
       <div class="section-header">
-        <h2 class="section-title">ESCOLHA SEU PLANO</h2>
+        <h2 class="section-title modules-title-3d">ESCOLHA SEU <span class="highlight">PLANO</span></h2>
         <p class="section-subtitle">Selecione o plano ideal para suas necessidades</p>
       </div>
       
@@ -1002,7 +1224,7 @@
   <section class="faq-section">
     <div class="container">
       <div class="section-header">
-        <h2 class="section-title">Perguntas Frequentes (FAQ)</h2>
+        <h2 class="section-title modules-title-3d">PERGUNTAS <span class="highlight">FREQUENTES</span> (FAQ)</h2>
         <p class="section-subtitle">Tire suas dúvidas sobre o curso</p>
       </div>
       
