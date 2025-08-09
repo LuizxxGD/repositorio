@@ -1,0 +1,257 @@
+/* CSS Optimizer - Otimizações para PageSpeed Insights */
+/* Adicione este arquivo no seu HTML após o CSS principal */
+
+/* Critical CSS inline para above-the-fold content */
+.critical-css {
+  /* Hero section optimizations */
+  .hero-section {
+    contain: layout style paint;
+    will-change: transform;
+  }
+  
+  .hero-background {
+    contain: layout style paint;
+    will-change: transform;
+    transform: translateZ(0);
+  }
+  
+  .hero-content {
+    contain: layout style;
+  }
+  
+  /* Button optimizations */
+  .cta-button {
+    contain: layout style;
+    will-change: transform;
+  }
+  
+  /* Text optimizations */
+  .hero-title {
+    contain: layout style;
+  }
+  
+  .gradient-text {
+    contain: layout style;
+  }
+}
+
+/* Performance optimizations */
+.performance-optimized {
+  /* Reduce repaints */
+  * {
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+  }
+  
+  /* Optimize animations */
+  .cta-button,
+  .module-card,
+  .bonus-card,
+  .plan-card {
+    transform: translateZ(0);
+    will-change: transform;
+  }
+  
+  /* Reduce layout shifts */
+  img {
+    aspect-ratio: attr(width) / attr(height);
+  }
+  
+  /* Optimize scrolling */
+  .modules-section,
+  .bonus-section,
+  .plans-section {
+    contain: layout style;
+  }
+}
+
+/* Mobile performance optimizations */
+@media (max-width: 768px) {
+  .performance-optimized {
+    /* Reduce animations on mobile */
+    .cta-button:hover,
+    .module-card:hover,
+    .bonus-card:hover,
+    .plan-card:hover {
+      transform: none;
+    }
+    
+    /* Optimize touch interactions */
+    .cta-button,
+    .module-card,
+    .bonus-card,
+    .plan-card {
+      -webkit-tap-highlight-color: transparent;
+      touch-action: manipulation;
+    }
+  }
+}
+
+/* Print optimizations */
+@media print {
+  .performance-optimized {
+    .hero-background,
+    .bonus-section {
+      background: none !important;
+    }
+    
+    .cta-button,
+    .plan-button {
+      background: #000 !important;
+      color: #fff !important;
+      border: 1px solid #000 !important;
+    }
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .performance-optimized {
+    .gradient-text {
+      background: #fff !important;
+      -webkit-background-clip: unset !important;
+      -webkit-text-fill-color: #000 !important;
+      background-clip: unset !important;
+    }
+    
+    .cta-button {
+      background: #000 !important;
+      color: #fff !important;
+      border: 2px solid #fff !important;
+    }
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .performance-optimized {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+    
+    .cta-button:hover,
+    .module-card:hover,
+    .bonus-card:hover,
+    .plan-card:hover {
+      transform: none !important;
+    }
+  }
+}
+
+/* Focus optimizations for accessibility */
+.performance-optimized {
+  .cta-button:focus,
+  .plan-button:focus,
+  .module-card:focus,
+  .bonus-card:focus,
+  .plan-card:focus {
+    outline: 2px solid #ff8c00;
+    outline-offset: 2px;
+  }
+  
+  /* Skip link for accessibility */
+  .skip-link {
+    position: absolute;
+    top: -40px;
+    left: 6px;
+    background: #000;
+    color: #fff;
+    padding: 8px;
+    text-decoration: none;
+    border-radius: 4px;
+    z-index: 1000;
+  }
+  
+  .skip-link:focus {
+    top: 6px;
+  }
+}
+
+/* Content visibility optimizations */
+.content-visibility-auto {
+  content-visibility: auto;
+  contain-intrinsic-size: 0 500px;
+}
+
+/* Container queries support */
+@container (min-width: 400px) {
+  .performance-optimized .module-card {
+    grid-template-columns: 1fr 2fr;
+  }
+}
+
+/* Modern CSS features with fallbacks */
+.performance-optimized {
+  .hero-section {
+    /* Modern grid with fallback */
+    display: grid;
+    display: -ms-grid;
+    grid-template-areas: "content";
+    -ms-grid-areas: "content";
+  }
+  
+  .hero-content {
+    grid-area: content;
+    -ms-grid-area: content;
+  }
+}
+
+/* Optimize for Core Web Vitals */
+.core-web-vitals-optimized {
+  /* Reduce Cumulative Layout Shift */
+  .hero-section,
+  .modules-section,
+  .bonus-section,
+  .plans-section {
+    min-height: 100vh;
+  }
+  
+  /* Optimize Largest Contentful Paint */
+  .hero-title {
+    font-display: swap;
+  }
+  
+  /* Optimize First Input Delay */
+  .cta-button,
+  .plan-button {
+    touch-action: manipulation;
+  }
+}
+
+/* Critical rendering path optimizations */
+.critical-rendering {
+  /* Prevent layout shifts */
+  .hero-logo {
+    width: 350px;
+    height: 200px;
+  }
+  
+  .module-thumbnail img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16/9;
+  }
+  
+  .bonus-scroll-image {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1/1;
+  }
+}
+
+/* Network optimization hints */
+.network-optimized {
+  /* DNS prefetch for external domains */
+  .external-resource {
+    dns-prefetch: true;
+  }
+  
+  /* Preconnect for critical resources */
+  .critical-resource {
+    preconnect: true;
+  }
+}

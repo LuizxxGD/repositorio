@@ -1,159 +1,38 @@
-<!DOCTYPE html><html lang="pt-BR"><head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Curso de Desbloqueio de Celulares - Unlocker Pro</title>
-  <meta name="description" content="Desbloqueio de iPhones com segurança. Garantia e suporte especializado.">
-  <meta name="robots" content="index, follow">
-  <meta name="author" content="iOS Unlocker Pro">
-  <meta name="theme-color" content="#ff8c00">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-  <meta name="apple-mobile-web-app-title" content="iOS Unlocker Pro">
-  <link rel="manifest" href="/manifest.json">
-  <link rel="apple-touch-icon" href="img/placeholder-logo.png">
-  
-  <!-- Preload critical resources with higher priority -->
-  <link rel="preload" href="css/styles.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  <link rel="preload" href="https://i.postimg.cc/pT3whJ7w/paredeoficial.jpg" as="image" fetchpriority="high">
-  
-  <!-- DNS prefetch for external domains -->
-  <link rel="dns-prefetch" href="//fonts.googleapis.com">
-  <link rel="dns-prefetch" href="//fonts.gstatic.com">
-  <link rel="dns-prefetch" href="//i.postimg.cc">
-  <link rel="dns-prefetch" href="//cdn.utmify.com.br">
-  
-  <!-- Favicon -->
-  <link rel="icon" href="/favicon.ico" type="image/x-icon">
-  
-  <!-- Fallback stylesheets -->
-  <noscript>
-    <link rel="stylesheet" href="css/styles.css?v=2.5.0">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap">
-  </noscript>
-  
-  <!-- Cache control -->
-  <meta http-equiv="Cache-Control" content="public, max-age=31536000">
-  
-  <!-- Critical CSS inline - optimized for mobile -->
-  <style>
-    /* Critical CSS for above-the-fold content - mobile optimized */
-    * { box-sizing: border-box; }
-    body { 
-      margin: 0; 
-      font-family: "Inter", -apple-system, BlinkMacSystemFont, sans-serif; 
-      background: #000; 
-      color: #fff; 
-      line-height: 1.6;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-    }
-    .hero-section { 
-      position: relative; 
-      width: 100%; 
-      height: 100vh; 
-      min-height: 600px;
-    }
-    .hero-background { 
-      background-image: url("img/paredeoficial.jpg"); 
-      background-size: cover; 
-      background-position: center; 
-      width: 100%; 
-      height: 100%; 
-      position: absolute; 
-      top: 0; 
-      left: 0; 
-      filter: brightness(50%);
-      will-change: transform;
-    }
-    .hero-content { 
-      position: relative; 
-      z-index: 4; 
-      min-height: 100vh; 
-      display: flex; 
-      flex-direction: column; 
-      justify-content: center; 
-      align-items: center; 
-      text-align: center; 
-      padding: 1rem; 
-      max-width: 100%;
-    }
-    .hero-title { 
-      font-size: clamp(2rem, 8vw, 4rem); 
-      margin-bottom: 0.8rem; 
-      line-height: 1.1; 
-      font-weight: 800; 
-      margin-top: 0;
-    }
-    .cta-button { 
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      padding: 1rem 2rem; 
-      background: linear-gradient(45deg, rgb(106, 13, 173), rgb(255, 140, 0)); 
-      color: white; 
-      border: none; 
-      border-radius: 50px; 
-      font-size: clamp(0.9rem, 3vw, 1.1rem); 
-      text-decoration: none; 
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      transition: all 0.3s ease;
-      box-shadow: 0 8px 25px rgba(255, 140, 0, 0.3);
-      cursor: pointer;
-      will-change: transform;
-    }
-    .cta-button:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 12px 35px rgba(255, 140, 0, 0.4);
-      background: linear-gradient(45deg, rgb(120, 15, 195), rgb(255, 160, 20));
-    }
-    .cta-subtitle {
-      font-size: 0.9rem;
-      color: #ccc;
-      text-align: center;
-      margin-top: 0.5rem;
-    }
-    .hero-logo {
-      max-width: 100%;
-      height: auto;
-      margin: 1rem 0;
-    }
-    .gradient-text {
-      background: linear-gradient(45deg, #ff8c00, #ff6b35);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-    .subtitle {
-      font-size: clamp(1rem, 4vw, 1.5rem);
-      color: #ccc;
-      margin-top: 0.5rem;
-    }
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>iPhone Unlock Pro - Desbloqueio Profissional</title>
+    <meta name="description" content="Curso completo de desbloqueio de iPhone. Aprenda técnicas profissionais com suporte especializado.">
     
-    /* Mobile-first responsive design */
-    @media (max-width: 768px) {
-      .hero-content {
-        padding: 0.5rem;
-      }
-      .cta-button {
-        padding: 0.8rem 1.5rem;
-        font-size: 0.9rem;
-      }
-    }
-  </style>
-  
-  <!-- UTMify scripts with async loading -->
-  <script src="js/latest.js" data-utmify-prevent-xcod-sck="" data-utmify-prevent-subids="" async="" defer=""></script>
-  <script>
-    window.pixelId = "6891a937ff05cd30cebd9def";
-    var a = document.createElement("script");
-    a.setAttribute("async", "");
-    a.setAttribute("defer", "");
-    a.setAttribute("src", "https://cdn.utmify.com.br/scripts/pixel/pixel.js");
-    document.head.appendChild(a);
-  </script>
+    <!-- Preload critical resources -->
+    <link rel="preload" href="css/styles.css" as="style">
+    <link rel="preload" href="js/script.js" as="script">
+    
+    <!-- DNS prefetch for external resources -->
+    <link rel="dns-prefetch" href="//fonts.googleapis.com">
+    
+    <!-- Critical CSS inline -->
+    <style>
+        /* Critical CSS for above-the-fold content */
+        body { margin: 0; font-family: 'Arial', sans-serif; }
+        .hero { background: linear-gradient(135deg, #000000 0%, #1a1a1a 100%); }
+        .hero-content { text-align: center; padding: 4rem 2rem; }
+        .hero h1 { color: #fff; font-size: 3rem; margin-bottom: 1rem; }
+        .cta-button { background: #ff8c00; color: #fff; padding: 1rem 2rem; text-decoration: none; border-radius: 5px; display: inline-block; }
+    </style>
+    
+    <link rel="stylesheet" href="css/styles.css">
+    
+    <!-- Service Worker for caching -->
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/sw.js');
+            });
+        }
+    </script>
 </head>
 
 <body>
