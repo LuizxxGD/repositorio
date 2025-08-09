@@ -1323,8 +1323,11 @@ body {
   border-radius: 1.5rem;
   box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25);
   width: 100%;
+  height: 800px;
   margin: 0 auto;
   background: rgba(0,0,0,0.1);
+  display: flex;
+  flex-direction: column;
 }
 
 .carousel-track {
@@ -1334,6 +1337,9 @@ body {
   animation: carousel-scroll 30s linear infinite;
   will-change: transform;
   width: 100%;
+  height: 100%;
+  align-items: stretch;
+  justify-content: flex-start;
 }
 
 .carousel-track:hover {
@@ -1341,14 +1347,17 @@ body {
 }
 
 .bonus-card {
-  width: 374px;
-  height: 750px;
-  flex: 0 0 auto;
-  margin: 0 20px;
+  width: 100%;
+  height: 100%;
+  flex: 1 1 0;
+  margin: 0 10px;
   opacity: 1;
   transform: scale(1);
   transition: all 0.3s ease;
   min-width: 300px;
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
 }
 
 .bonus-card::-webkit-scrollbar {
@@ -1375,9 +1384,14 @@ body {
     animation-duration: 20s;
   }
   
+  .carousel-container {
+    height: 700px;
+  }
+  
   .bonus-card {
-    width: 320px !important;
-    height: 650px !important;
+    width: 100% !important;
+    height: 100% !important;
+    max-width: 350px !important;
   }
 }
 
@@ -1386,9 +1400,14 @@ body {
     animation-duration: 15s;
   }
   
+  .carousel-container {
+    height: 650px;
+  }
+  
   .bonus-card {
-    width: 280px !important;
-    height: 600px !important;
+    width: 100% !important;
+    height: 100% !important;
+    max-width: 300px !important;
   }
 }
 
@@ -1400,6 +1419,7 @@ body {
   height: 100%;
   padding: 30px;
   text-align: center;
+  flex: 1;
 }
 
 .bonus-card .bonus-image {
