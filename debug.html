@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Debug CSS</title>
+  <style>
+    /* CSS inline para teste */
+    body {
+      background: #000;
+      color: #fff;
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+    .test-section {
+      border: 2px solid #ff0000;
+      padding: 20px;
+      margin: 20px 0;
+      border-radius: 10px;
+    }
+    .error {
+      color: #ff0000;
+      font-weight: bold;
+    }
+    .success {
+      color: #00ff00;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <h1>Debug do CSS</h1>
+  
+  <div class="test-section">
+    <h2>Teste 1: CSS Inline</h2>
+    <p class="success">✅ CSS inline funcionando</p>
+  </div>
+  
+  <div class="test-section">
+    <h2>Teste 2: CSS Externo</h2>
+    <p id="css-status">Verificando...</p>
+  </div>
+  
+  <div class="test-section">
+    <h2>Teste 3: Imagens</h2>
+    <p id="img-status">Verificando...</p>
+  </div>
+  
+  <div class="test-section">
+    <h2>Teste 4: JavaScript</h2>
+    <p id="js-status">Verificando...</p>
+  </div>
+  
+  <script>
+    // Teste do CSS externo
+    setTimeout(() => {
+      const link = document.createElement('link');
+      link.rel = 'stylesheet';
+      link.href = 'css/styles.css';
+      link.onload = () => {
+        document.getElementById('css-status').innerHTML = '<span class="success">✅ CSS externo carregado</span>';
+      };
+      link.onerror = () => {
+        document.getElementById('css-status').innerHTML = '<span class="error">❌ Erro ao carregar CSS</span>';
+      };
+      document.head.appendChild(link);
+    }, 1000);
+    
+    // Teste das imagens
+    setTimeout(() => {
+      const img = new Image();
+      img.onload = () => {
+        document.getElementById('img-status').innerHTML = '<span class="success">✅ Imagem carregada</span>';
+      };
+      img.onerror = () => {
+        document.getElementById('img-status').innerHTML = '<span class="error">❌ Erro ao carregar imagem</span>';
+      };
+      img.src = 'img/md1.png';
+    }, 2000);
+    
+    // Teste do JavaScript
+    setTimeout(() => {
+      try {
+        const script = document.createElement('script');
+        script.src = 'js/script.js';
+        script.onload = () => {
+          document.getElementById('js-status').innerHTML = '<span class="success">✅ JavaScript carregado</span>';
+        };
+        script.onerror = () => {
+          document.getElementById('js-status').innerHTML = '<span class="error">❌ Erro ao carregar JavaScript</span>';
+        };
+        document.head.appendChild(script);
+      } catch (e) {
+        document.getElementById('js-status').innerHTML = '<span class="error">❌ Erro: ' + e.message + '</span>';
+      }
+    }, 3000);
+  </script>
+</body>
+</html>
