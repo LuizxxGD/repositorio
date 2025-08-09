@@ -303,7 +303,7 @@ body {
 
 /* About Section */
 .about-section {
-  padding: 4rem 0;
+  padding: 2rem 0;
   background: #111;
   text-align: center;
 }
@@ -312,7 +312,7 @@ body {
   font-size: clamp(1.1rem, 3vw, 1.3rem);
   line-height: 1.8;
   max-width: 800px;
-  margin: 0 auto 2rem;
+  margin: 0 auto 1.5rem;
   color: #fff;
 }
 
@@ -323,7 +323,7 @@ body {
 
 /* Info Section */
 .info-section {
-  padding: 4rem 0;
+  padding: 2rem 0;
   background: #000;
 }
 
@@ -331,7 +331,7 @@ body {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 2rem;
-  margin-top: 2rem;
+  margin-top: 1.5rem;
 }
 
 .info-card {
@@ -377,7 +377,7 @@ body {
 
 /* Plans Section */
 .plans-section {
-  padding: 4rem 0;
+  padding: 2rem 0;
   background: #111;
 }
 
@@ -385,7 +385,7 @@ body {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 2rem;
-  margin-top: 2rem;
+  margin-top: 1.5rem;
 }
 
 .plan-card {
@@ -1699,7 +1699,7 @@ body {
   display: flex;
   gap: 30px;
   padding: 30px;
-  animation: bonus-scroll 60s linear infinite;
+  animation: bonus-scroll 80s linear infinite;
   will-change: transform;
   width: max-content;
   min-width: 100%;
@@ -1812,7 +1812,7 @@ body {
 /* Responsividade para mobile */
 @media (max-width: 768px) {
   .bonus-scroll-track {
-    animation-duration: 40s;
+    animation-duration: 60s;
   }
   
   .bonus-carousel-scroll {
@@ -1842,6 +1842,21 @@ body {
   
   .bonus-description-scroll {
     font-size: 14px !important;
+  }
+  
+  .about-section,
+  .info-section,
+  .plans-section {
+    padding: 1.5rem 0 !important;
+  }
+  
+  .about-text {
+    margin: 0 auto 1rem !important;
+  }
+  
+  .info-cards,
+  .plans-grid {
+    margin-top: 1rem !important;
   }
 }
 
