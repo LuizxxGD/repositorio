@@ -190,7 +190,7 @@ body {
 /* Modules Section */
 .modules-section {
   padding: 4rem 0;
-  background: #000;
+  background: transparent;
 }
 
 .modules-grid {
@@ -283,7 +283,7 @@ body {
 /* Bonuses Section */
 .bonuses-section {
   padding: 4rem 0;
-  background: #000;
+  background: transparent;
 }
 
 .bonuses-grid {
@@ -378,7 +378,7 @@ body {
 /* Info Section */
 .info-section {
   padding: 2rem 0;
-  background: #000;
+  background: transparent;
 }
 
 .info-cards {
@@ -986,7 +986,7 @@ body {
 
 /* FAQ Section Styles */
 .faq-section {
-  background: #000;
+  background: transparent;
   padding: 60px 0;
   color: #fff;
 }
@@ -1063,7 +1063,7 @@ body {
 
 /* SEÇÃO PROMOCIONAL COM PREÇOS E GARANTIA */
 .promo-section {
-  background: #000;
+  background: transparent;
   padding: 60px 20px;
   text-align: center;
   position: relative;
@@ -1244,7 +1244,7 @@ body {
   aspect-ratio: 9/16;
   height: auto;
   min-height: 500px;
-  background: #000;
+  background: transparent;
   border-radius: 15px;
 }
 
@@ -2029,8 +2029,9 @@ body {
 .old-price-text,
 .only-text-content,
 .new-price-text {
-  color: white;
+  color: #00ff00;
   text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+  font-weight: bold;
 }
 
 .promo-button {
