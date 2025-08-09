@@ -144,6 +144,397 @@
         font-size: 0.9rem;
       }
     }
+
+    /* ===== CSS EXPLOSIVO PARA MÓDULOS ===== */
+    .modules-section {
+      padding: var(--spacing-2xl) 0;
+      background: linear-gradient(135deg, var(--color-secondary), var(--color-accent));
+      position: relative;
+      overflow: hidden;
+    }
+
+    .modules-section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="50" cy="50" r="1" fill="rgba(255,255,255,0.03)"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+      opacity: 0.5;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: var(--spacing-2xl);
+      position: relative;
+      z-index: 2;
+    }
+
+    .highlight-text {
+      color: var(--color-highlight);
+      font-weight: 800;
+      text-shadow: 0 2px 10px rgba(233, 69, 96, 0.3);
+    }
+
+    .modules-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: var(--spacing-lg);
+      margin-bottom: var(--spacing-xl);
+      position: relative;
+      z-index: 2;
+    }
+
+    .module-card {
+      background: linear-gradient(145deg, var(--color-primary), var(--color-secondary));
+      border-radius: var(--border-radius-lg);
+      padding: var(--spacing-lg);
+      border: 2px solid var(--color-border);
+      position: relative;
+      overflow: hidden;
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      box-shadow: var(--shadow-md);
+    }
+
+    .module-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(233, 69, 96, 0.1), transparent);
+      transition: left 0.6s;
+    }
+
+    .module-card:hover::before {
+      left: 100%;
+    }
+
+    .module-card:hover {
+      transform: translateY(-8px) scale(1.02);
+      border-color: var(--color-highlight);
+      box-shadow: 0 20px 40px rgba(233, 69, 96, 0.2);
+    }
+
+    .module-card.featured {
+      border-color: var(--color-warning);
+      box-shadow: 0 0 30px rgba(255, 107, 53, 0.3);
+      position: relative;
+    }
+
+    .module-card.featured::after {
+      content: '⭐';
+      position: absolute;
+      top: -10px;
+      right: -10px;
+      font-size: 2rem;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.1); }
+    }
+
+    .module-badge {
+      position: absolute;
+      top: var(--spacing-sm);
+      right: var(--spacing-sm);
+      background: linear-gradient(135deg, var(--color-highlight), var(--color-warning));
+      color: white;
+      padding: 8px 16px;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      box-shadow: var(--shadow-sm);
+      z-index: 3;
+    }
+
+    .module-badge.featured {
+      background: linear-gradient(135deg, #ffd700, #ff6b35);
+      animation: glow 2s ease-in-out infinite alternate;
+    }
+
+    @keyframes glow {
+      from { box-shadow: 0 0 10px rgba(255, 215, 0, 0.5); }
+      to { box-shadow: 0 0 20px rgba(255, 215, 0, 0.8); }
+    }
+
+    .module-header {
+      display: flex;
+      align-items: center;
+      gap: var(--spacing-md);
+      margin-bottom: var(--spacing-md);
+    }
+
+    .module-number {
+      background: linear-gradient(135deg, var(--color-highlight), var(--color-warning));
+      color: white;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      font-weight: 800;
+      box-shadow: var(--shadow-md);
+    }
+
+    .module-icon-wrapper {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+    }
+
+    .module-icon-bg {
+      background: linear-gradient(135deg, var(--color-accent), var(--color-secondary));
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 3px solid var(--color-highlight);
+      box-shadow: var(--shadow-md);
+    }
+
+    .module-icon-bg.featured {
+      border-color: var(--color-warning);
+      background: linear-gradient(135deg, #ffd700, #ff6b35);
+    }
+
+    .module-icon-bg svg {
+      color: white;
+      filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+    }
+
+    .module-content {
+      text-align: center;
+    }
+
+    .module-title {
+      margin-bottom: var(--spacing-md);
+    }
+
+    .title-highlight {
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: var(--color-highlight);
+      text-shadow: 0 2px 10px rgba(233, 69, 96, 0.3);
+      display: block;
+    }
+
+    .title-sub {
+      font-size: 1.2rem;
+      color: var(--color-text-secondary);
+      font-weight: 600;
+    }
+
+    .description-main {
+      font-size: 1.1rem;
+      color: var(--color-warning);
+      font-weight: 700;
+      margin-bottom: var(--spacing-sm);
+      text-shadow: 0 1px 3px rgba(255, 107, 53, 0.3);
+    }
+
+    .description-list {
+      list-style: none;
+      text-align: left;
+      margin: var(--spacing-md) 0;
+    }
+
+    .description-list li {
+      margin-bottom: var(--spacing-sm);
+      padding-left: var(--spacing-sm);
+      position: relative;
+      color: var(--color-text-secondary);
+      font-size: 0.95rem;
+      line-height: 1.4;
+    }
+
+    .description-list li::before {
+      content: '✅';
+      position: absolute;
+      left: -20px;
+      color: var(--color-success);
+    }
+
+    .highlight {
+      color: var(--color-highlight);
+      font-weight: 700;
+      text-shadow: 0 1px 3px rgba(233, 69, 96, 0.3);
+    }
+
+    .module-progress {
+      margin: var(--spacing-md) 0;
+    }
+
+    .progress-bar {
+      width: 100%;
+      height: 8px;
+      background: var(--color-border);
+      border-radius: 4px;
+      overflow: hidden;
+      margin-bottom: var(--spacing-xs);
+    }
+
+    .progress-fill {
+      height: 100%;
+      background: linear-gradient(90deg, var(--color-success), var(--color-highlight));
+      border-radius: 4px;
+      transition: width 1s ease-in-out;
+      position: relative;
+    }
+
+    .progress-fill::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+      animation: shimmer 2s infinite;
+      animation-delay: 1s;
+    }
+
+    @keyframes shimmer {
+      0% { transform: translateX(-100%); }
+      100% { transform: translateX(100%); }
+    }
+
+    .progress-text {
+      font-size: 0.9rem;
+      color: var(--color-text-muted);
+      font-weight: 600;
+    }
+
+    .module-features {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--spacing-xs);
+      justify-content: center;
+      margin-top: var(--spacing-md);
+    }
+
+    .feature-tag {
+      background: linear-gradient(135deg, var(--color-accent), var(--color-secondary));
+      color: white;
+      padding: 6px 12px;
+      border-radius: 15px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      border: 1px solid var(--color-border);
+      transition: all 0.3s ease;
+    }
+
+    .feature-tag.explosive {
+      background: linear-gradient(135deg, var(--color-highlight), var(--color-warning));
+      border-color: var(--color-highlight);
+      box-shadow: 0 2px 8px rgba(233, 69, 96, 0.3);
+    }
+
+    .feature-tag.explosive:hover {
+      transform: scale(1.05);
+      box-shadow: 0 4px 12px rgba(233, 69, 96, 0.5);
+    }
+
+    .modules-cta {
+      text-align: center;
+      margin-top: var(--spacing-xl);
+      padding: var(--spacing-lg);
+      background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+      border-radius: var(--border-radius-lg);
+      border: 2px solid var(--color-highlight);
+      position: relative;
+      z-index: 2;
+    }
+
+    .cta-content h3 {
+      font-size: 1.5rem;
+      margin-bottom: var(--spacing-sm);
+      color: var(--color-text-primary);
+    }
+
+    .cta-content p {
+      color: var(--color-text-secondary);
+      margin-bottom: var(--spacing-md);
+    }
+
+    .modules-cta-button {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      padding: var(--spacing-md) var(--spacing-xl);
+      background: linear-gradient(135deg, var(--color-highlight), var(--color-warning));
+      color: white;
+      border: none;
+      border-radius: var(--border-radius-lg);
+      font-size: 1.1rem;
+      text-decoration: none;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      box-shadow: var(--shadow-lg);
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .modules-cta-button::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+      transition: left 0.5s;
+    }
+
+    .modules-cta-button:hover::before {
+      left: 100%;
+    }
+
+    .modules-cta-button:hover {
+      transform: translateY(-4px) scale(1.02);
+      box-shadow: 0 20px 40px rgba(233, 69, 96, 0.4);
+    }
+
+    /* Responsividade para módulos */
+    @media (max-width: 768px) {
+      .modules-grid {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-md);
+      }
+      
+      .module-card {
+        padding: var(--spacing-md);
+      }
+      
+      .title-highlight {
+        font-size: 1.5rem;
+      }
+      
+      .title-sub {
+        font-size: 1rem;
+      }
+      
+      .description-list li {
+        font-size: 0.9rem;
+      }
+      
+      .module-features {
+        justify-content: center;
+      }
+    }
   </style>
   
   <!-- UTMify scripts with async loading -->
@@ -201,71 +592,220 @@
     </div>
   </section>
 
-  <!-- Modules Section -->
+  <!-- Modules Section - REDESIGN COMPLETO EXPLOSIVO -->
   <section id="modules" class="modules-section">
     <div class="container">
       <div class="section-header">
-        <h2 class="section-title">Módulos do Curso: Básico ao Avançado</h2>
-        <p class="section-subtitle">Conteúdo estruturado para levar você do iniciante ao profissional</p>
+        <h2 class="section-title">
+          <span class="gradient-text">🚀 MÓDULOS EXPLOSIVOS</span><br>
+          <span style="font-size: 0.8em; color: var(--color-text-secondary);">DO ZERO AO PROFISSIONAL EM 4 ETAPAS</span>
+        </h2>
+        <p class="section-subtitle">Cada módulo é uma <span class="highlight-text">BOMBA DE CONHECIMENTO</span> que vai explodir sua mente! 💥</p>
       </div>
+      
       <div class="modules-grid">
-        <div class="module-card">
-          <div class="module-icon">
-            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M12 2L2 7L12 12L22 7L12 2Z"></path>
-              <path d="M2 17L12 22L22 17"></path>
-              <path d="M2 12L12 17L22 12"></path>
-            </svg>
+        <!-- MÓDULO 01 - FUNDAMENTOS -->
+        <div class="module-card explosive">
+          <div class="module-badge">🔥 INICIANTE</div>
+          <div class="module-header">
+            <div class="module-number">01</div>
+            <div class="module-icon-wrapper">
+              <div class="module-icon-bg">
+                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M12 2L2 7L12 12L22 7L12 2Z"></path>
+                  <path d="M2 17L12 22L22 17"></path>
+                  <path d="M2 12L12 17L22 12"></path>
+                </svg>
+              </div>
+            </div>
           </div>
+          
           <div class="module-content">
-            <h3 class="module-title">Módulo 01: Fundamentos Essenciais</h3>
-            <p class="module-description">
-              Aprenda os conceitos de desbloqueio para todas as marcas e domine ferramentas como a UnlockTool.
-            </p>
+            <h3 class="module-title">
+              <span class="title-highlight">FUNDAMENTOS</span><br>
+              <span class="title-sub">ESSENCIAIS</span>
+            </h3>
+            
+            <div class="module-description">
+              <p class="description-main">🎯 <strong>APRENDA A BASE DE TUDO!</strong></p>
+              <ul class="description-list">
+                <li>✅ Conceitos de desbloqueio para <span class="highlight">TODAS as marcas</span></li>
+                <li>✅ Domine a ferramenta <span class="highlight">UnlockTool</span></li>
+                <li>✅ Teoria que vai fazer <span class="highlight">CLICK na sua mente</span></li>
+                <li>✅ <span class="highlight">FUNDAÇÃO SÓLIDA</span> para o resto do curso</li>
+              </ul>
+            </div>
+            
+            <div class="module-progress">
+              <div class="progress-bar">
+                <div class="progress-fill" style="width: 25%"></div>
+              </div>
+              <span class="progress-text">25% do seu conhecimento</span>
+            </div>
+            
+            <div class="module-features">
+              <span class="feature-tag explosive">🚀 BÁSICO</span>
+              <span class="feature-tag explosive">📚 TEORIA</span>
+              <span class="feature-tag explosive">🛠️ FERRAMENTAS</span>
+            </div>
           </div>
         </div>
-        <div class="module-card">
-          <div class="module-icon">
-            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M12 1V23"></path>
-              <path d="M17 5H9.5A3.5 3.5 0 0 0 6 8.5C6 9.28 6.19 10 6.54 10.64"></path>
-              <path d="M6 15.5A3.5 3.5 0 0 0 9.5 19H17"></path>
-            </svg>
+
+        <!-- MÓDULO 02 - MÉTODOS LUCRATIVOS -->
+        <div class="module-card explosive featured">
+          <div class="module-badge featured">💎 MAIS POPULAR</div>
+          <div class="module-header">
+            <div class="module-number">02</div>
+            <div class="module-icon-wrapper">
+              <div class="module-icon-bg featured">
+                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M12 1V23"></path>
+                  <path d="M17 5H9.5A3.5 3.5 0 0 0 6 8.5C6 9.28 6.19 10 6.54 10.64"></path>
+                  <path d="M6 15.5A3.5 3.5 0 0 0 9.5 19H17"></path>
+                </svg>
+              </div>
+            </div>
           </div>
+          
           <div class="module-content">
-            <h3 class="module-title">Módulo 02: Métodos Lucrativos</h3>
-            <p class="module-description">
-              Desbloqueie iPhones, Androids e remova MDM PayJoy, gerando lucros de até R$700 por aparelho. Conheça os melhores servidores.
-            </p>
+            <h3 class="module-title">
+              <span class="title-highlight">MÉTODOS</span><br>
+              <span class="title-sub">LUCRATIVOS</span>
+            </h3>
+            
+            <div class="module-description">
+              <p class="description-main">💰 <strong>AQUI É ONDE VOCÊ VAI GANHAR DINHEIRO!</strong></p>
+              <ul class="description-list">
+                <li>✅ Desbloqueie <span class="highlight">iPhones e Androids</span></li>
+                <li>✅ Remova <span class="highlight">MDM PayJoy</span> como um PRO</li>
+                <li>✅ Gere lucros de até <span class="highlight">R$700 por aparelho</span> 💰</li>
+                <li>✅ Conheça os <span class="highlight">MELHORES servidores</span></li>
+                <li>✅ <span class="highlight">TÉCNICAS EXCLUSIVAS</span> que poucos sabem</li>
+              </ul>
+            </div>
+            
+            <div class="module-progress">
+              <div class="progress-bar">
+                <div class="progress-fill" style="width: 50%"></div>
+              </div>
+              <span class="progress-text">50% do seu conhecimento</span>
+            </div>
+            
+            <div class="module-features">
+              <span class="feature-tag explosive">💎 AVANÇADO</span>
+              <span class="feature-tag explosive">💼 PRÁTICO</span>
+              <span class="feature-tag explosive">💰 LUCRATIVO</span>
+            </div>
           </div>
         </div>
-        <div class="module-card">
-          <div class="module-icon">
-            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
-              <line x1="8" y1="21" x2="16" y2="21"></line>
-              <line x1="12" y1="17" x2="12" y2="21"></line>
-            </svg>
+
+        <!-- MÓDULO 03 - FERRAMENTAS -->
+        <div class="module-card explosive">
+          <div class="module-badge">⚡ POWER</div>
+          <div class="module-header">
+            <div class="module-number">03</div>
+            <div class="module-icon-wrapper">
+              <div class="module-icon-bg">
+                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                  <line x1="8" y1="21" x2="16" y2="21"></line>
+                  <line x1="12" y1="17" x2="12" y2="21"></line>
+                </svg>
+              </div>
+            </div>
           </div>
+          
           <div class="module-content">
-            <h3 class="module-title">Módulo 03: Ferramentas e Softwares</h3>
-            <p class="module-description">
-              Explore as ferramentas e softwares essenciais para desbloqueios eficientes, incluindo soluções para MDM PayJoy e FRP.
-            </p>
+            <h3 class="module-title">
+              <span class="title-highlight">FERRAMENTAS</span><br>
+              <span class="title-sub">E SOFTWARES</span>
+            </h3>
+            
+            <div class="module-description">
+              <p class="description-main">🛠️ <strong>ARESNAL COMPLETO DE FERRAMENTAS!</strong></p>
+              <ul class="description-list">
+                <li>✅ Explore ferramentas <span class="highlight">ESSENCIAIS</span></li>
+                <li>✅ Softwares para <span class="highlight">desbloqueios eficientes</span></li>
+                <li>✅ Soluções para <span class="highlight">MDM PayJoy e FRP</span></li>
+                <li>✅ <span class="highlight">TECNOLOGIAS DE PONTA</span> que funcionam</li>
+                <li>✅ <span class="highlight">DICAS EXCLUSIVAS</span> de configuração</li>
+              </ul>
+            </div>
+            
+            <div class="module-progress">
+              <div class="progress-bar">
+                <div class="progress-fill" style="width: 75%"></div>
+              </div>
+              <span class="progress-text">75% do seu conhecimento</span>
+            </div>
+            
+            <div class="module-features">
+              <span class="feature-tag explosive">🛠️ FERRAMENTAS</span>
+              <span class="feature-tag explosive">💻 SOFTWARE</span>
+              <span class="feature-tag explosive">🔓 MDM</span>
+            </div>
           </div>
         </div>
-        <div class="module-card">
-          <div class="module-icon">
-            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <polygon points="13,2 3,14 12,14 11,22 21,10 12,10 13,2"></polygon>
-            </svg>
+
+        <!-- MÓDULO 04 - AULAS PRÁTICAS -->
+        <div class="module-card explosive">
+          <div class="module-badge">🎯 FINAL BOSS</div>
+          <div class="module-header">
+            <div class="module-number">04</div>
+            <div class="module-icon-wrapper">
+              <div class="module-icon-bg">
+                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polygon points="13,2 3,14 12,14 11,22 21,10 12,10 13,2"></polygon>
+                </svg>
+              </div>
+            </div>
           </div>
+          
           <div class="module-content">
-            <h3 class="module-title">Módulo 04: Aulas Práticas e Suporte</h3>
-            <p class="module-description">
-              Aulas práticas de desbloqueio para diversos modelos, com suporte completo para todas as suas dúvidas.
-            </p>
+            <h3 class="module-title">
+              <span class="title-highlight">AULAS PRÁTICAS</span><br>
+              <span class="title-sub">E SUPORTE</span>
+            </h3>
+            
+            <div class="module-description">
+              <p class="description-main">🎬 <strong>HORA DE COLOCAR EM PRÁTICA!</strong></p>
+              <ul class="description-list">
+                <li>✅ Aulas práticas de <span class="highlight">desbloqueio real</span></li>
+                <li>✅ <span class="highlight">DIVERSOS modelos</span> de celular</li>
+                <li>✅ Suporte <span class="highlight">COMPLETO</span> para suas dúvidas</li>
+                <li>✅ <span class="highlight">CASOS REAIS</span> que você vai enfrentar</li>
+                <li>✅ <span class="highlight">DOMINE TUDO</span> como um verdadeiro PRO</li>
+              </ul>
+            </div>
+            
+            <div class="module-progress">
+              <div class="progress-bar">
+                <div class="progress-fill" style="width: 100%"></div>
+              </div>
+              <span class="progress-text">100% - VOCÊ É UM PRO!</span>
+            </div>
+            
+            <div class="module-features">
+              <span class="feature-tag explosive">🎬 PRÁTICO</span>
+              <span class="feature-tag explosive">🆘 SUPORTE</span>
+              <span class="feature-tag explosive">🏆 PRO</span>
+            </div>
           </div>
+        </div>
+      </div>
+      
+      <!-- CALL TO ACTION ABAIXO DOS MÓDULOS -->
+      <div class="modules-cta">
+        <div class="cta-content">
+          <h3>🎯 <span class="gradient-text">PRONTO PARA EXPLODIR SEU CONHECIMENTO?</span></h3>
+          <p>Escolha seu plano e comece AGORA mesmo! ⚡</p>
+          <a href="#comprar-agora" class="modules-cta-button">
+            <span>QUERO COMEÇAR AGORA!</span>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M5 12H19"></path>
+              <path d="M12 5L19 12L12 19"></div>
+            </svg>
+          </a>
         </div>
       </div>
     </div>
