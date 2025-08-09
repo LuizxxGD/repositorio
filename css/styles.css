@@ -321,6 +321,24 @@ body {
   margin: 0;
 }
 
+.module-image {
+  width: 100%;
+  max-width: 200px;
+  height: auto;
+  margin: 1rem auto;
+  display: block;
+  border-radius: 15px;
+  border: 2px solid #8a2be2;
+  box-shadow: 0 5px 20px rgba(138, 43, 226, 0.3);
+  transition: all 0.3s ease;
+}
+
+.module-image:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 25px rgba(138, 43, 226, 0.5);
+  border-color: #ff8c00;
+}
+
 .module-content {
   padding: 1.5rem;
   position: relative;
@@ -852,6 +870,10 @@ body {
     font-size: 1.5rem;
   }
   
+  .module-image {
+    max-width: 150px;
+  }
+  
   .module-description {
     font-size: 0.9rem;
   }
@@ -969,6 +991,10 @@ body {
   .module-title {
     font-size: 1.3rem;
     letter-spacing: 1px;
+  }
+  
+  .module-image {
+    max-width: 120px;
   }
   
   .module-description {
