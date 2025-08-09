@@ -244,7 +244,7 @@ body {
 
 .module-thumbnail {
   width: 100%;
-  height: 120px;
+  height: 140px;
   border-radius: 10px;
   overflow: hidden;
   display: flex;
@@ -256,7 +256,7 @@ body {
 .module-thumbnail img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
   border-radius: 10px;
   transition: transform 0.3s ease;
 }
@@ -756,7 +756,7 @@ body {
   }
   
   .module-thumbnail {
-    height: 100px;
+    height: 120px;
   }
   
   .module-title {
@@ -870,7 +870,7 @@ body {
   }
   
   .module-thumbnail {
-    height: 80px;
+    height: 100px;
   }
   
   .module-title {
