@@ -1341,8 +1341,8 @@ body {
 }
 
 .bonus-card {
-  width: 374px;
-  height: 750px;
+  width: 100%;
+  height: 490px;
   flex: 0 0 auto;
   margin: 0 20px;
   opacity: 1;
@@ -1375,8 +1375,8 @@ body {
   }
   
   .bonus-card {
-    width: 320px !important;
-    height: 650px !important;
+    width: 100% !important;
+    height: 450px !important;
   }
 }
 
@@ -1386,8 +1386,8 @@ body {
   }
   
   .bonus-card {
-    width: 280px !important;
-    height: 600px !important;
+    width: 100% !important;
+    height: 400px !important;
   }
 }
 
