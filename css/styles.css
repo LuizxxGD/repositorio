@@ -114,8 +114,8 @@ body {
 }
 
 .purple-text {
-  color: #8a2be2;
-  text-shadow: 0 0 10px rgba(138, 43, 226, 0.5);
+  color: #ff8c00;
+  text-shadow: 0 0 10px rgba(255, 140, 0, 0.5);
 }
 
 .hero-logo {
@@ -138,7 +138,7 @@ body {
   align-items: center;
   gap: 10px;
   padding: 1rem 2rem;
-  background: linear-gradient(45deg, rgb(106, 13, 173), rgb(255, 140, 0));
+  background: linear-gradient(45deg, #000000, rgb(255, 140, 0));
   color: white;
   border: none;
   border-radius: 50px;
@@ -156,7 +156,7 @@ body {
 .cta-button:hover {
   transform: translateY(-3px);
   box-shadow: 0 12px 35px rgba(255, 140, 0, 0.4);
-  background: linear-gradient(45deg, rgb(120, 15, 195), rgb(255, 160, 20));
+  background: linear-gradient(45deg, #1a1a1a, rgb(255, 160, 20));
 }
 
 .cta-subtitle {
@@ -1573,7 +1573,7 @@ body {
 }
 
 .bonus-banner-subtitle {
-  color: #8a2be2;
+  color: #ff8c00;
   font-size: clamp(1rem, 2.5vw, 1.4rem);
   font-weight: 700;
   text-transform: uppercase;
@@ -1697,7 +1697,7 @@ body {
   justify-content: center;
   gap: 10px;
   padding: 1rem 2rem;
-  background: linear-gradient(45deg, rgb(106, 13, 173), rgb(255, 140, 0));
+  background: linear-gradient(45deg, #000000, rgb(255, 140, 0));
   color: white;
   border: none;
   border-radius: 50px;
@@ -1717,7 +1717,7 @@ body {
 .elementor-button:hover {
   transform: translateY(-3px);
   box-shadow: 0 12px 35px rgba(255, 140, 0, 0.4);
-  background: linear-gradient(45deg, rgb(120, 15, 195), rgb(255, 160, 20));
+  background: linear-gradient(45deg, #1a1a1a, rgb(255, 160, 20));
   color: white;
   text-decoration: none;
 }
