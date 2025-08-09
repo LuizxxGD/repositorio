@@ -621,6 +621,65 @@ h3 {
     max-width: 300px;
     text-align: center;
   }
+
+  /* Hero section mobile */
+  .hero-section {
+    min-height: 80vh;
+    padding: 2rem 0;
+  }
+
+  .hero-title {
+    font-size: clamp(2rem, 6vw, 3rem);
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+  }
+
+  .hero-subtitle {
+    font-size: clamp(0.9rem, 3vw, 1.2rem);
+    line-height: 1.4;
+  }
+
+  .hero-logo {
+    width: 250px;
+    height: auto;
+    margin: 1.5rem 0;
+  }
+
+  .hero-cta {
+    margin-top: 2rem;
+  }
+
+  .cta-button {
+    width: 100%;
+    max-width: 300px;
+    padding: 1rem 2rem;
+    font-size: 1rem;
+  }
+
+  .cta-subtitle {
+    font-size: 0.9rem;
+    margin-top: 1rem;
+  }
+
+  /* Container mobile */
+  .container {
+    padding: 0 1rem;
+  }
+
+  /* Section headers mobile */
+  .section-header {
+    margin-bottom: 2rem;
+  }
+
+  .section-title {
+    font-size: clamp(1.8rem, 5vw, 2.5rem);
+    margin-bottom: 0.8rem;
+  }
+
+  .section-subtitle {
+    font-size: 1rem;
+    max-width: 100%;
+  }
 }
 
 @media (max-width: 480px) {
@@ -643,16 +702,38 @@ h3 {
   }
   
   .hero-title {
-    font-size: clamp(2.5rem, 8vw, 3.5rem);
-    letter-spacing: 2px;
+    font-size: clamp(1.8rem, 7vw, 2.5rem);
+    letter-spacing: 1px;
   }
   
   .hero-subtitle {
-    font-size: clamp(1rem, 3vw, 1.3rem);
+    font-size: clamp(0.8rem, 3.5vw, 1.1rem);
   }
   
   .hero-button {
-    padding: 0.9rem 2rem;
+    padding: 0.9rem 1.5rem;
+    font-size: 0.9rem;
+  }
+
+  .hero-logo {
+    width: 200px;
+    height: auto;
+  }
+
+  .cta-button {
+    padding: 0.9rem 1.5rem;
+    font-size: 0.9rem;
+  }
+
+  .container {
+    padding: 0 0.8rem;
+  }
+
+  .section-title {
+    font-size: clamp(1.5rem, 6vw, 2rem);
+  }
+
+  .section-subtitle {
     font-size: 0.9rem;
   }
 }
@@ -1334,6 +1415,176 @@ h3 {
     font-size: 0.8rem;
     padding: 0.4rem 0.8rem;
   }
+
+  /* Plans mobile */
+  .plans-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    padding: 0 1rem;
+  }
+
+  .plan-card {
+    padding: 1.5rem;
+    min-height: auto;
+  }
+
+  .plan-card.featured {
+    transform: none;
+  }
+
+  .plan-card.featured:hover {
+    transform: translateY(-5px);
+  }
+
+  .plan-name {
+    font-size: 1.3rem;
+    letter-spacing: 1px;
+  }
+
+  .plan-price {
+    margin-bottom: 1rem;
+  }
+
+  .plan-features ul {
+    padding-left: 1.2rem;
+  }
+
+  .plan-features li {
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .plan-button {
+    width: 100%;
+    padding: 1rem 1.5rem;
+    font-size: 0.9rem;
+  }
+
+  /* Bonus carousel mobile */
+  .bonus-carousel-scroll {
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .bonus-scroll-track {
+    display: flex;
+    gap: 1rem;
+    padding: 0 1rem;
+    min-width: max-content;
+  }
+
+  .bonus-scroll-card {
+    min-width: 280px;
+    scroll-snap-align: start;
+  }
+
+  .bonus-scroll-image {
+    height: 120px;
+  }
+
+  .bonus-text-wrapper h3 {
+    font-size: 1rem;
+  }
+
+  .bonus-text-wrapper h4 {
+    font-size: 0.9rem;
+  }
+
+  .bonus-description-scroll {
+    font-size: 0.8rem;
+    line-height: 1.4;
+  }
+
+  /* FAQ mobile */
+  .faq-container {
+    padding: 0 1rem;
+  }
+
+  .faq-item {
+    margin-bottom: 1.5rem;
+  }
+
+  .faq-question h3 {
+    font-size: 1.1rem;
+    padding: 1rem;
+  }
+
+  .faq-answer {
+    padding: 0 1rem 1rem;
+  }
+
+  .faq-answer p {
+    font-size: 0.9rem;
+    line-height: 1.5;
+  }
+
+  /* Promo section mobile */
+  .promo-section {
+    padding: 2rem 1rem;
+  }
+
+  .guarantee-text {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+
+  .guarantee-title {
+    font-size: clamp(1.5rem, 5vw, 2rem);
+    margin-bottom: 0.5rem;
+  }
+
+  .price-section {
+    margin: 2rem 0;
+  }
+
+  .old-price-text {
+    font-size: 1.2rem;
+  }
+
+  .only-text-content {
+    font-size: 1.5rem;
+  }
+
+  .new-price-text {
+    font-size: 2.5rem;
+  }
+
+  .promo-button {
+    width: 100%;
+    max-width: 300px;
+    padding: 1rem 2rem;
+    font-size: 1.1rem;
+  }
+
+  /* About section mobile */
+  .about-section {
+    padding: 2rem 1rem;
+  }
+
+  .about-text {
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+
+  /* Info section mobile */
+  .info-cards {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    padding: 0 1rem;
+  }
+
+  .info-card {
+    padding: 1.5rem;
+  }
+
+  .info-title {
+    font-size: 1.2rem;
+  }
+
+  .info-text {
+    font-size: 0.9rem;
+  }
 }
 
 @media (max-width: 480px) {
@@ -1369,6 +1620,122 @@ h3 {
   .feature-tag {
     font-size: 0.75rem;
     padding: 0.3rem 0.7rem;
+  }
+
+  /* Plans mobile small */
+  .plans-grid {
+    padding: 0 0.8rem;
+    gap: 1rem;
+  }
+
+  .plan-card {
+    padding: 1.2rem;
+  }
+
+  .plan-name {
+    font-size: 1.2rem;
+    letter-spacing: 0.5px;
+  }
+
+  .plan-features li {
+    font-size: 0.85rem;
+  }
+
+  .plan-button {
+    padding: 0.9rem 1.2rem;
+    font-size: 0.85rem;
+  }
+
+  /* Bonus carousel mobile small */
+  .bonus-scroll-card {
+    min-width: 250px;
+  }
+
+  .bonus-scroll-image {
+    height: 100px;
+  }
+
+  .bonus-text-wrapper h3 {
+    font-size: 0.9rem;
+  }
+
+  .bonus-text-wrapper h4 {
+    font-size: 0.8rem;
+  }
+
+  .bonus-description-scroll {
+    font-size: 0.75rem;
+  }
+
+  /* FAQ mobile small */
+  .faq-container {
+    padding: 0 0.8rem;
+  }
+
+  .faq-question h3 {
+    font-size: 1rem;
+    padding: 0.8rem;
+  }
+
+  .faq-answer {
+    padding: 0 0.8rem 0.8rem;
+  }
+
+  .faq-answer p {
+    font-size: 0.85rem;
+  }
+
+  /* Promo section mobile small */
+  .promo-section {
+    padding: 1.5rem 0.8rem;
+  }
+
+  .guarantee-title {
+    font-size: clamp(1.3rem, 5vw, 1.8rem);
+  }
+
+  .old-price-text {
+    font-size: 1.1rem;
+  }
+
+  .only-text-content {
+    font-size: 1.3rem;
+  }
+
+  .new-price-text {
+    font-size: 2.2rem;
+  }
+
+  .promo-button {
+    padding: 0.9rem 1.5rem;
+    font-size: 1rem;
+  }
+
+  /* About section mobile small */
+  .about-section {
+    padding: 1.5rem 0.8rem;
+  }
+
+  .about-text {
+    font-size: 0.9rem;
+  }
+
+  /* Info section mobile small */
+  .info-cards {
+    padding: 0 0.8rem;
+    gap: 1rem;
+  }
+
+  .info-card {
+    padding: 1.2rem;
+  }
+
+  .info-title {
+    font-size: 1.1rem;
+  }
+
+  .info-text {
+    font-size: 0.85rem;
   }
 }
 
@@ -2808,4 +3175,686 @@ h3 {
 
 .module-card:hover .inner-glow {
   opacity: 1;
+}
+
+/* Info section mobile small */
+.info-cards {
+  padding: 0 0.8rem;
+  gap: 1rem;
+}
+
+.info-card {
+  padding: 1.2rem;
+}
+
+.info-title {
+  font-size: 1.1rem;
+}
+
+.info-text {
+  font-size: 0.85rem;
+}
+
+/* Testimonials mobile small */
+.testimonials-section {
+  padding: 2rem 0.8rem;
+}
+
+.testimonials-grid {
+  gap: 1.5rem;
+}
+
+.testimonial-card {
+  padding: 1.2rem;
+}
+
+.testimonial-text {
+  font-size: 0.85rem;
+  line-height: 1.5;
+}
+
+.testimonial-author {
+  font-size: 0.8rem;
+}
+
+/* Benefits mobile small */
+.benefits-section {
+  padding: 2rem 0.8rem;
+}
+
+.benefits-grid {
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+.benefit-card {
+  padding: 1.2rem;
+}
+
+.benefit-title {
+  font-size: 1.1rem;
+}
+
+.benefit-description {
+  font-size: 0.85rem;
+}
+
+/* Footer mobile small */
+.footer-content {
+  padding: 0 0.8rem;
+}
+
+.footer-grid {
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+.footer-section-title {
+  font-size: 1.1rem;
+}
+
+.footer-section-content {
+  font-size: 0.85rem;
+}
+
+/* Media queries para tablets */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .container {
+    padding: 0 2rem;
+  }
+
+  .hero-title {
+    font-size: clamp(2.5rem, 5vw, 3.5rem);
+  }
+
+  .hero-subtitle {
+    font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+  }
+
+  .modules-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
+
+  .plans-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
+
+  .bonuses-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
+
+  .info-cards {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
+
+  .benefits-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
+
+  .footer-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
+}
+
+/* Media queries para landscape mobile */
+@media (max-width: 768px) and (orientation: landscape) {
+  .hero-section {
+    min-height: 60vh;
+    padding: 1.5rem 0;
+  }
+
+  .hero-title {
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
+    margin-bottom: 1rem;
+  }
+
+  .hero-subtitle {
+    font-size: clamp(0.8rem, 2.5vw, 1.1rem);
+    margin-bottom: 1rem;
+  }
+
+  .hero-logo {
+    width: 180px;
+    margin: 1rem 0;
+  }
+
+  .modules-section {
+    padding: 2rem 0;
+  }
+
+  .plans-section {
+    padding: 1.5rem 0;
+  }
+
+  .bonuses-section {
+    padding: 2rem 0;
+  }
+
+  .testimonials-section {
+    padding: 2rem 0;
+  }
+
+  .footer {
+    padding: 2rem 0 1rem;
+  }
+}
+
+/* Media queries para dispositivos muito pequenos */
+@media (max-width: 360px) {
+  .container {
+    padding: 0 0.5rem;
+  }
+
+  .hero-title {
+    font-size: clamp(1.5rem, 8vw, 2rem);
+  }
+
+  .hero-subtitle {
+    font-size: clamp(0.7rem, 4vw, 1rem);
+  }
+
+  .hero-logo {
+    width: 160px;
+  }
+
+  .cta-button {
+    padding: 0.8rem 1.2rem;
+    font-size: 0.85rem;
+  }
+
+  .section-title {
+    font-size: clamp(1.3rem, 7vw, 1.8rem);
+  }
+
+  .section-subtitle {
+    font-size: 0.8rem;
+  }
+
+  .module-card {
+    padding: 1rem;
+  }
+
+  .module-title {
+    font-size: 1.1rem;
+  }
+
+  .module-description {
+    font-size: 0.8rem;
+  }
+
+  .plan-card {
+    padding: 1rem;
+  }
+
+  .plan-name {
+    font-size: 1.1rem;
+  }
+
+  .plan-features li {
+    font-size: 0.8rem;
+  }
+
+  .plan-button {
+    padding: 0.8rem 1rem;
+    font-size: 0.8rem;
+  }
+
+  .bonus-scroll-card {
+    min-width: 220px;
+  }
+
+  .bonus-scroll-image {
+    height: 80px;
+  }
+
+  .bonus-text-wrapper h3 {
+    font-size: 0.8rem;
+  }
+
+  .bonus-text-wrapper h4 {
+    font-size: 0.7rem;
+  }
+
+  .bonus-description-scroll {
+    font-size: 0.7rem;
+  }
+
+  .faq-question h3 {
+    font-size: 0.9rem;
+    padding: 0.7rem;
+  }
+
+  .faq-answer p {
+    font-size: 0.8rem;
+  }
+
+  .guarantee-title {
+    font-size: clamp(1.2rem, 6vw, 1.6rem);
+  }
+
+  .old-price-text {
+    font-size: 1rem;
+  }
+
+  .only-text-content {
+    font-size: 1.2rem;
+  }
+
+  .new-price-text {
+    font-size: 2rem;
+  }
+
+  .promo-button {
+    padding: 0.8rem 1.2rem;
+    font-size: 0.9rem;
+  }
+
+  .about-text {
+    font-size: 0.8rem;
+  }
+
+  .info-card {
+    padding: 1rem;
+  }
+
+  .info-title {
+    font-size: 1rem;
+  }
+
+  .info-text {
+    font-size: 0.8rem;
+  }
+
+  .testimonial-card {
+    padding: 1rem;
+  }
+
+  .testimonial-text {
+    font-size: 0.8rem;
+  }
+
+  .testimonial-author {
+    font-size: 0.75rem;
+  }
+
+  .benefit-card {
+    padding: 1rem;
+  }
+
+  .benefit-title {
+    font-size: 1rem;
+  }
+
+  .benefit-description {
+    font-size: 0.8rem;
+  }
+
+  .footer-section-title {
+    font-size: 1rem;
+  }
+
+  .footer-section-content {
+    font-size: 0.8rem;
+  }
+}
+
+/* Correções específicas para responsividade */
+@media (max-width: 768px) {
+  /* Força quebra de linha em textos longos */
+  .hero-title,
+  .section-title,
+  .module-title,
+  .plan-name {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+  }
+
+  /* Corrige overflow horizontal */
+  body {
+    overflow-x: hidden;
+    width: 100%;
+  }
+
+  .container {
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+
+  /* Corrige grid items que podem estourar */
+  .modules-grid,
+  .plans-grid,
+  .bonuses-grid,
+  .info-cards,
+  .benefits-grid {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  /* Corrige imagens responsivas */
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  /* Corrige botões que podem estourar */
+  .hero-button,
+  .cta-button,
+  .plan-button,
+  .promo-button {
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  /* Corrige cards que podem estourar */
+  .module-card,
+  .plan-card,
+  .bonus-card,
+  .info-card,
+  .benefit-card {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  /* Corrige carrossel de bônus */
+  .bonus-carousel-scroll {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .bonus-scroll-track {
+    width: max-content;
+    min-width: 100%;
+  }
+
+  /* Corrige FAQ */
+  .faq-container {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .faq-question,
+  .faq-answer {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  /* Corrige seção de promoção */
+  .promo-section {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .price-section {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  /* Corrige footer */
+  .footer-content {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .footer-grid {
+    width: 100%;
+    max-width: 100%;
+  }
+}
+
+/* Correções para dispositivos muito pequenos */
+@media (max-width: 480px) {
+  /* Força quebra de linha em todos os elementos */
+  * {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+  }
+
+  /* Corrige padding e margin excessivos */
+  .container,
+  .hero-content,
+  .modules-section,
+  .plans-section,
+  .bonuses-section,
+  .testimonials-section,
+  .faq-section,
+  .promo-section,
+  .about-section,
+  .info-section,
+  .benefits-section,
+  .footer {
+    padding-left: 0.8rem;
+    padding-right: 0.8rem;
+  }
+
+  /* Corrige tamanhos de fonte muito pequenos */
+  .hero-title {
+    font-size: clamp(1.8rem, 7vw, 2.5rem) !important;
+  }
+
+  .hero-subtitle {
+    font-size: clamp(0.8rem, 3.5vw, 1.1rem) !important;
+  }
+
+  .section-title {
+    font-size: clamp(1.5rem, 6vw, 2rem) !important;
+  }
+
+  .section-subtitle {
+    font-size: clamp(0.8rem, 3vw, 1rem) !important;
+  }
+
+  /* Corrige espaçamentos */
+  .hero-section {
+    padding: 1.5rem 0;
+  }
+
+  .modules-section,
+  .plans-section,
+  .bonuses-section,
+  .testimonials-section,
+  .faq-section,
+  .promo-section,
+  .about-section,
+  .info-section,
+  .benefits-section {
+    padding: 2rem 0;
+  }
+
+  /* Corrige grid layouts */
+  .modules-grid,
+  .plans-grid,
+  .bonuses-grid,
+  .info-cards,
+  .benefits-grid {
+    gap: 1rem;
+  }
+
+  /* Corrige cards */
+  .module-card,
+  .plan-card,
+  .bonus-card,
+  .info-card,
+  .benefit-card {
+    padding: 1.2rem;
+    margin-bottom: 1rem;
+  }
+}
+
+/* Correções para dispositivos extremamente pequenos */
+@media (max-width: 360px) {
+  /* Força quebra de linha em todos os elementos */
+  * {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+  }
+
+  /* Corrige padding e margin excessivos */
+  .container,
+  .hero-content,
+  .modules-section,
+  .plans-section,
+  .bonuses-section,
+  .testimonials-section,
+  .faq-section,
+  .promo-section,
+  .about-section,
+  .info-section,
+  .benefits-section,
+  .footer {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+  }
+
+  /* Corrige tamanhos de fonte muito pequenos */
+  .hero-title {
+    font-size: clamp(1.5rem, 8vw, 2rem) !important;
+  }
+
+  .hero-subtitle {
+    font-size: clamp(0.7rem, 4vw, 1rem) !important;
+  }
+
+  .section-title {
+    font-size: clamp(1.3rem, 7vw, 1.8rem) !important;
+  }
+
+  .section-subtitle {
+    font-size: clamp(0.7rem, 3.5vw, 0.9rem) !important;
+  }
+
+  /* Corrige espaçamentos */
+  .hero-section {
+    padding: 1rem 0;
+  }
+
+  .modules-section,
+  .plans-section,
+  .bonuses-section,
+  .testimonials-section,
+  .faq-section,
+  .promo-section,
+  .about-section,
+  .info-section,
+  .benefits-section {
+    padding: 1.5rem 0;
+  }
+
+  /* Corrige grid layouts */
+  .modules-grid,
+  .plans-grid,
+  .bonuses-grid,
+  .info-cards,
+  .benefits-grid {
+    gap: 0.8rem;
+  }
+
+  /* Corrige cards */
+  .module-card,
+  .plan-card,
+  .bonus-card,
+  .info-card,
+  .benefit-card {
+    padding: 1rem;
+    margin-bottom: 0.8rem;
+  }
+
+  /* Corrige botões */
+  .hero-button,
+  .cta-button,
+  .plan-button,
+  .promo-button {
+    padding: 0.8rem 1rem;
+    font-size: 0.8rem;
+  }
+}
+
+/* Correções para orientação landscape em mobile */
+@media (max-width: 768px) and (orientation: landscape) {
+  .hero-section {
+    min-height: 60vh;
+    padding: 1rem 0;
+  }
+
+  .hero-title {
+    font-size: clamp(1.5rem, 4vw, 2rem);
+    margin-bottom: 0.5rem;
+  }
+
+  .hero-subtitle {
+    font-size: clamp(0.7rem, 2.5vw, 1rem);
+    margin-bottom: 0.5rem;
+  }
+
+  .hero-logo {
+    width: 150px;
+    margin: 0.5rem 0;
+  }
+
+  .modules-section,
+  .plans-section,
+  .bonuses-section,
+  .testimonials-section,
+  .faq-section,
+  .promo-section,
+  .about-section,
+  .info-section,
+  .benefits-section {
+    padding: 1.5rem 0;
+  }
+
+  .footer {
+    padding: 1.5rem 0 0.8rem;
+  }
+}
+
+/* Correções para tablets */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .container {
+    padding: 0 2rem;
+  }
+
+  .hero-title {
+    font-size: clamp(2.5rem, 5vw, 3.5rem);
+  }
+
+  .hero-subtitle {
+    font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+  }
+
+  .modules-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
+
+  .plans-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
+
+  .bonuses-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
+
+  .info-cards {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
+
+  .benefits-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
+
+  .footer-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
 }

@@ -1,0 +1,365 @@
+/* Responsividade Fixes - iOS Unlocker Pro */
+/* Arquivo específico para corrigir problemas de responsividade */
+
+/* ===== CORREÇÕES GLOBAIS ===== */
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  overflow-x: hidden !important;
+  width: 100% !important;
+  max-width: 100% !important;
+}
+
+/* ===== MOBILE PRINCIPAL (max-width: 768px) ===== */
+@media (max-width: 768px) {
+  /* Container principal */
+  .container {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 0 1rem !important;
+    margin: 0 !important;
+    overflow-x: hidden !important;
+  }
+
+  /* Hero Section */
+  .hero-section {
+    min-height: 100vh !important;
+    padding: 2rem 1rem !important;
+  }
+
+  .hero-content {
+    text-align: center !important;
+    padding: 1rem !important;
+  }
+
+  .hero-title {
+    font-size: clamp(1.5rem, 8vw, 2.5rem) !important;
+    line-height: 1.2 !important;
+    word-wrap: break-word !important;
+    overflow-wrap: break-word !important;
+    hyphens: auto !important;
+  }
+
+  .hero-subtitle {
+    font-size: clamp(0.9rem, 4vw, 1.2rem) !important;
+    line-height: 1.4 !important;
+  }
+
+  .hero-logo {
+    width: 100% !important;
+    max-width: 300px !important;
+    height: auto !important;
+    margin: 1rem auto !important;
+  }
+
+  .hero-cta {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  .cta-button {
+    width: 100% !important;
+    max-width: 100% !important;
+    font-size: clamp(0.9rem, 4vw, 1.1rem) !important;
+    padding: 1rem !important;
+  }
+
+  /* Section Headers */
+  .section-header {
+    text-align: center !important;
+    padding: 2rem 1rem !important;
+  }
+
+  .section-title {
+    font-size: clamp(1.8rem, 6vw, 2.5rem) !important;
+    line-height: 1.2 !important;
+  }
+
+  .section-subtitle {
+    font-size: clamp(1rem, 4vw, 1.3rem) !important;
+    line-height: 1.4 !important;
+  }
+
+  /* Modules Grid */
+  .modules-grid {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 1.5rem !important;
+    padding: 0 1rem !important;
+  }
+
+  .module-card {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+  }
+
+  .module-title {
+    font-size: clamp(1.2rem, 5vw, 1.6rem) !important;
+  }
+
+  /* Plans Grid */
+  .plans-grid {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 2rem !important;
+    padding: 0 1rem !important;
+  }
+
+  .plan-card {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+  }
+
+  .plan-name {
+    font-size: clamp(1.3rem, 5vw, 1.8rem) !important;
+  }
+
+  .plan-price {
+    font-size: clamp(1.5rem, 6vw, 2.2rem) !important;
+  }
+
+  .plan-button {
+    width: 100% !important;
+    max-width: 100% !important;
+    font-size: clamp(0.9rem, 4vw, 1.1rem) !important;
+  }
+
+  /* Bonus Carousel */
+  .bonus-carousel-scroll {
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+    scroll-snap-type: x mandatory !important;
+  }
+
+  .bonus-scroll-track {
+    display: flex !important;
+    gap: 1rem !important;
+    padding: 0 1rem !important;
+    width: max-content !important;
+    min-width: 100% !important;
+  }
+
+  .bonus-scroll-card {
+    min-width: 280px !important;
+    flex-shrink: 0 !important;
+    scroll-snap-align: start !important;
+  }
+
+  /* FAQ */
+  .faq-container {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 0 1rem !important;
+  }
+
+  .faq-question h3 {
+    font-size: clamp(1rem, 4vw, 1.3rem) !important;
+  }
+
+  /* Testimonials */
+  .testimonials-grid {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 1.5rem !important;
+    padding: 0 1rem !important;
+  }
+
+  .testimonial-card {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  /* About Section */
+  .about-text {
+    font-size: clamp(0.9rem, 4vw, 1.1rem) !important;
+    line-height: 1.6 !important;
+    padding: 0 1rem !important;
+  }
+
+  /* Info Section */
+  .info-cards {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 1.5rem !important;
+    padding: 0 1rem !important;
+  }
+
+  .info-card {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  /* Benefits Section */
+  .benefits-grid {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 1.5rem !important;
+    padding: 0 1rem !important;
+  }
+
+  .benefit-card {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  /* Promo Section */
+  .promo-section {
+    padding: 2rem 1rem !important;
+    text-align: center !important;
+  }
+
+  .price-section {
+    padding: 1rem !important;
+  }
+
+  .old-price-text {
+    font-size: clamp(1rem, 4vw, 1.3rem) !important;
+  }
+
+  .new-price-text {
+    font-size: clamp(1.8rem, 7vw, 2.5rem) !important;
+  }
+
+  .promo-button {
+    width: 100% !important;
+    max-width: 100% !important;
+    font-size: clamp(1rem, 5vw, 1.3rem) !important;
+    padding: 1rem !important;
+  }
+
+  /* Footer */
+  .footer-content {
+    padding: 2rem 1rem !important;
+  }
+
+  .footer-grid {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 2rem !important;
+  }
+}
+
+/* ===== MOBILE PEQUENO (max-width: 480px) ===== */
+@media (max-width: 480px) {
+  .container {
+    padding: 0 0.5rem !important;
+  }
+
+  .hero-section {
+    padding: 1.5rem 0.5rem !important;
+  }
+
+  .hero-title {
+    font-size: clamp(1.3rem, 7vw, 2rem) !important;
+  }
+
+  .section-title {
+    font-size: clamp(1.5rem, 6vw, 2rem) !important;
+  }
+
+  .cta-button {
+    padding: 0.8rem !important;
+    font-size: clamp(0.8rem, 4vw, 1rem) !important;
+  }
+
+  .bonus-scroll-card {
+    min-width: 250px !important;
+  }
+}
+
+/* ===== MOBILE MUITO PEQUENO (max-width: 360px) ===== */
+@media (max-width: 360px) {
+  .hero-title {
+    font-size: clamp(1.2rem, 6vw, 1.8rem) !important;
+  }
+
+  .section-title {
+    font-size: clamp(1.3rem, 5vw, 1.8rem) !important;
+  }
+
+  .cta-button {
+    padding: 0.7rem !important;
+    font-size: clamp(0.7rem, 3.5vw, 0.9rem) !important;
+  }
+}
+
+/* ===== LANDSCAPE MOBILE ===== */
+@media (max-width: 768px) and (orientation: landscape) {
+  .hero-section {
+    min-height: 100vh !important;
+    padding: 1rem !important;
+  }
+
+  .hero-title {
+    font-size: clamp(1.2rem, 6vw, 2rem) !important;
+  }
+
+  .modules-grid,
+  .plans-grid,
+  .bonuses-grid,
+  .info-cards,
+  .benefits-grid,
+  .testimonials-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 1rem !important;
+  }
+}
+
+/* ===== TABLET (769px - 1024px) ===== */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .container {
+    padding: 0 2rem !important;
+  }
+
+  .hero-title {
+    font-size: clamp(2rem, 5vw, 3rem) !important;
+  }
+
+  .modules-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+
+  .plans-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+
+  .bonuses-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+
+  .info-cards {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+
+  .benefits-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+}
+
+/* ===== CORREÇÕES ESPECÍFICAS PARA NAVEGADORES ===== */
+@supports (-webkit-touch-callout: none) {
+  /* iOS Safari */
+  .bonus-carousel-scroll {
+    -webkit-overflow-scrolling: touch !important;
+  }
+}
+
+@media screen and (-webkit-min-device-pixel-ratio: 0) {
+  /* Android Chrome */
+  .bonus-carousel-scroll {
+    scroll-behavior: smooth !important;
+  }
+}
+
+@-moz-document url-prefix() {
+  /* Firefox */
+  .bonus-carousel-scroll {
+    scroll-behavior: smooth !important;
+  }
+}
