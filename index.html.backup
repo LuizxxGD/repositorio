@@ -1,3 +1,4 @@
+
 <!DOCTYPE html><html lang="pt-BR"><head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,11 +11,13 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="apple-mobile-web-app-title" content="iOS Unlocker Pro">
   <link rel="manifest" href="/manifest.json">
-  <link rel="apple-touch-icon" href="img/placeholder-logo.png">
+  <link rel="apple-touch-icon" href="images/placeholder-logo.png">
   
   <!-- Preload critical resources with higher priority -->
-  <link rel="preload" href="css/styles.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/responsive-fixes.css">
+  <!-- Fontes Google com hierarquia -->
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Exo+2:wght@300;400;600;700;900&family=Inter:wght@400;700&family=Anton&family=Black+Ops+One&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
   <link rel="preload" href="https://i.postimg.cc/pT3whJ7w/paredeoficial.jpg" as="image" fetchpriority="high">
   
   <!-- DNS prefetch for external domains -->
@@ -55,7 +58,7 @@
       min-height: 600px;
     }
     .hero-background { 
-      background-image: url("img/paredeoficial.jpg"); 
+      background-image: url("images/paredeoficial.jpg"); 
       background-size: cover; 
       background-position: center; 
       width: 100%; 
@@ -143,7 +146,6 @@
       }
     }
   </style>
-  
   <!-- UTMify scripts with async loading -->
   <script src="js/latest.js" data-utmify-prevent-xcod-sck="" data-utmify-prevent-subids="" async="" defer=""></script>
   <script>
@@ -177,7 +179,7 @@
         </span>
       </h1>
 
-      <img src="img/COMUNIDADE-removebg-preview.png" alt="Logo da comunidade iOS Unlocker Pro" width="350" height="200" loading="lazy" class="hero-logo">
+      <img src="images/COMUNIDADE-removebg-preview.png" alt="Logo da comunidade iOS Unlocker Pro" width="350" height="200" loading="lazy" class="hero-logo">
 
       <!-- CTA Aprimorado -->
       <div class="hero-cta">
@@ -287,7 +289,7 @@
       overflow: hidden;
       box-shadow: 0 10px 30px rgba(0,0,0,0.5);
     ">
-      <img id="testimonial-image" src="img/depoimento01iphone.jpg" alt="Depoimento de aluno sobre o curso iOS Unlocker Pro" style="width: 100%; height: 100%; object-fit: cover; border-radius: 20px; transition: opacity 0.5s; opacity: 1;">
+      <img id="testimonial-image" src="images/depoimento01iphone.jpg" alt="Depoimento de aluno sobre o curso iOS Unlocker Pro" style="width: 100%; height: 100%; object-fit: cover; border-radius: 20px; transition: opacity 0.5s; opacity: 1;">
     </div>
   </div>
 
@@ -329,7 +331,66 @@
   </section>
 
   <!-- Bonuses Section -->
-  <section id="bonus-section" class="bonus-section" style="background: url('img/bg-unlock-fundo.webp'); background-size: cover; background-position: center; padding: 40px 15px; min-height: 120vh; display: block;">
+  <section id="bonus-section" class="bonuses-section">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">BÔNUS EXCLUSIVOS</h2>
+        <p class="section-subtitle">Recursos adicionais para maximizar seu aprendizado</p>
+      </div>
+      
+      <div class="bonuses-grid">
+        <div class="bonus-card">
+          <div class="bonus-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 2L2 7L12 12L22 7L12 2Z"></path>
+              <path d="M2 17L12 22L22 17"></path>
+              <path d="M2 12L12 17L22 12"></path>
+            </svg>
+          </div>
+          <h3 class="bonus-title">Bypass iOS 18.5</h3>
+          <p class="bonus-description">Aprenda a desbloquear todos os modelos de iPhone, incluindo as versões mais recentes do iOS.</p>
+        </div>
+
+        <div class="bonus-card">
+          <div class="bonus-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+              <line x1="8" y1="21" x2="16" y2="21"></line>
+              <line x1="12" y1="17" x2="12" y2="21"></line>
+            </svg>
+          </div>
+          <h3 class="bonus-title">FRP Xiaomi e Mi Cloud</h3>
+          <p class="bonus-description">Desbloqueios definitivos para dispositivos Xiaomi e remoção de contas Mi Cloud.</p>
+        </div>
+
+        <div class="bonus-card">
+          <div class="bonus-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+              <circle cx="9" cy="7" r="4"></circle>
+              <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+              <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+            </svg>
+          </div>
+          <h3 class="bonus-title">Suporte Individual AnyDesk</h3>
+          <p class="bonus-description">Acesso remoto profissional com suporte individual para resolver suas dúvidas.</p>
+        </div>
+
+        <div class="bonus-card">
+          <div class="bonus-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polygon points="13,2 3,14 12,14 11,22 21,10 12,10 13,2"></polygon>
+            </svg>
+          </div>
+          <h3 class="bonus-title">Servidores e Ferramentas</h3>
+          <p class="bonus-description">Acesso a servidores premium e ferramentas exclusivas para desbloqueios.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Bonuses Carousel Section -->
+  <section id="bonus-section" class="bonus-section" style="background: url('images/bg-unlock-fundo.webp'); background-size: cover; background-position: center; padding: 40px 15px; min-height: 120vh; display: block;">
 		  
 		  <div style="max-width: 1200px; margin: auto;">
 		    
@@ -350,7 +411,7 @@
             <div class="bonus-scroll-card">
                 <div class="bonus-card-inner">
                   <div class="bonus-image-wrapper">
-                    <img src="img/BONUS%201.png" alt="Bônus 01" class="bonus-scroll-image">
+                    <img src="images/BONUS%201.png" alt="Bônus 01" class="bonus-scroll-image">
                     <div class="bonus-badge-scroll">
                       <span>INCLUSO NO PACOTE PREMIUM</span>
                     </div>
@@ -370,7 +431,7 @@
             <div class="bonus-scroll-card">
                 <div class="bonus-card-inner">
                   <div class="bonus-image-wrapper">
-                    <img src="img/BONUS%203.png" alt="Bônus 02" class="bonus-scroll-image">
+                    <img src="images/BONUS%203.png" alt="Bônus 02" class="bonus-scroll-image">
                     <div class="bonus-badge-scroll">
                       <span>INCLUSO NO PACOTE PREMIUM</span>
                     </div>
@@ -390,7 +451,7 @@
             <div class="bonus-scroll-card">
                 <div class="bonus-card-inner">
                   <div class="bonus-image-wrapper">
-                    <img src="img/BONUS%204.png" alt="Bônus 03" class="bonus-scroll-image">
+                    <img src="images/BONUS%204.png" alt="Bônus 03" class="bonus-scroll-image">
                     <div class="bonus-badge-scroll">
                       <span>INCLUSO NO PACOTE PREMIUM</span>
                     </div>
@@ -410,7 +471,7 @@
             <div class="bonus-scroll-card">
                 <div class="bonus-card-inner">
                   <div class="bonus-image-wrapper">
-                    <img src="img/servidores-removebg-preview.png" alt="Bônus 04" class="bonus-scroll-image">
+                    <img src="images/servidores-removebg-preview.png" alt="Bônus 04" class="bonus-scroll-image">
                     <div class="bonus-badge-scroll">
                       <span>INCLUSO NO PACOTE PREMIUM</span>
                     </div>
@@ -430,7 +491,7 @@
             <div class="bonus-scroll-card">
                 <div class="bonus-card-inner">
                   <div class="bonus-image-wrapper">
-                    <img src="img/ferramentas-removebg-preview.png" alt="Bônus 05" class="bonus-scroll-image">
+                    <img src="images/ferramentas-removebg-preview.png" alt="Bônus 05" class="bonus-scroll-image">
                     <div class="bonus-badge-scroll">
                       <span>INCLUSO NO PACOTE PREMIUM</span>
                     </div>
@@ -450,7 +511,7 @@
             <div class="bonus-scroll-card">
                 <div class="bonus-card-inner">
                   <div class="bonus-image-wrapper">
-                    <img src="img/BONUS%205.png" alt="Bônus 06" class="bonus-scroll-image">
+                    <img src="images/BONUS%205.png" alt="Bônus 06" class="bonus-scroll-image">
                     <div class="bonus-badge-scroll">
                       <span>INCLUSO NO PACOTE PREMIUM</span>
                     </div>
@@ -471,7 +532,7 @@
             <div class="bonus-scroll-card">
                 <div class="bonus-card-inner">
                   <div class="bonus-image-wrapper">
-                    <img src="img/BONUS%201.png" alt="Bônus 01" class="bonus-scroll-image">
+                    <img src="images/BONUS%201.png" alt="Bônus 01" class="bonus-scroll-image">
                     <div class="bonus-badge-scroll">
                       <span>INCLUSO NO PACOTE PREMIUM</span>
                     </div>
@@ -491,7 +552,7 @@
             <div class="bonus-scroll-card">
                 <div class="bonus-card-inner">
                   <div class="bonus-image-wrapper">
-                    <img src="img/BONUS%203.png" alt="Bônus 02" class="bonus-scroll-image">
+                    <img src="images/BONUS%203.png" alt="Bônus 02" class="bonus-scroll-image">
                     <div class="bonus-badge-scroll">
                       <span>INCLUSO NO PACOTE PREMIUM</span>
                     </div>
@@ -511,7 +572,7 @@
             <div class="bonus-scroll-card">
                 <div class="bonus-card-inner">
                   <div class="bonus-image-wrapper">
-                    <img src="img/BONUS%204.png" alt="Bônus 03" class="bonus-scroll-image">
+                    <img src="images/BONUS%204.png" alt="Bônus 03" class="bonus-scroll-image">
                     <div class="bonus-badge-scroll">
                       <span>INCLUSO NO PACOTE PREMIUM</span>
                     </div>
@@ -531,7 +592,7 @@
             <div class="bonus-scroll-card">
                 <div class="bonus-card-inner">
                   <div class="bonus-image-wrapper">
-                    <img src="img/servidores-removebg-preview.png" alt="Bônus 04" class="bonus-scroll-image">
+                    <img src="images/servidores-removebg-preview.png" alt="Bônus 04" class="bonus-scroll-image">
                     <div class="bonus-badge-scroll">
                       <span>INCLUSO NO PACOTE PREMIUM</span>
                     </div>
@@ -551,7 +612,7 @@
             <div class="bonus-scroll-card">
                 <div class="bonus-card-inner">
                   <div class="bonus-image-wrapper">
-                    <img src="img/ferramentas-removebg-preview.png" alt="Bônus 05" class="bonus-scroll-image">
+                    <img src="images/ferramentas-removebg-preview.png" alt="Bônus 05" class="bonus-scroll-image">
                     <div class="bonus-badge-scroll">
                       <span>INCLUSO NO PACOTE PREMIUM</span>
                     </div>
@@ -571,7 +632,7 @@
             <div class="bonus-scroll-card">
                 <div class="bonus-card-inner">
                   <div class="bonus-image-wrapper">
-                    <img src="img/BONUS%205.png" alt="Bônus 06" class="bonus-scroll-image">
+                    <img src="images/BONUS%205.png" alt="Bônus 06" class="bonus-scroll-image">
                     <div class="bonus-badge-scroll">
                       <span>INCLUSO NO PACOTE PREMIUM</span>
                     </div>
@@ -592,7 +653,7 @@
             <div class="bonus-scroll-card">
                 <div class="bonus-card-inner">
                   <div class="bonus-image-wrapper">
-                    <img src="img/BONUS%201.png" alt="Bônus 01" class="bonus-scroll-image">
+                    <img src="images/BONUS%201.png" alt="Bônus 01" class="bonus-scroll-image">
                     <div class="bonus-badge-scroll">
                       <span>INCLUSO NO PACOTE PREMIUM</span>
                     </div>
@@ -612,7 +673,7 @@
             <div class="bonus-scroll-card">
                 <div class="bonus-card-inner">
                   <div class="bonus-image-wrapper">
-                    <img src="img/BONUS%203.png" alt="Bônus 02" class="bonus-scroll-image">
+                    <img src="images/BONUS%203.png" alt="Bônus 02" class="bonus-scroll-image">
                     <div class="bonus-badge-scroll">
                       <span>INCLUSO NO PACOTE PREMIUM</span>
                     </div>
@@ -632,7 +693,7 @@
             <div class="bonus-scroll-card">
                 <div class="bonus-card-inner">
                   <div class="bonus-image-wrapper">
-                    <img src="img/BONUS%204.png" alt="Bônus 03" class="bonus-scroll-image">
+                    <img src="images/BONUS%204.png" alt="Bônus 03" class="bonus-scroll-image">
                     <div class="bonus-badge-scroll">
                       <span>INCLUSO NO PACOTE PREMIUM</span>
                     </div>
@@ -652,7 +713,7 @@
             <div class="bonus-scroll-card">
                 <div class="bonus-card-inner">
                   <div class="bonus-image-wrapper">
-                    <img src="img/servidores-removebg-preview.png" alt="Bônus 04" class="bonus-scroll-image">
+                    <img src="images/servidores-removebg-preview.png" alt="Bônus 04" class="bonus-scroll-image">
                     <div class="bonus-badge-scroll">
                       <span>INCLUSO NO PACOTE PREMIUM</span>
                     </div>
@@ -672,7 +733,7 @@
             <div class="bonus-scroll-card">
                 <div class="bonus-card-inner">
                   <div class="bonus-image-wrapper">
-                    <img src="img/ferramentas-removebg-preview.png" alt="Bônus 05" class="bonus-scroll-image">
+                    <img src="images/ferramentas-removebg-preview.png" alt="Bônus 05" class="bonus-scroll-image">
                     <div class="bonus-badge-scroll">
                       <span>INCLUSO NO PACOTE PREMIUM</span>
                     </div>
@@ -692,7 +753,7 @@
             <div class="bonus-scroll-card">
                 <div class="bonus-card-inner">
                   <div class="bonus-image-wrapper">
-                    <img src="img/BONUS%205.png" alt="Bônus 06" class="bonus-scroll-image">
+                    <img src="images/BONUS%205.png" alt="Bônus 06" class="bonus-scroll-image">
                     <div class="bonus-badge-scroll">
                       <span>INCLUSO NO PACOTE PREMIUM</span>
                     </div>
@@ -726,10 +787,13 @@
   <!-- About Section -->
   <section class="about-section">
     <div class="container">
-      <h2 class="section-title">O que é o Curso de Desbloqueio?</h2>
+      <div class="section-header">
+        <h2 class="section-title">O que é o Curso de Desbloqueio?</h2>
+        <p class="section-subtitle">O treinamento mais completo do Brasil para desbloquear qualquer celular</p>
+      </div>
       <div class="about-content">
         <p class="about-text">
-          O treinamento mais completo do Brasil para desbloquear qualquer celular. Aprenda do zero ao profissional a remover bloqueios de iPhone, Android e MDM PayJoy.
+          O treinamento mais completo do Brasil para desbloquear qualquer celular. Aprenda do zero ao profissional a remover bloqueios de iPhone, Android e MDM PayJoy. Nosso curso oferece técnicas avançadas e <span class="highlight">suporte especializado</span> para garantir seu sucesso.
         </p>
       </div>
       <div style="text-align: center;">
@@ -743,10 +807,13 @@
   <!-- MDM PayJoy Section -->
   <section class="about-section">
     <div class="container">
-      <h2 class="section-title">O que é MDM PayJoy?</h2>
+      <div class="section-header">
+        <h2 class="section-title">O que é MDM PayJoy?</h2>
+        <p class="section-subtitle">Entenda este bloqueio especializado e lucrativo</p>
+      </div>
       <div class="about-content">
         <p class="about-text">
-          MDM PayJoy é um bloqueio aplicado em smartphones financiados pela PayJoy para garantir o pagamento das parcelas. Se o cliente não paga, o aparelho é bloqueado remotamente. Desbloquear esse bloqueio exige conhecimento técnico especializado e ferramentas específicas, tornando os profissionais dessa área escassos.
+          MDM PayJoy é um bloqueio aplicado em smartphones financiados pela PayJoy para garantir o pagamento das parcelas. Se o cliente não paga, o aparelho é bloqueado remotamente. Desbloquear esse bloqueio exige conhecimento técnico especializado e ferramentas específicas, tornando os profissionais dessa área <span class="highlight">escassos e muito bem remunerados</span>.
         </p>
       </div>
     </div>
@@ -755,6 +822,10 @@
   <!-- Info Section -->
   <section class="info-section">
     <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Por que escolher nosso curso?</h2>
+        <p class="section-subtitle">Recursos exclusivos que fazem a diferença</p>
+      </div>
       <div class="info-cards">
         <div class="info-card">
           <div class="info-icon">
@@ -777,6 +848,28 @@
           </div>
           <h3 class="info-title">Garantia Incondicional</h3>
           <p class="info-text">30 dias de garantia total - se não dominar as técnicas de desbloqueio, devolvemos 100% do seu investimento sem burocracia.</p>
+        </div>
+
+        <div class="info-card">
+          <div class="info-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 2L2 7L12 12L22 7L12 2Z"></path>
+              <path d="M2 17L12 22L22 17"></path>
+              <path d="M2 12L12 17L22 12"></path>
+            </svg>
+          </div>
+          <h3 class="info-title">Conteúdo Atualizado</h3>
+          <p class="info-text">Acesso vitalício ao curso com atualizações constantes para as mais recentes versões de iOS e Android.</p>
+        </div>
+
+        <div class="info-card">
+          <div class="info-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polygon points="13,2 3,14 12,14 11,22 21,10 12,10 13,2"></polygon>
+            </svg>
+          </div>
+          <h3 class="info-title">Métodos Lucrativos</h3>
+          <p class="info-text">Aprenda técnicas que podem gerar lucros de até R$700 por aparelho desbloqueado.</p>
         </div>
       </div>
     </div>
