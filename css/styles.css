@@ -1693,6 +1693,11 @@ body {
   min-height: 800px;
   margin: 0 auto;
   background: rgba(0,0,0,0.1);
+  pointer-events: none;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
 }
 
 .bonus-scroll-track {
@@ -1708,6 +1713,7 @@ body {
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
+  pointer-events: none;
 }
 
 .bonus-scroll-card {
@@ -1729,12 +1735,6 @@ body {
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
-}
-
-.bonus-scroll-card:hover {
-  transform: none;
-  border-color: #ff6600;
-  box-shadow: none;
 }
 
 .bonus-card-inner {

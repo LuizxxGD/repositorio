@@ -1137,62 +1137,6 @@
   </section>
 
 <script src="js/script.js"></script>
-<script src="js/desktop-redirect.js"></script>
-<script src="js/protection.js"></script>
 
-<script>
-// Controle da esteira de bônus - pausa quando segurar na tela
-document.addEventListener('DOMContentLoaded', function() {
-  const bonusTrack = document.querySelector('.bonus-scroll-track');
-  
-  if (bonusTrack) {
-    let isPaused = false;
-    let touchTimeout;
-    
-    // Função para pausar a animação
-    function pauseAnimation() {
-      if (!isPaused) {
-        bonusTrack.style.animationPlayState = 'paused';
-        isPaused = true;
-      }
-    }
-    
-    // Função para retomar a animação
-    function resumeAnimation() {
-      if (isPaused) {
-        bonusTrack.style.animationPlayState = 'running';
-        isPaused = false;
-      }
-    }
-    
-    // Eventos de touch para mobile
-    bonusTrack.addEventListener('touchstart', function(e) {
-      e.preventDefault();
-      pauseAnimation();
-    });
-    
-    bonusTrack.addEventListener('touchend', function(e) {
-      e.preventDefault();
-      resumeAnimation();
-    });
-    
-    // Eventos de mouse para desktop
-    bonusTrack.addEventListener('mousedown', function(e) {
-      e.preventDefault();
-      pauseAnimation();
-    });
-    
-    bonusTrack.addEventListener('mouseup', function(e) {
-      e.preventDefault();
-      resumeAnimation();
-    });
-    
-    bonusTrack.addEventListener('mouseleave', function(e) {
-      e.preventDefault();
-      resumeAnimation();
-    });
-  }
-});
-</script>
 </body>
 </html>
